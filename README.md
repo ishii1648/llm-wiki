@@ -12,9 +12,12 @@ raw/      ソースの原本（人間が追加・LLM は読取専用）
 wiki/     LLM が所有するページ群
   index.md     全ページのカタログ
   log.md       追記専用の操作ログ
+  sources.md   ingest 済みソースの台帳（冪等性判定の基準）
   entities/    人物・製品・組織・ツール・論文 …
   concepts/    抽象的な概念・手法・パターン
   syntheses/   横断的な比較・分析・まとめ
+scripts/  補助スクリプト
+  lint.sh      決定論的な健全性チェック（リンク切れ・孤立・出典実在）
 CLAUDE.md エージェント運用スキーマ（本体）
 ```
 
@@ -23,7 +26,7 @@ CLAUDE.md エージェント運用スキーマ（本体）
 1. 取り込みたい記事/論文を `raw/articles/` や `raw/papers/` に置く（markdown 推奨。Obsidian Web Clipper などで変換）。
 2. Claude Code をこのディレクトリで開き、`これを ingest して: raw/articles/xxx.md` と依頼。
 3. 質問するときは `〜について教えて`（query）。良い回答は自動的に `wiki/syntheses/` へ蓄積される。
-4. 定期的に `lint して` で矛盾・孤立ページ・知識ギャップを点検。
+4. 定期的に `lint して` で矛盾・孤立ページ・知識ギャップを点検（前段で `bash scripts/lint.sh` が決定論的チェックを実行）。
 
 詳細なワークフローと書式は [CLAUDE.md](./CLAUDE.md) を参照。
 
