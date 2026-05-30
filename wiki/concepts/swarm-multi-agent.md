@@ -6,7 +6,7 @@ tags: [strands, multi-agent, swarm, orchestration, handoff]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-swarm.md
+  - raw/articles/strands-swarm.mdx
 related:
   - "[[multi-agent-patterns]]"
   - "[[graph-multi-agent]]"
@@ -75,4 +75,4 @@ result = swarm("Design and implement a simple REST API for a todo app")
 - **エラー/キャンセル**: [[graph-multi-agent]] と同様の Python/TS 差(TS は CANCELLED、Python は FAILED)。
 
 ## 出典
-- `raw/articles/strands-swarm.md` — 動作原理、`Swarm` 作成・設定表、handoff/shared context/structured output routing、shared state、`SwarmResult`、安全機構、ベストプラクティス、SDK 差異。
+- `raw/articles/strands-swarm.mdx` — 動作原理、`Swarm` 作成・設定表、handoff/shared context/structured output routing、shared state、`SwarmResult`、安全機構、ベストプラクティス、SDK 差異。

@@ -6,7 +6,7 @@ tags: [strands, evaluation, evaluators, llm-as-judge, rubric]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-evals-evaluators.md
+  - raw/articles/strands-evals-evaluators.mdx
 related:
   - "[[strands-agents-evals]]"
   - "[[experiment-management]]"
@@ -66,4 +66,4 @@ related:
 - `aevaluate` で async 並行評価し性能を上げる。
 
 ## 出典
-- `raw/articles/strands-evals-evaluators.md` — 評価レベル、組み込み evaluator 一覧と level/purpose、custom evaluator、evaluators vs simulators、統合例、ベストプラクティス、common patterns。
+- `raw/articles/strands-evals-evaluators.mdx` — 評価レベル、組み込み evaluator 一覧と level/purpose、custom evaluator、evaluators vs simulators、統合例、ベストプラクティス、common patterns。

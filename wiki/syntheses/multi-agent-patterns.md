@@ -6,7 +6,7 @@ tags: [strands, multi-agent, comparison, graph, swarm, workflow]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-multi-agent-patterns.md
+  - raw/articles/strands-multi-agent-patterns.mdx
 related:
   - "[[graph-multi-agent]]"
   - "[[swarm-multi-agent]]"
@@ -55,4 +55,4 @@ Graph と Swarm はともに `invocation_state`(TS: `invocationState`)で全 age
 > 💡 Graph と Swarm は **排他ではない**。Graph のノードに Swarm を入れる「ハイブリッド構成」が可能で、構造的な制御(Graph)と創発的協調(Swarm)を組み合わせられる。詳細は [[graph-swarm-hybrid]]。
 
 ## 出典
-- `raw/articles/strands-multi-agent-patterns.md` — 3原則、共通点、比較表、各パターンの使用判断と例、shared state(`invocation_state` / `MultiAgentState`)。
+- `raw/articles/strands-multi-agent-patterns.mdx` — 3原則、共通点、比較表、各パターンの使用判断と例、shared state(`invocation_state` / `MultiAgentState`)。

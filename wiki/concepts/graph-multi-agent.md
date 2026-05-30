@@ -6,7 +6,7 @@ tags: [strands, multi-agent, graph, orchestration]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-graph.md
+  - raw/articles/strands-graph.mdx
 related:
   - "[[multi-agent-patterns]]"
   - "[[swarm-multi-agent]]"
@@ -79,4 +79,4 @@ Sequential Pipeline / Parallel Processing + Aggregation / Branching Logic(分類
 - **キャンセル**: TS は CANCELLED、Python は FAILED。
 
 ## 出典
-- `raw/articles/strands-graph.md` — コンポーネント、`GraphBuilder` API、条件付きエッジ、実行制御、ネスト/A2A、custom node、入力伝播、`GraphResult`、トポロジ、SDK 差異。
+- `raw/articles/strands-graph.mdx` — コンポーネント、`GraphBuilder` API、条件付きエッジ、実行制御、ネスト/A2A、custom node、入力伝播、`GraphResult`、トポロジ、SDK 差異。

@@ -6,7 +6,7 @@ tags: [strands, agent, core, loop]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-agent-loop.md
+  - raw/articles/strands-agent-loop.mdx
 related:
   - "[[strands-agents]]"
   - "[[conversation-management]]"
@@ -58,4 +58,4 @@ Reasoning(LLM) → Tool Selection → Tool Execution → (戻る)Reasoning ...
 - **MaxTokensReachedException**: context 縮小・上限引き上げ・タスク分割で対処。
 
 ## 出典
-- `raw/articles/strands-agent-loop.md` — ループの仕組み、メッセージ、ツール実行、stop reason、キャンセル、よくある問題のすべて。
+- `raw/articles/strands-agent-loop.mdx` — ループの仕組み、メッセージ、ツール実行、stop reason、キャンセル、よくある問題のすべて。

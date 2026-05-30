@@ -6,7 +6,7 @@ tags: [strands, plugins, hooks, extensibility]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-plugins.md
+  - raw/articles/strands-plugins.mdx
 related:
   - "[[strands-agents]]"
   - "[[agent-skills]]"
@@ -51,4 +51,4 @@ TS は `@hook`/`@tool` デコレータを使わず、`getTools()` でツール�
 `async def init_agent(self, agent)` / `async initAgent()` で非同期初期化(設定の遅延ロード等)が可能。
 
 ## 出典
-- `raw/articles/strands-plugins.md` — プラグインの定義(`model`/`system_prompt`/`messages`/`tools`/`hooks` の活用)、組み込みプラグイン、`plugins=[...]`、構造・discovery・hook 登録、状態管理、async 初期化。
+- `raw/articles/strands-plugins.mdx` — プラグインの定義(`model`/`system_prompt`/`messages`/`tools`/`hooks` の活用)、組み込みプラグイン、`plugins=[...]`、構造・discovery・hook 登録、状態管理、async 初期化。

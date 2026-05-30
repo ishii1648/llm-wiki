@@ -6,7 +6,7 @@ tags: [strands, evaluation, experiment, case, dataset]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-evals-experiment-management.md
+  - raw/articles/strands-evals-experiment-management.mdx
 related:
   - "[[strands-agents-evals]]"
   - "[[evaluators]]"
@@ -47,4 +47,4 @@ for name, exp in experiments.items():
 3. 実験を版管理する: `experiment.to_file("experiment_v1.json")`、タイムスタンプ付き保存(`experiment_{YYYYmmdd_HHMMSS}.json`)。
 
 ## 出典
-- `raw/articles/strands-evals-experiment-management.md` — metadata 整理、命名規約、複数実験管理(collections/combining/flatten)、実験変更、session ID、版管理のベストプラクティス。
+- `raw/articles/strands-evals-experiment-management.mdx` — metadata 整理、命名規約、複数実験管理(collections/combining/flatten)、実験変更、session ID、版管理のベストプラクティス。

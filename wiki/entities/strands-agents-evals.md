@@ -6,7 +6,7 @@ tags: [strands, evaluation, testing, sdk]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-evals-quickstart.md
+  - raw/articles/strands-evals-quickstart.mdx
 related:
   - "[[evaluators]]"
   - "[[experiment-management]]"
@@ -53,4 +53,4 @@ reports[0].run_display()
 - **context 溢れ対策**: trajectory 評価では `tools_use_extractor` を使い trajectory を効率抽出すること(quickstart の Performance Optimization 推奨)。
 
 ## 出典
-- `raw/articles/strands-evals-quickstart.md` — フレームワーク概要、インストール、`@eval_task`/`Case`/`Experiment`/`run_evaluations`、自動生成、custom evaluator、async 実行の各例。
+- `raw/articles/strands-evals-quickstart.mdx` — フレームワーク概要、インストール、`@eval_task`/`Case`/`Experiment`/`run_evaluations`、自動生成、custom evaluator、async 実行の各例。

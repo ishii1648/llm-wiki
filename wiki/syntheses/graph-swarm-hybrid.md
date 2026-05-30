@@ -6,9 +6,9 @@ tags: [strands, multi-agent, graph, swarm, nesting, architecture]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-graph.md
-  - raw/articles/strands-swarm.md
-  - raw/articles/strands-multi-agent-patterns.md
+  - raw/articles/strands-graph.mdx
+  - raw/articles/strands-swarm.mdx
+  - raw/articles/strands-multi-agent-patterns.mdx
 related:
   - "[[graph-multi-agent]]"
   - "[[swarm-multi-agent]]"
@@ -71,6 +71,6 @@ result = graph("Analyze customer data", invocation_state=shared_state)
 - 反復可能で固定的な決定論パイプライン全体 → Workflow も候補(→ [[multi-agent-patterns]])。
 
 ## 出典
-- `raw/articles/strands-graph.md` — 「Nested Multi-Agent Patterns」(Graph/Swarm をノードにする)、Graph 構成・`GraphResult`・SDK 差異、timeout がネストへ伝播しない仕様。
-- `raw/articles/strands-swarm.md` — Swarm の作成・handoff・安全機構(ネスト側 timeout 設定の根拠)。
-- `raw/articles/strands-multi-agent-patterns.md` — パターン選定指針、`invocation_state` による横断共有状態。
+- `raw/articles/strands-graph.mdx` — 「Nested Multi-Agent Patterns」(Graph/Swarm をノードにする)、Graph 構成・`GraphResult`・SDK 差異、timeout がネストへ伝播しない仕様。
+- `raw/articles/strands-swarm.mdx` — Swarm の作成・handoff・安全機構(ネスト側 timeout 設定の根拠)。
+- `raw/articles/strands-multi-agent-patterns.mdx` — パターン選定指針、`invocation_state` による横断共有状態。

@@ -6,7 +6,7 @@ tags: [strands, plugins, skills, progressive-disclosure]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-skills.md
+  - raw/articles/strands-skills.mdx
 related:
   - "[[strands-agents]]"
   - "[[plugins]]"
@@ -84,4 +84,4 @@ frontmatter フィールド: `name`(必須・小文字英数+ハイフン・1–
 > 💡 専門カテゴリ別の Agent が `AgentSkills` に依存する構成(例: `T9sSkills` / `DatadogSkills` / `AWSInfraSkills` / `DatabaseSkills` / `OneloginSkills` / `ArgoCDSkills`)では、progressive disclosure と skill activation を先に把握することが理解の鍵。
 
 ## 出典
-- `raw/articles/strands-skills.md` — progressive disclosure、3フェーズ動作、`<available_skills>` XML、`AgentSkills` の使い方、`Skill` API、SKILL.md フォーマット、リソースディレクトリ、Configuration、他アプローチ比較。
+- `raw/articles/strands-skills.mdx` — progressive disclosure、3フェーズ動作、`<available_skills>` XML、`AgentSkills` の使い方、`Skill` API、SKILL.md フォーマット、リソースディレクトリ、Configuration、他アプローチ比較。

@@ -6,7 +6,7 @@ tags: [strands, agent, state, messages, memory]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-state.md
+  - raw/articles/strands-state.mdx
 related:
   - "[[strands-agents]]"
   - "[[agent-loop]]"
@@ -57,4 +57,4 @@ agent.state.delete("last_action")       # 削除
 アプリ再起動をまたぐ自動永続化は Session Management、手動の point-in-time 取得・復元は Snapshots(いずれも本 ingest 範囲外、参照のみ)。
 
 ## 出典
-- `raw/articles/strands-state.md` — 3種の状態(conversation history / agent state / invocation state)、`agent.messages` 初期化、direct tool calling、state 検証、ツール内アクセス、invocation state の性質。
+- `raw/articles/strands-state.mdx` — 3種の状態(conversation history / agent state / invocation state)、`agent.messages` 初期化、direct tool calling、state 検証、ツール内アクセス、invocation state の性質。

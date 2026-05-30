@@ -6,7 +6,7 @@ tags: [strands, tools, mcp, integration, transport]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-mcp-tools.md
+  - raw/articles/strands-mcp-tools.mdx
 related:
   - "[[strands-agents]]"
   - "[[model-context-protocol]]"
@@ -74,4 +74,4 @@ agent = Agent(tools=[sse_mcp_client, stdio_mcp_client])
 MCP ツールの出力は会話履歴に蓄積されトークンを消費する。大量の MCP context を扱う構成では [[conversation-management]] の明示制御(summarizing / proactive compression)を検討する。
 
 ## 出典
-- `raw/articles/strands-mcp-tools.md` — Quick Start、統合アプローチ、トランスポート、複数サーバ、tool フィルタ/prefix、direct invocation、自作サーバ、elicitation、troubleshooting。
+- `raw/articles/strands-mcp-tools.mdx` — Quick Start、統合アプローチ、トランスポート、複数サーバ、tool フィルタ/prefix、direct invocation、自作サーバ、elicitation、troubleshooting。

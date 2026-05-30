@@ -6,8 +6,8 @@ tags: [strands, agent, sdk, framework, multi-agent]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-agent-loop.md
-  - raw/articles/strands-plugins.md
+  - raw/articles/strands-agent-loop.mdx
+  - raw/articles/strands-plugins.mdx
 related:
   - "[[agent-loop]]"
   - "[[custom-tools]]"
@@ -27,7 +27,7 @@ related:
 ## 詳細
 
 ### 設計の中心: Agent Loop
-すべての基盤は [[agent-loop]] である。「モデルを呼ぶ → ツールを使いたいか判定 → 使うなら実行 → 結果を添えて再びモデルを呼ぶ」を、最終応答が出るまで繰り返す。各反復で会話履歴(context)が蓄積されることが、多段推論を可能にする原動力。出典: `raw/articles/strands-agent-loop.md`。
+すべての基盤は [[agent-loop]] である。「モデルを呼ぶ → ツールを使いたいか判定 → 使うなら実行 → 結果を添えて再びモデルを呼ぶ」を、最終応答が出るまで繰り返す。各反復で会話履歴(context)が蓄積されることが、多段推論を可能にする原動力。出典: `raw/articles/strands-agent-loop.mdx`。
 
 ### Agent クラスが公開する低レベルプリミティブ
 [[plugins]] の説明によれば、`Agent` クラスは以下のプリミティブを公開し、これらを操作することでエージェントの挙動を拡張する:
@@ -38,7 +38,7 @@ related:
 - `tools` — 利用可能なツール群(→ [[custom-tools]] / [[mcp-tools]])
 - `hooks` — ライフサイクルイベントのフック
 
-出典: `raw/articles/strands-plugins.md`。
+出典: `raw/articles/strands-plugins.mdx`。
 
 ### 主要な構成要素(本 wiki の地図)
 
@@ -57,5 +57,5 @@ related:
 SDK は2言語で提供されるが、コア概念は共通でも挙動差がある(例: マルチエージェントの依存解決セマンティクス、conversation manager の `per_turn`、MCP の tool フィルタなど)。各ページの「SDK 差異」節を参照。
 
 ## 出典
-- `raw/articles/strands-agent-loop.md` — agent loop が「Strands の基盤概念であり、他のすべてがこの上に構築される」と明記。
-- `raw/articles/strands-plugins.md` — Agent クラスが公開するプリミティブ(`model`/`system_prompt`/`messages`/`tools`/`hooks`)の列挙。
+- `raw/articles/strands-agent-loop.mdx` — agent loop が「Strands の基盤概念であり、他のすべてがこの上に構築される」と明記。
+- `raw/articles/strands-plugins.mdx` — Agent クラスが公開するプリミティブ(`model`/`system_prompt`/`messages`/`tools`/`hooks`)の列挙。

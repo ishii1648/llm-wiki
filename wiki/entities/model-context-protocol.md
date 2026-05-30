@@ -6,7 +6,7 @@ tags: [strands, mcp, tools, protocol, integration]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-mcp-tools.md
+  - raw/articles/strands-mcp-tools.mdx
 related:
   - "[[mcp-tools]]"
   - "[[strands-agents]]"
@@ -23,4 +23,4 @@ related:
 > ℹ️ 注: 本 wiki の親リポジトリ環境(Claude Code)も `mcp__github__*` のような MCP ツールを利用するが、それは Strands SDK とは別文脈。ここで扱うのは Strands Agents から見た MCP 連携である。
 
 ## 出典
-- `raw/articles/strands-mcp-tools.md` — 「MCP はアプリが LLM へコンテキストを提供する方法を標準化するオープンプロトコル」「Strands は MCP と統合し外部ツール/サービスで能力を拡張」と記載。
+- `raw/articles/strands-mcp-tools.mdx` — 「MCP はアプリが LLM へコンテキストを提供する方法を標準化するオープンプロトコル」「Strands は MCP と統合し外部ツール/サービスで能力を拡張」と記載。

@@ -6,7 +6,7 @@ tags: [strands, agent, output, pydantic, validation]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-structured-output.md
+  - raw/articles/strands-structured-output.mdx
 related:
   - "[[strands-agents]]"
   - "[[agent-loop]]"
@@ -62,4 +62,4 @@ task_res   = agent("Create task: ...",    structured_output_model=Task)
 > 💡 地雷: 複数の Pydantic スキーマ(例: `ThinkReplyOutput` / `AskReviewOutput` / `CategoryClassificationOutput`)を運用する場合、Agent デフォルトと per-invocation 上書きの優先順位を明確にし、スキーマは「焦点を絞って」定義する(ベストプラクティス)。
 
 ## 出典
-- `raw/articles/strands-structured-output.md` — Pydantic/Zod 連携、`structured_output_model`、エラーハンドリング、複数スキーマ運用、Agent デフォルトと上書き、cookbook 各例。
+- `raw/articles/strands-structured-output.mdx` — Pydantic/Zod 連携、`structured_output_model`、エラーハンドリング、複数スキーマ運用、Agent デフォルトと上書き、cookbook 各例。

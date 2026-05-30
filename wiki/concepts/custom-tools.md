@@ -6,7 +6,7 @@ tags: [strands, tools, decorator, tool-context]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-custom-tools.md
+  - raw/articles/strands-custom-tools.mdx
 related:
   - "[[strands-agents]]"
   - "[[agent-loop]]"
@@ -78,4 +78,4 @@ def weather_forecast(city: str, days: int = 3) -> str:
 SDK 非依存のツールを作れる。`TOOL_SPEC` 変数(name/description/inputSchema)と、同名の実装関数の2要素で構成。`Agent(tools=[module])` または `Agent(tools=["./weather_forecast.py"])` で読み込む。async も可。
 
 ## 出典
-- `raw/articles/strands-custom-tools.md` — `@tool` デコレータ、schema 上書き、返り値/`ToolResult`、async/streaming、`ToolContext`、状態の使い分け、クラスベース、モジュール形式の各例。
+- `raw/articles/strands-custom-tools.mdx` — `@tool` デコレータ、schema 上書き、返り値/`ToolResult`、async/streaming、`ToolContext`、状態の使い分け、クラスベース、モジュール形式の各例。

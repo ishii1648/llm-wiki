@@ -6,7 +6,7 @@ tags: [strands, agent, context, conversation, token-limit]
 created: 2026-05-30
 updated: 2026-05-30
 sources:
-  - raw/articles/strands-conversation-management.md
+  - raw/articles/strands-conversation-management.mdx
 related:
   - "[[strands-agents]]"
   - "[[agent-loop]]"
@@ -65,4 +65,4 @@ SlidingWindowConversationManager(
 Python は `apply_management` / `reduce_context` / `removed_message_count`(/任意 `register_hooks`)を実装。TS は抽象 `ConversationManager` を継承し `reduce(options)` を実装(`initAgent` で proactive 管理を追加。`super` 呼び出し必須)。
 
 ## 出典
-- `raw/articles/strands-conversation-management.md` — 3種 manager の挙動・パラメータ、per_turn、proactive compression、トークン推定、カスタム実装。
+- `raw/articles/strands-conversation-management.mdx` — 3種 manager の挙動・パラメータ、per_turn、proactive compression、トークン推定、カスタム実装。
