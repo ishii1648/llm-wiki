@@ -23,10 +23,10 @@ CLAUDE.md エージェント運用スキーマ（本体）
 
 ## 使い方
 
-1. 取り込みたい記事/論文を `raw/articles/` や `raw/papers/` に置く（markdown 推奨。Obsidian Web Clipper などで変換）。
-2. Claude Code をこのディレクトリで開き、`これを ingest して: raw/articles/xxx.md` と依頼。
-3. 質問するときは `〜について教えて`（query）。良い回答は自動的に `wiki/syntheses/` へ蓄積される。
-4. 定期的に `lint して` で矛盾・孤立ページ・知識ギャップを点検（前段で `bash scripts/lint.sh` が決定論的チェックを実行）。
+1. Claude Code をこのディレクトリで開き、取り込みたいソースを指定して `これを ingest して: <URL またはファイルパス>` と依頼。Claude が原本を `raw/` に**忠実に保存**してから wiki へ統合するまでをワンアクションで実行する。
+   - 自分で先に `raw/articles/` や `raw/papers/` へ置いてからパスを渡してもよい（markdown 推奨。Obsidian Web Clipper などで変換）。何を取り込むかの判断は常に人間が持つ。
+2. 質問するときは `〜について教えて`（query）。良い回答は自動的に `wiki/syntheses/` へ蓄積される。
+3. 定期的に `lint して` で矛盾・孤立ページ・知識ギャップを点検（前段で `bash scripts/lint.sh` が決定論的チェックを実行）。
 
 詳細なワークフローと書式は [CLAUDE.md](./CLAUDE.md) を参照。
 
