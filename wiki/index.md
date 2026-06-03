@@ -23,6 +23,7 @@
 - [[swarm-multi-agent]] — 自律 handoff で協調する Swarm パターン (updated: 2026-05-30)
 - [[evaluators]] — Output/Trajectory/Interactions 等の評価器と選定指針 (updated: 2026-05-30)
 - [[experiment-management]] — Case/Experiment の整理・結合・版管理 (updated: 2026-05-30)
+- [[ai-code-review]] — レビューは「説明できる著者」を前提とし、agentic development がその前提を壊す(diff が語らない文脈/説明可能性を前提条件に) (updated: 2026-06-03)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->
