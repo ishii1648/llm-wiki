@@ -42,13 +42,16 @@ CLAUDE.md エージェント運用スキーマ（本体）
 `wiki/` を [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) で静的サイト化し、GitHub Pages へ自動公開する。
 
 - 公開 URL: **https://ishii1648.github.io/llm-wiki/**
-- `main` の `wiki/**`・`mkdocs.yml` 等が更新されると [`.github/workflows/deploy-docs.yml`](./.github/workflows/deploy-docs.yml) が走り、ビルド → デプロイされる。
+- ビルド/デプロイは [`.github/workflows/deploy-docs.yml`](./.github/workflows/deploy-docs.yml) が担う（`gh-pages` ブランチへ公開）。
+  - **`main` への push**: サイト本体を更新。
+  - **PR の作成/更新**: `pr-preview/pr-<N>/` にプレビューをデプロイし、PR にプレビュー URL を自動コメント（`https://ishii1648.github.io/llm-wiki/pr-preview/pr-<N>/`）。
+  - **PR のクローズ**: 対応するプレビューを自動削除。
 - Obsidian 互換の `[[wikilink]]` は [roamlinks プラグイン](https://github.com/Jackiexiao/mkdocs-roamlinks-plugin)がビルド時に通常リンクへ変換する（**`wiki/` のソースは加工しない**）。
 - 運用ログ `log.md` とソース台帳 `sources.md` は公開サイトから除外している（`mkdocs.yml` の `exclude_docs`）。
 
 ### 初回セットアップ（リポジトリ管理者が一度だけ）
 
-リポジトリの **Settings → Pages → Build and deployment → Source** を **「GitHub Actions」** に設定する。以後は push のたびに自動更新される。
+リポジトリの **Settings → Pages → Build and deployment** で **Source = 「Deploy from a branch」**、**Branch = `gh-pages` / `/ (root)`** を選択する。`gh-pages` ブランチは初回のワークフロー実行で自動作成される。以後は push / PR のたびに自動更新される。
 
 ### ローカルプレビュー
 
