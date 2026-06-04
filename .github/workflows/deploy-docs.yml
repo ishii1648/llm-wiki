@@ -50,6 +50,7 @@ jobs:
         with:
           python-version: "3.x"
           cache: pip
+          cache-dependency-path: requirements-docs.txt
 
       - name: Install dependencies
         if: github.event.action != 'closed'
