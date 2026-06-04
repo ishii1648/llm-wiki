@@ -8,6 +8,7 @@
 - [[strands-agents]] — モデル駆動で AI エージェントを構築する SDK(Python/TS)。本テーマのハブ (updated: 2026-05-30)
 - [[model-context-protocol]] — LLM へのコンテキスト提供を標準化するオープンプロトコル(MCP) (updated: 2026-05-30)
 - [[strands-agents-evals]] — エージェント評価フレームワーク `strands-agents-evals`(Experiment/Case/evaluator) (updated: 2026-05-30)
+- [[argo-cd]] — Kubernetes 上の CNCF GitOps デリバリツール(repo server / application controller / API server) (updated: 2026-06-04)
 
 ## Concepts
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -24,6 +25,8 @@
 - [[evaluators]] — Output/Trajectory/Interactions 等の評価器と選定指針 (updated: 2026-05-30)
 - [[experiment-management]] — Case/Experiment の整理・結合・版管理 (updated: 2026-05-30)
 - [[ai-code-review]] — レビューは「説明できる著者」を前提とし、agentic development がその前提を壊す(diff が語らない文脈/説明可能性を前提条件に) (updated: 2026-06-03)
+- [[gitops]] — git を desired state の真実源とする宣言的デリバリ運用(Argo CD/Flux/Spinnaker) (updated: 2026-06-04)
+- [[argo-cd-controller-scaling]] — Argo CD を10,000アプリ規模で回す設定: client QPS とシャーディングが最も効く(AWS/EKS 6実験) (updated: 2026-06-04)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->
