@@ -18,6 +18,8 @@ wiki/     LLM が所有するページ群
   syntheses/   横断的な比較・分析・まとめ
 scripts/  補助スクリプト
   lint.sh      決定論的な健全性チェック（リンク切れ・孤立・出典実在）
+mkdocs.yml             GitHub Pages（MkDocs Material）の設定
+requirements-docs.txt  Pages ビルドの依存
 CLAUDE.md エージェント運用スキーマ（本体）
 ```
 
@@ -34,3 +36,23 @@ CLAUDE.md エージェント運用スキーマ（本体）
 
 - **Obsidian**: この `wiki/` フォルダを Vault として開くと `[[wiki-links]]` の Graph view、Web Clipper、Dataview が使える。
 - **git**: 変更履歴・差分レビュー・ブランチが無料で得られる。
+
+## GitHub Pages で公開
+
+`wiki/` を [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) で静的サイト化し、GitHub Pages へ自動公開する。
+
+- 公開 URL: **https://ishii1648.github.io/llm-wiki/**
+- `main` の `wiki/**`・`mkdocs.yml` 等が更新されると [`.github/workflows/deploy-docs.yml`](./.github/workflows/deploy-docs.yml) が走り、ビルド → デプロイされる。
+- Obsidian 互換の `[[wikilink]]` は [roamlinks プラグイン](https://github.com/Jackiexiao/mkdocs-roamlinks-plugin)がビルド時に通常リンクへ変換する（**`wiki/` のソースは加工しない**）。
+- 運用ログ `log.md` とソース台帳 `sources.md` は公開サイトから除外している（`mkdocs.yml` の `exclude_docs`）。
+
+### 初回セットアップ（リポジトリ管理者が一度だけ）
+
+リポジトリの **Settings → Pages → Build and deployment → Source** を **「GitHub Actions」** に設定する。以後は push のたびに自動更新される。
+
+### ローカルプレビュー
+
+```bash
+pip install -r requirements-docs.txt
+mkdocs serve   # http://127.0.0.1:8000/ で確認
+```
