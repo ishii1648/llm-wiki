@@ -9,6 +9,7 @@
 - [[model-context-protocol]] — LLM へのコンテキスト提供を標準化するオープンプロトコル(MCP) (updated: 2026-05-30)
 - [[strands-agents-evals]] — エージェント評価フレームワーク `strands-agents-evals`(Experiment/Case/evaluator) (updated: 2026-05-30)
 - [[argo-cd]] — Kubernetes 上の CNCF GitOps デリバリツール(repo server / application controller / API server) (updated: 2026-06-04)
+- [[one-developer-is-all-you-need]] — 1人+4 AIエージェントで4人スカッド規模のブラウンフィールド案件を半分の期間で完遂した Itaú の事例研究(arXiv:2605.18461) (updated: 2026-06-05)
 
 ## Concepts
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -27,6 +28,8 @@
 - [[ai-code-review]] — レビューは「説明できる著者」を前提とし、agentic development がその前提を壊す(diff が語らない文脈/説明可能性を前提条件に) (updated: 2026-06-03)
 - [[gitops]] — git を desired state の真実源とする宣言的デリバリ運用(Argo CD/Flux/Spinnaker) (updated: 2026-06-04)
 - [[argo-cd-controller-scaling]] — Argo CD を10,000アプリ規模で回す設定: client QPS とシャーディングが最も効く(AWS/EKS 6実験) (updated: 2026-06-04)
+- [[one-person-squad]] — 1人が複数 AI エージェントを指揮する最小チーム構成。core/non-core 分割と「経験者=品質ゲート」が成立条件 (updated: 2026-06-05)
+- [[spec-driven-development]] — コードでなく自然言語仕様を第一級成果物とする AI 支援開発。律速をモデル能力でなく「仕様の質」に移す(SDD) (updated: 2026-06-05)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->

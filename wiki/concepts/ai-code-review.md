@@ -4,11 +4,12 @@ type: concept
 aliases: [AI code review, code review assumes an author, AI 生成コードのレビュー, agentic code review]
 tags: [code-review, agentic-development, ai-generated-code, pull-request, software-engineering]
 created: 2026-06-03
-updated: 2026-06-03
+updated: 2026-06-05
 sources:
   - raw/articles/ai-code-review-assumes-an-author.md
 related:
   - "[[agent-loop]]"
+  - "[[one-developer-is-all-you-need]]"
 ---
 
 ## 概要
@@ -54,6 +55,9 @@ related:
 
 ### より大きな主張:PR は pre-LLM の遺物
 記事の確信は一点: 今日実践されている **pull request は pre-LLM(LLM 以前)の遺物**であり、著者性・所有権・理解についての仮定を符号化している。それらは人間がコードを打っていた頃はおおむね成立したが、モデルが書いた途端に信頼性を失う。「我々は儀式を残したまま、それが何に依拠するかを認めぬまま変えてしまった」。本当に難しい問いは——**承認を求める人間が、その下のコードを理解していないかもしれないとき、レビューとは何を意味するのか**。
+
+### 接続: 「品質ゲートとしての経験者」
+[[one-developer-is-all-you-need]](Itaú の one-person squad 事例)は、本記事の懸念に対する一つの実務的応答とも読める。同論文は AI 生成コードの 90% を初回レビューで採用しつつ、その成立条件を「**8年の実務経験+4年の組織在籍を持つエンジニアが品質ゲートを成立させる**」ことに帰す——すなわち「説明・評価できる著者性」を、削減されたチームメンバーの代わりに**指揮役エンジニアの組織知**が担保する構図。本記事が「著者がプロキシ化する」失敗モードを警告するのに対し、同論文は「経験ある人間が evaluable にする」ことで著者性を回収しようとする。両者は同じ問題(AI 生成物の理解と責任)の表裏。
 
 ## 出典
 - `raw/articles/ai-code-review-assumes-an-author.md`("Code review assumes an author", blog.raed.dev, 2026-06-01)— 著者性の前提、agentic development による失敗モードの変化、ボトルネックの質的変化、AI レビュアが拾える/拾えないもの、retrieval の限界、説明可能性を前提条件とする適応案、PR=pre-LLM 遺物という主張のすべて。
