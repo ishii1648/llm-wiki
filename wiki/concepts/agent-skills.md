@@ -4,7 +4,7 @@ type: concept
 aliases: [Skills, AgentSkills, agent skills, スキル, SKILL.md]
 tags: [strands, plugins, skills, progressive-disclosure]
 created: 2026-05-30
-updated: 2026-05-30
+updated: 2026-06-10
 sources:
   - raw/articles/strands-skills.mdx
 related:
@@ -12,6 +12,7 @@ related:
   - "[[plugins]]"
   - "[[state-management]]"
   - "[[multi-agent-patterns]]"
+  - "[[loop-engineering]]"
 ---
 
 ## 概要

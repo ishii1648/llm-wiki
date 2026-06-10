@@ -4,7 +4,7 @@ type: synthesis
 aliases: [multi-agent patterns, マルチエージェントパターン, when to use each pattern]
 tags: [strands, multi-agent, comparison, graph, swarm, workflow]
 created: 2026-05-30
-updated: 2026-05-30
+updated: 2026-06-10
 sources:
   - raw/articles/strands-multi-agent-patterns.mdx
 related:
@@ -13,6 +13,7 @@ related:
   - "[[graph-swarm-hybrid]]"
   - "[[strands-agents]]"
   - "[[state-management]]"
+  - "[[loop-engineering]]"
 ---
 
 ## 概要

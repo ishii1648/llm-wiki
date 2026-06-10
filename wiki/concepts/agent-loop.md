@@ -4,7 +4,7 @@ type: concept
 aliases: [agent loop, エージェントループ, event loop]
 tags: [strands, agent, core, loop]
 created: 2026-05-30
-updated: 2026-06-03
+updated: 2026-06-10
 sources:
   - raw/articles/strands-agent-loop.mdx
 related:
@@ -13,6 +13,7 @@ related:
   - "[[state-management]]"
   - "[[custom-tools]]"
   - "[[ai-code-review]]"
+  - "[[loop-engineering]]"
 ---
 
 ## 概要

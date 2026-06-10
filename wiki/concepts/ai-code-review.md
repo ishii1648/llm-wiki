@@ -4,11 +4,12 @@ type: concept
 aliases: [AI code review, code review assumes an author, AI 生成コードのレビュー, agentic code review]
 tags: [code-review, agentic-development, ai-generated-code, pull-request, software-engineering]
 created: 2026-06-03
-updated: 2026-06-03
+updated: 2026-06-10
 sources:
   - raw/articles/ai-code-review-assumes-an-author.md
 related:
   - "[[agent-loop]]"
+  - "[[loop-engineering]]"
 ---
 
 ## 概要
