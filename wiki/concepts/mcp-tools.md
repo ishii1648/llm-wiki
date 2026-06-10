@@ -4,7 +4,7 @@ type: concept
 aliases: [MCP tools, MCPClient, mcp-tools]
 tags: [strands, tools, mcp, integration, transport]
 created: 2026-05-30
-updated: 2026-05-30
+updated: 2026-06-10
 sources:
   - raw/articles/strands-mcp-tools.mdx
 related:
@@ -12,6 +12,7 @@ related:
   - "[[model-context-protocol]]"
   - "[[custom-tools]]"
   - "[[conversation-management]]"
+  - "[[loop-engineering]]"
 ---
 
 ## 概要
