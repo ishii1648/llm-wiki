@@ -10,6 +10,7 @@
 - [[strands-agents-evals]] — エージェント評価フレームワーク `strands-agents-evals`(Experiment/Case/evaluator) (updated: 2026-05-30)
 - [[argo-cd]] — Kubernetes 上の CNCF GitOps デリバリツール(repo server / application controller / API server) (updated: 2026-06-04)
 - [[addy-osmani]] — agentic development を論じるブロガー/エンジニア。[[loop-engineering]] の著者ハブ (updated: 2026-06-10)
+- [[the-end-of-software-engineering]] — Cao 2026 のポジション論文(arXiv:2606.05608)。AI エージェントはツール改良でなくパラダイム転換と主張。形式モデル S/A・3世代配信・4段階ロードマップ (updated: 2026-06-10)
 
 ## Concepts
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -29,6 +30,8 @@
 - [[gitops]] — git を desired state の真実源とする宣言的デリバリ運用(Argo CD/Flux/Spinnaker) (updated: 2026-06-04)
 - [[argo-cd-controller-scaling]] — Argo CD を10,000アプリ規模で回す設定: client QPS とシャーディングが最も効く(AWS/EKS 6実験) (updated: 2026-06-04)
 - [[loop-engineering]] — prompt する自分をループ設計に置き換える。Automations/Worktrees/Skills/Connectors/Sub-agents+memory(Codex⇔Claude Code 対応) (updated: 2026-06-10)
+- [[agentic-engineering]] — エージェント群を「速くコードを書く道具」でなくデリバリ全体を駆動する control plane と捉える新分野。従来 SE との対比・人間の役割(intent architect/auditor) (updated: 2026-06-10)
+- [[agent-as-a-service]] — ソフト配信の第3世代(1.0 Local→2.0 SaaS→3.0 AaaS)。「Agent→Result」で成果物を中間物として除去、成果課金 (updated: 2026-06-10)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->

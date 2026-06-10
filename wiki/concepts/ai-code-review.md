@@ -10,6 +10,7 @@ sources:
 related:
   - "[[agent-loop]]"
   - "[[loop-engineering]]"
+  - "[[agentic-engineering]]"
 ---
 
 ## 概要
