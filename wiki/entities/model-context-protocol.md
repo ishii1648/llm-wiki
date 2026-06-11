@@ -4,12 +4,13 @@ type: entity
 aliases: [MCP, Model Context Protocol, model-context-protocol]
 tags: [strands, mcp, tools, protocol, integration]
 created: 2026-05-30
-updated: 2026-05-30
+updated: 2026-06-11
 sources:
   - raw/articles/strands-mcp-tools.mdx
 related:
   - "[[mcp-tools]]"
   - "[[strands-agents]]"
+  - "[[project-headroom]]"
 ---
 
 ## 概要
@@ -21,6 +22,8 @@ related:
 - MCP には **elicitation**(サーバがツール呼び出しを一時停止し、ユーザへ追加入力を要求する)などの仕様が含まれる。詳細は [MCP specification](https://modelcontextprotocol.io/specification/draft/client/elicitation)。
 
 > ℹ️ 注: 本 wiki の親リポジトリ環境(Claude Code)も `mcp__github__*` のような MCP ツールを利用するが、それは Strands SDK とは別文脈。ここで扱うのは Strands Agents から見た MCP 連携である。
+
+> 📎 別用途: MCP は「ツール提供」以外にも使える。[[project-headroom]] の CCR は、圧縮で削った原文を必要時に取り出す **retrieval の経路**として MCP サーバーを用いる(→ [[context-compression]])。
 
 ## 出典
 - `raw/articles/strands-mcp-tools.mdx` — 「MCP はアプリが LLM へコンテキストを提供する方法を標準化するオープンプロトコル」「Strands は MCP と統合し外部ツール/サービスで能力を拡張」と記載。
