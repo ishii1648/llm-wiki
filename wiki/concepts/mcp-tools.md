@@ -4,7 +4,7 @@ type: concept
 aliases: [MCP tools, MCPClient, mcp-tools]
 tags: [strands, tools, mcp, integration, transport]
 created: 2026-05-30
-updated: 2026-06-10
+updated: 2026-06-11
 sources:
   - raw/articles/strands-mcp-tools.mdx
 related:
@@ -13,6 +13,7 @@ related:
   - "[[custom-tools]]"
   - "[[conversation-management]]"
   - "[[loop-engineering]]"
+  - "[[project-headroom]]"
 ---
 
 ## 概要
@@ -72,7 +73,7 @@ agent = Agent(tools=[sse_mcp_client, stdio_mcp_client])
 - Connection Failures(サーバ稼働・ネットワーク・URL/command 確認)、Tool Discovery Issues(`list_tools` 実装確認)、Tool Execution Errors(引数 schema 一致確認)。
 
 ### context への影響
-MCP ツールの出力は会話履歴に蓄積されトークンを消費する。大量の MCP context を扱う構成では [[conversation-management]] の明示制御(summarizing / proactive compression)を検討する。
+MCP ツールの出力は会話履歴に蓄積されトークンを消費する。大量の MCP context を扱う構成では [[conversation-management]] の明示制御(summarizing / proactive compression)を検討する。なお MCP ツール出力は「70%が冗長な JSON」とされ圧縮余地が大きい。[[project-headroom]] の CCR は逆に **MCP サーバーを原文 retrieval の経路として使う**(可逆圧縮、→ [[context-compression]])。
 
 ## 出典
 - `raw/articles/strands-mcp-tools.mdx` — Quick Start、統合アプローチ、トランスポート、複数サーバ、tool フィルタ/prefix、direct invocation、自作サーバ、elicitation、troubleshooting。

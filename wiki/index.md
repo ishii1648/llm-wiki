@@ -10,6 +10,8 @@
 - [[strands-agents-evals]] — エージェント評価フレームワーク `strands-agents-evals`(Experiment/Case/evaluator) (updated: 2026-05-30)
 - [[argo-cd]] — Kubernetes 上の CNCF GitOps デリバリツール(repo server / application controller / API server) (updated: 2026-06-04)
 - [[addy-osmani]] — agentic development を論じるブロガー/エンジニア。[[loop-engineering]] の著者ハブ (updated: 2026-06-10)
+- [[project-headroom]] — LLM に届く前に context を可逆圧縮する OSS ローカルプロキシ(CacheAligner→ルーター→AST/JSON/DOM→CCR)。Netflix の Tejas Chopra 作 (updated: 2026-06-11)
+- [[tejas-chopra]] — Netflix シニアエンジニア。$287 の Claude 請求から [[project-headroom]] を開発。「トークンの9割は冗長」 (updated: 2026-06-11)
 
 ## Concepts
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -29,6 +31,8 @@
 - [[gitops]] — git を desired state の真実源とする宣言的デリバリ運用(Argo CD/Flux/Spinnaker) (updated: 2026-06-04)
 - [[argo-cd-controller-scaling]] — Argo CD を10,000アプリ規模で回す設定: client QPS とシャーディングが最も効く(AWS/EKS 6実験) (updated: 2026-06-04)
 - [[loop-engineering]] — prompt する自分をループ設計に置き換える。Automations/Worktrees/Skills/Connectors/Sub-agents+memory(Codex⇔Claude Code 対応) (updated: 2026-06-10)
+- [[context-compression]] — LLM 入力から冗長メタデータを削りトークンコストを下げる手法群。可逆圧縮/プロバイダキャッシュ(TTL)/競合ツール比較。「何を読ませるか」へ (updated: 2026-06-11)
+- [[context-rot]] — 入力が長いほど LLM の精度が落ちる現象(Chroma, 18モデル)。Stanford の lost-in-the-middle(75%→55%)。圧縮は品質面でも正当化 (updated: 2026-06-11)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->
