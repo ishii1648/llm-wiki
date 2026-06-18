@@ -139,3 +139,16 @@ unix ツールでパースできるよう、必ず以下の prefix で始めま�
 - **段階的に確認**: ingest 時は学びを提示してからページ化する。一括で大量生成しない。
 - **冪等性**: 同じソースを再 ingest しても重複ページを作らず、既存ページを更新する。判定は `wiki/sources.md` 台帳のハッシュで行う(勘で判断しない)。
 - **git 前提**: 変更は人間がレビューしてコミットする。あなたは勝手にコミットしない(明示依頼時のみ)。
+
+---
+
+## PR の自動監視
+
+ユーザー明示の commit / push / PR 作成依頼を受けて Claude が `gh pr create` または `git push` を実行した直後、`.claude/skills/pr-watch/SKILL.md` を **自動起動** し、merge conflict と CI failure(`scripts/lint.sh` 由来を含む)を解消する。
+
+- `gh pr create` の出力で PR URL が確認できたら、その PR 番号で `pr-watch` を起動する。
+- `git push` 後は `gh pr view --json number -q .number` で対象 PR の有無を確認し、PR がある場合のみ起動する(無ければ起動しない)。
+- 既に稼働中の `pr-watch` がある場合は重複起動しない(Monitor は差分のみ emit するので 1 つで十分)。
+- 停止条件(同一エラー連続検知 / 認証エラー / セマンティック衝突 / 60 分経過 等)に該当したら、無理に続行せず状況を 1 行で報告してユーザーに渡す。詳細は skill 本文の「完了条件」「ガード」を参照。
+
+このリポジトリでは CI 主体が `scripts/lint.sh`(dangling links / orphan pages / 出典 raw 不存在 / 台帳不整合)であり、`pr-watch` はそれを意識した修正動作を行う。
