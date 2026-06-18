@@ -53,6 +53,10 @@
          <lastmod>2026-06-18</lastmod>
     </url>
     <url>
+         <loc>https://ishii1648.github.io/llm-wiki/concepts/knowledge-bundle/</loc>
+         <lastmod>2026-06-18</lastmod>
+    </url>
+    <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/loop-engineering/</loc>
          <lastmod>2026-06-18</lastmod>
     </url>
@@ -89,6 +93,10 @@
          <lastmod>2026-06-18</lastmod>
     </url>
     <url>
+         <loc>https://ishii1648.github.io/llm-wiki/entities/open-knowledge-format/</loc>
+         <lastmod>2026-06-18</lastmod>
+    </url>
+    <url>
          <loc>https://ishii1648.github.io/llm-wiki/entities/project-headroom/</loc>
          <lastmod>2026-06-18</lastmod>
     </url>
@@ -110,6 +118,10 @@
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/syntheses/multi-agent-patterns/</loc>
+         <lastmod>2026-06-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ishii1648.github.io/llm-wiki/syntheses/okf-and-llm-wiki/</loc>
          <lastmod>2026-06-18</lastmod>
     </url>
 </urlset>
