@@ -42,6 +42,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # 変更ページ抽出のため PR base との diff が必要 (sticky comment step)
+          fetch-depth: 0
 
       # PR クローズ時はビルド不要（プレビュー削除のみ）
       - name: Setup Python
@@ -79,3 +82,58 @@ jobs:
           preview-branch: gh-pages
           umbrella-dir: pr-preview
           action: auto
+
+      # PR で追加/更新された wiki ページの直リンク一覧を sticky comment として投稿/更新
+      - name: Comment changed pages on PR
+        if: github.event_name == 'pull_request' && github.event.action != 'closed'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+
+          base_url="https://ishii1648.github.io/llm-wiki/pr-preview/pr-${PR_NUMBER}"
+          marker='<!-- pr-preview-pages -->'
+
+          # PR で wiki/ 配下に追加/更新/リネームされた .md (公開対象のみ。log.md/sources.md は除外)
+          mapfile -t files < <(
+            git diff --name-only --diff-filter=AMR "${BASE_SHA}...${HEAD_SHA}" -- wiki/ \
+              | grep -E '\.md$' \
+              | grep -Ev '^wiki/(log|sources)\.md$' \
+              | sort -u || true
+          )
+
+          {
+            printf '%s\n' "${marker}"
+            printf '## この PR で追加/更新された wiki ページ\n\n'
+            if [ "${#files[@]}" -eq 0 ]; then
+              printf '_公開対象のページに変更はありません。_\n'
+            else
+              for f in "${files[@]}"; do
+                rel="${f#wiki/}"
+                case "${rel}" in
+                  index.md)   url="${base_url}/" ;;
+                  */index.md) url="${base_url}/${rel%index.md}" ;;
+                  *.md)       url="${base_url}/${rel%.md}/" ;;
+                esac
+                printf -- '- [`%s`](%s)\n' "${rel}" "${url}"
+              done
+            fi
+          } > /tmp/pr-pages-comment.md
+
+          jq -Rs '{body: .}' /tmp/pr-pages-comment.md > /tmp/pr-pages-payload.json
+
+          existing=$(
+            gh api --paginate "repos/${REPO}/issues/${PR_NUMBER}/comments" \
+              --jq '.[] | select(.body | startswith("'"${marker}"'")) | .id' \
+              | head -n1
+          )
+
+          if [ -n "${existing}" ]; then
+            gh api --method PATCH "repos/${REPO}/issues/comments/${existing}" --input /tmp/pr-pages-payload.json >/dev/null
+          else
+            gh api --method POST  "repos/${REPO}/issues/${PR_NUMBER}/comments" --input /tmp/pr-pages-payload.json >/dev/null
+          fi
