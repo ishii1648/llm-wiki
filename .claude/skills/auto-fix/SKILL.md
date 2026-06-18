@@ -71,11 +71,25 @@ Monitor が `FAIL: <check名>: <URL>` を emit したら:
 1. `gh pr view <num> --json baseRefName -q .baseRefName` で base ブランチ名を取得
 2. `git fetch origin <base>`
 3. このリポジトリの履歴ポリシー(merge or rebase)を `git log --oneline -10 origin/<base>` の merge commit 有無から推測。**判断困難なら merge を選ぶ**(履歴を捨てない・revert で戻せる側)
-4. conflict 解消:
+4. `git merge origin/<base>`(or rebase) を実行 → conflict 発生
+5. **決定論的 resolver を先に走らせる**(LLM の文字列操作より安全):
+
+   ```
+   python3 .claude/skills/auto-fix/resolve-append.py wiki/index.md wiki/sources.md wiki/log.md
+   ```
+
+   このスクリプトは `wiki/index.md` (key: `[[name]]`) / `wiki/sources.md` (key: raw パス) / `wiki/log.md` (key: `## [日付] タイトル` 見出し) の **両側追記オンリーの hunk** を union して dedup する。`scripts/lint.sh` の決定論性と同じ系統で、conflict の 9 割を占めるこの 3 ファイルの append-only ケースを LLM 介在なしに片付ける。
+
+   | exit | 意味 | 次のアクション |
+   |---|---|---|
+   | 0 | 全 hunk 解消、マーカー消去 | このファイルは完了 → `git add` |
+   | 1 | 一部 hunk が collision(同一キーで内容違い)で未解消、マーカー保持 | 残った hunk のみ LLM/人間が判断して解消 |
+   | 2 | 対象外ファイル名 | 通常の手順で解消 |
+
+6. resolver で解消しきれなかったファイル・それ以外のファイル(`raw/` / `wiki/entities/` / `wiki/concepts/` / `wiki/syntheses/` 等)は LLM が手動解消:
    - 機械的に解消できるもの(片側採用が自明な追記・import 並び・lockfile 等)は自動で進める
-   - wiki 系のリポジトリでは `wiki/index.md` `wiki/sources.md` `wiki/log.md` が両側で追記される頻発パターン → **両側の追記を保持してマージ**するのが基本(片側を捨てると ingest 履歴が消える)
    - セマンティックな判断が要るもの(両側で同一ページを別方向に書き換え等)は **AskUserQuestion で人間に確認**してから進める
-5. `git commit` → `git push`
+7. `git commit` → `git push`
 
 ### 5. 完了条件
 
@@ -113,3 +127,4 @@ Monitor が `FAIL: <check名>: <URL>` を emit したら:
 
 - `SKILL.md`(このファイル) — 動作仕様・起動条件・失敗解消手順
 - `monitor.sh` — Monitor ツールから呼ぶ polling スクリプト(出力フォーマットは §2 の表を参照)
+- `resolve-append.py` — `wiki/index.md` / `wiki/sources.md` / `wiki/log.md` の両側追記コンフリクトを決定論的に union dedup する(§4 step 5 で呼ぶ)。collision(同一キー × 内容違い)を検知したらマーカーを残して exit 1
