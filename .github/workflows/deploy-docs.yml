@@ -1,0 +1,81 @@
+name: Deploy Wiki to GitHub Pages
+
+# wiki/ を MkDocs Material でビルドし gh-pages ブランチへ公開する。
+#  - main への push  : サイト本体を gh-pages のルートへデプロイ（PR プレビューは保持）
+#  - PR の作成/更新   : pr-preview/pr-<N>/ へプレビューをデプロイし、PR にURLをコメント
+#  - PR のクローズ    : 対応するプレビューを削除
+#
+# Pages のソースはリポジトリ設定で
+#   Settings → Pages → Build and deployment → Source = "Deploy from a branch"
+#   Branch = "gh-pages" / "/ (root)"
+# を選択しておくこと。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "wiki/**"
+      - "mkdocs.yml"
+      - "requirements-docs.txt"
+      - ".github/workflows/deploy-docs.yml"
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    paths:
+      - "wiki/**"
+      - "mkdocs.yml"
+      - "requirements-docs.txt"
+      - ".github/workflows/deploy-docs.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write       # gh-pages ブランチへの push 用
+  pull-requests: write  # プレビューURLのコメント用
+
+# 同一 PR / main 単位で直列化（実行中はキャンセルしない）
+concurrency:
+  group: pages-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # PR クローズ時はビルド不要（プレビュー削除のみ）
+      - name: Setup Python
+        if: github.event.action != 'closed'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+          cache: pip
+          cache-dependency-path: requirements-docs.txt
+
+      - name: Install dependencies
+        if: github.event.action != 'closed'
+        run: pip install -r requirements-docs.txt
+
+      - name: Build site
+        if: github.event.action != 'closed'
+        run: mkdocs build --site-dir _site
+
+      # main: サイト本体を gh-pages ルートへ。keep_files で pr-preview/ を保持する
+      - name: Deploy to GitHub Pages (production)
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
+          keep_files: true
+
+      # PR: pr-preview/pr-<N>/ へデプロイ/更新/削除し、PR にプレビューURLをコメント
+      - name: Deploy PR preview
+        if: github.event_name == 'pull_request'
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./_site
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
