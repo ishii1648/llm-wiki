@@ -1,20 +1,20 @@
 ---
-name: pr-watch
+name: auto-fix
 description: >-
   PR の merge conflict と CI failure を Monitor ツールで継続監視し、検知した
-  問題を解消するループを回す。「/pr-watch [PR番号]」での明示呼び出しに加え、
+  問題を解消するループを回す。「/auto-fix [PR番号]」での明示呼び出しに加え、
   Claude が `gh pr create` で PR を作成した直後、または PR を持つブランチへ
   `git push` した直後にも自動起動する(CLAUDE.md「PR の自動監視」参照)。引数
   なしのときは現ブランチに紐づく PR を `gh pr view --json number` で特定する。
 ---
 
-# pr-watch
+# auto-fix
 
 PR が **mergeable + 全 check 緑** になるまで監視し、conflict と CI failure を解消するループを回します。
 
 ## 起動条件
 
-- ユーザーが `/pr-watch [PR番号]` と明示的に呼んだとき
+- ユーザーが `/auto-fix [PR番号]` と明示的に呼んだとき
 - Claude が `gh pr create` で PR を作った直後
 - Claude が PR を持つブランチへ `git push` した直後
 
@@ -28,37 +28,25 @@ PR が **mergeable + 全 check 緑** になるまで監視し、conflict と CI 
 
 ### 2. 監視ループ (Monitor, persistent)
 
-以下のスクリプトを Monitor ツールで `persistent: true` 起動する。30 秒間隔で状態差分を観測し、**進捗・失敗・終端のいずれも emit する**(silence is not success の原則: 成功シグナルだけ拾うと crashloop が見えない)。
+`monitor.sh` を Monitor ツールで `persistent: true` 起動する:
 
-```bash
-PR=<num>
-prev=""
-while true; do
-  s=$(gh pr view "$PR" --json mergeable,mergeStateStatus,statusCheckRollup 2>/dev/null) || { echo "[ERR] gh fetch failed"; sleep 30; continue; }
-  m=$(jq -r '.mergeable // "UNKNOWN"' <<<"$s")
-  st=$(jq -r '.mergeStateStatus // "UNKNOWN"' <<<"$s")
-  pending=$(jq '[.statusCheckRollup[]? | select(.conclusion==null or .conclusion=="PENDING" or .status=="IN_PROGRESS" or .status=="QUEUED")] | length' <<<"$s")
-  fcount=$(jq '[.statusCheckRollup[]? | select(.conclusion=="FAILURE" or .conclusion=="TIMED_OUT" or .conclusion=="CANCELLED" or .conclusion=="ACTION_REQUIRED")] | length' <<<"$s")
-  failed=$(jq -r '.statusCheckRollup[]? | select(.conclusion=="FAILURE" or .conclusion=="TIMED_OUT" or .conclusion=="CANCELLED" or .conclusion=="ACTION_REQUIRED") | "\(.name // .context // "?"): \(.detailsUrl // .targetUrl // "")"' <<<"$s")
-  cur="m=$m st=$st pending=$pending fcount=$fcount"
-  if [ "$cur" != "$prev" ]; then
-    echo "[$(date -u +%H:%M:%S)] mergeable=$m state=$st pending=$pending failed=$fcount"
-    [ -n "$failed" ] && printf '  FAIL: %s\n' "$failed"
-    prev="$cur"
-  fi
-  if [ "$m" = "MERGEABLE" ] && [ "$pending" = "0" ] && [ "$fcount" = "0" ]; then
-    echo "GREEN: PR #$PR mergeable, all checks passing"
-    exit 0
-  fi
-  [ "$m" = "CONFLICTING" ] && echo "CONFLICT: PR #$PR has merge conflicts with base"
-  sleep 30
-done
+```
+bash .claude/skills/auto-fix/monitor.sh <PR番号>
 ```
 
-ポイント:
-- `gh ... 2>/dev/null || { ... continue; }` で一時的なネットワーク失敗を呑む(監視を死なせない)
-- 状態が変わった瞬間だけ emit(変化のないラインを垂れ流さない)
-- 終端 `GREEN` で exit、CONFLICT は emit しつつループ継続(人間が conflict 解消後の再監視に使える)
+スクリプトは 30 秒間隔で polling し、**状態が変化した瞬間だけ** stdout に 1 行 emit する(silence is not success の原則: 成功シグナルだけ拾うと CI hang や crashloop が無音で見過ごされる)。
+
+出力行の意味:
+
+| 出力 | 意味 | 次のアクション |
+|---|---|---|
+| `[HH:MM:SS] mergeable=... state=... pending=N failed=N` | 状態差分(変化のあった瞬間のみ) | そのまま観察継続 |
+| `  FAIL: <check名>: <URL>` | 失敗した check の詳細 | §3 へ |
+| `CONFLICT: PR #N has merge conflicts with base` | base ブランチとコンフリクト | §4 へ |
+| `GREEN: PR #N mergeable, all checks passing` | **終端**(スクリプト exit 0) | TaskStop して完了報告 |
+| `[ERR] gh fetch failed` | 一時的取得エラー | 無視してよい(スクリプト側で sleep + 継続) |
+
+ポーリング間隔は環境変数 `MONITOR_INTERVAL` で上書き可能(デフォルト 30s)。
 
 ### 3. CI failure を検知したら
 
@@ -110,7 +98,7 @@ Monitor が `FAIL: <check名>: <URL>` を emit したら:
 ## 出力例
 
 ```
-[Claude] gh pr create で #12 を作成 → pr-watch #12 自動起動
+[Claude] gh pr create で #12 を作成 → auto-fix #12 自動起動
 [monitor] [00:01:23] mergeable=UNKNOWN state=UNKNOWN pending=2 failed=0
 [monitor] [00:02:15] mergeable=MERGEABLE state=CLEAN pending=1 failed=0
 [monitor] [00:03:08] mergeable=MERGEABLE state=CLEAN pending=0 failed=1
@@ -120,3 +108,8 @@ Monitor が `FAIL: <check名>: <URL>` を emit したら:
 [monitor] [00:06:30] GREEN: PR #12 mergeable, all checks passing
 [Claude] PR #12 is ready to merge. https://github.com/owner/repo/pull/12
 ```
+
+## ファイル
+
+- `SKILL.md`(このファイル) — 動作仕様・起動条件・失敗解消手順
+- `monitor.sh` — Monitor ツールから呼ぶ polling スクリプト(出力フォーマットは §2 の表を参照)
