@@ -12,6 +12,7 @@
 - [[addy-osmani]] — agentic development を論じるブロガー/エンジニア。[[loop-engineering]] の著者ハブ (updated: 2026-06-10)
 - [[project-headroom]] — LLM に届く前に context を可逆圧縮する OSS ローカルプロキシ(CacheAligner→ルーター→AST/JSON/DOM→CCR)。Netflix の Tejas Chopra 作 (updated: 2026-06-11)
 - [[tejas-chopra]] — Netflix シニアエンジニア。$287 の Claude 請求から [[project-headroom]] を開発。「トークンの9割は冗長」 (updated: 2026-06-11)
+- [[open-knowledge-format]] — YAML frontmatter 付き markdown だけで知識を表現するオープン仕様 OKF v0.1(Google Cloud) (updated: 2026-06-19)
 
 ## Concepts
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -33,8 +34,10 @@
 - [[loop-engineering]] — prompt する自分をループ設計に置き換える。Automations/Worktrees/Skills/Connectors/Sub-agents+memory(Codex⇔Claude Code 対応) (updated: 2026-06-10)
 - [[context-compression]] — LLM 入力から冗長メタデータを削りトークンコストを下げる手法群。可逆圧縮/プロバイダキャッシュ(TTL)/競合ツール比較。「何を読ませるか」へ (updated: 2026-06-11)
 - [[context-rot]] — 入力が長いほど LLM の精度が落ちる現象(Chroma, 18モデル)。Stanford の lost-in-the-middle(75%→55%)。圧縮は品質面でも正当化 (updated: 2026-06-11)
+- [[knowledge-bundle]] — OKF の配布単位。markdown ディレクトリツリーの構造・予約ファイル名・conformance (updated: 2026-06-19)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->
 - [[multi-agent-patterns]] — Graph/Swarm/Workflow の比較と「実行経路の決まり方」による使い分け (updated: 2026-05-30)
 - [[graph-swarm-hybrid]] — Graph ノードに Swarm をネストするハイブリッド構成の設計と地雷 (updated: 2026-05-30)
+- [[okf-and-llm-wiki]] — OKF とこの llm-wiki リポジトリ(Karpathy LLM Wiki パターン)の対応・差分 (updated: 2026-06-19)
