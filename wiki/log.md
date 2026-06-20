@@ -93,3 +93,16 @@
 - 主な学び: OKF v0.1 は「YAML frontmatter 付き markdown のディレクトリ」だけで知識を表現するオープン仕様。必須は `type` のみ、consumer は未知 type/壊れたリンク/欠損フィールドを拒否してはならない(permissive consumption)。spec §10 が LLM wiki リポジトリ・Obsidian・metadata as code を近縁とし、本 repo(Karpathy LLM Wiki パターン)はまさにその一実装。対応・差分を synthesis 化した。
 - 出典の扱い: ユーザー指定の Google Cloud ブログは著作権上 raw へ全文保存できないため、同内容のオープン一次ソース(GoogleCloudPlatform/knowledge-catalog `okf/SPEC.md`, Apache-2.0)を raw/articles/okf-spec.md として ground truth に保存。ブログは作者・公開日(2026-06-13)・エコシステム(Knowledge Catalog/reference impl/sample bundles)の出典として URL 参照のみ。
 - 矛盾・要確認: 本 repo の wikilink `[[name]]` と OKF 推奨の bundle-relative リンク(/path.md)が非互換 / 本 repo の lint はリンク切れを問題視するが OKF は broken link を「未到達知識」として許容 —— 運用ポリシーが逆方向(okf-and-llm-wiki に記載)。
+
+## [2026-06-20] ingest | Loop Engineering の発端2人を entity 化(Steinberger / Cherny）
+- 依頼: ユーザーが提示した3ソース(Osmani ブログ / Substack / LinkedIn)を「それぞれ ingest」。
+- 冪等性チェック結果: 3つは**実体として Osmani の同一記事1本**。ブログは既 ingest 済みで raw ハッシュ `818a59afada1` が台帳と一致(内容不変）、Substack は同一本文の再掲、LinkedIn は短縮告知。→ **別ファイル ingest はせず**、Substack/LinkedIn を「同一ソースの別 URL」として sources.md と [[addy-osmani]] に記録(重複ページ回避)。
+- 追加したページ(新規 entity 2件。出典は既 ingest 済みの raw/articles/loop-engineering.md 内の引用):
+  - entities: [[peter-steinberger]](発火点。「prompt するな、prompt するループを設計せよ」X: @steipete）、[[boris-cherny]](Anthropic Claude Code 責任者。「もう Claude に prompt しない。仕事はループを書くこと」）
+- 更新したページ(相互リンク + updated: 2026-06-20): [[loop-engineering]](本文の Steinberger/Cherny 言及を wikilink 化、related に2件追加）、[[addy-osmani]](related に2件追加 + 別 URL の冪等性メモ）、index.md(entity 2件追加）、sources.md(波及ページに2件追加 + 別 URL メモ）。
+- 主な学び:
+  - 「提唱した人たち」の一次情報は、概念を定式化・普及させた [[addy-osmani]] の上流に、発火点の [[peter-steinberger]] と Anthropic の [[boris-cherny]] がいる。両者の発言は既 ingest 済み raw に出典付きで含まれるため、新規取得なしで entity 化できた(知識を重複なく構造化)。
+  - 一次の X ポスト(steipete / rohanpaul_ai 経由の Cherny 引用)URL は記事内参照のみで本 wiki 未取得。Cherny の引用は @rohanpaul_ai 経由の第三者リレーで本人投稿ではない点を各ページに明記。
+- 矛盾・要確認:
+  - [[peter-steinberger]] は当該記事に肩書・経歴の記載がなく未収録(推測で補わない）。[[boris-cherny]] は「head of Claude Code at Anthropic」のみ記事準拠で記載。
+  - X 元ポストを一次ソースとして raw 保存するなら別途 ingest が必要(現状は Osmani 記事内引用が根拠）。

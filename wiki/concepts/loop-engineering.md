@@ -4,11 +4,13 @@ type: concept
 aliases: [loop engineering, ループエンジニアリング, loop design, ループ設計]
 tags: [agentic-development, coding-agents, automation, loop, claude-code, codex, addy-osmani]
 created: 2026-06-10
-updated: 2026-06-10
+updated: 2026-06-20
 sources:
   - raw/articles/loop-engineering.md
 related:
   - "[[addy-osmani]]"
+  - "[[peter-steinberger]]"
+  - "[[boris-cherny]]"
   - "[[agent-loop]]"
   - "[[agent-skills]]"
   - "[[mcp-tools]]"
@@ -18,7 +20,7 @@ related:
 ---
 
 ## 概要
-**Loop engineering(ループエンジニアリング)** とは、「**エージェントに prompt する人間としての自分自身を置き換え、代わりにそれを行うシステムを設計する**」こと([[addy-osmani]] のブログ記事 "Loop Engineering", 2026-06-07)。ここでの loop は **recursive goal**(目的を定義し AI が完了まで反復する再帰的ゴール)と捉えられる。Peter Steinberger の「もはやコーディングエージェントに prompt すべきでない。エージェントに prompt する**ループを設計**せよ」、Boris Cherny(Anthropic の Claude Code 責任者)の「私はもう Claude に prompt しない。Claude に prompt し何をするか考えるループを走らせている。私の仕事はループを書くことだ」という発言を起点に、コーディングエージェントとの働き方の未来形として提示される。
+**Loop engineering(ループエンジニアリング)** とは、「**エージェントに prompt する人間としての自分自身を置き換え、代わりにそれを行うシステムを設計する**」こと([[addy-osmani]] のブログ記事 "Loop Engineering", 2026-06-07)。ここでの loop は **recursive goal**(目的を定義し AI が完了まで反復する再帰的ゴール)と捉えられる。[[peter-steinberger]] の「もはやコーディングエージェントに prompt すべきでない。エージェントに prompt する**ループを設計**せよ」、[[boris-cherny]](Anthropic の Claude Code 責任者)の「私はもう Claude に prompt しない。Claude に prompt し何をするか考えるループを走らせている。私の仕事はループを書くことだ」という発言を起点に、コーディングエージェントとの働き方の未来形として提示される。
 
 > 著者自身は「まだ初期段階で懐疑的」とし、特に **token コスト**(トークンに富むか貧しいかで使い方が大きく変わる)に注意せよと釘を刺している。
 
@@ -100,7 +102,7 @@ Claude Code はスケジューリングと hooks で同じ場所に至る:`/loop
 3. **快適な姿勢が最も危険**。ループが自走すると意見を持つのをやめ返ってきたものをそのまま受け取りたくなる —— 著者はこれを **cognitive surrender**(認知の明け渡し)と呼ぶ。ループ設計は判断を伴えば治療薬、思考回避のためなら促進剤になる(同じ行為で逆の結果)。
 
 ### 結論:Build the loop. Stay the engineer.
-著者は仕事の進化のプレビューと見るが、「自分でコードをレビューせず自動ループだけに修正を頼れば製品の質は劣化し、下降スパイラルで穴を深く掘り続ける」とする。ループを組むのもよいが、エージェントに直接 prompt するのも有効で、**バランスが肝**。同じループでも使う人で結果は正反対になる ——「理解の深い仕事を速める人」と「仕事の理解を避ける人」をループは区別しないが、あなたは区別できる。これが loop design を prompt engineering より**易しくなく、むしろ難しく**する理由。Cherny の論点は「仕事が楽になった」ではなく「**leverage point(梃子の支点)が動いた**」。
+著者は仕事の進化のプレビューと見るが、「自分でコードをレビューせず自動ループだけに修正を頼れば製品の質は劣化し、下降スパイラルで穴を深く掘り続ける」とする。ループを組むのもよいが、エージェントに直接 prompt するのも有効で、**バランスが肝**。同じループでも使う人で結果は正反対になる ——「理解の深い仕事を速める人」と「仕事の理解を避ける人」をループは区別しないが、あなたは区別できる。これが loop design を prompt engineering より**易しくなく、むしろ難しく**する理由。[[boris-cherny]] の論点は「仕事が楽になった」ではなく「**leverage point(梃子の支点)が動いた**」。
 
 > "Build the loop. But build it like someone who intends to stay the engineer, not just the person who presses go."
 

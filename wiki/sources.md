@@ -33,6 +33,7 @@ ingest のたびに LLM が追記・更新します(過去行は再 ingest 時�
 - raw/articles/strands-evals-experiment-management.mdx | sha256:3584ecfdb839 | 2026-05-30 | [[experiment-management]]
 - raw/articles/ai-code-review-assumes-an-author.md | sha256:ba21f8cd0a99 | 2026-06-03 | [[ai-code-review]]
 - raw/articles/argo-cd-scalability-testing-on-eks.md | sha256:781b10ca47be | 2026-06-04 | [[argo-cd]], [[gitops]], [[argo-cd-controller-scaling]]
-- raw/articles/loop-engineering.md | sha256:818a59afada1 | 2026-06-10 | [[loop-engineering]], [[addy-osmani]]
+- raw/articles/loop-engineering.md | sha256:818a59afada1 | 2026-06-10 | [[loop-engineering]], [[addy-osmani]], [[peter-steinberger]], [[boris-cherny]]
+  <!-- 別URL(同一本文・別ファイル ingest しない): Substack https://addyo.substack.com/p/loop-engineering / LinkedIn https://www.linkedin.com/posts/addyosmani_ai-softwareengineering-programming-activity-7469999258658791425-cTvy 。2026-06-20 に再 ingest 依頼を受けハッシュ不変を確認、[[peter-steinberger]]・[[boris-cherny]] を entity 化(出典は本 raw)。 -->
 - raw/articles/ai-tokens-ninety-percent-garbage.md | sha256:6aa9b6624479 | 2026-06-11 | [[project-headroom]], [[tejas-chopra]], [[context-compression]], [[context-rot]]
 - raw/articles/okf-spec.md | sha256:b9655e607346 | 2026-06-19 | [[open-knowledge-format]], [[knowledge-bundle]], [[okf-and-llm-wiki]]

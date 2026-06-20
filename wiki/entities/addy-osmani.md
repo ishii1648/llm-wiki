@@ -4,11 +4,13 @@ type: entity
 aliases: [Addy Osmani, addyosmani]
 tags: [person, author, agentic-development, software-engineering]
 created: 2026-06-10
-updated: 2026-06-10
+updated: 2026-06-20
 sources:
   - raw/articles/loop-engineering.md
 related:
   - "[[loop-engineering]]"
+  - "[[peter-steinberger]]"
+  - "[[boris-cherny]]"
 ---
 
 ## 概要
@@ -19,7 +21,9 @@ related:
 ## 詳細
 
 ### ingest 済みの著作
-- **"[[loop-engineering]]"**(2026-06-07)— エージェントに prompt する人間を、それを代行するループ設計に置き換えるという主張。5つの構成要素(Automations / Worktrees / Skills / Plugins・connectors / Sub-agents)+ ディスク上の memory を、Codex app と Claude Code の対応表として整理する。
+- **"[[loop-engineering]]"**(2026-06-07)— エージェントに prompt する人間を、それを代行するループ設計に置き換えるという主張。5つの構成要素(Automations / Worktrees / Skills / Plugins・connectors / Sub-agents)+ ディスク上の memory を、Codex app と Claude Code の対応表として整理する。記事は [[peter-steinberger]] と [[boris-cherny]] の発言を起点として引用する。
+
+> 📎 同一記事の別 URL(冪等性メモ): 本記事はブログ(`addyosmani.com/blog/loop-engineering/`= raw 保存元)のほか、Substack(`addyo.substack.com/p/loop-engineering`)に**同一本文で再掲**、LinkedIn(`activity-7469999258658791425`)に**短縮告知**として投稿されている。いずれも本文は同じソースのため**別ファイル ingest はしない**(2026-06-20 に再 ingest 依頼を受け、ブログ raw のハッシュ `818a59afada1` が不変=内容同一と確認、別 URL として記録するに留めた)。
 
 ### 関連著作(本記事から参照・未 ingest)
 "Loop Engineering" は著者自身の以下の記事群を相互参照しており、loop engineering の議論はこれらの上に積み上がっている。**いずれも原本未取得のため未 ingest**(必要なら個別に ingest 可能):
