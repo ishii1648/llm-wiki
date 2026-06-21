@@ -57,6 +57,20 @@
   - ⚠️ ドキュメント vs 実測: 公式は status/operation processors を最優先設定とするが実測では不変([[argo-cd-controller-scaling]] に矛盾として明記)。人工ワークロード起因の可能性。
   - 本記事は 2023-09 時点の early efforts。Akuity 等は SIG 共同設立者として言及のみ(個別 entity 未作成、リンクも張らずプレーン表記)。
 
+## [2026-06-05] ingest | One Developer Is All You Need(arXiv:2605.18461v2, Itaú Unibanco)
+- 取得・保存: `https://arxiv.org/html/2605.18461v2` を curl で生 HTML(LaTeXML 生成)取得し、本文を忠実に Markdown 化して `raw/papers/one-developer-is-all-you-need.md` に原本保存(WebFetch 既定出力は要約だったため不採用)。台帳ハッシュ `4983a3ce6186`。著者: Marcelo Vilas Boas, Gustavo Pinto, Edward Roberto Monteiro, Vinicius Fernandes Carida, Danilo Ribeiro。
+  - 忠実性メモ: 数式は LaTeXML alttext を `$...$` で保持。表(I〜VI)はセル毎改行に線形化された機械変換を、値を保ったまま proper Markdown table へ再構成(group行は太字行として表現)。Fig.1 の SDD テンプレートは原文どおり「具体内容は省略、角括弧プレースホルダ」とされ画像本体は無し。著者所属は原文が上付き数字(1/2/3)のみで機関名を明示しないため、捏造せず数字のまま記録(本文記載の Itaú Unibanco のみ補記)。
+- 追加/更新したページ(新テーマ = AI拡張ソフトウェアデリバリ / 一人スカッド。既存の Strands・GitOps とは独立、[[ai-code-review]] と接続):
+  - entities: [[one-developer-is-all-you-need]](新規・論文ハブ)
+  - concepts: [[one-person-squad]](新規・構成パターン)、[[spec-driven-development]](新規・方法論)
+  - [[ai-code-review]] に related バックリンク `[[one-developer-is-all-you-need]]` を追加し、「経験者=品質ゲート」が著者性回収の実務的応答という接続節を追記(updated: 2026-06-05)。
+- 主な学び:
+  - 1人の staff エンジニア + 4 AIエージェント(StackSpot/Devin/GitHub Copilot)を SDD で運用し、4人×6スプリント想定のブラウンフィールド案件を3スプリントで完遂。AI生成コード90%初回採用、統合テスト113/113、人件費85%超削減、BCP当たり工数51%削減。
+  - 中心命題: 律速は**モデル能力ではなく「仕様の質」と「組織知」**。AIは専門性の代替でなく増幅器。core/non-core 分割が再現可能なヒューリスティック。
+  - 持続的運用案は「2人技術ペア + 分数的プロダクト戦略家」。one-person は到達目標でなく境界テスト。
+- 矛盾・要確認:
+  - スループット急増(BCP/eng-hour 5.4倍)は実生産性向上 + BCPスコア慣習による構成効果(front-end偏重)の複合。著者が「下限」と明記。数値は CI/CD ゲート出力で外部監査なし・実務者=研究者バイアスあり(論文 §VIII)。
+  - Gustavo Pinto は StackSpot 関連の先行研究[16]著者でもあり利益相反の余地(本文に明示なし、推測)。今後 agentic-development / devin / stackspot 等の概念・entity が増えればハブ化を検討。
 ## [2026-06-10] ingest | Loop Engineering(Addy Osmani）
 - 取得・保存: `https://addyosmani.com/blog/loop-engineering/` を curl で生 HTML 取得し、`<article>`/`#post-body` 本文を忠実に Markdown 化して `raw/articles/loop-engineering.md` に原本保存(要約・整形なし。原文タイポ paralell/wich/dont 等も保持。WebFetch 既定出力は要約のため不採用)。台帳ハッシュ `818a59afada1`。著者 Addy Osmani、2026-06-07。
 - 追加/更新したページ:
