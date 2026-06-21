@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/context-rot/">
+        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/agentic-engineering/">
       
       
-        <link rel="prev" href="../context-compression/">
+        <link rel="prev" href="../agent-skills/">
       
       
-        <link rel="next" href="../conversation-management/">
+        <link rel="next" href="../ai-code-review/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Context Rot (コンテキスト腐敗) - LLM Wiki</title>
+        <title>Agentic Engineering - LLM Wiki</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Context Rot (コンテキスト腐敗)
+              Agentic Engineering
             
           </span>
         </div>
@@ -482,10 +482,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../agentic-engineering/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic Engineering
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -501,6 +526,118 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        詳細
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="詳細">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        「AI コーディングエージェント」との区別
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perception-memory-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エージェントの基本アーキテクチャ(perception-memory-action)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#se-table-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        従来 SE との対比(論文 Table 2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        人間の役割の再定義
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        現状の到達点と限界
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出典
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -594,35 +731,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Context Rot (コンテキスト腐敗)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../context-rot/" class="md-nav__link">
         
   
   
@@ -638,96 +750,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        概要
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        詳細
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="詳細">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lost-in-the-middle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lost in the Middle(中間無視)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#context-rotchroma" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Context Rot(Chroma)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        含意 — 「賢いモデル」より「何を読ませるか」
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        出典
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1720,10 +1742,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lost-in-the-middle" class="md-nav__link">
+  <a href="#ai" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lost in the Middle(中間無視)
+        「AI コーディングエージェント」との区別
       
     </span>
   </a>
@@ -1731,10 +1753,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#context-rotchroma" class="md-nav__link">
+  <a href="#perception-memory-action" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Context Rot(Chroma)
+        エージェントの基本アーキテクチャ(perception-memory-action)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#se-table-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        従来 SE との対比(論文 Table 2)
       
     </span>
   </a>
@@ -1745,7 +1778,18 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        含意 — 「賢いモデル」より「何を読ませるか」
+        人間の役割の再定義
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        現状の到達点と限界
       
     </span>
   </a>
@@ -1758,7 +1802,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -1788,31 +1832,95 @@
   
 
 
-  <h1>Context Rot (コンテキスト腐敗)</h1>
+  <h1>Agentic Engineering</h1>
 
 <h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><strong>Context Rot(コンテキスト腐敗)</strong> は、データ統合企業 Chroma の研究チームが名付けた現象で、<strong>入力(コンテキスト)が長くなるほど LLM のパフォーマンスが低下する</strong>こと。18の LLM を検証し<strong>すべてのモデルで確認</strong>された。コンテキストウィンドウを大量の情報で埋めることはコストが高いだけでなく、モデルを混乱させて回答の質を下げうる — トークン圧縮(<a href="../context-compression/">context-compression</a>)がコスト削減と精度向上を両立しうる根拠になっている。</p>
-<h2 id="_2">詳細<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="lost-in-the-middle">Lost in the Middle(中間無視)<a class="headerlink" href="#lost-in-the-middle" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Stanford 大学の研究チームの発見: LLM は<strong>コンテキストウィンドウの先頭と末尾に注意を集中させ、中間部分を無視する</strong>傾向がある。</li>
-<li>20件の文書から情報を検索するタスクで、関連文書が<strong>先頭にあるとき75%</strong>の精度だったが、<strong>中間に移動すると55%</strong>まで低下した。</li>
-</ul>
-<h3 id="context-rotchroma">Context Rot(Chroma)<a class="headerlink" href="#context-rotchroma" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Chroma がこの現象を「context rot」と命名。18の LLM を検証し、<strong>入力が長くなるほどパフォーマンスが低下する</strong>ことを全モデルで確認した。</li>
-</ul>
-<h3 id="_3">含意 — 「賢いモデル」より「何を読ませるか」<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<ul>
-<li>情報を削って本質だけを渡す方が、むしろ賢い回答が返ってくるという逆説。問題は「モデルが賢いかどうか」ではなく「<strong>モデルに毎回何を読ませているか</strong>」に移っている(→ <a href="../../entities/tejas-chopra/">tejas-chopra</a> / <a href="../context-compression/">context-compression</a>)。</li>
-<li>これは <a href="../conversation-management/">conversation-management</a> が context window 内に履歴を保ちながら関連性・一貫性を維持しようとする動機(トークン上限・性能・関連性・一貫性)と同根の問題。圧縮・要約・proactive compression は、コストだけでなく<strong>品質</strong>の観点からも正当化される。</li>
-</ul>
+<p><strong>Agentic Engineering(エージェンティック・エンジニアリング)</strong> は、AI エージェントを「コードを速く生成する道具」でなく<strong>ソフトウェアデリバリ全体を駆動するデジタルなチームメンバー</strong>として扱う、従来のソフトウェア工学とは<strong>核となる研究対象・制御モデル・人間の役割が異なる</strong>創発的分野。LangChain が2026年4月に提唱した語で(<a href="../../entities/the-end-of-software-engineering/">the-end-of-software-engineering</a> が引用)、「役割・共有記憶・統一された observability 層を持つ AI エージェント群が、コードを速く書くためでなく<strong>デリバリパイプライン全体を通してソフトウェアを駆動する</strong> multi-agent coordination モデル」と定義される。</p>
 <blockquote>
-<p>⚠️ 出典の範囲: 本ページは二次情報(joho-todai.com の記事)に基づく。Stanford / Chroma の原論文・具体的な実験条件は当該記事の引用範囲を超えるため未収録。</p>
+<p>出典: 本ページの記述は Zhenfeng Cao, arXiv:2606.05608v1(<a href="../../entities/the-end-of-software-engineering/">the-end-of-software-engineering</a>)が引用・整理した LangChain[7]・Wang et al.[4]・Guo et al.[13] の主張に基づく。本 wiki がその主張の真偽を検証したものではない。</p>
 </blockquote>
-<h2 id="_4">出典<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_2">詳細<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="ai">「AI コーディングエージェント」との区別<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h3>
+<p>Kumar &amp; Ramagopal(LangChain Blog, 2026-04)による区別が中心:
+- <strong>AI coding agents</strong> は「単一のユーザ駆動セッション内で <strong>intent をコードへ翻訳する</strong>」のが得意。
+- <strong>Agentic engineering</strong> は「<strong>一段上の抽象レベル</strong>で動く <strong>control plane</strong>」—— cross-team のワークフローを orchestrate し、複数エージェント間で long-term memory を保持し、ソフトウェアデリバリ・ライフサイクル全体で state と traceability を管理する。</p>
+<p>つまり Agentic Engineering は単一エージェントの賢さでなく <strong>orchestration(共有 context・並列化・相互検証)</strong> に価値の源泉を置く。実際 <a href="../../entities/the-end-of-software-engineering/">the-end-of-software-engineering</a> の企業 pilot では、根本原因特定の93%短縮は「個々のエージェントの優秀さでなく orchestration から来た」とされる。本 wiki の <a href="../loop-engineering/">loop-engineering</a> が論じる「prompt でなく<strong>ループを設計</strong>する」「maker/checker 分離」も、この control-plane 視点の実務的具体化と読める(独立ソース)。</p>
+<h3 id="perception-memory-action">エージェントの基本アーキテクチャ(perception-memory-action)<a class="headerlink" href="#perception-memory-action" title="Permanent link">&para;</a></h3>
+<p>Wang et al.[4] のタクソノミーが示す3モジュール(LLM reasoning core が orchestrate):
+- <strong>Perception</strong>: マルチモーダル入力の処理。
+- <strong>Memory</strong>: semantic / episodic / procedural な知識の保持。
+- <strong>Action</strong>: 内部推論 + 外部ツール呼び出し。</p>
+<p>具体実装例として <strong>Hermes Agent</strong>(Nous Research)が挙げられ、perception-memory-action を <strong>self-evolution 機構</strong>付きで運用する: タスク完了後に再利用可能な <strong>Skills</strong>(parameterized procedural modules)を自律生成し、使用中に不足を検知すると自動 patch、FTS5 ベースの会話検索 + LLM 要約で cross-session の episodic memory を realize、subagent 委譲で早期の multi-agent coordination を示す(→ <a href="../agent-skills/">agent-skills</a> の自己進化発展形)。</p>
+<h3 id="se-table-2">従来 SE との対比(論文 Table 2)<a class="headerlink" href="#se-table-2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>次元</th>
+<th>Traditional SE</th>
+<th>Agentic Engineering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core artifact</td>
+<td>ソースコード(静的)</td>
+<td>エージェントシステム(動的)</td>
+</tr>
+<tr>
+<td>Control center</td>
+<td>人間エンジニア</td>
+<td>LLM reasoning engine</td>
+</tr>
+<tr>
+<td>Decision mechanism</td>
+<td>事前設計のロジック</td>
+<td>実行時生成の推論</td>
+</tr>
+<tr>
+<td>Development cycle</td>
+<td>線形(design→code→test)</td>
+<td>自律的な反復ループ</td>
+</tr>
+<tr>
+<td>Human role</td>
+<td>コードの著者</td>
+<td>intent architect / coordinator / auditor</td>
+</tr>
+<tr>
+<td>Complexity ceiling</td>
+<td>人間の認知(O(1))</td>
+<td>モデル容量(計算量とともに成長)</td>
+</tr>
+<tr>
+<td>Output unit</td>
+<td>動くソフトウェア</td>
+<td>納品される成果(outcomes)</td>
+</tr>
+<tr>
+<td>Error handling</td>
+<td>プログラマ定義</td>
+<td>モデル適応的</td>
+</tr>
+<tr>
+<td>Evolution</td>
+<td>手動リファクタ</td>
+<td>自己改変</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">人間の役割の再定義<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>コード生成スキルが commoditize される世界で、新たな差別化要因:
+- <strong>Intent articulation(意図の明確化)</strong> — エージェントが意図せぬ結果を出さず自律動作できるだけの明瞭さと制約で目標を指定する力。
+- <strong>Architectural oversight</strong> — 複数エージェントの協調方法・共有記憶・人間判断が介入すべき箇所をシステムレベルで理解する。
+- <strong>Quality calibration</strong> — 「良い」の定義と、エージェントが self-correction に使える評価フレームの構築。
+- <strong>Ethical governance</strong> — エージェント挙動を組織の価値・法・社会的期待に整合させる。</p>
+<p>論文は「agent orchestration を極めた者の生産性乗数は従来の "10x engineer" を遥かに超える —— 速くタイプするのでなく、<strong>swarm を複雑な成果へ調整する能力</strong>によって」と主張する。これは <a href="../ai-code-review/">ai-code-review</a> が指摘する「検証・所有権の責任は人間に残る(outcome auditor)」という論点と表裏一体。</p>
+<h3 id="_4">現状の到達点と限界<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>論文は agentic engineering を<strong>今日は拡張(augmentation)パラダイムとして real かつ transformative</strong>としつつ、完全自律には EvoClaw が露呈した崖(孤立タスク &gt;80% → 連続的進化で最大38%)の克服 —— long-context state 管理・記憶アーキテクチャ・検証機構 —— が必要とする(詳細は <a href="../../entities/the-end-of-software-engineering/">the-end-of-software-engineering</a>)。発展段階は Tool-Augmented → Single-Task Autonomous → <strong>Multi-Agent Teams</strong> → Self-Evolving Ecosystems の4段階(Stage III の具体パターンは本 wiki の <a href="../../syntheses/multi-agent-patterns/">multi-agent-patterns</a> / <a href="../swarm-multi-agent/">swarm-multi-agent</a> / <a href="../graph-multi-agent/">graph-multi-agent</a> が対応)。</p>
+<h2 id="_5">出典<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>raw/articles/ai-tokens-ninety-percent-garbage.md</code>(情報の灯台「AIトークンの9割はゴミだった」2026-06-01)— Stanford の lost-in-the-middle(75%→55%)、Chroma の context rot(18モデル)、「情報を削る方が賢い回答」という逆説。</li>
+<li><code>raw/papers/the-end-of-software-engineering.md</code>(Zhenfeng Cao, arXiv:2606.05608v1, 第4節)— Agentic Engineering の定義(LangChain[7] 引用)、AI coding agent との区別、perception-memory-action(Wang et al.[4])、Hermes Agent の自己進化、Table 2 の対比、人間の役割4要素、生産性乗数の主張。</li>
+<li>同 第5–6節 — orchestration による実証(LangChain pilot)、EvoClaw の限界、4段階ロードマップ。</li>
 </ul>
 
 

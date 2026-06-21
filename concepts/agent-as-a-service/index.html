@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/context-rot/">
+        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/agent-as-a-service/">
       
       
-        <link rel="prev" href="../context-compression/">
+        <link rel="prev" href="../..">
       
       
-        <link rel="next" href="../conversation-management/">
+        <link rel="next" href="../agent-loop/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Context Rot (コンテキスト腐敗) - LLM Wiki</title>
+        <title>Agent-as-a-Service (AaaS) と3世代のソフト配信 - LLM Wiki</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Context Rot (コンテキスト腐敗)
+              Agent-as-a-Service (AaaS) と3世代のソフト配信
             
           </span>
         </div>
@@ -398,10 +398,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../agent-as-a-service/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent-as-a-Service (AaaS) と3世代のソフト配信
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -417,6 +442,107 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        詳細
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="詳細">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-table-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3世代のソフトウェア配信(論文 Table 1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-software-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        「AI → Software → Result」の失敗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        「Agent → Result」: 中間生成物の除去
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        位置づけ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出典
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -594,35 +720,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Context Rot (コンテキスト腐敗)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../context-rot/" class="md-nav__link">
         
   
   
@@ -638,96 +739,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        概要
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        詳細
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="詳細">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lost-in-the-middle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lost in the Middle(中間無視)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#context-rotchroma" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Context Rot(Chroma)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        含意 — 「賢いモデル」より「何を読ませるか」
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        出典
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1720,10 +1731,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lost-in-the-middle" class="md-nav__link">
+  <a href="#3-table-1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lost in the Middle(中間無視)
+        3世代のソフトウェア配信(論文 Table 1)
       
     </span>
   </a>
@@ -1731,10 +1742,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#context-rotchroma" class="md-nav__link">
+  <a href="#ai-software-result" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Context Rot(Chroma)
+        「AI → Software → Result」の失敗
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        「Agent → Result」: 中間生成物の除去
       
     </span>
   </a>
@@ -1745,7 +1767,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        含意 — 「賢いモデル」より「何を読ませるか」
+        位置づけ
       
     </span>
   </a>
@@ -1788,31 +1810,69 @@
   
 
 
-  <h1>Context Rot (コンテキスト腐敗)</h1>
+  <h1>Agent-as-a-Service (AaaS) と3世代のソフト配信</h1>
 
 <h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><strong>Context Rot(コンテキスト腐敗)</strong> は、データ統合企業 Chroma の研究チームが名付けた現象で、<strong>入力(コンテキスト)が長くなるほど LLM のパフォーマンスが低下する</strong>こと。18の LLM を検証し<strong>すべてのモデルで確認</strong>された。コンテキストウィンドウを大量の情報で埋めることはコストが高いだけでなく、モデルを混乱させて回答の質を下げうる — トークン圧縮(<a href="../context-compression/">context-compression</a>)がコスト削減と精度向上を両立しうる根拠になっている。</p>
-<h2 id="_2">詳細<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="lost-in-the-middle">Lost in the Middle(中間無視)<a class="headerlink" href="#lost-in-the-middle" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Stanford 大学の研究チームの発見: LLM は<strong>コンテキストウィンドウの先頭と末尾に注意を集中させ、中間部分を無視する</strong>傾向がある。</li>
-<li>20件の文書から情報を検索するタスクで、関連文書が<strong>先頭にあるとき75%</strong>の精度だったが、<strong>中間に移動すると55%</strong>まで低下した。</li>
-</ul>
-<h3 id="context-rotchroma">Context Rot(Chroma)<a class="headerlink" href="#context-rotchroma" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Chroma がこの現象を「context rot」と命名。18の LLM を検証し、<strong>入力が長くなるほどパフォーマンスが低下する</strong>ことを全モデルで確認した。</li>
-</ul>
-<h3 id="_3">含意 — 「賢いモデル」より「何を読ませるか」<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<ul>
-<li>情報を削って本質だけを渡す方が、むしろ賢い回答が返ってくるという逆説。問題は「モデルが賢いかどうか」ではなく「<strong>モデルに毎回何を読ませているか</strong>」に移っている(→ <a href="../../entities/tejas-chopra/">tejas-chopra</a> / <a href="../context-compression/">context-compression</a>)。</li>
-<li>これは <a href="../conversation-management/">conversation-management</a> が context window 内に履歴を保ちながら関連性・一貫性を維持しようとする動機(トークン上限・性能・関連性・一貫性)と同根の問題。圧縮・要約・proactive compression は、コストだけでなく<strong>品質</strong>の観点からも正当化される。</li>
-</ul>
+<p><strong>Agent-as-a-Service(AaaS / Software 3.0)</strong> は、Zhenfeng Cao(arXiv:2606.05608v1, <a href="../../entities/the-end-of-software-engineering/">the-end-of-software-engineering</a>)が提唱する<strong>ソフトウェア配信の第3世代</strong>。商用ソフトの歴史を「<strong>複雑性をエンドユーザから漸進的に移転してきた</strong>過程」と捉え、licensed software(1.0)→ SaaS(2.0)→ <strong>AaaS(3.0)</strong> と整理する。各遷移は「複雑性を最もよく吸収できる主体が吸収し、最も扱えない主体が解放される」という同一パターンに従う。AaaS では<strong>エージェントが理解・構築・実行を担い</strong>、ユーザは「どう作るか」を指定する必要から解放され「<strong>どんな成果がほしいか</strong>」だけを述べる。</p>
 <blockquote>
-<p>⚠️ 出典の範囲: 本ページは二次情報(joho-todai.com の記事)に基づく。Stanford / Chroma の原論文・具体的な実験条件は当該記事の引用範囲を超えるため未収録。</p>
+<p>出典: 本ページの主張はすべて Zhenfeng Cao の論文(<a href="../../entities/the-end-of-software-engineering/">the-end-of-software-engineering</a>)第3節に基づく。ポジションペーパーの整理であり、本 wiki が独立検証した事実ではない。</p>
 </blockquote>
+<h2 id="_2">詳細<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="3-table-1">3世代のソフトウェア配信(論文 Table 1)<a class="headerlink" href="#3-table-1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>世代</th>
+<th>コア機構</th>
+<th>複雑性の所有者</th>
+<th>収益モデル</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Software 1.0(Local)</strong></td>
+<td>コード+データを on-premise で実行</td>
+<td>エンドユーザ(インストール・保守)</td>
+<td>ライセンス販売</td>
+<td>Microsoft, Oracle</td>
+</tr>
+<tr>
+<td><strong>Software 2.0(SaaS)</strong></td>
+<td>コード+データをクラウドで実行</td>
+<td>ベンダ(インフラ・更新)</td>
+<td>サブスクリプション</td>
+<td>Salesforce, AWS</td>
+</tr>
+<tr>
+<td><strong>Software 3.0(AaaS)</strong></td>
+<td>エージェントがクラウドで自律運用</td>
+<td><strong>エージェント</strong>(理解・構築・実行)</td>
+<td><strong>outcome-based(成果課金)</strong></td>
+<td>OpenAI, Anthropic</td>
+</tr>
+</tbody>
+</table>
+<p>SaaS が企業を「サーバ室」から解放したように、AaaS は「<strong>結果の作り方を指定する必要</strong>」から解放すると論じる。</p>
+<blockquote>
+<p>⚠️ 用語注: 論文の "Software 2.0" は Karpathy の "Software 2.0"(= 学習重みが手書きロジックを置換)とは<strong>別の用法</strong>で、ここでは配信形態としての SaaS を指す。論文は別箇所で Karpathy の Software 2.0 概念も(形式モデルの文脈で)引用しており、同じ語が二義的に使われる点に注意。</p>
+</blockquote>
+<h3 id="ai-software-result">「AI → Software → Result」の失敗<a class="headerlink" href="#ai-software-result" title="Permanent link">&para;</a></h3>
+<p>現状主流の <strong>AI-augmented development</strong>(LLM で人間エンジニアのコード生成を高速化、従来ライフサイクル内)を論文は「AI → Software → Result」パイプラインと呼び、3つの構造的弱点を指摘:
+1. <strong>Bottleneck persistence</strong> — 設計・アーキテクチャ・統合テスト・デプロイで人間が critical path に残る。AI は実装の一サブステップ(コード生成)を速めるだけで、どのフェーズからも人間を外さない。
+2. <strong>Complexity ceiling intact</strong> — 最終成果物は依然 <code>S=(C,D,E)</code> の従来ソフト。複雑性は D のサイズとともにスケールし、改変には人間の理解が要る。AI は D の構築をやや速めただけ。
+3. <strong>Iteration latency</strong> — AI 支援があっても機能変更は requirements→design→code→test→deploy の全鎖を辿る。このレイテンシは人間のコミュニケーション・調整速度を下回れない。</p>
+<h3 id="agent-result">「Agent → Result」: 中間生成物の除去<a class="headerlink" href="#agent-result" title="Permanent link">&para;</a></h3>
+<p>代替パラダイムはソフトウェア成果物を必須の中間物として消す:
+1. 人間がエージェントに <strong>intent と制約</strong>を articulate する。
+2. エージェントが自律的に plan → execute(必要時にコード生成)→ validate → deliver。
+3. 人間が outcome を audit しフィードバックする。</p>
+<p>このモデルでは「ソフトウェアが納品されるのでなく、<strong>成果(outcomes)が納品される</strong>」。エージェントは数千行のコード生成・DB クエリ・外部 API 呼び出し・可視化を<strong>すべて ephemeral に</strong>行い、永続するのは<strong>エージェントの能力であって中間生成物ではない</strong>。これは「AI → Software → Result」が SaaS 相当の中間物(=ソフト)を残すのに対し、AaaS がそれをも除去する点で<strong>第3のパラダイムシフト</strong>だ、という論文の骨子。</p>
+<h3 id="_3">位置づけ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>AaaS は配信・ビジネスモデル側の主張で、その実装・実務の規律側が <a href="../agentic-engineering/">agentic-engineering</a>(control plane としての multi-agent orchestration)。両者は同じ論文の表裏で、AaaS が「何が売られるか(成果)」を、Agentic Engineering が「誰がどう作るか(エージェント群 + intent architect)」を扱う。</p>
 <h2 id="_4">出典<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>raw/articles/ai-tokens-ninety-percent-garbage.md</code>(情報の灯台「AIトークンの9割はゴミだった」2026-06-01)— Stanford の lost-in-the-middle(75%→55%)、Chroma の context rot(18モデル)、「情報を削る方が賢い回答」という逆説。</li>
+<li><code>raw/papers/the-end-of-software-engineering.md</code>(Zhenfeng Cao, arXiv:2606.05608v1, 第3節)— Table 1 の3世代、複雑性移転パターン、「AI→Software→Result」の3弱点、「Agent→Result」の3ステップと outcomes 納品、Kumar &amp; Ramagopal[7] の control plane 引用。</li>
 </ul>
 
 
