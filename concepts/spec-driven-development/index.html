@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/entities/model-context-protocol/">
+        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/spec-driven-development/">
       
       
-        <link rel="prev" href="../argo-cd/">
+        <link rel="prev" href="../plugins/">
       
       
-        <link rel="next" href="../one-developer-is-all-you-need/">
+        <link rel="next" href="../state-management/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Model Context Protocol (MCP) - LLM Wiki</title>
+        <title>Spec-Driven Development(SDD / 仕様駆動開発) - LLM Wiki</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Model Context Protocol (MCP)
+              Spec-Driven Development(SDD / 仕様駆動開発)
             
           </span>
         </div>
@@ -296,6 +296,8 @@
       
   
   
+    
+  
   
   
     
@@ -324,675 +326,6 @@
         
       
         
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Concepts
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Concepts
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/agent-loop/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Agent Loop
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/agent-skills/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Skills (AgentSkills)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/ai-code-review/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AI コードレビューと著者性の前提
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/argo-cd-controller-scaling/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Argo CD Application Controller のスケーリング
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/context-compression/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Context Compression (コンテキスト圧縮)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/context-rot/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Context Rot (コンテキスト腐敗)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/conversation-management/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Conversation Management
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/custom-tools/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Creating Custom Tools
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/evaluators/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Evaluators (Strands Evals)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/experiment-management/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Experiment Management (Strands Evals)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/gitops/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GitOps
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/graph-multi-agent/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Graph Multi-Agent Pattern
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/knowledge-bundle/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Knowledge Bundle(OKF のバンドル構造)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/loop-engineering/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Loop Engineering
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/mcp-tools/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MCP Tools (Strands × MCP)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/one-person-squad/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    One-Person Squad(一人スカッド)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/plugins/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Plugins
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/spec-driven-development/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Spec-Driven Development(SDD / 仕様駆動開発)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/state-management/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    State Management
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/structured-output/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Structured Output
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/swarm-multi-agent/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Swarm Multi-Agent Pattern
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
       
         
       
@@ -1025,17 +358,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Entities
+    Concepts
   
 
     
@@ -1046,12 +379,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Entities
+    Concepts
   
 
           </label>
@@ -1064,14 +397,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../addy-osmani/" class="md-nav__link">
+      <a href="../agent-loop/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Addy Osmani
+    Agent Loop
   
 
     
@@ -1092,14 +425,434 @@
   
   
     <li class="md-nav__item">
-      <a href="../argo-cd/" class="md-nav__link">
+      <a href="../agent-skills/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Argo CD
+    Skills (AgentSkills)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-code-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI コードレビューと著者性の前提
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../argo-cd-controller-scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argo CD Application Controller のスケーリング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-compression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Compression (コンテキスト圧縮)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-rot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Rot (コンテキスト腐敗)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conversation-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conversation Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating Custom Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluators (Strands Evals)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../experiment-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experiment Management (Strands Evals)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-multi-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Multi-Agent Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge-bundle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Knowledge Bundle(OKF のバンドル構造)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loop-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loop Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Tools (Strands × MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../one-person-squad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    One-Person Squad(一人スカッド)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
   
 
     
@@ -1134,7 +887,7 @@
   <span class="md-ellipsis">
     
   
-    Model Context Protocol (MCP)
+    Spec-Driven Development(SDD / 仕様駆動開発)
   
 
     
@@ -1152,7 +905,7 @@
   <span class="md-ellipsis">
     
   
-    Model Context Protocol (MCP)
+    Spec-Driven Development(SDD / 仕様駆動開発)
   
 
     
@@ -1187,10 +940,21 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TDD との系譜と一歩上流への一般化
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        詳細
+        なぜ重要か: 律速を「仕様の質」に移す
       
     </span>
   </a>
@@ -1199,6 +963,28 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実務上のレバー
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        関連
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -1224,7 +1010,254 @@
   
   
     <li class="md-nav__item">
-      <a href="../one-developer-is-all-you-need/" class="md-nav__link">
+      <a href="../state-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structured-output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structured Output
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../swarm-multi-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swarm Multi-Agent Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entities
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Entities
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/addy-osmani/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Addy Osmani
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/argo-cd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argo CD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/model-context-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Context Protocol (MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/one-developer-is-all-you-need/" class="md-nav__link">
         
   
   
@@ -1252,7 +1285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../open-knowledge-format/" class="md-nav__link">
+      <a href="../../entities/open-knowledge-format/" class="md-nav__link">
         
   
   
@@ -1280,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../project-headroom/" class="md-nav__link">
+      <a href="../../entities/project-headroom/" class="md-nav__link">
         
   
   
@@ -1308,7 +1341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../strands-agents-evals/" class="md-nav__link">
+      <a href="../../entities/strands-agents-evals/" class="md-nav__link">
         
   
   
@@ -1336,7 +1369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../strands-agents/" class="md-nav__link">
+      <a href="../../entities/strands-agents/" class="md-nav__link">
         
   
   
@@ -1364,7 +1397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tejas-chopra/" class="md-nav__link">
+      <a href="../../entities/tejas-chopra/" class="md-nav__link">
         
   
   
@@ -1579,10 +1612,21 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TDD との系譜と一歩上流への一般化
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        詳細
+        なぜ重要か: 律速を「仕様の質」に移す
       
     </span>
   </a>
@@ -1591,6 +1635,28 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実務上のレバー
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        関連
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -1620,23 +1686,32 @@
   
 
 
-  <h1>Model Context Protocol (MCP)</h1>
+  <h1>Spec-Driven Development(SDD / 仕様駆動開発)</h1>
 
 <h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><strong>Model Context Protocol(MCP)</strong> は、アプリケーションが大規模言語モデル(LLM)へコンテキストを提供する方法を標準化するオープンプロトコル。公式サイトは <a href="https://modelcontextprotocol.io">modelcontextprotocol.io</a>。<a href="../strands-agents/">strands-agents</a> は MCP と統合し、外部 MCP サーバが提供するツールでエージェント能力を拡張できる。</p>
-<h2 id="_2">詳細<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><strong>Spec-Driven Development(SDD / 仕様駆動開発)</strong> は、AI 支援のソフトウェア構築において、<strong>コードではなく自然言語の仕様(specification)を第一級の工学的成果物</strong>として扱う新興パラダイム(Rosa et al. 2026)。LLM コーディングアシスタント(GitHub Copilot, Devin など)が開発者の労力を「実装の記述」から「意図の宣言」(要件・インタフェース契約・事前/事後条件・受け入れ基準)へ移したことが前提。開発者の役割は、AI が曖昧さ最小でコードを生成・テスト・洗練できる程度に<strong>精密な仕様を書くこと</strong>になり、仕様自体が設計判断を記録し後の保守を支える耐久的成果物として残る。</p>
+<h2 id="tdd">TDD との系譜と一歩上流への一般化<a class="headerlink" href="#tdd" title="Permanent link">&para;</a></h2>
+<p>SDD は <strong>Test-Driven Development(TDD)</strong> に明確な系譜を持つ。TDD は実装前にテストを書くことでコードファースト workflow を反転させる。近年 TDD ループと LLM の組合せが生成コードの精度・信頼性を上げることが示されている(モデルに収束先の実行可能な受け入れ基準を与えるため)。SDD はこれを<strong>一歩上流に一般化</strong>する——テスト自体が「別途の著述ステップ」ではなく<strong>仕様の出力</strong>になり、仕様が実装と検証の双方を統べる。</p>
+<h2 id="_2">なぜ重要か: 律速を「仕様の質」に移す<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>SDD の核心は、出力品質の binding constraint を<strong>モデル能力ではなく仕様の質</strong>にすること。<a href="../../entities/one-developer-is-all-you-need/">one-developer-is-all-you-need</a> はこれを実証的に裏づけた:
+- 詳細で曖昧さのない仕様は、supervised(Copilot)・autonomous(Devin)双方で、ほぼ無修正のコードを生んだ。
+- 曖昧/不完全な仕様は、<strong>どのツールでも使い物にならない出力</strong>になった。
+- ブラウンフィールドでは<strong>未文書化のレガシー統合契約</strong>が最大の under-specification 源。既存の振る舞い契約を仕様に明示しないと生成コードがそれを破り、rework が「より完全な事前仕様」のコストを上回った。</p>
+<h2 id="_3">実務上のレバー<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
-<li>MCP は、エージェントと「追加ツールを提供する MCP サーバ」の間の通信を可能にする。Strands は Python / TypeScript の双方で MCP サーバ接続の組み込みサポートを持つ。</li>
-<li>Strands における具体的な利用方法(<code>MCPClient</code>、トランスポート、複数サーバ、elicitation など)は <a href="../../concepts/mcp-tools/">mcp-tools</a> に詳述。</li>
-<li>MCP には <strong>elicitation</strong>(サーバがツール呼び出しを一時停止し、ユーザへ追加入力を要求する)などの仕様が含まれる。詳細は <a href="https://modelcontextprotocol.io/specification/draft/client/elicitation">MCP specification</a>。</li>
+<li><strong>構造化プロンプトとしての仕様テンプレート</strong>: アーキ判断・インタフェース契約・受け入れ基準・コンプライアンス制約を含む正準テンプレートを構造化プロンプトとして用い、設計フェーズと実行フェーズを分離(論文 Fig.1 のテンプレート)。</li>
+<li><strong>継続性(continuity)レバー</strong>: SDD が生む仕様・決定記録・エージェント設定は、別のエンジニアや別のエージェント群がプロジェクトを途中から引き継げる程度に詳細。SDD はコード品質レバーであると同時に<a href="../one-person-squad/">one-person-squad</a>の単一障害点を緩和する継続性レバーでもある。</li>
+<li><strong>スキーマで型を固める</strong>ことと相補的: 機械可読な出力契約は <a href="../structured-output/">structured-output</a>(Pydantic/Zod スキーマ)の発想と地続き。SDD は人間可読な意図契約を上流に置く。</li>
 </ul>
-<blockquote>
-<p>ℹ️ 注: 本 wiki の親リポジトリ環境(Claude Code)も <code>mcp__github__*</code> のような MCP ツールを利用するが、それは Strands SDK とは別文脈。ここで扱うのは Strands Agents から見た MCP 連携である。</p>
-<p>📎 別用途: MCP は「ツール提供」以外にも使える。<a href="../project-headroom/">project-headroom</a> の CCR は、圧縮で削った原文を必要時に取り出す <strong>retrieval の経路</strong>として MCP サーバーを用いる(→ <a href="../../concepts/context-compression/">context-compression</a>)。</p>
-</blockquote>
-<h2 id="_3">出典<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">関連<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>raw/articles/strands-mcp-tools.mdx</code> — 「MCP はアプリが LLM へコンテキストを提供する方法を標準化するオープンプロトコル」「Strands は MCP と統合し外部ツール/サービスで能力を拡張」と記載。</li>
+<li><a href="../../entities/one-developer-is-all-you-need/">one-developer-is-all-you-need</a> — SDD を一人スカッドで運用した実証事例。</li>
+<li><a href="../one-person-squad/">one-person-squad</a> — SDD を成立基盤とするチーム構成。</li>
+<li><a href="../structured-output/">structured-output</a> — 出力契約をスキーマで強制する補完的手法(Strands)。</li>
+</ul>
+<h2 id="_5">出典<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>raw/papers/one-developer-is-all-you-need.md(§II-A, §III, §V-B; Rosa et al. 2026 を引用)</li>
 </ul>
 
 
