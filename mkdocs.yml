@@ -1,0 +1,78 @@
+site_name: LLM Wiki
+site_description: Karpathy の LLM wiki パターンに基づく、LLM エージェントが保守する知識ベース
+site_url: https://ishii1648.github.io/llm-wiki/
+repo_url: https://github.com/ishii1648/llm-wiki
+repo_name: ishii1648/llm-wiki
+edit_uri: edit/main/wiki/
+
+# wiki/ をそのまま docs ソースとして公開する（ソースは加工せず、ビルド時にのみ変換）
+docs_dir: wiki
+
+# 運用ログ・ソース台帳は公開サイトには含めない
+exclude_docs: |
+  log.md
+  sources.md
+
+theme:
+  name: material
+  language: ja
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: ライトモードに切り替え
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: ダークモードに切り替え
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: システム設定に従う
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  # Obsidian 互換の [[wikilink]] / [[wikilink|別名]] を有効なリンクへ変換する
+  - roamlinks
+  - search:
+      lang:
+        - ja
+        - en
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ishii1648/llm-wiki

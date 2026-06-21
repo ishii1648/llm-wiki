@@ -10,6 +10,10 @@
 - [[strands-agents-evals]] — エージェント評価フレームワーク `strands-agents-evals`(Experiment/Case/evaluator) (updated: 2026-05-30)
 - [[argo-cd]] — Kubernetes 上の CNCF GitOps デリバリツール(repo server / application controller / API server) (updated: 2026-06-04)
 - [[one-developer-is-all-you-need]] — 1人+4 AIエージェントで4人スカッド規模のブラウンフィールド案件を半分の期間で完遂した Itaú の事例研究(arXiv:2605.18461) (updated: 2026-06-05)
+- [[addy-osmani]] — agentic development を論じるブロガー/エンジニア。[[loop-engineering]] の著者ハブ (updated: 2026-06-10)
+- [[project-headroom]] — LLM に届く前に context を可逆圧縮する OSS ローカルプロキシ(CacheAligner→ルーター→AST/JSON/DOM→CCR)。Netflix の Tejas Chopra 作 (updated: 2026-06-11)
+- [[tejas-chopra]] — Netflix シニアエンジニア。$287 の Claude 請求から [[project-headroom]] を開発。「トークンの9割は冗長」 (updated: 2026-06-11)
+- [[open-knowledge-format]] — YAML frontmatter 付き markdown だけで知識を表現するオープン仕様 OKF v0.1(Google Cloud) (updated: 2026-06-19)
 
 ## Concepts
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -30,8 +34,13 @@
 - [[argo-cd-controller-scaling]] — Argo CD を10,000アプリ規模で回す設定: client QPS とシャーディングが最も効く(AWS/EKS 6実験) (updated: 2026-06-04)
 - [[one-person-squad]] — 1人が複数 AI エージェントを指揮する最小チーム構成。core/non-core 分割と「経験者=品質ゲート」が成立条件 (updated: 2026-06-05)
 - [[spec-driven-development]] — コードでなく自然言語仕様を第一級成果物とする AI 支援開発。律速をモデル能力でなく「仕様の質」に移す(SDD) (updated: 2026-06-05)
+- [[loop-engineering]] — prompt する自分をループ設計に置き換える。Automations/Worktrees/Skills/Connectors/Sub-agents+memory(Codex⇔Claude Code 対応) (updated: 2026-06-10)
+- [[context-compression]] — LLM 入力から冗長メタデータを削りトークンコストを下げる手法群。可逆圧縮/プロバイダキャッシュ(TTL)/競合ツール比較。「何を読ませるか」へ (updated: 2026-06-11)
+- [[context-rot]] — 入力が長いほど LLM の精度が落ちる現象(Chroma, 18モデル)。Stanford の lost-in-the-middle(75%→55%)。圧縮は品質面でも正当化 (updated: 2026-06-11)
+- [[knowledge-bundle]] — OKF の配布単位。markdown ディレクトリツリーの構造・予約ファイル名・conformance (updated: 2026-06-19)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->
 - [[multi-agent-patterns]] — Graph/Swarm/Workflow の比較と「実行経路の決まり方」による使い分け (updated: 2026-05-30)
 - [[graph-swarm-hybrid]] — Graph ノードに Swarm をネストするハイブリッド構成の設計と地雷 (updated: 2026-05-30)
+- [[okf-and-llm-wiki]] — OKF とこの llm-wiki リポジトリ(Karpathy LLM Wiki パターン)の対応・差分 (updated: 2026-06-19)

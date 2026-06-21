@@ -1,0 +1,139 @@
+name: Deploy Wiki to GitHub Pages
+
+# wiki/ を MkDocs Material でビルドし gh-pages ブランチへ公開する。
+#  - main への push  : サイト本体を gh-pages のルートへデプロイ（PR プレビューは保持）
+#  - PR の作成/更新   : pr-preview/pr-<N>/ へプレビューをデプロイし、PR にURLをコメント
+#  - PR のクローズ    : 対応するプレビューを削除
+#
+# Pages のソースはリポジトリ設定で
+#   Settings → Pages → Build and deployment → Source = "Deploy from a branch"
+#   Branch = "gh-pages" / "/ (root)"
+# を選択しておくこと。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "wiki/**"
+      - "mkdocs.yml"
+      - "requirements-docs.txt"
+      - ".github/workflows/deploy-docs.yml"
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    paths:
+      - "wiki/**"
+      - "mkdocs.yml"
+      - "requirements-docs.txt"
+      - ".github/workflows/deploy-docs.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write       # gh-pages ブランチへの push 用
+  pull-requests: write  # プレビューURLのコメント用
+
+# 同一 PR / main 単位で直列化（実行中はキャンセルしない）
+concurrency:
+  group: pages-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # 変更ページ抽出のため PR base との diff が必要 (sticky comment step)
+          fetch-depth: 0
+
+      # PR クローズ時はビルド不要（プレビュー削除のみ）
+      - name: Setup Python
+        if: github.event.action != 'closed'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+          cache: pip
+          cache-dependency-path: requirements-docs.txt
+
+      - name: Install dependencies
+        if: github.event.action != 'closed'
+        run: pip install -r requirements-docs.txt
+
+      - name: Build site
+        if: github.event.action != 'closed'
+        run: mkdocs build --site-dir _site
+
+      # main: サイト本体を gh-pages ルートへ。keep_files で pr-preview/ を保持する
+      - name: Deploy to GitHub Pages (production)
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
+          keep_files: true
+
+      # PR: pr-preview/pr-<N>/ へデプロイ/更新/削除し、PR にプレビューURLをコメント
+      - name: Deploy PR preview
+        if: github.event_name == 'pull_request'
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./_site
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
+
+      # PR で追加/更新された wiki ページの直リンク一覧を sticky comment として投稿/更新
+      - name: Comment changed pages on PR
+        if: github.event_name == 'pull_request' && github.event.action != 'closed'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+
+          base_url="https://ishii1648.github.io/llm-wiki/pr-preview/pr-${PR_NUMBER}"
+          marker='<!-- pr-preview-pages -->'
+
+          # PR で wiki/ 配下に追加/更新/リネームされた .md (公開対象のみ。log.md/sources.md は除外)
+          mapfile -t files < <(
+            git diff --name-only --diff-filter=AMR "${BASE_SHA}...${HEAD_SHA}" -- wiki/ \
+              | grep -E '\.md$' \
+              | grep -Ev '^wiki/(log|sources)\.md$' \
+              | sort -u || true
+          )
+
+          {
+            printf '%s\n' "${marker}"
+            printf '## この PR で追加/更新された wiki ページ\n\n'
+            if [ "${#files[@]}" -eq 0 ]; then
+              printf '_公開対象のページに変更はありません。_\n'
+            else
+              for f in "${files[@]}"; do
+                rel="${f#wiki/}"
+                case "${rel}" in
+                  index.md)   url="${base_url}/" ;;
+                  */index.md) url="${base_url}/${rel%index.md}" ;;
+                  *.md)       url="${base_url}/${rel%.md}/" ;;
+                esac
+                printf -- '- [`%s`](%s)\n' "${rel}" "${url}"
+              done
+            fi
+          } > /tmp/pr-pages-comment.md
+
+          jq -Rs '{body: .}' /tmp/pr-pages-comment.md > /tmp/pr-pages-payload.json
+
+          existing=$(
+            gh api --paginate "repos/${REPO}/issues/${PR_NUMBER}/comments" \
+              --jq '.[] | select(.body | startswith("'"${marker}"'")) | .id' \
+              | head -n1
+          )
+
+          if [ -n "${existing}" ]; then
+            gh api --method PATCH "repos/${REPO}/issues/comments/${existing}" --input /tmp/pr-pages-payload.json >/dev/null
+          else
+            gh api --method POST  "repos/${REPO}/issues/${PR_NUMBER}/comments" --input /tmp/pr-pages-payload.json >/dev/null
+          fi

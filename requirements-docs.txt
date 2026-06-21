@@ -1,0 +1,3 @@
+# GitHub Pages（MkDocs Material）のビルド依存
+mkdocs-material>=9.5
+mkdocs-roamlinks-plugin>=0.3.2
