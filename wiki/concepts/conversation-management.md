@@ -4,7 +4,7 @@ type: concept
 aliases: [conversation management, 会話管理, ConversationManager, conversation manager]
 tags: [strands, agent, context, conversation, token-limit]
 created: 2026-05-30
-updated: 2026-05-30
+updated: 2026-06-11
 sources:
   - raw/articles/strands-conversation-management.mdx
 related:
@@ -12,6 +12,8 @@ related:
   - "[[agent-loop]]"
   - "[[state-management]]"
   - "[[mcp-tools]]"
+  - "[[context-compression]]"
+  - "[[context-rot]]"
 ---
 
 ## 概要
@@ -60,6 +62,8 @@ SlidingWindowConversationManager(
 - `BeforeModelCallEvent` ごとに発火するため、ツール使用サイクル内でも **自動 in-loop 圧縮** が効く。best-effort で、失敗してもモデル呼び出しは続行。
 - 閾値判定にはモデルの `contextWindowLimit` が必要。既知モデルは自動補完、未知モデルは `context_window_limit=128_000` 等で手動上書き。
 - **トークン推定**: 直近 assistant メッセージの `metadata.usage` をベースに差分を `countTokens()` で見積もる(文字数 ÷4、JSON は ÷2 のヒューリスティック。プロバイダによっては native トークンカウント可)。
+
+> 📎 **別レイヤとの関係**: ここで扱うのは SDK が会話履歴を context window に収める（リアクティブ/先回りの）圧縮。これとは別に、**プロバイダに送る直前にローカルプロキシで型別に可逆圧縮**するアプローチ([[context-compression]] / [[project-headroom]])がある。長い context はコストだけでなく品質も落とす([[context-rot]])ため、圧縮は両面から正当化される。
 
 ### カスタム ConversationManager
 Python は `apply_management` / `reduce_context` / `removed_message_count`(/任意 `register_hooks`)を実装。TS は抽象 `ConversationManager` を継承し `reduce(options)` を実装(`initAgent` で proactive 管理を追加。`super` 呼び出し必須)。
