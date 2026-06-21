@@ -35,5 +35,6 @@ ingest のたびに LLM が追記・更新します(過去行は再 ingest 時�
 - raw/articles/argo-cd-scalability-testing-on-eks.md | sha256:781b10ca47be | 2026-06-04 | [[argo-cd]], [[gitops]], [[argo-cd-controller-scaling]]
 - raw/papers/one-developer-is-all-you-need.md | sha256:4983a3ce6186 | 2026-06-05 | [[one-developer-is-all-you-need]], [[one-person-squad]], [[spec-driven-development]]
 - raw/articles/loop-engineering.md | sha256:818a59afada1 | 2026-06-10 | [[loop-engineering]], [[addy-osmani]]
+- raw/papers/the-end-of-software-engineering.md | sha256:2c9494910273 | 2026-06-10 | [[the-end-of-software-engineering]], [[agentic-engineering]], [[agent-as-a-service]]
 - raw/articles/ai-tokens-ninety-percent-garbage.md | sha256:6aa9b6624479 | 2026-06-11 | [[project-headroom]], [[tejas-chopra]], [[context-compression]], [[context-rot]]
 - raw/articles/okf-spec.md | sha256:b9655e607346 | 2026-06-19 | [[open-knowledge-format]], [[knowledge-bundle]], [[okf-and-llm-wiki]]

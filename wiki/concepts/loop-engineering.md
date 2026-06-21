@@ -15,6 +15,7 @@ related:
   - "[[plugins]]"
   - "[[multi-agent-patterns]]"
   - "[[ai-code-review]]"
+  - "[[agentic-engineering]]"
 ---
 
 ## 概要

@@ -13,6 +13,7 @@ related:
   - "[[state-management]]"
   - "[[multi-agent-patterns]]"
   - "[[loop-engineering]]"
+  - "[[agentic-engineering]]"
 ---
 
 ## 概要

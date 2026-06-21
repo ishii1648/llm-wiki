@@ -11,6 +11,7 @@ related:
   - "[[agent-loop]]"
   - "[[one-developer-is-all-you-need]]"
   - "[[loop-engineering]]"
+  - "[[agentic-engineering]]"
 ---
 
 ## 概要
