@@ -113,3 +113,17 @@
 - 主な学び: OKF v0.1 は「YAML frontmatter 付き markdown のディレクトリ」だけで知識を表現するオープン仕様。必須は `type` のみ、consumer は未知 type/壊れたリンク/欠損フィールドを拒否してはならない(permissive consumption)。spec §10 が LLM wiki リポジトリ・Obsidian・metadata as code を近縁とし、本 repo(Karpathy LLM Wiki パターン)はまさにその一実装。対応・差分を synthesis 化した。
 - 出典の扱い: ユーザー指定の Google Cloud ブログは著作権上 raw へ全文保存できないため、同内容のオープン一次ソース(GoogleCloudPlatform/knowledge-catalog `okf/SPEC.md`, Apache-2.0)を raw/articles/okf-spec.md として ground truth に保存。ブログは作者・公開日(2026-06-13)・エコシステム(Knowledge Catalog/reference impl/sample bundles)の出典として URL 参照のみ。
 - 矛盾・要確認: 本 repo の wikilink `[[name]]` と OKF 推奨の bundle-relative リンク(/path.md)が非互換 / 本 repo の lint はリンク切れを問題視するが OKF は broken link を「未到達知識」として許容 —— 運用ポリシーが逆方向(okf-and-llm-wiki に記載)。
+
+## [2026-06-27] ingest | Michael Lynch "How to Write an Effective Software Design Document" (refactoringenglish.com)
+- 追加したページ: [[design-doc]](concept), [[michael-lynch]](entity)
+- 既存更新: [[spec-driven-development]] に `related: [[design-doc]]` を追加(SDD spec は LLM への発注書、design doc は実装前合意の人間-人間ドキュメント、という補完関係)
+- 取得・保存: WebFetch は要約しか返さなかったため curl で raw HTML 取得 → markdownify (Python) で `<article>` を抽出して `raw/articles/write-an-effective-design-doc.md` に保存(498 行、sha256:e53c49985af4)
+- 主な学び:
+  - **書くか否かの判断軸は「間違えたときのコスト」**。high-cost(言語選択)は書く、low-cost(ページネーション UI)は書かない・レビューサイクルにも載せない。実装の全仕様を書こうとすると「設計段階で実装したのと同じ」になり目的が崩壊する。
+  - **構成要素は 23 節**(Title / Metadata / Objective / Background / Related documents / Goals / Non-goals / Scenarios / Diagrams / Glossary / Constraints / SLOs / Monitoring / Timeline / Interfaces / Dependencies / Security / Privacy / Legal / Logging / Open issues / Resolved issues / Alternatives considered)。全節を毎回入れない、案件で取捨選択。
+  - Goals は **impact** で書く(「Kubernetes 導入」でなく「outage 最小化」)。SLO は数値で(SLA は SLO + 金銭ペナルティで社内では普通 SLO のみ)。Monitoring は SLO の検出手段とセットで(でないと未検出のまま劣化する)。
+  - Diagrams は **編集可能な形式必須**(写真化された手書き図は陳腐化したまま放置される)。推奨: Excalidraw / draw.io / Mermaid / D2 / Graphviz。LLM に diagram コードを生成させると効率良い。
+  - Open issues / Resolved issues は**移し替え+元議論を残す**(将来の意思決定理由が消えないように)。Alternatives considered は簡潔に(網羅は overkill)。
+- 矛盾・要確認:
+  - 著者は「公開された high-quality な design doc を見たことがない」と明言し自作 OSS [little-moments](https://codeberg.org/mtlynch/little-moments) の[実物 design doc](https://refactoringenglish.com/excerpts/write-an-effective-design-doc/little-moments-design-doc/) を公開。実物 doc は今回は ingest しなかった(必要なら次回追加)。
+  - [[spec-driven-development]] との関係性は短い注記にとどめた。SDD spec(AI 発注書) vs design doc(人間合意)の比較を将来 synthesis 化する余地あり。

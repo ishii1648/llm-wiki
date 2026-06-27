@@ -15,6 +15,7 @@
 - [[project-headroom]] — LLM に届く前に context を可逆圧縮する OSS ローカルプロキシ(CacheAligner→ルーター→AST/JSON/DOM→CCR)。Netflix の Tejas Chopra 作 (updated: 2026-06-11)
 - [[tejas-chopra]] — Netflix シニアエンジニア。$287 の Claude 請求から [[project-headroom]] を開発。「トークンの9割は冗長」 (updated: 2026-06-11)
 - [[open-knowledge-format]] — YAML frontmatter 付き markdown だけで知識を表現するオープン仕様 OKF v0.1(Google Cloud) (updated: 2026-06-19)
+- [[michael-lynch]] — Google/Microsoft 出身の開発者・writer。Refactoring English の著者で、[[design-doc]] 記事と公開実例の発信源 (updated: 2026-06-27)
 
 ## Concepts
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -41,6 +42,7 @@
 - [[context-compression]] — LLM 入力から冗長メタデータを削りトークンコストを下げる手法群。可逆圧縮/プロバイダキャッシュ(TTL)/競合ツール比較。「何を読ませるか」へ (updated: 2026-06-11)
 - [[context-rot]] — 入力が長いほど LLM の精度が落ちる現象(Chroma, 18モデル)。Stanford の lost-in-the-middle(75%→55%)。圧縮は品質面でも正当化 (updated: 2026-06-11)
 - [[knowledge-bundle]] — OKF の配布単位。markdown ディレクトリツリーの構造・予約ファイル名・conformance (updated: 2026-06-19)
+- [[design-doc]] — 実装前に難しい決定を整理する設計ドキュメント。「間違えたときのコスト」で書くか判断、23 個の構成要素(Goals/Non-goals/SLO/Open issues 等) (updated: 2026-06-27)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->
