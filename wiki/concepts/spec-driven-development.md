@@ -11,6 +11,7 @@ related:
   - "[[one-developer-is-all-you-need]]"
   - "[[one-person-squad]]"
   - "[[structured-output]]"
+  - "[[design-doc]]"
 ---
 
 ## 概要

@@ -38,3 +38,4 @@ ingest のたびに LLM が追記・更新します(過去行は再 ingest 時�
 - raw/papers/the-end-of-software-engineering.md | sha256:2c9494910273 | 2026-06-10 | [[the-end-of-software-engineering]], [[agentic-engineering]], [[agent-as-a-service]]
 - raw/articles/ai-tokens-ninety-percent-garbage.md | sha256:6aa9b6624479 | 2026-06-11 | [[project-headroom]], [[tejas-chopra]], [[context-compression]], [[context-rot]]
 - raw/articles/okf-spec.md | sha256:b9655e607346 | 2026-06-19 | [[open-knowledge-format]], [[knowledge-bundle]], [[okf-and-llm-wiki]]
+- raw/articles/write-an-effective-design-doc.md | sha256:e53c49985af4 | 2026-06-27 | [[design-doc]], [[michael-lynch]]
