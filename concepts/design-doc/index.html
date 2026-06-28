@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/agentic-engineering/">
+        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/design-doc/">
       
       
-        <link rel="prev" href="../agent-skills/">
+        <link rel="prev" href="../custom-tools/">
       
       
-        <link rel="next" href="../ai-code-review/">
+        <link rel="next" href="../evaluators/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Agentic Engineering - LLM Wiki</title>
+        <title>Design Doc(ソフトウェア設計ドキュメント) - LLM Wiki</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Agentic Engineering
+              Design Doc(ソフトウェア設計ドキュメント)
             
           </span>
         </div>
@@ -484,35 +484,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Agentic Engineering
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../agentic-engineering/" class="md-nav__link">
         
   
   
@@ -528,118 +503,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        概要
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        詳細
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="詳細">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ai" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        「AI コーディングエージェント」との区別
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#perception-memory-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        エージェントの基本アーキテクチャ(perception-memory-action)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#se-table-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        従来 SE との対比(論文 Table 2)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        人間の役割の再定義
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        現状の到達点と限界
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        出典
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -817,10 +680,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../design-doc/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Doc(ソフトウェア設計ドキュメント)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -836,6 +724,173 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        書くべきかの判断軸
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        「間違えたときのコスト」原則
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンポーネント一覧(23 節)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="コンポーネント一覧(23 節)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メタ情報
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スコープ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        運用契約
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技術設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リスク
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        未決定事項
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設計原則(抽象)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        関連概念
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出典
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1793,63 +1848,96 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        詳細
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="詳細">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ai" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        「AI コーディングエージェント」との区別
+        書くべきかの判断軸
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#perception-memory-action" class="md-nav__link">
-    <span class="md-ellipsis">
       
-        エージェントの基本アーキテクチャ(perception-memory-action)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#se-table-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        従来 SE との対比(論文 Table 2)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        人間の役割の再定義
+        「間違えたときのコスト」原則
       
     </span>
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンポーネント一覧(23 節)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="コンポーネント一覧(23 節)">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        現状の到達点と限界
+        メタ情報
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スコープ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        運用契約
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技術設計
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リスク
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        未決定事項
       
     </span>
   </a>
@@ -1862,7 +1950,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設計原則(抽象)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        関連概念
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -1892,95 +2002,207 @@
   
 
 
-  <h1>Agentic Engineering</h1>
+  <h1>Design Doc(ソフトウェア設計ドキュメント)</h1>
 
 <h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><strong>Agentic Engineering(エージェンティック・エンジニアリング)</strong> は、AI エージェントを「コードを速く生成する道具」でなく<strong>ソフトウェアデリバリ全体を駆動するデジタルなチームメンバー</strong>として扱う、従来のソフトウェア工学とは<strong>核となる研究対象・制御モデル・人間の役割が異なる</strong>創発的分野。LangChain が2026年4月に提唱した語で(<a href="../../entities/the-end-of-software-engineering/">the-end-of-software-engineering</a> が引用)、「役割・共有記憶・統一された observability 層を持つ AI エージェント群が、コードを速く書くためでなく<strong>デリバリパイプライン全体を通してソフトウェアを駆動する</strong> multi-agent coordination モデル」と定義される。</p>
+<p>実装前に<strong>難しい意思決定</strong>を整理し、チーム/関係チーム間で合意形成するためのドキュメント。
+<a href="../../entities/michael-lynch/">michael-lynch</a> による経験則(Google/Microsoft 出身)では、文書化すべき決定は「間違えたときのコスト」で判断する。<strong>high-cost な決定は書く、low-cost(あとで数時間で直せる)決定は書かない</strong>。実装の完全な仕様化を目指すと「設計段階で実装したのと同じ」になり目的を失う。</p>
+<h2 id="_2">書くべきかの判断軸<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>以下のいずれかに該当すれば書く価値が高い。2つ以上なら「ほぼ確実に」書くべき。</p>
+<ul>
+<li>複数人で実装を協調するか</li>
+<li>フルタイムで 3 ヶ月以上かかるか</li>
+<li>本番で数年運用するか</li>
+<li>クロスチーム協業を伴うか</li>
+<li>要件が曖昧か</li>
+<li>設計段階で防げる致命的リスク(security/legal)があるか</li>
+</ul>
+<p>投資量は固定ルールなし。1 ページの簡易版から 5 チームの sign-off を要する 50 ページ版までスペクトラム。<strong>ゼロが正解な場合もある</strong>。</p>
+<h2 id="_3">「間違えたときのコスト」原則<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>出典: 本ページの記述は Zhenfeng Cao, arXiv:2606.05608v1(<a href="../../entities/the-end-of-software-engineering/">the-end-of-software-engineering</a>)が引用・整理した LangChain[7]・Wang et al.[4]・Guo et al.[13] の主張に基づく。本 wiki がその主張の真偽を検証したものではない。</p>
+<p>"what's the cost of getting it wrong?"</p>
 </blockquote>
-<h2 id="_2">詳細<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="ai">「AI コーディングエージェント」との区別<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h3>
-<p>Kumar &amp; Ramagopal(LangChain Blog, 2026-04)による区別が中心:
-- <strong>AI coding agents</strong> は「単一のユーザ駆動セッション内で <strong>intent をコードへ翻訳する</strong>」のが得意。
-- <strong>Agentic engineering</strong> は「<strong>一段上の抽象レベル</strong>で動く <strong>control plane</strong>」—— cross-team のワークフローを orchestrate し、複数エージェント間で long-term memory を保持し、ソフトウェアデリバリ・ライフサイクル全体で state と traceability を管理する。</p>
-<p>つまり Agentic Engineering は単一エージェントの賢さでなく <strong>orchestration(共有 context・並列化・相互検証)</strong> に価値の源泉を置く。実際 <a href="../../entities/the-end-of-software-engineering/">the-end-of-software-engineering</a> の企業 pilot では、根本原因特定の93%短縮は「個々のエージェントの優秀さでなく orchestration から来た」とされる。本 wiki の <a href="../loop-engineering/">loop-engineering</a> が論じる「prompt でなく<strong>ループを設計</strong>する」「maker/checker 分離」も、この control-plane 視点の実務的具体化と読める(独立ソース)。</p>
-<h3 id="perception-memory-action">エージェントの基本アーキテクチャ(perception-memory-action)<a class="headerlink" href="#perception-memory-action" title="Permanent link">&para;</a></h3>
-<p>Wang et al.[4] のタクソノミーが示す3モジュール(LLM reasoning core が orchestrate):
-- <strong>Perception</strong>: マルチモーダル入力の処理。
-- <strong>Memory</strong>: semantic / episodic / procedural な知識の保持。
-- <strong>Action</strong>: 内部推論 + 外部ツール呼び出し。</p>
-<p>具体実装例として <strong>Hermes Agent</strong>(Nous Research)が挙げられ、perception-memory-action を <strong>self-evolution 機構</strong>付きで運用する: タスク完了後に再利用可能な <strong>Skills</strong>(parameterized procedural modules)を自律生成し、使用中に不足を検知すると自動 patch、FTS5 ベースの会話検索 + LLM 要約で cross-session の episodic memory を realize、subagent 委譲で早期の multi-agent coordination を示す(→ <a href="../agent-skills/">agent-skills</a> の自己進化発展形)。</p>
-<h3 id="se-table-2">従来 SE との対比(論文 Table 2)<a class="headerlink" href="#se-table-2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>書くべき例</strong>: 言語選択(C++ vs Ruby on Rails)。20 万行書いた後の rewrite は実質不可能で、二言語併存の保守負債を負う。</li>
+<li><strong>書かない例</strong>: ページネーション UI(全件表示 vs "Load more")。間違えても数時間で直せる。レビューサイクルを費やす価値もない。</li>
+</ul>
+<h2 id="23">コンポーネント一覧(23 節)<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<p>全節を毎回入れる必要はなく、案件に応じて取捨選択する。</p>
+<h3 id="_4">メタ情報<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>次元</th>
-<th>Traditional SE</th>
-<th>Agentic Engineering</th>
+<th>節</th>
+<th>役割</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Core artifact</td>
-<td>ソースコード(静的)</td>
-<td>エージェントシステム(動的)</td>
+<td><strong>Title</strong></td>
+<td>短く(発音しやすい)・固有(区別がつく)・暗示的(意図が伝わる)。例: caching 層なら <code>RecencyBank</code>、悪例は <code>Project Flying Silver Horse</code></td>
 </tr>
 <tr>
-<td>Control center</td>
-<td>人間エンジニア</td>
-<td>LLM reasoning engine</td>
+<td><strong>Metadata</strong></td>
+<td>著者(名+email)、作成日、authoritative URL(<code>http://go/recency-bank</code> 等の shortlink を含む)、status</td>
 </tr>
 <tr>
-<td>Decision mechanism</td>
-<td>事前設計のロジック</td>
-<td>実行時生成の推論</td>
+<td><strong>Objective</strong></td>
+<td>1 文。1 ページ目に。実装と無関係なステークホルダーでも理解できる平易な言葉で</td>
 </tr>
 <tr>
-<td>Development cycle</td>
-<td>線形(design→code→test)</td>
-<td>自律的な反復ループ</td>
+<td><strong>Background</strong></td>
+<td>なぜこのプロジェクトを今やるのか/解決する問題/過去の試行</td>
 </tr>
 <tr>
-<td>Human role</td>
-<td>コードの著者</td>
-<td>intent architect / coordinator / auditor</td>
-</tr>
-<tr>
-<td>Complexity ceiling</td>
-<td>人間の認知(O(1))</td>
-<td>モデル容量(計算量とともに成長)</td>
-</tr>
-<tr>
-<td>Output unit</td>
-<td>動くソフトウェア</td>
-<td>納品される成果(outcomes)</td>
-</tr>
-<tr>
-<td>Error handling</td>
-<td>プログラマ定義</td>
-<td>モデル適応的</td>
-</tr>
-<tr>
-<td>Evolution</td>
-<td>手動リファクタ</td>
-<td>自己改変</td>
+<td><strong>Related documents</strong></td>
+<td>test plan、関連システムの design doc、前イテレーションの design doc</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_3">人間の役割の再定義<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>コード生成スキルが commoditize される世界で、新たな差別化要因:
-- <strong>Intent articulation(意図の明確化)</strong> — エージェントが意図せぬ結果を出さず自律動作できるだけの明瞭さと制約で目標を指定する力。
-- <strong>Architectural oversight</strong> — 複数エージェントの協調方法・共有記憶・人間判断が介入すべき箇所をシステムレベルで理解する。
-- <strong>Quality calibration</strong> — 「良い」の定義と、エージェントが self-correction に使える評価フレームの構築。
-- <strong>Ethical governance</strong> — エージェント挙動を組織の価値・法・社会的期待に整合させる。</p>
-<p>論文は「agent orchestration を極めた者の生産性乗数は従来の "10x engineer" を遥かに超える —— 速くタイプするのでなく、<strong>swarm を複雑な成果へ調整する能力</strong>によって」と主張する。これは <a href="../ai-code-review/">ai-code-review</a> が指摘する「検証・所有権の責任は人間に残る(outcome auditor)」という論点と表裏一体。</p>
-<h3 id="_4">現状の到達点と限界<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>論文は agentic engineering を<strong>今日は拡張(augmentation)パラダイムとして real かつ transformative</strong>としつつ、完全自律には EvoClaw が露呈した崖(孤立タスク &gt;80% → 連続的進化で最大38%)の克服 —— long-context state 管理・記憶アーキテクチャ・検証機構 —— が必要とする(詳細は <a href="../../entities/the-end-of-software-engineering/">the-end-of-software-engineering</a>)。発展段階は Tool-Augmented → Single-Task Autonomous → <strong>Multi-Agent Teams</strong> → Self-Evolving Ecosystems の4段階(Stage III の具体パターンは本 wiki の <a href="../../syntheses/multi-agent-patterns/">multi-agent-patterns</a> / <a href="../swarm-multi-agent/">swarm-multi-agent</a> / <a href="../graph-multi-agent/">graph-multi-agent</a> が対応)。</p>
-<h2 id="_5">出典<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_5">スコープ<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>節</th>
+<th>役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Goals</strong></td>
+<td><strong>impact</strong> で書く(実装詳細でなく)。悪例:「Kubernetes を導入」/ 良例:「デプロイ起因の outage を最小化」</td>
+</tr>
+<tr>
+<td><strong>Non-goals</strong></td>
+<td>読者が範囲内と誤解しそうな目標を<strong>明示的に</strong>範囲外と宣言</td>
+</tr>
+<tr>
+<td><strong>Scenarios</strong></td>
+<td>"Share as URL ボタン追加" だけだと伝わらない。完成形が実世界でどう動くかをユースケース列挙で見せる</td>
+</tr>
+<tr>
+<td><strong>Diagrams</strong></td>
+<td>著者の頭の中の構造を共有する最速手段。<strong>編集可能な形式で</strong>(写真化された手書きホワイトボード図は禁忌)。推奨ツール: <a href="https://excalidraw.com/">Excalidraw</a>, <a href="https://www.drawio.com/">draw.io</a>, Google Drawings; programmatic では <a href="https://mermaid.js.org/">Mermaid</a>, <a href="https://d2lang.com/">D2</a>, Graphviz。LLM に diagram コードを書かせると効率良い。<strong>ソース(描画ファイル/コード)へのリンク</strong>を必ず置く</td>
+</tr>
+<tr>
+<td><strong>Glossary</strong></td>
+<td>内部ツール名・略語の定義。ただし<strong>読者が知っている語/インライン定義</strong>の方がよく、glossary 行きはあくまで次善</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">運用契約<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>節</th>
+<th>役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Constraints</strong></td>
+<td>予算/クライアント/インフラ/依存から課される制約。例:「サーバが全部 RISC-V なので全コードが RISC-V で動くこと」</td>
+</tr>
+<tr>
+<td><strong>SLOs</strong></td>
+<td>サービスがクライアント/ユーザに提供する<strong>測定可能</strong>な目標。SLA = SLO + 金銭ペナルティ。社内では普通 SLO のみ。"performant on mobile" のような曖昧表現を「&lt;= 200ms」のような具体値に。典型軸: uptime/availability、latency、scale</td>
+</tr>
+<tr>
+<td><strong>Monitoring / alerting</strong></td>
+<td>SLO をどう<strong>本番で測るか</strong>。「サービス停止をどう検知?」「100x 遅くなったら?」「ほかに alert すべきイベントは?」</td>
+</tr>
+<tr>
+<td><strong>Timeline</strong></td>
+<td>マイルストーン分割。各マイルストーンが<strong>ステークホルダーに使える成果物</strong>を生むように設計(例: dummy data の UI を先にクライアントに見せて要件齟齬を早期発見)。見積もり手法は Joel Spolsky の "Painless Software Schedules" を推奨</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">技術設計<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>節</th>
+<th>役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Interfaces</strong></td>
+<td>UI(簡易スケッチで可、ピクセル単位の調整に立ち入らない)/API・CLI セマンティクス/ファイル形式</td>
+</tr>
+<tr>
+<td><strong>Dependencies / infrastructure</strong></td>
+<td>言語/実行ハードウェア・サービス/永続データの置き場。<strong>変更コストの高い決定(言語・storage backend)に深く考え、置換容易な依存(メール送信サービス等)は軽く</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">リスク<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>節</th>
+<th>役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Security</strong></td>
+<td>想定脅威/<a href="https://en.wikipedia.org/wiki/Attack_surface">attack surface</a>(悪意あるデータの処理点)/trust boundary(低特権→高特権の流入点)。脅威が小さくても<strong>根拠を文書化</strong>するとレビュアーが見落としを発見しやすい</td>
+</tr>
+<tr>
+<td><strong>Privacy</strong></td>
+<td>取り扱う機微データ/保持期間/アクセス権/at-rest と in-transit の暗号化</td>
+</tr>
+<tr>
+<td><strong>Legal considerations</strong></td>
+<td>金融/医療などの規制ドメインだけでなく、システム障害が違法行為になりうるかも検討。OSS リリースならライセンス選定理由</td>
+</tr>
+<tr>
+<td><strong>Logging</strong></td>
+<td>log するイベント/log level/保管先/保持期間/アクセス権/log から除外すべき機微データ</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_9">未決定事項<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>節</th>
+<th>役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Open issues</strong></td>
+<td>設計の穴、複数解で迷っている、情報不足のもの。各エントリで「問題/選択肢/直近の次ステップ」を書く</td>
+</tr>
+<tr>
+<td><strong>Resolved issues</strong></td>
+<td>決着したら「決定+元の議論全文」を残してこちらに移す。<strong>履歴を消さない</strong>(将来の参照のため)</td>
+</tr>
+<tr>
+<td><strong>Alternatives considered</strong></td>
+<td>"Why didn't you do X?" への先回り回答。<strong>簡潔に</strong>(rejected 案を網羅的に書くのは overkill)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_10">設計原則(抽象)<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>コスト非対称性で書き分ける</strong>: 不可逆/高コストの決定だけを書面化。可逆/低コストはレビューサイクルにすら載せない。</li>
+<li><strong>impact 駆動の目標</strong>: ユーザ/チーム/会社への影響で goals を書く。実装の選択肢は手段にすぎない。</li>
+<li><strong>測定可能性</strong>: SLO は数値で、Monitoring はその検出手段とセットで定義する(でないと未検出のまま劣化する)。</li>
+<li><strong>編集可能性</strong>: 図表は再編集できる形式で。再編集不能な成果物は陳腐化したまま放置される。</li>
+<li><strong>意思決定履歴の保全</strong>: Open → Resolved は移し替え+元議論を残す。決定の<strong>理由が消えない</strong>ようにする。</li>
+<li><strong>イントロが文脈なしで読めること</strong>: design doc は対面説明なしで読まれる場面が多い。冒頭で前提が揃うようにする。</li>
+</ol>
+<h2 id="_11">関連概念<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>raw/papers/the-end-of-software-engineering.md</code>(Zhenfeng Cao, arXiv:2606.05608v1, 第4節)— Agentic Engineering の定義(LangChain[7] 引用)、AI coding agent との区別、perception-memory-action(Wang et al.[4])、Hermes Agent の自己進化、Table 2 の対比、人間の役割4要素、生産性乗数の主張。</li>
-<li>同 第5–6節 — orchestration による実証(LangChain pilot)、EvoClaw の限界、4段階ロードマップ。</li>
+<li><a href="../spec-driven-development/">spec-driven-development</a> — SDD は「コードでなく仕様を第一級成果物」とする AI 時代の派生形。design doc は実装前合意のための人間-人間ドキュメント、SDD spec は LLM への発注書・回帰の真実源という違い(両者は補完しうる)。</li>
+<li><a href="../../entities/michael-lynch/">michael-lynch</a> — 本稿著者の OSS <a href="https://codeberg.org/mtlynch/little-moments"><code>little-moments</code></a> には著者本人による<a href="https://refactoringenglish.com/excerpts/write-an-effective-design-doc/little-moments-design-doc/">公開 design doc 実例</a>がある(著者いわく「公開された high-quality な design doc は他に見たことがない」)。</li>
+</ul>
+<h2 id="_12">出典<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<ul>
+<li>raw/articles/write-an-effective-design-doc.md — Michael Lynch, "How to Write an Effective Software Design Document"(refactoringenglish.com, 2026-06-24)</li>
 </ul>
 
 
