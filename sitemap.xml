@@ -2,158 +2,174 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/agent-as-a-service/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/agent-loop/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/agent-skills/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/agentic-engineering/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/ai-code-review/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
+    </url>
+    <url>
+         <loc>https://ishii1648.github.io/llm-wiki/concepts/ai-coding-tool-generations/</loc>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/argo-cd-controller-scaling/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/context-compression/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/context-rot/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/conversation-management/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/custom-tools/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/design-doc/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/evaluators/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/experiment-management/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/gitops/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/graph-multi-agent/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/knowledge-bundle/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/loop-engineering/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/mcp-tools/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/one-person-squad/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/plugins/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/spec-driven-development/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/state-management/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/structured-output/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/concepts/swarm-multi-agent/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
+    </url>
+    <url>
+         <loc>https://ishii1648.github.io/llm-wiki/concepts/weak-link-hypothesis/</loc>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/entities/addy-osmani/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/entities/argo-cd/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/entities/michael-lynch/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/entities/model-context-protocol/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/entities/one-developer-is-all-you-need/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/entities/open-knowledge-format/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/entities/project-headroom/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/entities/strands-agents-evals/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/entities/strands-agents/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/entities/tejas-chopra/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/entities/the-end-of-software-engineering/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
+    </url>
+    <url>
+         <loc>https://ishii1648.github.io/llm-wiki/entities/writing-code-vs-shipping-code/</loc>
+         <lastmod>2026-06-29</lastmod>
+    </url>
+    <url>
+         <loc>https://ishii1648.github.io/llm-wiki/syntheses/ai-productivity-task-vs-output/</loc>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/syntheses/graph-swarm-hybrid/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/syntheses/multi-agent-patterns/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
     <url>
          <loc>https://ishii1648.github.io/llm-wiki/syntheses/okf-and-llm-wiki/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-06-29</lastmod>
     </url>
 </urlset>

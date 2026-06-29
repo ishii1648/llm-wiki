@@ -427,6 +427,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -599,6 +603,34 @@
     
   
     AI コードレビューと著者性の前提
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts/ai-coding-tool-generations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI コーディングツールの3世代(autocomplete / sync / async)
   
 
     
@@ -1144,6 +1176,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts/weak-link-hypothesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weak-Link Hypothesis(弱い環/ボトルネック仮説)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1159,6 +1219,8 @@
   
     
     
+      
+        
       
         
       
@@ -1535,6 +1597,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="entities/writing-code-vs-shipping-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Code vs. Shipping Code: Productivity Effects Across Generations of AI Coding Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1550,6 +1640,8 @@
   
     
     
+      
+        
       
         
       
@@ -1601,6 +1693,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="syntheses/ai-productivity-task-vs-output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI 生産性のミクロ⇄マクロ — タスク利得は本番出力に翻訳されるか
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1789,6 +1909,7 @@
 <li><a href="entities/tejas-chopra/">tejas-chopra</a> — Netflix シニアエンジニア。$287 の Claude 請求から <a href="entities/project-headroom/">project-headroom</a> を開発。「トークンの9割は冗長」 (updated: 2026-06-11)</li>
 <li><a href="entities/open-knowledge-format/">open-knowledge-format</a> — YAML frontmatter 付き markdown だけで知識を表現するオープン仕様 OKF v0.1(Google Cloud) (updated: 2026-06-19)</li>
 <li><a href="entities/michael-lynch/">michael-lynch</a> — Google/Microsoft 出身の開発者・writer。Refactoring English の著者で、<a href="concepts/design-doc/">design-doc</a> 記事と公開実例の発信源 (updated: 2026-06-27)</li>
+<li><a href="entities/writing-code-vs-shipping-code/">writing-code-vs-shipping-code</a> — NBER w35275(Demirer/Musolff/Yang 2026)。10万+開発者の event study。AI 効果は commits+180%→releases+30% と階層を上るほど減衰(弾力性0.25・強い補完) (updated: 2026-06-29)</li>
 </ul>
 <h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -1817,6 +1938,8 @@
 <li><a href="concepts/context-rot/">context-rot</a> — 入力が長いほど LLM の精度が落ちる現象(Chroma, 18モデル)。Stanford の lost-in-the-middle(75%→55%)。圧縮は品質面でも正当化 (updated: 2026-06-11)</li>
 <li><a href="concepts/knowledge-bundle/">knowledge-bundle</a> — OKF の配布単位。markdown ディレクトリツリーの構造・予約ファイル名・conformance (updated: 2026-06-19)</li>
 <li><a href="concepts/design-doc/">design-doc</a> — 実装前に難しい決定を整理する設計ドキュメント。「間違えたときのコスト」で書くか判断、23 個の構成要素(Goals/Non-goals/SLO/Open issues 等) (updated: 2026-06-27)</li>
+<li><a href="concepts/weak-link-hypothesis/">weak-link-hypothesis</a> — 補完的タスク連鎖では一段の自動化の効果は最弱段に律速される(Kremer O-ring/Jones weak links の垂直版)。CES・代替弾力性が鍵 (updated: 2026-06-29)</li>
+<li><a href="concepts/ai-coding-tool-generations/">ai-coding-tool-generations</a> — AI コーディングツールの自律度3分類: autocomplete / sync agent / async agent。各世代の定義・代表ツール・生産階層への介入点 (updated: 2026-06-29)</li>
 </ul>
 <h2 id="syntheses">Syntheses<a class="headerlink" href="#syntheses" title="Permanent link">&para;</a></h2>
 <!-- 横断的な比較・分析・まとめ。 -->
@@ -1824,6 +1947,7 @@
 <li><a href="syntheses/multi-agent-patterns/">multi-agent-patterns</a> — Graph/Swarm/Workflow の比較と「実行経路の決まり方」による使い分け (updated: 2026-05-30)</li>
 <li><a href="syntheses/graph-swarm-hybrid/">graph-swarm-hybrid</a> — Graph ノードに Swarm をネストするハイブリッド構成の設計と地雷 (updated: 2026-05-30)</li>
 <li><a href="syntheses/okf-and-llm-wiki/">okf-and-llm-wiki</a> — OKF とこの llm-wiki リポジトリ(Karpathy LLM Wiki パターン)の対応・差分 (updated: 2026-06-19)</li>
+<li><a href="syntheses/ai-productivity-task-vs-output/">ai-productivity-task-vs-output</a> — タスク利得は本番出力に翻訳されるか。NBER の減衰証拠と Itaú 事例/Cao パラダイム論を突合。「ボトルネックは消えず移動する」 (updated: 2026-06-29)</li>
 </ul>
 
 
