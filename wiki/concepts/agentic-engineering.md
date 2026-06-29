@@ -19,6 +19,8 @@ related:
   - "[[ai-code-review]]"
   - "[[multi-agent-patterns]]"
   - "[[agent-loop]]"
+  - "[[weak-link-hypothesis]]"
+  - "[[ai-productivity-task-vs-output]]"
 ---
 
 ## 概要

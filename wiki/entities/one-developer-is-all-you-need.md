@@ -11,6 +11,8 @@ related:
   - "[[one-person-squad]]"
   - "[[spec-driven-development]]"
   - "[[ai-code-review]]"
+  - "[[writing-code-vs-shipping-code]]"
+  - "[[ai-productivity-task-vs-output]]"
 ---
 
 ## 概要

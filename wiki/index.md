@@ -16,6 +16,7 @@
 - [[tejas-chopra]] — Netflix シニアエンジニア。$287 の Claude 請求から [[project-headroom]] を開発。「トークンの9割は冗長」 (updated: 2026-06-11)
 - [[open-knowledge-format]] — YAML frontmatter 付き markdown だけで知識を表現するオープン仕様 OKF v0.1(Google Cloud) (updated: 2026-06-19)
 - [[michael-lynch]] — Google/Microsoft 出身の開発者・writer。Refactoring English の著者で、[[design-doc]] 記事と公開実例の発信源 (updated: 2026-06-27)
+- [[writing-code-vs-shipping-code]] — NBER w35275(Demirer/Musolff/Yang 2026)。10万+開発者の event study。AI 効果は commits+180%→releases+30% と階層を上るほど減衰(弾力性0.25・強い補完) (updated: 2026-06-29)
 
 ## Concepts
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -43,9 +44,12 @@
 - [[context-rot]] — 入力が長いほど LLM の精度が落ちる現象(Chroma, 18モデル)。Stanford の lost-in-the-middle(75%→55%)。圧縮は品質面でも正当化 (updated: 2026-06-11)
 - [[knowledge-bundle]] — OKF の配布単位。markdown ディレクトリツリーの構造・予約ファイル名・conformance (updated: 2026-06-19)
 - [[design-doc]] — 実装前に難しい決定を整理する設計ドキュメント。「間違えたときのコスト」で書くか判断、23 個の構成要素(Goals/Non-goals/SLO/Open issues 等) (updated: 2026-06-27)
+- [[weak-link-hypothesis]] — 補完的タスク連鎖では一段の自動化の効果は最弱段に律速される(Kremer O-ring/Jones weak links の垂直版)。CES・代替弾力性が鍵 (updated: 2026-06-29)
+- [[ai-coding-tool-generations]] — AI コーディングツールの自律度3分類: autocomplete / sync agent / async agent。各世代の定義・代表ツール・生産階層への介入点 (updated: 2026-06-29)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->
 - [[multi-agent-patterns]] — Graph/Swarm/Workflow の比較と「実行経路の決まり方」による使い分け (updated: 2026-05-30)
 - [[graph-swarm-hybrid]] — Graph ノードに Swarm をネストするハイブリッド構成の設計と地雷 (updated: 2026-05-30)
 - [[okf-and-llm-wiki]] — OKF とこの llm-wiki リポジトリ(Karpathy LLM Wiki パターン)の対応・差分 (updated: 2026-06-19)
+- [[ai-productivity-task-vs-output]] — タスク利得は本番出力に翻訳されるか。NBER の減衰証拠と Itaú 事例/Cao パラダイム論を突合。「ボトルネックは消えず移動する」 (updated: 2026-06-29)
