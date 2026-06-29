@@ -11,6 +11,8 @@ related:
   - "[[one-developer-is-all-you-need]]"
   - "[[spec-driven-development]]"
   - "[[ai-code-review]]"
+  - "[[weak-link-hypothesis]]"
+  - "[[ai-productivity-task-vs-output]]"
 ---
 
 ## 概要
@@ -52,6 +54,8 @@ related:
 - [[one-developer-is-all-you-need]] — このパターンを実証した一次資料(事例・数値)。
 - [[spec-driven-development]] — 一人スカッドを成立させる方法論的前提。
 - [[ai-code-review]] — 「誰も理解しないまま PR 形の成果物が生まれる」リスクと、本パターンの「経験者=品質ゲート」要件は同じ問題の表裏。
+- [[weak-link-hypothesis]] — 「仕様の質」「経験者=品質ゲート」という成立条件は、AI が安くした段階の隣(上流仕様・下流レビュー)が次の weak link になる、という計量的帰結と一致する。
+- [[ai-productivity-task-vs-output]] — 本パターンの楽観的数値と NBER の減衰証拠を突き合わせた統合分析。
 
 ## 出典
 - raw/papers/one-developer-is-all-you-need.md(§II-B, §III, §V-B, §VI)

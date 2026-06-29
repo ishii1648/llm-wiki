@@ -16,6 +16,8 @@ related:
   - "[[agent-as-a-service]]"
   - "[[loop-engineering]]"
   - "[[ai-code-review]]"
+  - "[[writing-code-vs-shipping-code]]"
+  - "[[ai-productivity-task-vs-output]]"
 ---
 
 ## 概要

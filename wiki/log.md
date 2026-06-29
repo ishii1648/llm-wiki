@@ -127,3 +127,11 @@
 - 矛盾・要確認:
   - 著者は「公開された high-quality な design doc を見たことがない」と明言し自作 OSS [little-moments](https://codeberg.org/mtlynch/little-moments) の[実物 design doc](https://refactoringenglish.com/excerpts/write-an-effective-design-doc/little-moments-design-doc/) を公開。実物 doc は今回は ingest しなかった(必要なら次回追加)。
   - [[spec-driven-development]] との関係性は短い注記にとどめた。SDD spec(AI 発注書) vs design doc(人間合意)の比較を将来 synthesis 化する余地あり。
+
+## [2026-06-29] ingest | Writing Code vs. Shipping Code: Productivity Effects Across Generations of AI Coding Tools (NBER w35275)
+- 追加したページ: [[writing-code-vs-shipping-code]], [[weak-link-hypothesis]], [[ai-coding-tool-generations]], [[ai-productivity-task-vs-output]]
+- 更新したページ(相互リンク): [[one-person-squad]], [[agentic-engineering]], [[one-developer-is-all-you-need]], [[the-end-of-software-engineering]]
+- 原本: NBER PDF を pymupdf でテキスト抽出し raw/papers/writing-code-vs-shipping-code.md に保存(sha256:078065ad164d)
+- 主な学び: AI コーディングツール3世代(autocomplete/sync/async)の commits 累積効果は +40%/+140%/+180% だが、生産階層(LOC→…→releases)を上るほど急減衰(async: releases +30%、sync: LOC+741%→releases+20%)。較正した代替弾力性 ≈ 0.25 = AI と人手は強い補完。weak-link(O-ring)仮説の垂直版を10万+開発者の event study + 4アプリマーケットで実証。マーケットでは新規アプリ増も総利用量は不変。
+- 接続: wiki 既存の楽観論([[one-developer-is-all-you-need]] / [[the-end-of-software-engineering]])に対する計量的な慎重論。「ボトルネックは消えず移動する」を統合する synthesis を新設。
+- 矛盾・要確認: 楽観事例とマクロ減衰は矛盾でなく「ミクロ増幅(真)×マクロ減衰(真)」の同時成立として整理(synthesis に明記)。
