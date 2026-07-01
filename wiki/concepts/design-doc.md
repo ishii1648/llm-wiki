@@ -4,7 +4,7 @@ type: concept
 aliases: [design document, software design document, ソフトウェア設計書, デザインドック]
 tags: [process, documentation, planning, software-engineering]
 created: 2026-06-27
-updated: 2026-06-27
+updated: 2026-07-01
 sources:
   - raw/articles/write-an-effective-design-doc.md
 related:
@@ -102,6 +102,16 @@ related:
 4. **編集可能性**: 図表は再編集できる形式で。再編集不能な成果物は陳腐化したまま放置される。
 5. **意思決定履歴の保全**: Open → Resolved は移し替え+元議論を残す。決定の**理由が消えない**ようにする。
 6. **イントロが文脈なしで読めること**: design doc は対面説明なしで読まれる場面が多い。冒頭で前提が揃うようにする。
+
+## レビューを回す(Driving Your Design Doc through Review)
+
+design doc は**書いて終わりではない**。原本は「23 のコンポーネント」の後に、書き上げた doc をチームに共有しフィードバックを集める工程を明確に最後のステップとして置いている(出典 §"Driving Your Design Doc through Review")。
+
+- 目的は、プロジェクトを**前に進める**有益なフィードバックを引き出すこと —— 些末な言い争いや混乱で停滞させないこと。
+- doc の冒頭(Objective/Background)が**文脈なしで読める**ことがここで効く:多くのレビュアーは著者の口頭説明を聞く前に doc を読むため、必要な前提は1ページ目に揃っていなければならない(→ 上記「設計原則」6)。
+- 具体的なフィードバック収集テクニックは、著者の別記事 *"How to Get Meaningful Feedback on Your Design Document"* にまとめられている(**本 wiki 未 ingest**。原本はこの記事へのリンクのみで、テクニックの詳細は含まない)。
+
+> ⚠️ 出典範囲: 原本のこの節自体は導入文+別記事へのリンクで構成され、レビュー技法の詳細は当該別記事側にある。本ページはその事実関係のみを保持する(推測で技法を補わない)。
 
 ## 関連概念
 

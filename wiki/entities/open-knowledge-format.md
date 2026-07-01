@@ -4,7 +4,7 @@ type: entity
 aliases: [OKF, Open Knowledge Format]
 tags: [knowledge-representation, metadata, ai-agents, markdown, google-cloud, specification]
 created: 2026-06-19
-updated: 2026-06-19
+updated: 2026-07-01
 sources:
   - raw/articles/okf-spec.md
 related:
@@ -49,9 +49,45 @@ OKF が標準化するのは、知識コーパスを*自己記述的(self-descri
 
 producer は任意の追加キーを付与してよく、consumer は未知キーを保持し、未知フィールドを理由にドキュメントを拒否してはならない。
 
-## Permissive consumption(寛容な消費)
+### Body(本文)の慣習見出し
 
-OKF の核となる原則。consumer は次を理由にバンドルを拒否しては **ならない**(MUST NOT)(出典: `raw/articles/okf-spec.md` §9):
+body は標準 markdown。producer は自由記述の散文より**構造的 markdown**(見出し・リスト・表・fenced code block)を優先すべき —— 構造は人間の読解にもエージェントの retrieval にも効くため。必須の本文セクションは無いが、以下の見出しは**慣習的(conventional)**な意味を持ち、該当時は使うべき(出典: `raw/articles/okf-spec.md` §4.2)。
+
+| 見出し | 用途 |
+|---|---|
+| `# Schema` | アセットの列/フィールドの構造的記述。 |
+| `# Examples` | 具体的な利用例(多くは fenced code block)。 |
+| `# Citations` | body の主張を裏付ける外部ソース(§8。番号付きリスト、末尾に置く)。 |
+
+## Cross-linking(相互リンク)
+
+concept 間は標準 markdown リンクで結ぶ。2 形式がある(出典: `raw/articles/okf-spec.md` §5):
+
+- **絶対(バンドル相対)リンク** — `/` で始まりバンドル root からの相対で解釈。`[customers table](/tables/customers.md)` のように書く。サブディレクトリ内でドキュメントを移動しても壊れにくいため**こちらが推奨**。
+- **相対リンク** — `./other.md` のような通常の markdown 相対パス。
+
+リンクの**意味論**: A→B のリンクは「関係がある」ことだけを主張し、関係の種類(parent/child, references, joins-with, depends-on…)は**周囲の散文が伝える**(リンク自体は型を持たない)。グラフビューを作る consumer は通常すべてのリンクを「型なし関係の有向辺」として扱う。
+
+> consumer は**壊れたリンクを許容しなければならない**(MUST)—— バンドル内に存在しない対象へのリンクは不正ではなく、「まだ書かれていない知識」を表すだけかもしれない。これは llm-wiki の `scripts/lint.sh` が dangling link を検出する方針とは対照的(本 wiki は追加の厳格さを課している。→ [[okf-and-llm-wiki]])。
+
+## 予約ファイル名(reserved filenames)
+
+階層の任意のレベルで、以下のファイル名は定められた意味を持ち concept ドキュメントに**使ってはならない**(MUST NOT)(出典: `raw/articles/okf-spec.md` §3.1, §6, §7)。それ以外の `.md` はすべて concept。
+
+| ファイル名 | 用途 |
+|---|---|
+| `index.md` | ディレクトリの内容列挙。progressive disclosure(個別を開く前に一覧を見せる)用。frontmatter は持たない(唯一の例外は root の `okf_version` 宣言)。各エントリは `* [Title](url) - description` 形式で、リンク先 frontmatter の `description` を含めるべき。 |
+| `log.md` | 変更履歴。`## YYYY-MM-DD`(ISO 8601)見出しで新しい順にグルーピングし、各行は `**Update**` / `**Creation**` / `**Deprecation**` 等の太字語(慣習であり必須ではない)で始まる散文。 |
+
+## Conformance(準拠条件)
+
+バンドルが OKF v0.1 に**準拠する**のは次を満たすとき(出典: `raw/articles/okf-spec.md` §9):
+
+1. tree 内のすべての非予約 `.md` が、解析可能な YAML frontmatter ブロックを持つ。
+2. すべての frontmatter が**空でない `type` フィールド**を持つ。
+3. 予約ファイル名(`index.md`, `log.md`)は、存在する場合それぞれ §6 / §7 の構造に従う。
+
+上記以外の制約はすべて soft guidance。とりわけ consumer は次を理由にバンドルを拒否しては **ならない**(MUST NOT):
 
 - 省略された任意 frontmatter フィールド
 - 未知の `type` 値

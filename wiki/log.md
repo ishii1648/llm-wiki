@@ -135,3 +135,16 @@
 - 主な学び: AI コーディングツール3世代(autocomplete/sync/async)の commits 累積効果は +40%/+140%/+180% だが、生産階層(LOC→…→releases)を上るほど急減衰(async: releases +30%、sync: LOC+741%→releases+20%)。較正した代替弾力性 ≈ 0.25 = AI と人手は強い補完。weak-link(O-ring)仮説の垂直版を10万+開発者の event study + 4アプリマーケットで実証。マーケットでは新規アプリ増も総利用量は不変。
 - 接続: wiki 既存の楽観論([[one-developer-is-all-you-need]] / [[the-end-of-software-engineering]])に対する計量的な慎重論。「ボトルネックは消えず移動する」を統合する synthesis を新設。
 - 矛盾・要確認: 楽観事例とマクロ減衰は矛盾でなく「ミクロ増幅(真)×マクロ減衰(真)」の同時成立として整理(synthesis に明記)。
+
+## [2026-07-01] lint | 要約希釈の監査(全22ソース×42ページ)と有害希釈2ページの補修
+- 契機: ユーザーからの「ingest 時に内容が希釈されすぎていないか」検証依頼。
+- 手法: 全ソース原本と対応 wiki ページを並列で読み比べ、忠実度を [高/中/低] で評価。日本語 `wc -w` は空白区切りで過小評価のためサイズ比は不採用、内容で判定。
+- 総合判定: 一様な希釈ではない。多くのページは高忠実(例 [[loop-engineering]], [[structured-output]], 論文3本の主要ページ)。ただし体系的に「概念(結論・分類)は残るが第2層(具体例・gotcha・手順・数値の因果)が落ちる」傾向あり。
+- 有害な希釈と判定(要補修): [[open-knowledge-format]], [[design-doc]], [[strands-agents-evals]], [[experiment-management]], [[writing-code-vs-shipping-code]](LOC 17.3x段), [[ai-code-review]], [[argo-cd-controller-scaling]]。
+- 今回補修したページ:
+  - [[open-knowledge-format]]: 仕様の中核が欠落していたため復元 —— §9 Conformance(3準拠要件)、§5 Cross-linking(絶対/相対・型なし有向辺・壊れたリンク許容)、§3.1 予約ファイル名(index.md/log.md)、§4.2 body の慣習見出し(# Schema/# Examples/# Citations)。
+  - [[design-doc]]: 原本最終節 "Driving Your Design Doc through Review"(レビューを回す工程)を追加。原本自体が導入文+別記事リンクのみのため、事実関係のみ保持し技法は推測補完しない旨を明記。
+- 主な学び(希釈の共通5類型): ①具体例・コード例の消失 ②言語差・条件分岐・警告(gotcha)の消失 ③spec/ガイドの手順・フィールド定義の消失 ④数値の物理的意味(因果)の消失 ⑤地雷情報の分散・後出し。
+- 要確認・次アクション候補:
+  - 残り5ページ([[strands-agents-evals]], [[experiment-management]], [[writing-code-vs-shipping-code]], [[ai-code-review]], [[argo-cd-controller-scaling]])の第2層復元は未着手。
+  - 再発防止として CLAUDE.md「ページ書式/ingest」に希釈防止チェックリスト(上記5類型を落とさない)+ソース種別(spec/API-doc/実践ガイド/essay)別の保持方針を明文化する案。CLAUDE.md は人間所有のため未編集・提案のみ。
