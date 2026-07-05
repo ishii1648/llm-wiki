@@ -35,6 +35,7 @@
 - [[ai-code-review]] — レビューは「説明できる著者」を前提とし、agentic development がその前提を壊す(diff が語らない文脈/説明可能性を前提条件に) (updated: 2026-06-03)
 - [[gitops]] — git を desired state の真実源とする宣言的デリバリ運用(Argo CD/Flux/Spinnaker) (updated: 2026-06-04)
 - [[argo-cd-controller-scaling]] — Argo CD を10,000アプリ規模で回す設定: client QPS とシャーディングが最も効く(AWS/EKS 6実験) (updated: 2026-06-04)
+- [[argo-cd-manifest-paths-annotation]] — `manifest-generate-paths` アノテーション。commit SHA 単位のキャッシュ無効化を抑え無関係な変更での manifest 再生成をスキップして sync を短縮(monorepo 向け) (updated: 2026-07-05)
 - [[one-person-squad]] — 1人が複数 AI エージェントを指揮する最小チーム構成。core/non-core 分割と「経験者=品質ゲート」が成立条件 (updated: 2026-06-05)
 - [[spec-driven-development]] — コードでなく自然言語仕様を第一級成果物とする AI 支援開発。律速をモデル能力でなく「仕様の質」に移す(SDD) (updated: 2026-06-05)
 - [[loop-engineering]] — prompt する自分をループ設計に置き換える。Automations/Worktrees/Skills/Connectors/Sub-agents+memory(Codex⇔Claude Code 対応) (updated: 2026-06-10)

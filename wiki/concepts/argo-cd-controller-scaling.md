@@ -4,12 +4,13 @@ type: concept
 aliases: [Argo CD application controller scaling, Argo CD scalability, ArgoCD スケーラビリティ]
 tags: [argo-cd, gitops, kubernetes, scalability, sharding, qps, performance]
 created: 2026-06-04
-updated: 2026-06-04
+updated: 2026-07-05
 sources:
   - raw/articles/argo-cd-scalability-testing-on-eks.md
 related:
   - "[[argo-cd]]"
   - "[[gitops]]"
+  - "[[argo-cd-manifest-paths-annotation]]"
 ---
 
 ## 概要
@@ -65,6 +66,9 @@ application controller の2大機能 = sync と reconciliation に対応する�
 > ⚠️ 矛盾(ドキュメント vs 実測): 公式 Argo CD ドキュメントは status/operation processors を「スケール時にまず変える設定」と推奨するが、本記事の実測では効果が観測されなかった(実験2・3)。著者は人工ワークロードが原因の可能性を挙げ、実アプリでの再検証を予定と明記。
 
 > 本記事は2023-09時点の「early efforts(初期段階)」であり、より多数のクラスタとシャーディング機構の改善が将来課題として残されている(Conclusion)。
+
+## 関連: manifest 再生成コストの削減
+本ページの実験はいずれも application controller の reconciliation queue のスループット改善(QPS/シャーディング/timeout)が対象。一方 [[argo-cd-manifest-paths-annotation]] は repo-server の manifest 再生成そのものを不要な場合にスキップする前段の最適化であり、両者は補完関係にある(queue を速く捌く vs queue に積む対象を減らす)。
 
 ## 出典
 - raw/articles/argo-cd-scalability-testing-on-eks.md(Test Parameters / Key Metrics / Environment / Experiments 1-6 / Conclusion)

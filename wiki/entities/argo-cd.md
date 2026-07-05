@@ -4,12 +4,14 @@ type: entity
 aliases: [ArgoCD, Argo CD]
 tags: [gitops, kubernetes, cncf, cd, delivery-tool]
 created: 2026-06-04
-updated: 2026-06-04
+updated: 2026-07-05
 sources:
   - raw/articles/argo-cd-scalability-testing-on-eks.md
+  - raw/articles/argo-cd-high-availability.md
 related:
   - "[[gitops]]"
   - "[[argo-cd-controller-scaling]]"
+  - "[[argo-cd-manifest-paths-annotation]]"
 ---
 
 ## 概要
@@ -29,5 +31,9 @@ AWS は Argo CD OSS コミュニティと協働し、スケーラビリティ専
 
 > このページは AWS のスケーラビリティ検証記事(2023-09-13)1本のみを出典とする初期ページ。Argo CD 一般の網羅的仕様(プロジェクト構造・RBAC・App of Apps 等)は未収録。
 
+## パフォーマンス関連機能
+repo server の manifest 生成は commit SHA 単位でキャッシュされるため、monorepo 構成(1リポジトリに複数 Application)では無関係な変更でも全アプリのキャッシュが無効化されうる。`argocd.argoproj.io/manifest-generate-paths` アノテーションでこれを回避し sync 時間を短縮する仕組みは [[argo-cd-manifest-paths-annotation]] を参照。
+
 ## 出典
 - raw/articles/argo-cd-scalability-testing-on-eks.md(コンポーネント構成・SIG・試験概要)
+- raw/articles/argo-cd-high-availability.md(Manifest Paths Annotation 節)

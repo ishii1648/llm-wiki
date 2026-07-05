@@ -135,3 +135,10 @@
 - 主な学び: AI コーディングツール3世代(autocomplete/sync/async)の commits 累積効果は +40%/+140%/+180% だが、生産階層(LOC→…→releases)を上るほど急減衰(async: releases +30%、sync: LOC+741%→releases+20%)。較正した代替弾力性 ≈ 0.25 = AI と人手は強い補完。weak-link(O-ring)仮説の垂直版を10万+開発者の event study + 4アプリマーケットで実証。マーケットでは新規アプリ増も総利用量は不変。
 - 接続: wiki 既存の楽観論([[one-developer-is-all-you-need]] / [[the-end-of-software-engineering]])に対する計量的な慎重論。「ボトルネックは消えず移動する」を統合する synthesis を新設。
 - 矛盾・要確認: 楽観事例とマクロ減衰は矛盾でなく「ミクロ増幅(真)×マクロ減衰(真)」の同時成立として整理(synthesis に明記)。
+
+## [2026-07-05] ingest | Argo CD High Availability ドキュメント(Manifest Paths Annotation 節)
+- 取得・保存: readthedocs "stable" が指す実 commit(443415b5527ac55366e0760c93ef0e1abd0cf273)の `docs/operator-manual/high_availability.md` を GitHub raw から取得し、一字一句そのまま `raw/articles/argo-cd-high-availability.md` に保存(597行、sha256:d39383666816)。ユーザーの質問(「なぜ sync 時間を短縮できるか」)に答えるための query から着手し、未収録と判明したため ingest に切り替えた。
+- 追加したページ: [[argo-cd-manifest-paths-annotation]](concept、新規)
+- 既存更新: [[argo-cd]] に「パフォーマンス関連機能」節を追加しリンク、[[argo-cd-controller-scaling]] に補完関係の注記(reconciliation queue を速く捌く vs queue に積む対象を減らす)を追加。
+- 主な学び: Argo CD は生成 manifest を **commit SHA 単位**でキャッシュするため、monorepo で1コミットするとリポジトリ内の無関係な全アプリのキャッシュが無効化され、repo-server が無駄な manifest 再生成を行う。`argocd.argoproj.io/manifest-generate-paths` アノテーション(相対/絶対/複数/glob の4パターンでパス指定)で変更検知の対象パスを絞ることで、無関係な変更では reconciliation 自体をスキップしてキャッシュを再利用でき、結果として sync 全体が速くなる。Argo CD v2.11 以降は webhook なしでも利用可能(webhook 経由の比較は GitHub/GitLab/Gogs のみ対応)。
+- 矛盾・要確認: 既知の矛盾なし。アプリごとに別リポジトリの構成や外部 Helm values 参照には効果がない点をページに明記。
