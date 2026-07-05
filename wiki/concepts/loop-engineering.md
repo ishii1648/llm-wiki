@@ -13,6 +13,7 @@ sources:
   - raw/articles/claude-code-workflows.md
   - raw/articles/claude-code-tools-reference.md
   - raw/articles/claude-code-channels-reference.md
+  - raw/articles/claude-code-channels-reference-ja.md
 related:
   - "[[addy-osmani]]"
   - "[[agent-loop]]"
@@ -171,3 +172,4 @@ Monitor が pull(Claude が能動的に見に行く)なのに対し、**Channels
 - `raw/articles/claude-code-workflows.md`(同上)— Workflow ツール(`agent`/`pipeline`/`parallel`)、adversarial verify・loop-until-dry パターン、並列数・総数上限。
 - `raw/articles/claude-code-tools-reference.md`(同上)— Monitor ツール、Task 系ツール、バックグラウンド実行(`run_in_background`)。
 - `raw/articles/claude-code-channels-reference.md`(同上)— Channels(push型イベント連携の MCP サーバー契約)、one-way/two-way channel、sender gating、permission relay。
+- `raw/articles/claude-code-channels-reference-ja.md`(同上、日本語版)— 英語版と技術的内容(バージョン要件・コード例)が一致する忠実な翻訳。本文への追加反映なし、出典として並記のみ。

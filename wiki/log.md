@@ -167,3 +167,10 @@
   - [[opencode-go]] の場合、使えるのはモデル一覧の "AI SDK PACKAGE" 列が `@ai-sdk/anthropic` のものだけ(2026-06-14 時点で MiniMax/Qwen 系: minimax-m3, qwen-3.7-plus, qwen-3.7-max)。
   - 著者の動機: Claude 非契約者が Claude Code の新機能を安く試すための手段。普段の Claude モデル利用は OpenRouter 経由。
 - 矛盾・要確認: 新テーマ(Claude Code の実行環境設定)。既存ページとの接続点は薄いため今回は独立クラスタとして追加(将来 Claude Code 関連記事が増えればハブ化を検討)。モデルラインナップは執筆時点のスナップショットで陳腐化しうる旨を [[opencode-go]] に明記。
+
+## [2026-07-05] ingest | Claude Code 公式ドキュメント(channels-reference 日本語版)
+- 背景: ユーザーから「`https://code.claude.com/docs/ja/channels-reference` を ingest したか、まだなら ingest して」と明示指示。既存 ingest は英語版(`raw/articles/claude-code-channels-reference.md`)のみだったため着手。
+- 取得・保存: `https://code.claude.com/docs/ja/channels-reference.md` を curl で取得し、一字一句そのまま `raw/articles/claude-code-channels-reference-ja.md` に保存(791行、sha256:ce194d6afb6a)。
+- 更新したページ: [[loop-engineering]](frontmatter `sources:` と出典セクションに日本語版を並記。本文内容は変更なし)
+- 主な学び: 日本語版はバージョン要件(v2.1.80/v2.1.81 等)・コードブロック数(ts コード12箇所)が英語版と一致する忠実な翻訳と確認。技術的に新規の学びはなく、既存ページへの追記は不要と判断(出典の並記のみ)。
+- 矛盾・要確認: 既知の矛盾なし。多言語ドキュメントを別 raw ソースとして扱うか(今回のように独立ファイル+`sources:` 併記)は今後も同じ方針で運用する。
