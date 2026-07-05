@@ -353,6 +353,8 @@
       
         
       
+        
+      
     
     
     
@@ -581,6 +583,34 @@
     
   
     Argo CD Application Controller のスケーリング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/argo-cd-manifest-paths-annotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argo CD Manifest Paths Annotation
   
 
     
@@ -1340,6 +1370,17 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
+        パフォーマンス関連機能
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         出典
       
     </span>
@@ -1885,6 +1926,17 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
+        パフォーマンス関連機能
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         出典
       
     </span>
@@ -1929,9 +1981,12 @@
 <blockquote>
 <p>このページは AWS のスケーラビリティ検証記事(2023-09-13)1本のみを出典とする初期ページ。Argo CD 一般の網羅的仕様(プロジェクト構造・RBAC・App of Apps 等)は未収録。</p>
 </blockquote>
-<h2 id="_3">出典<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">パフォーマンス関連機能<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>repo server の manifest 生成は commit SHA 単位でキャッシュされるため、monorepo 構成(1リポジトリに複数 Application)では無関係な変更でも全アプリのキャッシュが無効化されうる。<code>argocd.argoproj.io/manifest-generate-paths</code> アノテーションでこれを回避し sync 時間を短縮する仕組みは <a href="../../concepts/argo-cd-manifest-paths-annotation/">argo-cd-manifest-paths-annotation</a> を参照。</p>
+<h2 id="_4">出典<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li>raw/articles/argo-cd-scalability-testing-on-eks.md(コンポーネント構成・SIG・試験概要)</li>
+<li>raw/articles/argo-cd-high-availability.md(Manifest Paths Annotation 節)</li>
 </ul>
 
 

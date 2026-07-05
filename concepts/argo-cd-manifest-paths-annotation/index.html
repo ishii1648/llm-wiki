@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/experiment-management/">
+        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/argo-cd-manifest-paths-annotation/">
       
       
-        <link rel="prev" href="../evaluators/">
+        <link rel="prev" href="../argo-cd-controller-scaling/">
       
       
-        <link rel="next" href="../gitops/">
+        <link rel="next" href="../context-compression/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Experiment Management (Strands Evals) - LLM Wiki</title>
+        <title>Argo CD Manifest Paths Annotation - LLM Wiki</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Experiment Management (Strands Evals)
+              Argo CD Manifest Paths Annotation
             
           </span>
         </div>
@@ -602,10 +602,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../argo-cd-manifest-paths-annotation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argo CD Manifest Paths Annotation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -621,6 +646,107 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commit-sha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        課題: commit SHA 単位キャッシュの副作用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仕組み
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="仕組み">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パス指定の4パターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜ sync 時間が短縮されるのか
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        制限・注意点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出典
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -798,35 +924,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Experiment Management (Strands Evals)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../experiment-management/" class="md-nav__link">
         
   
   
@@ -842,118 +943,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        概要
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        詳細
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="詳細">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#test-case" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        test case の整理
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        複数実験の管理
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        実験の変更
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#session-id" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Session ID
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ベストプラクティス
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        出典
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1940,66 +1929,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#commit-sha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        課題: commit SHA 単位キャッシュの副作用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        詳細
+        仕組み
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="詳細">
+    <nav class="md-nav" aria-label="仕組み">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#test-case" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        test case の整理
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        複数実験の管理
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        実験の変更
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#session-id" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Session ID
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ベストプラクティス
+        パス指定の4パターン
       
     </span>
   </a>
@@ -2012,7 +1968,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜ sync 時間が短縮されるのか
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        制限・注意点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -2042,43 +2020,69 @@
   
 
 
-  <h1>Experiment Management (Strands Evals)</h1>
+  <h1>Argo CD Manifest Paths Annotation</h1>
 
 <h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><strong>Experiment Management</strong> は、test case を <code>Experiment</code> オブジェクトに整理し、評価実験を管理・版管理する実践パターン。<a href="../../entities/strands-agents-evals/">strands-agents-evals</a> では <code>Case</code> を <code>Experiment</code> にまとめ、<code>run_evaluations</code> で実行する。</p>
-<h2 id="_2">詳細<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="test-case">test case の整理<a class="headerlink" href="#test-case" title="Permanent link">&para;</a></h3>
+<p><code>argocd.argoproj.io/manifest-generate-paths</code> は Application リソースに付与するアノテーション。Argo CD は生成した manifest を<strong>リポジトリの commit SHA 単位</strong>でキャッシュしており、1つの git リポジトリを複数アプリで共有する構成(monorepo)では、無関係な変更のコミットでも同リポジトリの全アプリのキャッシュが無効化されてしまう。このアノテーションで「このアプリの manifest 生成が依存するパス」を宣言しておくと、無関係な変更では再生成・reconciliation をスキップしてキャッシュを使い回せる。</p>
+<h2 id="commit-sha">課題: commit SHA 単位キャッシュの副作用<a class="headerlink" href="#commit-sha" title="Permanent link">&para;</a></h2>
+<p>Argo CD は "aggressively caches generated manifests and uses the repository commit SHA as a cache key" という設計であり、"A new commit to the Git repository invalidates the cache for all applications configured in the repository"。1つの git リポジトリに多数の Application を定義する monorepo 構成では、どこか1箇所の変更コミットのたびに<strong>無関係な全アプリ</strong>の manifest が repo-server 上で再生成される(Helm template / Kustomize build 等)。これが repo-server の負荷・処理待ちを増大させ、sync/reconciliation 全体を遅らせる原因になる。</p>
+<h2 id="_2">仕組み<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>アノテーションにはセミコロン区切りでパスを列挙する。Argo CD は「最後にキャッシュした revision」と「最新コミット」を比較し、<strong>変更ファイルがこのパスのいずれにも一致しなければ</strong> application reconciliation をトリガせず、既存キャッシュを新しいコミットに対しても有効とみなす。</p>
 <ul>
-<li><strong>metadata による整理</strong>: <code>Case(name=..., input=..., metadata={"category":..., "difficulty":..., "tags":[...]})</code>。<code>[c for c in cases if c.metadata.get("difficulty")=="easy"]</code> のようにフィルタできる。dataset item から case を組む際の基本。</li>
-<li><strong>命名規約</strong>: <code>{category}-{subcategory}-{number}</code>(例 <code>knowledge-geography-001</code>)。説明的な名前を使う(<code>test1</code> より <code>customer-service-refund-request</code>)。</li>
+<li><strong>webhook あり</strong>: webhook イベントのペイロードに含まれる変更ファイルリストと比較する。対応 git provider は <strong>GitHub / GitLab / Gogs のみ</strong>。</li>
+<li><strong>webhook なし(Argo CD v2.11 以降)</strong>: webhook を設定しなくてもこの機能単独で利用可能(それ以前は webhook が前提条件だった)。</li>
 </ul>
-<h3 id="_3">複数実験の管理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">experiments</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">&quot;baseline&quot;</span><span class="p">:</span>   <span class="n">Experiment</span><span class="p">(</span><span class="n">cases</span><span class="o">=</span><span class="n">baseline_cases</span><span class="p">,</span> <span class="n">evaluators</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">]),</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="s2">&quot;with_tools&quot;</span><span class="p">:</span> <span class="n">Experiment</span><span class="p">(</span><span class="n">cases</span><span class="o">=</span><span class="n">tool_cases</span><span class="p">,</span>     <span class="n">evaluators</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">]),</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="s2">&quot;edge_cases&quot;</span><span class="p">:</span> <span class="n">Experiment</span><span class="p">(</span><span class="n">cases</span><span class="o">=</span><span class="n">edge_cases</span><span class="p">,</span>     <span class="n">evaluators</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">]),</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">exp</span> <span class="ow">in</span> <span class="n">experiments</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">reports</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">run_evaluations</span><span class="p">(</span><span class="n">task_function</span><span class="p">)</span>
-</code></pre></div>
-- <strong>結合</strong>: <code>Experiment(cases=exp1.cases + exp2.cases + exp3.cases, evaluators=[...])</code>。
-- <strong>レポート flatten</strong>: 複数 evaluator は evaluator ごとに1レポートを返す。<code>EvaluationReport.flatten(reports)</code> で1テーブルに統合(<code>combined.run_display()</code>)。</p>
-<h3 id="_4">実験の変更<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<ul>
-<li>case 追加: <code>experiment.cases.append(new_case)</code> / <code>experiment.cases.extend([...])</code>。</li>
-<li>evaluator 差し替え: <code>experiment.evaluators = [OutputEvaluator(), HelpfulnessEvaluator()]</code>(→ <a href="../evaluators/">evaluators</a>)。</li>
-</ul>
-<h3 id="session-id">Session ID<a class="headerlink" href="#session-id" title="Permanent link">&para;</a></h3>
-<p>各 <code>Case</code> には自動で一意の session ID(UUID)が付く。<code>case.session_id</code> で参照、<code>Case(input=..., session_id="custom-123")</code> で明示指定も可能。trace ベース評価で session マッピングに使う。</p>
-<h3 id="_5">ベストプラクティス<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="4">パス指定の4パターン<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>指定方法</th>
+<th>解決基準</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>相対パス</td>
+<td>Application の <code>source.path</code> からの相対</td>
+<td><code>.</code> → <code>source.path</code> で指定したディレクトリそのもの</td>
+</tr>
+<tr>
+<td>絶対パス</td>
+<td>リポジトリルートからの絶対パス(<code>/</code> 始まり)</td>
+<td><code>/guestbook</code></td>
+</tr>
+<tr>
+<td>複数パス</td>
+<td><code>;</code> 区切りで併記</td>
+<td><code>.;../shared</code> → 自ディレクトリ + 共有ディレクトリ</td>
+</tr>
+<tr>
+<td>glob パターン</td>
+<td>Go の <a href="https://pkg.go.dev/path/filepath#Match"><code>filepath.Match</code></a> 互換</td>
+<td><code>/shared/*-secret.yaml</code></td>
+</tr>
+</tbody>
+</table>
+<p>さらに、この機能が有効な場合は「アノテーションで指定したパスから算出される共通ルートパス」だけが CMP(Config Management Plugin)サーバへ送られ、リポジトリ全体を送る必要がなくなる(Application の <code>source.path</code> がルートとして選べる最深パス)。</p>
+<h2 id="sync">なぜ sync 時間が短縮されるのか<a class="headerlink" href="#sync" title="Permanent link">&para;</a></h2>
 <ol>
-<li>説明的な name を使う。</li>
-<li>リッチな metadata(category / difficulty / expected_tools / created_date 等)を含める。</li>
-<li>実験を版管理する: <code>experiment.to_file("experiment_v1.json")</code>、タイムスタンプ付き保存(<code>experiment_{YYYYmmdd_HHMMSS}.json</code>)。</li>
+<li>デフォルトでは commit SHA 単位のキャッシュ無効化により、monorepo で1コミット=<strong>リポジトリ内全アプリの manifest 再生成</strong>が走る。</li>
+<li>このアノテーションで「自分に関係あるパス」を宣言すると、無関係な変更では reconciliation 自体がスキップされ、repo-server は<strong>変更に関係するアプリだけ</strong>の manifest を再生成すればよくなる。</li>
+<li>repo-server の manifest 生成負荷(CPU・処理待ちキュー)が減ることで、<a href="../argo-cd-controller-scaling/">argo-cd-controller-scaling</a> が扱う application controller の reconciliation queue に積まれる「本当に処理が必要なアプリ」の数も減り、結果として sync 全体のサイクルが速く回る。</li>
 </ol>
-<h2 id="_6">出典<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><a href="../argo-cd-controller-scaling/">argo-cd-controller-scaling</a> は「reconciliation queue をどれだけ速く捌けるか」という controller 側のスループット改善(<a href="../argo-cd-controller-scaling/">argo-cd-controller-scaling</a> の client QPS/シャーディング等)であるのに対し、本アノテーションは「そもそも queue に積む対象を減らす」という前段の最適化であり、両者は補完関係にある。</p>
+</blockquote>
+<h2 id="_3">制限・注意点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>raw/articles/strands-evals-experiment-management.mdx</code> — metadata 整理、命名規約、複数実験管理(collections/combining/flatten)、実験変更、session ID、版管理のベストプラクティス。</li>
+<li><strong>アプリごとに別リポジトリを使う構成では恩恵なし</strong>: 無関係コミットで他アプリのキャッシュが無効化される問題自体が起きないため。</li>
+<li><strong>外部 Helm values ファイル参照には効かない</strong>: 参照先(リポジトリ外)での変更はこの比較の対象外。</li>
+<li>webhook 経由の比較は GitHub / GitLab / Gogs ベースのリポジトリのみサポート。</li>
+</ul>
+<h2 id="_4">出典<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>raw/articles/argo-cd-high-availability.md("Manifest Paths Annotation" 節: 課題の説明・4パターンのパス指定例・webhook 対応 provider・CMP サーバへの送信範囲)</li>
 </ul>
 
 
