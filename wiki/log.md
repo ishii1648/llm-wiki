@@ -142,6 +142,21 @@
 - 既存更新: [[argo-cd]] に「パフォーマンス関連機能」節を追加しリンク、[[argo-cd-controller-scaling]] に補完関係の注記(reconciliation queue を速く捌く vs queue に積む対象を減らす)を追加。
 - 主な学び: Argo CD は生成 manifest を **commit SHA 単位**でキャッシュするため、monorepo で1コミットするとリポジトリ内の無関係な全アプリのキャッシュが無効化され、repo-server が無駄な manifest 再生成を行う。`argocd.argoproj.io/manifest-generate-paths` アノテーション(相対/絶対/複数/glob の4パターンでパス指定)で変更検知の対象パスを絞ることで、無関係な変更では reconciliation 自体をスキップしてキャッシュを再利用でき、結果として sync 全体が速くなる。Argo CD v2.11 以降は webhook なしでも利用可能(webhook 経由の比較は GitHub/GitLab/Gogs のみ対応)。
 - 矛盾・要確認: 既知の矛盾なし。アプリごとに別リポジトリの構成や外部 Helm values 参照には効果がない点をページに明記。
+
+## [2026-07-05] ingest | Claude Code 公式ドキュメント(scheduled-tasks / goal / hooks-guide / workflows / tools-reference)
+- 背景: ユーザーから「ループエンジニアリングを実現するために Claude Code で知っておくとよい tools を調べて」と依頼され、まず調査エージェント(一般調査、wiki 外)でツール一覧を整理して回答。その後ユーザーが「do」と続け、wiki への統合(ingest)を明示的に指示したため着手。
+- 取得・保存: `https://code.claude.com/docs/en/{scheduled-tasks,goal,hooks-guide,workflows,tools-reference}.md` を curl で取得し、一字一句そのまま `raw/articles/claude-code-{scheduled-tasks,goal,hooks-guide,workflows,tools-reference}.md` に保存(sha256 は `wiki/sources.md` 参照)。
+- 更新したページ: [[loop-engineering]](既存ページに実装詳細を追記。新規ページは作らず既存の概念に統合)
+  - 追記箇所: `/loop` の固定/動的間隔と `ScheduleWakeup`、セッション内 cron と無人 Routine/デスクトップスケジュールの違い、Stop hook の command/prompt 区別と loop-until-pass パターン(ブロック上限あり)、Workflow ツール(`agent`/`pipeline`/`parallel`、adversarial verify・loop-until-dry)、Monitor/Task 系ツール/バックグラウンド実行という補助プリミティブ。
+- 主な学び: Osmani 記事(既存 ingest)は「5要素+memory」という概念枠組みを示すのみで、Claude Code 側の実装詳細(ScheduleWakeup の適応スケジューリング、Stop hook の2種類、Workflow の並列制御、Monitor のイベント駆動監視)までは踏み込んでいなかった。今回はその欠落を公式ドキュメントで埋めた形。
+- 矛盾・要確認: 既知の矛盾なし。ScheduleWakeup の内部スケジューリングロジックの詳細、Workflow と agent teams のコスト比較は公式ドキュメントでも明記されておらず不明点として残る。
+
+## [2026-07-05] ingest | Claude Code 公式ドキュメント(channels-reference)
+- 背景: 「Monitor に類似するツールが他にあるか、plugin 経由の配布も含めて調べて」という query から着手。調査エージェント(一般調査、wiki 外)が Channels(research preview)を発見し、ユーザーが ingest を明示指示したため着手。
+- 取得・保存: `https://code.claude.com/docs/en/channels-reference.md` を curl で取得し、一字一句そのまま `raw/articles/claude-code-channels-reference.md` に保存(761行、sha256:3d8a8bac5bdc)。
+- 更新したページ: [[loop-engineering]](Monitor の節を「Monitor / Channels / Task 管理 / バックグラウンド実行」に拡張)
+- 主な学び: Monitor が「Claude がセッションから外を見に行く(pull)」なのに対し、**Channels**(v2.1.80+)は「外部システムがセッションへイベントを push する」逆方向の primitive。実体は stdio 通信する MCP サーバーで、one-way(webhook/監視アラート受信)と two-way(chat bridge、返信ツール公開)がある。信頼できる sender なら permission プロンプトのリモート中継(relay)も opt-in できる。公式 research preview には Telegram/Discord/iMessage/fakechat が同梱。Automations(スケジュールで能動的に見に行く)・Monitor(張り付いて見る)・Channels(受動的に通知を受ける)の3つで「発見(discovery)」手段が揃うという整理を追加。
+- 矛盾・要確認: サードパーティ製 plugin/MCP サーバー(Datadog・Slack・GitHub 向け監視統合、コミュニティ製 Claude Code 監視ダッシュボード等)の実例は調査エージェントが挙げたが実在確認が取れておらず、ページには含めなかった(未検証情報として記録のみ残す)。
 ## [2026-07-05] ingest | Using your Opencode Go subscription in Claude Code(Kristof Kovacs, kkovacs.eu)
 - 取得・保存: `https://kkovacs.eu/opencode-go-with-claude-code/` を curl で生 HTML 取得し、`<article>` 本文を忠実に Markdown 化して `raw/articles/opencode-go-with-claude-code.md` に原本保存(要約・整形なし。WebFetch 既定出力は要約のため不採用)。台帳ハッシュ `4ed8c84b18d5`。著者 Kristof Kovacs、2026-06-14。
 - 追加したページ:
@@ -152,3 +167,10 @@
   - [[opencode-go]] の場合、使えるのはモデル一覧の "AI SDK PACKAGE" 列が `@ai-sdk/anthropic` のものだけ(2026-06-14 時点で MiniMax/Qwen 系: minimax-m3, qwen-3.7-plus, qwen-3.7-max)。
   - 著者の動機: Claude 非契約者が Claude Code の新機能を安く試すための手段。普段の Claude モデル利用は OpenRouter 経由。
 - 矛盾・要確認: 新テーマ(Claude Code の実行環境設定)。既存ページとの接続点は薄いため今回は独立クラスタとして追加(将来 Claude Code 関連記事が増えればハブ化を検討)。モデルラインナップは執筆時点のスナップショットで陳腐化しうる旨を [[opencode-go]] に明記。
+
+## [2026-07-05] ingest | Claude Code 公式ドキュメント(channels-reference 日本語版)
+- 背景: ユーザーから「`https://code.claude.com/docs/ja/channels-reference` を ingest したか、まだなら ingest して」と明示指示。既存 ingest は英語版(`raw/articles/claude-code-channels-reference.md`)のみだったため着手。
+- 取得・保存: `https://code.claude.com/docs/ja/channels-reference.md` を curl で取得し、一字一句そのまま `raw/articles/claude-code-channels-reference-ja.md` に保存(791行、sha256:ce194d6afb6a)。
+- 更新したページ: [[loop-engineering]](frontmatter `sources:` と出典セクションに日本語版を並記。本文内容は変更なし)
+- 主な学び: 日本語版はバージョン要件(v2.1.80/v2.1.81 等)・コードブロック数(ts コード12箇所)が英語版と一致する忠実な翻訳と確認。技術的に新規の学びはなく、既存ページへの追記は不要と判断(出典の並記のみ)。
+- 矛盾・要確認: 既知の矛盾なし。多言語ドキュメントを別 raw ソースとして扱うか(今回のように独立ファイル+`sources:` 併記)は今後も同じ方針で運用する。
