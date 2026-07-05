@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/knowledge-bundle/">
+        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/claude-code-non-anthropic-models/">
       
       
-        <link rel="prev" href="../graph-multi-agent/">
+        <link rel="prev" href="../argo-cd-manifest-paths-annotation/">
       
       
-        <link rel="next" href="../loop-engineering/">
+        <link rel="next" href="../context-compression/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Knowledge Bundle(OKF のバンドル構造) - LLM Wiki</title>
+        <title>Claude Code で非 Anthropic モデルを使う(Anthropic 互換ゲートウェイ経由) - LLM Wiki</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Knowledge Bundle(OKF のバンドル構造)
+              Claude Code で非 Anthropic モデルを使う(Anthropic 互換ゲートウェイ経由)
             
           </span>
         </div>
@@ -632,10 +632,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../claude-code-non-anthropic-models/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code で非 Anthropic モデルを使う(Anthropic 互換ゲートウェイ経由)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -651,6 +676,96 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        詳細
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="詳細">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anthropic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        制約: 使えるのは Anthropic 互換モデルのみ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能・動機
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出典
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -912,35 +1027,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Knowledge Bundle(OKF のバンドル構造)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../knowledge-bundle/" class="md-nav__link">
         
   
   
@@ -956,123 +1046,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        概要
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        用語
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        予約ファイル名
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#concept" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Concept ドキュメントの本文
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cross-linking" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross-linking
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#index-log" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Index と Log
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conformance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conformance(適合条件)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        出典
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2038,81 +2011,54 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        用語
+        詳細
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="詳細">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        予約ファイル名
+        設定方法
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#concept" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#anthropic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Concept ドキュメントの本文
+        制約: 使えるのは Anthropic 互換モデルのみ
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#cross-linking" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross-linking
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#index-log" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Index と Log
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conformance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conformance(適合条件)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能・動機
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -2142,89 +2088,33 @@
   
 
 
-  <h1>Knowledge Bundle(OKF のバンドル構造)</h1>
+  <h1>Claude Code で非 Anthropic モデルを使う(Anthropic 互換ゲートウェイ経由)</h1>
 
 <h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><strong>Knowledge Bundle</strong> は <a href="../../entities/open-knowledge-format/">OKF</a> における<strong>配布の単位</strong>。markdown ファイルから成るディレクトリツリーで、自己完結した階層的な知識ドキュメントの集合。各ファイルは 1 つの <strong>concept</strong>(知識の単位)を表す。ディレクトリ構造はドメインから独立しており、producer が捉えたい知識に合わせて自由に組める(出典: <code>raw/articles/okf-spec.md</code> §3)。</p>
-<p>配布形態は git リポジトリ(履歴・帰属・差分が得られるため推奨)、tarball/zip、より大きなリポジトリ内のサブディレクトリのいずれでもよい。</p>
-<h2 id="_2">用語<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Claude Code は環境変数でモデルのリクエスト先(<code>ANTHROPIC_BASE_URL</code>)と使うモデル名を差し替えられるため、Anthropic Messages API 互換のエンドポイントを提供するゲートウェイ経由であれば、Claude Code というハーネスはそのままに中身のモデルだけを非 Claude モデルに置き換えて動かせる。<a href="../../entities/kristof-kovacs/">kristof-kovacs</a> のブログ記事は <a href="../../entities/opencode-go/">opencode-go</a> を例にこの手順を示している。</p>
+<h2 id="_2">詳細<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">設定方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>以下の環境変数を設定するだけで、Claude Code の Opus/Sonnet/Haiku 相当・サブエージェント全てを指定モデルに向け替えられる:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>export ANTHROPIC_DEFAULT_OPUS_MODEL=minimax-m3
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>export ANTHROPIC_DEFAULT_SONNET_MODEL=minimax-m3
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>export ANTHROPIC_DEFAULT_HAIKU_MODEL=minimax-m3
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>export CLAUDE_CODE_SUBAGENT_MODEL=minimax-m3
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>export ANTHROPIC_BASE_URL=&quot;https://opencode.ai/zen/go/&quot;
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>export ANTHROPIC_AUTH_TOKEN=&quot;&quot;
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>export ANTHROPIC_API_KEY=&quot;$OPENCODE_API_KEY&quot;
+</code></pre></div>
+<h3 id="anthropic">制約: 使えるのは Anthropic 互換モデルのみ<a class="headerlink" href="#anthropic" title="Permanent link">&para;</a></h3>
+<p>ゲートウェイ側が提供する全モデルが使えるわけではない。<a href="../../entities/opencode-go/">opencode-go</a> の場合、モデル一覧の "AI SDK PACKAGE" 列が <code>@ai-sdk/anthropic</code> になっているものだけが対象。2026-06-14 時点では MiniMax / Qwen 系(<code>minimax-m3</code>, <code>qwen-3.7-plus</code>, <code>qwen-3.7-max</code>)がこれに該当する。</p>
+<h3 id="_4">性能・動機<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Concept</strong> — バンドル内の知識 1 単位。1 markdown ドキュメント。テーブルや API のような実体、metric やビジネスプロセスのような抽象、その中間のいずれも表せる。</li>
-<li><strong>Concept ID</strong> — バンドル内でのファイルパスから <code>.md</code> を除いたもの(例: <code>tables/users.md</code> → <code>tables/users</code>)。</li>
-<li><strong>Frontmatter</strong> / <strong>Body</strong> — 先頭の YAML メタデータブロックと、それ以降の本文。</li>
-<li><strong>Link</strong> — concept 間の標準 markdown リンク。暗黙の親子階層を越えた関係を表す。</li>
-<li><strong>Citation</strong> — body 中の主張を裏づける外部ソースへのリンク。</li>
+<li>性能は現行の Opus には及ばず「数ヶ月前の Opus 程度」と著者は評価している(推測含む所感)。</li>
+<li>著者はこれを、有料の Claude サブスクリプションを持たずに Claude Code ハーネスの新機能を試すための、最も安く手軽な方法として使っている。普段 Claude モデル自体が必要なときは OpenRouter 経由で使っている、とも述べている。</li>
+<li>著者の考え: 安いモデルで使いこなせれば、高いモデルでも間違いなく使いこなせるようになる。</li>
 </ul>
-<h2 id="_3">予約ファイル名<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>階層のどのレベルでも特別な意味を持ち、concept ドキュメントに使ってはならない(出典: <code>raw/articles/okf-spec.md</code> §3.1):</p>
-<table>
-<thead>
-<tr>
-<th>ファイル名</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>index.md</code></td>
-<td>ディレクトリ一覧(progressive disclosure)。</td>
-</tr>
-<tr>
-<td><code>log.md</code></td>
-<td>更新履歴。</td>
-</tr>
-</tbody>
-</table>
-<p>それ以外の <code>.md</code> はすべて concept ドキュメント。</p>
-<h2 id="concept">Concept ドキュメントの本文<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>body は標準 markdown。freeform の散文より、見出し・リスト・テーブル・コードブロックといった<strong>構造的 markdown</strong> が推奨される(人間の読みやすさとエージェントの retrieval の双方を助けるため)。必須セクションは無いが、慣習的な意味を持つ見出しがある(出典: <code>raw/articles/okf-spec.md</code> §4.2):</p>
-<table>
-<thead>
-<tr>
-<th>見出し</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code># Schema</code></td>
-<td>アセットのカラム/フィールドの構造的記述。</td>
-</tr>
-<tr>
-<td><code># Examples</code></td>
-<td>具体的な利用例(多くはコードブロック)。</td>
-</tr>
-<tr>
-<td><code># Citations</code></td>
-<td>body の主張を裏づける外部ソース。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="cross-linking">Cross-linking<a class="headerlink" href="#cross-linking" title="Permanent link">&para;</a></h2>
-<p>concept 間は標準 markdown リンクで結ぶ。2 形式がある(出典: <code>raw/articles/okf-spec.md</code> §5):</p>
+<h2 id="_5">出典<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Absolute(bundle-relative)</strong>: <code>/</code> 始まりで bundle root 基準。サブディレクトリ内で移動しても安定するため<strong>推奨</strong>。</li>
-<li><strong>Relative</strong>: 通常の相対パス(<code>./other.md</code>)。</li>
-</ul>
-<p>リンク A→B は<em>関係</em>を表明するだけで、関係の種類(parent/child, references, joins-with, depends-on 等)はリンク自体ではなく周囲の散文が伝える。consumer は通常すべてのリンクを無型の有向エッジとして扱う。<strong>壊れたリンクは不正ではなく</strong>、まだ書かれていない知識を表すことがあるため consumer は許容しなければならない。</p>
-<h2 id="index-log">Index と Log<a class="headerlink" href="#index-log" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong><code>index.md</code></strong>(§6): 任意のディレクトリに置け、内容を列挙して progressive disclosure を支える。frontmatter は持たない(例外は §11 のバージョン宣言)。各エントリは概念の <code>description</code> を含むのが望ましい。producer が自動生成しても、consumer がその場で合成してもよい。</li>
-<li><strong><code>log.md</code></strong>(§7): 任意階層で変更履歴を記録。新しい順の日付グループ(ISO 8601 <code>YYYY-MM-DD</code>)。先頭の太字(<code>**Update**</code>/<code>**Creation**</code>/<code>**Deprecation**</code> 等)は慣習であり必須ではない。</li>
-</ul>
-<h2 id="citations">Citations<a class="headerlink" href="#citations" title="Permanent link">&para;</a></h2>
-<p>body が外部素材に由来する主張をする場合、末尾の <code># Citations</code> 見出しの下に番号付きで列挙する。リンクは絶対 URL・bundle-relative パス・外部素材を first-class concept として写した <code>references/</code> サブディレクトリへのパスのいずれでもよい(出典: <code>raw/articles/okf-spec.md</code> §8)。</p>
-<h2 id="conformance">Conformance(適合条件)<a class="headerlink" href="#conformance" title="Permanent link">&para;</a></h2>
-<p>バンドルが OKF v0.1 に<strong>適合</strong>するのは次のとき(出典: <code>raw/articles/okf-spec.md</code> §9):</p>
-<ol>
-<li>ツリー内の非予約 <code>.md</code> ファイルがすべて解析可能な YAML frontmatter を持つ。</li>
-<li>すべての frontmatter が空でない <code>type</code> フィールドを持つ。</li>
-<li>予約ファイル名(<code>index.md</code>, <code>log.md</code>)が存在する場合、それぞれ §6/§7 の構造に従う。</li>
-</ol>
-<p>その他の制約はすべて soft guidance であり、consumer は <a href="../../entities/open-knowledge-format/#permissive-consumption寛容な消費">permissive consumption</a> に従う。</p>
-<h2 id="_4">出典<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ul>
-<li><code>raw/articles/okf-spec.md</code>(GoogleCloudPlatform/knowledge-catalog, <code>okf/SPEC.md</code>, Apache-2.0)§2–§9</li>
+<li><code>raw/articles/opencode-go-with-claude-code.md</code>(Kristof Kovacs, "Using your Opencode Go subscription in Claude Code", 2026-06-14)— 環境変数設定、対応モデル、動機の全記述。</li>
 </ul>
 
 
