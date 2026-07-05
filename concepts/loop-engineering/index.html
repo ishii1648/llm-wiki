@@ -1092,6 +1092,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Automations — ループの心臓(heartbeat)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop-2-schedulewakeup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /loop の2モードと ScheduleWakeup(実装詳細)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cron-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cron / Routine(セッション非依存の無人実行)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hooks による決定論的 / 意味的な収束判定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1135,6 +1174,51 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Sub-agents — 作る者と検証する者を分ける">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow ツール(決定論的なサブエージェント・オーケストレーション)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-channels-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        補助プリミティブ — Monitor / Channels / Task 管理 / バックグラウンド実行
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="補助プリミティブ — Monitor / Channels / Task 管理 / バックグラウンド実行">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#channelsmonitor-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Channels(Monitor の逆方向:push型のイベント連携)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2212,6 +2296,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Automations — ループの心臓(heartbeat)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop-2-schedulewakeup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /loop の2モードと ScheduleWakeup(実装詳細)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cron-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cron / Routine(セッション非依存の無人実行)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hooks による決定論的 / 意味的な収束判定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2255,6 +2378,51 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Sub-agents — 作る者と検証する者を分ける">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow ツール(決定論的なサブエージェント・オーケストレーション)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-channels-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        補助プリミティブ — Monitor / Channels / Task 管理 / バックグラウンド実行
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="補助プリミティブ — Monitor / Channels / Task 管理 / バックグラウンド実行">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#channelsmonitor-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Channels(Monitor の逆方向:push型のイベント連携)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2412,6 +2580,51 @@
 <p>セッション内のもう1つの primitive:
 - <strong><code>/loop</code></strong> は一定の cadence で再実行する。
 - <strong><code>/goal</code></strong> は自分で書いた条件が実際に真になるまで継続し、<strong>毎ターン後に別の小さなモデルが完了判定</strong>する —— コードを書いたエージェント自身が採点しない。「test/auth の全テストが通り lint がクリーン」のように与えて立ち去れる。Codex も同名の <code>/goal</code> を持ち、検証可能な停止条件が成立するまで継続(pause / resume / clear 付き)。</p>
+<h5 id="loop-2-schedulewakeup"><code>/loop</code> の2モードと ScheduleWakeup(実装詳細)<a class="headerlink" href="#loop-2-schedulewakeup" title="Permanent link">&para;</a></h5>
+<p><code>/loop</code> には固定間隔と動的間隔の2モードがある(<code>raw/articles/claude-code-scheduled-tasks.md</code>)。</p>
+<ul>
+<li><strong>固定間隔</strong>: <code>/loop 5m &lt;prompt&gt;</code> のように cron 互換の間隔を明示。5分〜複数日まで指定可(秒指定は分に切り上げ)。</li>
+<li><strong>動的間隔</strong>: <code>/loop &lt;prompt&gt;</code>(間隔省略)。各イテレーション終了後、<strong>Claude 自身が <code>ScheduleWakeup</code> ツールで次の起床時刻を決める</strong>。観測した状態(CI が pending か failure か等)に応じて 1分〜1時間の幅で適応的に待つ ——「何もなければ長く、動きがあれば短く」を LLM が判断する。Bedrock/GCP/Azure 経由では固定 10 分に降格する。</li>
+<li>セッション終了で自動停止し、<code>--resume</code> 時は 7日以内なら復帰する。<code>Esc</code> で次の起床をキャンセルできる。</li>
+<li><code>/loop</code> 単独実行(prompt 省略)は PR 監視・CI 確認・cleanup を行う内蔵メンテナンスプロンプトが走る。<code>loop.md</code> でプロジェクト/ユーザー単位にデフォルト prompt をカスタマイズできる。</li>
+</ul>
+<h5 id="cron-routine">Cron / Routine(セッション非依存の無人実行)<a class="headerlink" href="#cron-routine" title="Permanent link">&para;</a></h5>
+<p>Automations の「スケジュール」を担うもう1つの層が cron 系のツール群(<code>raw/articles/claude-code-scheduled-tasks.md</code>)。</p>
+<table>
+<thead>
+<tr>
+<th>種類</th>
+<th>前提</th>
+<th>特徴</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>セッション内 cron(<code>CronCreate</code>/<code>CronList</code>/<code>CronDelete</code>)</td>
+<td>セッション継続が必須</td>
+<td>5フィールド cron 式、7日で自動満期</td>
+</tr>
+<tr>
+<td>Routine(ルーティン)</td>
+<td>セッション不要</td>
+<td>クラウド側で無人実行。GitHub Actions 等の CI イベントもトリガーにできる</td>
+</tr>
+<tr>
+<td>デスクトップスケジュール</td>
+<td>ローカルマシン起動中</td>
+<td>マシンの起動時間に依存</td>
+</tr>
+</tbody>
+</table>
+<p>セッション継続前提の <code>/loop</code>・<code>CronCreate</code> と、セッション非依存の Routine・GitHub Actions は使い分けが要る:ノート PC を閉じる/無人運用したいなら後者。</p>
+<h5 id="hooks">Hooks による決定論的 / 意味的な収束判定<a class="headerlink" href="#hooks" title="Permanent link">&para;</a></h5>
+<p>Automations の「トリアージ」「停止条件」を hooks が担う(<code>raw/articles/claude-code-hooks-guide.md</code>)。特に <strong>Stop hook</strong> はループを「収束するまで続ける」核心機構になる。</p>
+<ul>
+<li><strong>Command hook</strong>: シェルコマンドを実行し exit code で判定する決定論的な hook(例: テストランナーを直接叩く)。</li>
+<li><strong>Prompt hook</strong>: 小さな LLM が yes/no + 理由を返す意味的な hook(例:「全テストが通ったか」を自然言語条件で判定)。</li>
+<li>Stop hook で「まだ完了していない」と判定すればターンを継続させる <strong>loop-until-pass</strong> パターンが組める(例: テストが通るまで/レビュー指摘がなくなるまで)。ただし無限ループ防止のため Stop hook は<strong>8連続ブロックで上限</strong>に達する(<code>CLAUDE_CODE_STOP_HOOK_BLOCK_CAP</code> で調整可)。</li>
+<li>PostToolUse(ツール実行直後に formatter を挟む等)、SessionStart(再開時にコンテキストを注入)、PreToolUse(危険なコマンドをブロック)も同じ hooks 機構の一部で、Automations の「発見・トリアージ」を決定論的に支える。</li>
+</ul>
 <h4 id="worktrees">Worktrees — 並列をカオスにしない<a class="headerlink" href="#worktrees" title="Permanent link">&para;</a></h4>
 <p>複数エージェントを走らせた瞬間にファイル衝突が失敗要因になる。2エージェントが同一ファイルを書くのは、2人のエンジニアが相談せず同じ行に commit するのと同じ頭痛。<strong>git worktree</strong> はこれを解決する —— 同じ repo 履歴を共有しつつ独自ブランチの別作業ディレクトリなので、一方の編集が他方の checkout に触れ得ない。Codex は worktree を内蔵。Claude Code は <code>git worktree</code>・<code>--worktree</code> フラグ・サブエージェントの <code>isolation: worktree</code> 設定で同じ分離を提供(各ヘルパーが使い捨ての fresh checkout を得て後で自動掃除)。</p>
 <blockquote>
@@ -2428,6 +2641,31 @@
 - Codex は依頼時のみサブエージェントを spawn・並列実行し結果を1つに畳む。<code>.codex/agents/</code> の TOML で name / description / instructions / 任意の model・reasoning effort を定義(security reviewer は強モデル高 effort、explorer は高速 read-only など)。
 - Claude Code も <code>.claude/agents/</code> のサブエージェントと、仕事を受け渡す agent teams で同様。両者の典型は「1つが探索、1つが実装、1つが spec に対し検証」。</p>
 <p>これは <a href="../../syntheses/multi-agent-patterns/">multi-agent-patterns</a> の役割分担(および <a href="../ai-code-review/">ai-code-review</a> の "adversarial code review")とも重なる。ループは<strong>見ていない間に走る</strong>ので、信頼できる verifier こそが立ち去れる唯一の理由。サブエージェントは各自モデル・ツールを使い token を多く焼くので「第2の意見が払う価値のある所」に使う。<strong>Claude Code の <code>/goal</code> は内部的にこれ</strong>を行っている —— 仕事をしたモデルでなく fresh なモデルが完了判定する = maker/checker 分離を停止条件そのものに適用したもの。</p>
+<h5 id="workflow">Workflow ツール(決定論的なサブエージェント・オーケストレーション)<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h5>
+<p>Claude Code の maker/checker 分離をスクリプトとして固定化したのが Workflow ツール(<code>raw/articles/claude-code-workflows.md</code>)。JavaScript(型注釈なしの plain JS)でサブエージェントの fan-out/検証を記述する:</p>
+<ul>
+<li><code>agent()</code> で単体サブエージェント実行、<code>pipeline(items, stage1, stage2, ...)</code> でアイテムごとに複数ステージを<strong>バリアなしで</strong>流す(遅いアイテムが速いアイテムの足を引っ張らない)、<code>parallel(thunks)</code> は全結果を待つバリア。</li>
+<li>典型パターンは <strong>adversarial verify</strong>(複数の独立した skeptic エージェントに「反証してみよ」とプロンプトし、過半数が反証したら棄却)と <strong>loop-until-dry</strong>(新しい指摘が出なくなるまで発見ラウンドを繰り返す)。これはまさに Osmani の言う「maker と checker の分離」をコードとして表現したもの。</li>
+<li>並列実行数は最大16、1ワークフロー内の総サブエージェント数は1000が上限。中断・再編集後の再開(resume)も可能で、変更していない呼び出し結果はキャッシュされる。</li>
+<li>明示的なユーザーの opt-in(「ultracode」キーワードや <code>/code-review ultra</code> 等)が必要 —— サブエージェントを大量に spawn しトークンを消費するため、常時自動発火はしない設計。ここも「orchestration tax」(→ Worktrees の節)と同じ発想で、コストに見合う場面に絞る。</li>
+</ul>
+<h4 id="monitor-channels-task">補助プリミティブ — Monitor / Channels / Task 管理 / バックグラウンド実行<a class="headerlink" href="#monitor-channels-task" title="Permanent link">&para;</a></h4>
+<p>Osmani の5要素には含まれないが、Claude Code でループを組む際に実際よく使う実装ディテール(<code>raw/articles/claude-code-tools-reference.md</code>)。</p>
+<ul>
+<li><strong>Monitor ツール</strong>: シェルコマンドや WebSocket の出力を継続的に監視し、変化があった行だけを通知として受け取る。CI ログを poll し続けるより token 効率がよく、待っている間も他の作業を並行して進められる。<code>persistent: true</code> で無期限監視も可能。ポーリングループを自前の bash + sleep で書く代わりに使う。<strong>Claude がセッションから外を見に行く(pull)</strong> 側の primitive。</li>
+<li><strong>Task 系ツール(<code>TaskCreate</code>/<code>TaskList</code>/<code>TaskUpdate</code>/<code>TaskStop</code>)</strong>: 長時間実行タスクの作成・進捗追跡・停止。Monitor やバックグラウンド実行の管理・可視化に使う ——「State(完了の追跡)」の実装がセッション内タスクの粒度まで降りてきたもの。</li>
+<li><strong>バックグラウンド実行(<code>Bash</code> の <code>run_in_background</code>)</strong>: 長時間コマンドをセッションをブロックせず裏で実行し、Monitor で状態を監視するか完了後に読み出す。ループの「1ステップ」が長時間ジョブのときの基本形。</li>
+</ul>
+<h5 id="channelsmonitor-push">Channels(Monitor の逆方向:push型のイベント連携)<a class="headerlink" href="#channelsmonitor-push" title="Permanent link">&para;</a></h5>
+<p>Monitor が pull(Claude が能動的に見に行く)なのに対し、<strong>Channels</strong>(research preview、v2.1.80+)は <strong>push</strong>(外部システムが Claude Code セッションへイベントを送り込む)側の primitive(<code>raw/articles/claude-code-channels-reference.md</code>)。</p>
+<ul>
+<li>実体は「セッションと同じマシン上で動き stdio で通信する MCP サーバー」。外部からの webhook・chat メッセージ・監視アラートを、Claude への通知として push する。</li>
+<li><strong>one-way channel</strong>: CI/監視アラートの webhook を受けて Claude に知らせるだけ。<strong>two-way channel</strong>(chat bridge 等): 返信ツールを公開し Claude からもメッセージを送れる。</li>
+<li>信頼できる sender 経路を持つ channel は、ツール承認プロンプトをリモートへ中継(relay)する opt-in もできる ——「離れた場所から permission プロンプトを承認/拒否する」動線。</li>
+<li>公式 research preview では Telegram / Discord / iMessage / fakechat が同梱。Team/Enterprise 組織は明示的な有効化が必要。</li>
+<li>plugin から配布する場合は Monitor 同様に MCP サーバーとして同梱できる(<code>monitors/monitors.json</code> で Monitor 自体を自動起動宣言する仕組みとは別の、channel 用の宣言経路がある)。</li>
+<li>位置づけ: Monitor がループの「観測」を内側から行う primitive なら、Channels は「外の出来事がループに飛び込んでくる」入口。Automations(スケジュールで能動的に見に行く)・Monitor(能動的に張り付いて見る)・Channels(受動的に通知を受ける)の3つで「発見(discovery)」の手段が揃う。</li>
+</ul>
 <h3 id="1">1つのループの実例(著者が反復利用する形)<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>毎朝 repo 上で automation が走る。その prompt は triage skill を呼び、昨日の CI 失敗・open issues・最近の commits を読み、findings を markdown ファイルか Linear ボードに書く。</li>
@@ -2448,6 +2686,13 @@
 <h2 id="_6">出典<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>raw/articles/loop-engineering.md</code>(Addy Osmani, "Loop Engineering", 2026-06-07)— loop engineering の定義、prompt engineering からの転換、5要素+memory、Codex/Claude Code 対応表、各要素(Automations/Worktrees/Skills/Plugins・connectors/Sub-agents)の詳細、<code>/loop</code>・<code>/goal</code>、ループの実例、3つの警告(検証・comprehension debt・cognitive surrender)、結論のすべて。</li>
+<li><code>raw/articles/claude-code-scheduled-tasks.md</code>(Claude Code 公式ドキュメント)— <code>/loop</code> の固定/動的間隔、ScheduleWakeup による自己スケジューリング、セッション内 cron・Routine・デスクトップスケジュールの違い。</li>
+<li><code>raw/articles/claude-code-goal.md</code>(同上)— <code>/goal</code> の停止条件判定の仕組み。</li>
+<li><code>raw/articles/claude-code-hooks-guide.md</code>(同上)— Command hook / Prompt hook の区別、Stop hook による loop-until-pass パターンとブロック上限。</li>
+<li><code>raw/articles/claude-code-workflows.md</code>(同上)— Workflow ツール(<code>agent</code>/<code>pipeline</code>/<code>parallel</code>)、adversarial verify・loop-until-dry パターン、並列数・総数上限。</li>
+<li><code>raw/articles/claude-code-tools-reference.md</code>(同上)— Monitor ツール、Task 系ツール、バックグラウンド実行(<code>run_in_background</code>)。</li>
+<li><code>raw/articles/claude-code-channels-reference.md</code>(同上)— Channels(push型イベント連携の MCP サーバー契約)、one-way/two-way channel、sender gating、permission relay。</li>
+<li><code>raw/articles/claude-code-channels-reference-ja.md</code>(同上、日本語版)— 英語版と技術的内容(バージョン要件・コード例)が一致する忠実な翻訳。本文への追加反映なし、出典として並記のみ。</li>
 </ul>
 
 
