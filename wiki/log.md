@@ -142,3 +142,13 @@
 - 既存更新: [[argo-cd]] に「パフォーマンス関連機能」節を追加しリンク、[[argo-cd-controller-scaling]] に補完関係の注記(reconciliation queue を速く捌く vs queue に積む対象を減らす)を追加。
 - 主な学び: Argo CD は生成 manifest を **commit SHA 単位**でキャッシュするため、monorepo で1コミットするとリポジトリ内の無関係な全アプリのキャッシュが無効化され、repo-server が無駄な manifest 再生成を行う。`argocd.argoproj.io/manifest-generate-paths` アノテーション(相対/絶対/複数/glob の4パターンでパス指定)で変更検知の対象パスを絞ることで、無関係な変更では reconciliation 自体をスキップしてキャッシュを再利用でき、結果として sync 全体が速くなる。Argo CD v2.11 以降は webhook なしでも利用可能(webhook 経由の比較は GitHub/GitLab/Gogs のみ対応)。
 - 矛盾・要確認: 既知の矛盾なし。アプリごとに別リポジトリの構成や外部 Helm values 参照には効果がない点をページに明記。
+## [2026-07-05] ingest | Using your Opencode Go subscription in Claude Code(Kristof Kovacs, kkovacs.eu)
+- 取得・保存: `https://kkovacs.eu/opencode-go-with-claude-code/` を curl で生 HTML 取得し、`<article>` 本文を忠実に Markdown 化して `raw/articles/opencode-go-with-claude-code.md` に原本保存(要約・整形なし。WebFetch 既定出力は要約のため不採用)。台帳ハッシュ `4ed8c84b18d5`。著者 Kristof Kovacs、2026-06-14。
+- 追加したページ:
+  - entities: [[kristof-kovacs]](新規・著者ハブ)、[[opencode-go]](新規・製品)
+  - concepts: [[claude-code-non-anthropic-models]](新規・本記事の本体)
+- 主な学び:
+  - Claude Code は `ANTHROPIC_BASE_URL` / `ANTHROPIC_API_KEY` / `ANTHROPIC_DEFAULT_*_MODEL` / `CLAUDE_CODE_SUBAGENT_MODEL` の環境変数差し替えだけで、Anthropic Messages API 互換のゲートウェイ経由なら非 Claude モデルをハーネスの中身として使える。
+  - [[opencode-go]] の場合、使えるのはモデル一覧の "AI SDK PACKAGE" 列が `@ai-sdk/anthropic` のものだけ(2026-06-14 時点で MiniMax/Qwen 系: minimax-m3, qwen-3.7-plus, qwen-3.7-max)。
+  - 著者の動機: Claude 非契約者が Claude Code の新機能を安く試すための手段。普段の Claude モデル利用は OpenRouter 経由。
+- 矛盾・要確認: 新テーマ(Claude Code の実行環境設定)。既存ページとの接続点は薄いため今回は独立クラスタとして追加(将来 Claude Code 関連記事が増えればハブ化を検討)。モデルラインナップは執筆時点のスナップショットで陳腐化しうる旨を [[opencode-go]] に明記。
