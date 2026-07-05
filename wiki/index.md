@@ -17,6 +17,8 @@
 - [[open-knowledge-format]] — YAML frontmatter 付き markdown だけで知識を表現するオープン仕様 OKF v0.1(Google Cloud) (updated: 2026-06-19)
 - [[michael-lynch]] — Google/Microsoft 出身の開発者・writer。Refactoring English の著者で、[[design-doc]] 記事と公開実例の発信源 (updated: 2026-06-27)
 - [[writing-code-vs-shipping-code]] — NBER w35275(Demirer/Musolff/Yang 2026)。10万+開発者の event study。AI 効果は commits+180%→releases+30% と階層を上るほど減衰(弾力性0.25・強い補完) (updated: 2026-06-29)
+- [[kristof-kovacs]] — Software Architect/DevOps コンサルタント。kkovacs.eu の著者ハブ (updated: 2026-07-05)
+- [[opencode-go]] — 複数 LLM プロバイダのモデルを提供するサブスクリプションサービス。一部モデルが Anthropic API 互換 (updated: 2026-07-05)
 
 ## Concepts
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -47,6 +49,7 @@
 - [[design-doc]] — 実装前に難しい決定を整理する設計ドキュメント。「間違えたときのコスト」で書くか判断、23 個の構成要素(Goals/Non-goals/SLO/Open issues 等) (updated: 2026-06-27)
 - [[weak-link-hypothesis]] — 補完的タスク連鎖では一段の自動化の効果は最弱段に律速される(Kremer O-ring/Jones weak links の垂直版)。CES・代替弾力性が鍵 (updated: 2026-06-29)
 - [[ai-coding-tool-generations]] — AI コーディングツールの自律度3分類: autocomplete / sync agent / async agent。各世代の定義・代表ツール・生産階層への介入点 (updated: 2026-06-29)
+- [[claude-code-non-anthropic-models]] — 環境変数(`ANTHROPIC_BASE_URL` 等)で Claude Code のバックエンドを Anthropic 互換ゲートウェイに向け替え、非 Claude モデル(MiniMax/Qwen等)を使う手法 (updated: 2026-07-05)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->
