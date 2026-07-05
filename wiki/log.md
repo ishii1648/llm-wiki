@@ -157,3 +157,13 @@
 - 更新したページ: [[loop-engineering]](Monitor の節を「Monitor / Channels / Task 管理 / バックグラウンド実行」に拡張)
 - 主な学び: Monitor が「Claude がセッションから外を見に行く(pull)」なのに対し、**Channels**(v2.1.80+)は「外部システムがセッションへイベントを push する」逆方向の primitive。実体は stdio 通信する MCP サーバーで、one-way(webhook/監視アラート受信)と two-way(chat bridge、返信ツール公開)がある。信頼できる sender なら permission プロンプトのリモート中継(relay)も opt-in できる。公式 research preview には Telegram/Discord/iMessage/fakechat が同梱。Automations(スケジュールで能動的に見に行く)・Monitor(張り付いて見る)・Channels(受動的に通知を受ける)の3つで「発見(discovery)」手段が揃うという整理を追加。
 - 矛盾・要確認: サードパーティ製 plugin/MCP サーバー(Datadog・Slack・GitHub 向け監視統合、コミュニティ製 Claude Code 監視ダッシュボード等)の実例は調査エージェントが挙げたが実在確認が取れておらず、ページには含めなかった(未検証情報として記録のみ残す)。
+## [2026-07-05] ingest | Using your Opencode Go subscription in Claude Code(Kristof Kovacs, kkovacs.eu)
+- 取得・保存: `https://kkovacs.eu/opencode-go-with-claude-code/` を curl で生 HTML 取得し、`<article>` 本文を忠実に Markdown 化して `raw/articles/opencode-go-with-claude-code.md` に原本保存(要約・整形なし。WebFetch 既定出力は要約のため不採用)。台帳ハッシュ `4ed8c84b18d5`。著者 Kristof Kovacs、2026-06-14。
+- 追加したページ:
+  - entities: [[kristof-kovacs]](新規・著者ハブ)、[[opencode-go]](新規・製品)
+  - concepts: [[claude-code-non-anthropic-models]](新規・本記事の本体)
+- 主な学び:
+  - Claude Code は `ANTHROPIC_BASE_URL` / `ANTHROPIC_API_KEY` / `ANTHROPIC_DEFAULT_*_MODEL` / `CLAUDE_CODE_SUBAGENT_MODEL` の環境変数差し替えだけで、Anthropic Messages API 互換のゲートウェイ経由なら非 Claude モデルをハーネスの中身として使える。
+  - [[opencode-go]] の場合、使えるのはモデル一覧の "AI SDK PACKAGE" 列が `@ai-sdk/anthropic` のものだけ(2026-06-14 時点で MiniMax/Qwen 系: minimax-m3, qwen-3.7-plus, qwen-3.7-max)。
+  - 著者の動機: Claude 非契約者が Claude Code の新機能を安く試すための手段。普段の Claude モデル利用は OpenRouter 経由。
+- 矛盾・要確認: 新テーマ(Claude Code の実行環境設定)。既存ページとの接続点は薄いため今回は独立クラスタとして追加(将来 Claude Code 関連記事が増えればハブ化を検討)。モデルラインナップは執筆時点のスナップショットで陳腐化しうる旨を [[opencode-go]] に明記。

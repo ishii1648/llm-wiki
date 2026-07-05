@@ -47,3 +47,4 @@ ingest のたびに LLM が追記・更新します(過去行は再 ingest 時�
 - raw/articles/claude-code-workflows.md | sha256:24fdbab78353 | 2026-07-05 | [[loop-engineering]]
 - raw/articles/claude-code-tools-reference.md | sha256:e031778fec78 | 2026-07-05 | [[loop-engineering]]
 - raw/articles/claude-code-channels-reference.md | sha256:3d8a8bac5bdc | 2026-07-05 | [[loop-engineering]]
+- raw/articles/opencode-go-with-claude-code.md | sha256:4ed8c84b18d5 | 2026-07-05 | [[claude-code-non-anthropic-models]], [[opencode-go]], [[kristof-kovacs]]
