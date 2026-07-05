@@ -40,3 +40,4 @@ ingest のたびに LLM が追記・更新します(過去行は再 ingest 時�
 - raw/articles/okf-spec.md | sha256:b9655e607346 | 2026-06-19 | [[open-knowledge-format]], [[knowledge-bundle]], [[okf-and-llm-wiki]]
 - raw/articles/write-an-effective-design-doc.md | sha256:e53c49985af4 | 2026-06-27 | [[design-doc]], [[michael-lynch]]
 - raw/papers/writing-code-vs-shipping-code.md | sha256:078065ad164d | 2026-06-29 | [[writing-code-vs-shipping-code]], [[weak-link-hypothesis]], [[ai-coding-tool-generations]], [[ai-productivity-task-vs-output]]
+- raw/articles/argo-cd-high-availability.md | sha256:d39383666816 | 2026-07-05 | [[argo-cd-manifest-paths-annotation]], [[argo-cd]]
