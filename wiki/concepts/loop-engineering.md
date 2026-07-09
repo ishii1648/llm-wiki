@@ -4,7 +4,7 @@ type: concept
 aliases: [loop engineering, ループエンジニアリング, loop design, ループ設計]
 tags: [agentic-development, coding-agents, automation, loop, claude-code, codex, addy-osmani]
 created: 2026-06-10
-updated: 2026-07-05
+updated: 2026-07-10
 sources:
   - raw/articles/loop-engineering.md
   - raw/articles/claude-code-scheduled-tasks.md
@@ -14,6 +14,8 @@ sources:
   - raw/articles/claude-code-tools-reference.md
   - raw/articles/claude-code-channels-reference.md
   - raw/articles/claude-code-channels-reference-ja.md
+  - raw/articles/claude-code-channels.md
+  - raw/articles/claude-code-channels-ja.md
 related:
   - "[[addy-osmani]]"
   - "[[agent-loop]]"
@@ -23,6 +25,7 @@ related:
   - "[[multi-agent-patterns]]"
   - "[[ai-code-review]]"
   - "[[agentic-engineering]]"
+  - "[[claude-code-remote-control]]"
 ---
 
 ## 概要
@@ -137,14 +140,32 @@ Osmani の5要素には含まれないが、Claude Code でループを組む際
 - **バックグラウンド実行(`Bash` の `run_in_background`)**: 長時間コマンドをセッションをブロックせず裏で実行し、Monitor で状態を監視するか完了後に読み出す。ループの「1ステップ」が長時間ジョブのときの基本形。
 
 ##### Channels(Monitor の逆方向:push型のイベント連携)
-Monitor が pull(Claude が能動的に見に行く)なのに対し、**Channels**(research preview、v2.1.80+)は **push**(外部システムが Claude Code セッションへイベントを送り込む)側の primitive(`raw/articles/claude-code-channels-reference.md`)。
+Monitor が pull(Claude が能動的に見に行く)なのに対し、**Channels**(research preview、v2.1.80+)は **push**(外部システムが Claude Code セッションへイベントを送り込む)側の primitive(`raw/articles/claude-code-channels-reference.md`, `raw/articles/claude-code-channels.md`)。
 
-- 実体は「セッションと同じマシン上で動き stdio で通信する MCP サーバー」。外部からの webhook・chat メッセージ・監視アラートを、Claude への通知として push する。
+- 実体は「セッションと同じマシン上で動き stdio で通信する MCP サーバー」。外部からの webhook・chat メッセージ・監視アラートを、Claude への通知として push する。**Channel は MCP そのものの拡張仕様**であり、別プロトコルではない —— MCP の `experimental` capability 領域に `claude/channel`(push 通知リスナー登録)と `claude/channel/permission`(権限リレー opt-in)という Claude Code 固有のキーを追加しているだけで、トランスポート(stdio)・ツール呼び出し(`tools`/`ListToolsRequestSchema` 等)は標準 MCP をそのまま使う。
 - **one-way channel**: CI/監視アラートの webhook を受けて Claude に知らせるだけ。**two-way channel**(chat bridge 等): 返信ツールを公開し Claude からもメッセージを送れる。
-- 信頼できる sender 経路を持つ channel は、ツール承認プロンプトをリモートへ中継(relay)する opt-in もできる ——「離れた場所から permission プロンプトを承認/拒否する」動線。
-- 公式 research preview では Telegram / Discord / iMessage / fakechat が同梱。Team/Enterprise 組織は明示的な有効化が必要。
+- 信頼できる sender 経路を持つ channel は、ツール承認プロンプトをリモートへ中継(relay)する opt-in もできる ——「離れた場所から permission プロンプトを承認/拒否する」動線。ローカル端末のダイアログも並行して開いたままで、先に答えた方が採用される。
+- 公式 research preview では Telegram / Discord / iMessage / fakechat が同梱。インストールは `/plugin install telegram@claude-plugins-official` → セッションごとに `--channels plugin:telegram@claude-plugins-official` で opt-in、という2段階。送信者は許可リスト(ペアリング)でゲートされ、`.mcp.json` に居るだけでは push できず `--channels` での明示指定が要る。
 - plugin から配布する場合は Monitor 同様に MCP サーバーとして同梱できる(`monitors/monitors.json` で Monitor 自体を自動起動宣言する仕組みとは別の、channel 用の宣言経路がある)。
 - 位置づけ: Monitor がループの「観測」を内側から行う primitive なら、Channels は「外の出来事がループに飛び込んでくる」入口。Automations(スケジュールで能動的に見に行く)・Monitor(能動的に張り付いて見る)・Channels(受動的に通知を受ける)の3つで「発見(discovery)」の手段が揃う。
+
+**Enterprise/Team での有効化・無効化(`channelsEnabled`)**
+- claude.ai Team/Enterprise では channel はデフォルトでブロックされており、Owner が明示的に有効化するまで動かない(Console + API key 認証は逆にデフォルト許可)。個人の Pro/Max ユーザーはこの管理設定の対象外で、常に `--channels` で opt-in できる。
+- **`channelsEnabled` を無効/未設定のまま(= OFF)にした場合、MCP サーバー自体は接続され通常のツール(`tools` capability)は機能するが、channel の push メッセージだけが届かなくなる**(サーバーにエラーは返らずサイレントにドロップ、起動時に警告が出る)。つまり「channel を切る」は MCP 接続そのものを止めるのではなく、`claude/channel` 拡張機能だけを無効化する。
+- `--dangerously-load-development-channels`(開発用バイパス)は許可リストのみをスキップし、`channelsEnabled` ポリシーは無効化しない。完全に禁止したい場合は `channelsEnabled` を unset のままにする(`allowedChannelPlugins` を空配列にしても development フラグでのバイパスは残る)。
+- `allowedChannelPlugins` はより細かい制御で、`channelsEnabled: true` を前提に「どの plugin を channel として登録してよいか」を Anthropic デフォルト許可リストから組織独自のリストへ置き換える。
+
+**関連機能との比較(公式ドキュメントの整理)**
+
+| 機能 | すること | 向いている用途 |
+|---|---|---|
+| Claude Code on the web | GitHub から新規クラウド sandbox でタスク実行 | 自己完結した非同期作業の委任 |
+| Claude in Slack | `@Claude` メンションから web セッション生成 | チームの会話文脈から直接タスク開始 |
+| 標準 MCP サーバー | Claude がタスク中にクエリするだけ、push なし | システムへのオンデマンド読み取り/クエリ |
+| **Remote Control** | claude.ai / Claude モバイルアプリから**ローカルセッションを操縦**する | デスクを離れている間に進行中のセッションを操舵 |
+| **Channels** | 外部イベントを**既に開いているローカルセッションへ push** | chat bridge・webhook receiver |
+
+「スマホから Claude Code を操作したい」という要求に対しては、**Channels(Telegram 等でメッセージ/権限承認を送り込む)と [[claude-code-remote-control|Remote Control]](claude.ai・モバイルアプリからセッションを直接操縦する、別機能)の2経路がある**という整理になる。
 
 ### 1つのループの実例(著者が反復利用する形)
 - 毎朝 repo 上で automation が走る。その prompt は triage skill を呼び、昨日の CI 失敗・open issues・最近の commits を読み、findings を markdown ファイルか Linear ボードに書く。
@@ -173,3 +194,5 @@ Monitor が pull(Claude が能動的に見に行く)なのに対し、**Channels
 - `raw/articles/claude-code-tools-reference.md`(同上)— Monitor ツール、Task 系ツール、バックグラウンド実行(`run_in_background`)。
 - `raw/articles/claude-code-channels-reference.md`(同上)— Channels(push型イベント連携の MCP サーバー契約)、one-way/two-way channel、sender gating、permission relay。
 - `raw/articles/claude-code-channels-reference-ja.md`(同上、日本語版)— 英語版と技術的内容(バージョン要件・コード例)が一致する忠実な翻訳。本文への追加反映なし、出典として並記のみ。
+- `raw/articles/claude-code-channels.md`(Claude Code 公式ドキュメント、概要ページ)— Supported channels(Telegram/Discord/iMessage のセットアップ手順)、Security(sender allowlist)、Enterprise controls(`channelsEnabled`/`allowedChannelPlugins` の既定値・無効時の挙動)、How channels compare(Remote Control 等との比較表)。
+- `raw/articles/claude-code-channels-ja.md`(同上、日本語版)— 英語版と技術的内容が一致する忠実な翻訳。本文への追加反映なし、出典として並記のみ。

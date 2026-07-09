@@ -174,3 +174,21 @@
 - 更新したページ: [[loop-engineering]](frontmatter `sources:` と出典セクションに日本語版を並記。本文内容は変更なし)
 - 主な学び: 日本語版はバージョン要件(v2.1.80/v2.1.81 等)・コードブロック数(ts コード12箇所)が英語版と一致する忠実な翻訳と確認。技術的に新規の学びはなく、既存ページへの追記は不要と判断(出典の並記のみ)。
 - 矛盾・要確認: 既知の矛盾なし。多言語ドキュメントを別 raw ソースとして扱うか(今回のように独立ファイル+`sources:` 併記)は今後も同じ方針で運用する。
+
+## [2026-07-10] ingest | Claude Code 公式ドキュメント(channels 概要ページ、英語・日本語)
+- 背景: ユーザーとの対話で「channel 機能はスマホから使えるか」「channel と MCP の関連性は」「Enterprise で channel を OFF にした場合 channel MCP も使えなくなるか」と質問が連続。既存 ingest 済みの `channels-reference`(開発者向け MCP サーバー構築契約)には Enterprise 側の詳細(`channelsEnabled` の既定値・無効時の挙動)が明記されておらず、ユーザーが概要ページの取得・ingest に同意したため着手。
+- 取得・保存: `https://code.claude.com/docs/en/channels.md` と `https://code.claude.com/docs/ja/channels.md` を WebFetch で取得し、一字一句そのまま `raw/articles/claude-code-channels.md`(sha256:5eecc4b146ec)・`raw/articles/claude-code-channels-ja.md`(sha256:733b5d97933e)に保存。
+- 更新したページ: [[loop-engineering]](Channels 節を拡張)
+  - 追記: Channel は MCP の `experimental` capability 領域(`claude/channel`, `claude/channel/permission`)を使った拡張仕様であり、標準 MCP のトランスポート/tools 機構はそのまま使うという関係性。
+  - 追記: Enterprise/Team は `channelsEnabled` が既定 OFF(Owner が明示的に有効化するまでブロック)。**`channelsEnabled` が無効/未設定でも MCP サーバー自体の接続と通常ツールは機能し、channel の push メッセージだけが届かなくなる(サイレントドロップ)** —— 「channel を切る」は MCP 接続停止ではなく `claude/channel` 拡張機能の無効化。`--dangerously-load-development-channels` は許可リストのみバイパスし `channelsEnabled` は無効化しない。`allowedChannelPlugins` はより細かい plugin 単位の許可リスト。
+  - 追記: 公式の「How channels compare」比較表。Channels(外部イベントを既存セッションへ push)と **Remote Control**(claude.ai/モバイルアプリからローカルセッションを直接操縦、別機能・未 ingest)を区別。
+- 主な学び: 「スマホから channel を使う」は Telegram/Discord/iMessage 経由でメッセージ・権限承認を push するもので、Claude Code 本体は PC 側で起動し続ける必要がある。一方「スマホからセッションを操縦する」目的には Remote Control という別機能が存在し、まだ本 wiki には取り込んでいない。
+- 矛盾・要確認: Remote Control は今回 ingest 対象外(参照のみ)。必要になれば別途 `/en/remote-control` を ingest して独立ページ化する。
+
+## [2026-07-10] ingest | Claude Code 公式ドキュメント(remote-control、英語・日本語)
+- 背景: 直前の Channels ingest で「スマホから Claude Code を操作したい」という要求には Channels とは別に Remote Control という機能がある(未 ingest)と判明し、ユーザーが ingest に同意したため着手。
+- 取得・保存: `https://code.claude.com/docs/en/remote-control.md` と `https://code.claude.com/docs/ja/remote-control.md` を curl で取得し、一字一句そのまま `raw/articles/claude-code-remote-control.md`(352行、sha256:86fbf34e7c76)・`raw/articles/claude-code-remote-control-ja.md`(392行、sha256:a36ed6cd6634)に保存。WebFetch(要約付き小型モデル経由)では英語版にある「スマホ/ブラウザから画像・ファイル添付を送る」箇条書きが日本語版取得時に欠落する事象を確認したため、curl による直接取得に切り替えた。
+- 追加したページ: concepts: [[claude-code-remote-control]](新規)
+- 更新したページ: [[loop-engineering]](Channels 節の「Remote Control は本 wiki 未 ingest」という注記を新規ページへのリンクに更新、`related:` にも追加)
+- 主な学び: Remote Control は claude.ai/code・モバイルアプリから**ローカルの Claude Code セッションを直接操縦する**機能で、Channels(外部イベントを push)とは逆方向(人間が能動的に操縦)。セッションは常にローカルマシンで動き続け、ファイルシステム・MCP サーバーはそのまま使える。Team/Enterprise は既定 OFF(Channels の `channelsEnabled` と同型の構造)。β機能の Trusted Devices はデバイス登録+18時間以内サインイン+生体認証を組織単位で必須化できる。公式比較表に **Dispatch**(モバイルアプリからのタスクメッセージで Desktop セッションを生成)という今回初出の関連機能名も登場(未 ingest)。
+- 矛盾・要確認: Dispatch は参照のみで未 ingest。Choose the right approach 比較表は Channels ページのもの(How channels compare)と項目が一部重複するが矛盾はなし、視点(Remote Control 起点 vs Channels 起点)が異なるための重複と判断。
