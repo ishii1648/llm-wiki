@@ -49,3 +49,7 @@ ingest のたびに LLM が追記・更新します(過去行は再 ingest 時�
 - raw/articles/claude-code-channels-reference.md | sha256:3d8a8bac5bdc | 2026-07-05 | [[loop-engineering]]
 - raw/articles/opencode-go-with-claude-code.md | sha256:4ed8c84b18d5 | 2026-07-05 | [[claude-code-non-anthropic-models]], [[opencode-go]], [[kristof-kovacs]]
 - raw/articles/claude-code-channels-reference-ja.md | sha256:ce194d6afb6a | 2026-07-05 | [[loop-engineering]]
+- raw/articles/claude-code-channels.md | sha256:5eecc4b146ec | 2026-07-10 | [[loop-engineering]]
+- raw/articles/claude-code-channels-ja.md | sha256:733b5d97933e | 2026-07-10 | [[loop-engineering]]
+- raw/articles/claude-code-remote-control.md | sha256:86fbf34e7c76 | 2026-07-10 | [[claude-code-remote-control]]
+- raw/articles/claude-code-remote-control-ja.md | sha256:a36ed6cd6634 | 2026-07-10 | [[claude-code-remote-control]]

@@ -40,7 +40,7 @@
 - [[argo-cd-manifest-paths-annotation]] — `manifest-generate-paths` アノテーション。commit SHA 単位のキャッシュ無効化を抑え無関係な変更での manifest 再生成をスキップして sync を短縮(monorepo 向け) (updated: 2026-07-05)
 - [[one-person-squad]] — 1人が複数 AI エージェントを指揮する最小チーム構成。core/non-core 分割と「経験者=品質ゲート」が成立条件 (updated: 2026-06-05)
 - [[spec-driven-development]] — コードでなく自然言語仕様を第一級成果物とする AI 支援開発。律速をモデル能力でなく「仕様の質」に移す(SDD) (updated: 2026-06-05)
-- [[loop-engineering]] — prompt する自分をループ設計に置き換える。Automations/Worktrees/Skills/Connectors/Sub-agents+memory(Codex⇔Claude Code 対応)。Claude Code 実装詳細(`/loop`・ScheduleWakeup・Cron/Routine・hooks・Workflow・Monitor・Channels・Task)を追記 (updated: 2026-07-05)
+- [[loop-engineering]] — prompt する自分をループ設計に置き換える。Automations/Worktrees/Skills/Connectors/Sub-agents+memory(Codex⇔Claude Code 対応)。Claude Code 実装詳細(`/loop`・ScheduleWakeup・Cron/Routine・hooks・Workflow・Monitor・Channels・Task)、Channels の Enterprise 制御(`channelsEnabled`)と Remote Control との比較を追記 (updated: 2026-07-10)
 - [[agentic-engineering]] — エージェント群を「速くコードを書く道具」でなくデリバリ全体を駆動する control plane と捉える新分野。従来 SE との対比・人間の役割(intent architect/auditor) (updated: 2026-06-10)
 - [[agent-as-a-service]] — ソフト配信の第3世代(1.0 Local→2.0 SaaS→3.0 AaaS)。「Agent→Result」で成果物を中間物として除去、成果課金 (updated: 2026-06-10)
 - [[context-compression]] — LLM 入力から冗長メタデータを削りトークンコストを下げる手法群。可逆圧縮/プロバイダキャッシュ(TTL)/競合ツール比較。「何を読ませるか」へ (updated: 2026-06-11)
@@ -50,6 +50,7 @@
 - [[weak-link-hypothesis]] — 補完的タスク連鎖では一段の自動化の効果は最弱段に律速される(Kremer O-ring/Jones weak links の垂直版)。CES・代替弾力性が鍵 (updated: 2026-06-29)
 - [[ai-coding-tool-generations]] — AI コーディングツールの自律度3分類: autocomplete / sync agent / async agent。各世代の定義・代表ツール・生産階層への介入点 (updated: 2026-06-29)
 - [[claude-code-non-anthropic-models]] — 環境変数(`ANTHROPIC_BASE_URL` 等)で Claude Code のバックエンドを Anthropic 互換ゲートウェイに向け替え、非 Claude モデル(MiniMax/Qwen等)を使う手法 (updated: 2026-07-05)
+- [[claude-code-remote-control]] — claude.ai/モバイルアプリからローカルの Claude Code セッションを直接操縦する機能。Channels(push)とは逆に人間が能動的に操縦する。Enterprise 既定 OFF・Trusted Devices・Dispatch/Slack 等との比較表 (updated: 2026-07-10)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->
