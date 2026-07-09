@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/syntheses/graph-swarm-hybrid/">
+        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/claude-code-remote-control/">
       
       
-        <link rel="prev" href="../ai-productivity-task-vs-output/">
+        <link rel="prev" href="../claude-code-non-anthropic-models/">
       
       
-        <link rel="next" href="../multi-agent-patterns/">
+        <link rel="next" href="../context-compression/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Graph + Swarm ハイブリッド構成 - LLM Wiki</title>
+        <title>Remote Control(Claude Code) - LLM Wiki</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Graph + Swarm ハイブリッド構成
+              Remote Control(Claude Code)
             
           </span>
         </div>
@@ -296,8 +296,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -368,11 +370,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -393,7 +395,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -411,7 +413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/agent-as-a-service/" class="md-nav__link">
+      <a href="../agent-as-a-service/" class="md-nav__link">
         
   
   
@@ -439,7 +441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/agent-loop/" class="md-nav__link">
+      <a href="../agent-loop/" class="md-nav__link">
         
   
   
@@ -467,7 +469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/agent-skills/" class="md-nav__link">
+      <a href="../agent-skills/" class="md-nav__link">
         
   
   
@@ -495,7 +497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/agentic-engineering/" class="md-nav__link">
+      <a href="../agentic-engineering/" class="md-nav__link">
         
   
   
@@ -523,7 +525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/ai-code-review/" class="md-nav__link">
+      <a href="../ai-code-review/" class="md-nav__link">
         
   
   
@@ -551,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/ai-coding-tool-generations/" class="md-nav__link">
+      <a href="../ai-coding-tool-generations/" class="md-nav__link">
         
   
   
@@ -579,7 +581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/argo-cd-controller-scaling/" class="md-nav__link">
+      <a href="../argo-cd-controller-scaling/" class="md-nav__link">
         
   
   
@@ -607,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/argo-cd-manifest-paths-annotation/" class="md-nav__link">
+      <a href="../argo-cd-manifest-paths-annotation/" class="md-nav__link">
         
   
   
@@ -635,7 +637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/claude-code-non-anthropic-models/" class="md-nav__link">
+      <a href="../claude-code-non-anthropic-models/" class="md-nav__link">
         
   
   
@@ -660,10 +662,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../concepts/claude-code-remote-control/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remote Control(Claude Code)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -679,6 +706,140 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        詳細
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="詳細">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仕組み — セッションは常にローカルで動く
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        起動方法(3経路)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        接続とセキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-trusted-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enterprise 制御と Trusted Devices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        制限事項
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モバイルプッシュ通知
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choose-the-right-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        関連機能との使い分け(公式の "Choose the right approach")
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出典
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -691,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/context-compression/" class="md-nav__link">
+      <a href="../context-compression/" class="md-nav__link">
         
   
   
@@ -719,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/context-rot/" class="md-nav__link">
+      <a href="../context-rot/" class="md-nav__link">
         
   
   
@@ -747,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/conversation-management/" class="md-nav__link">
+      <a href="../conversation-management/" class="md-nav__link">
         
   
   
@@ -775,7 +936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/custom-tools/" class="md-nav__link">
+      <a href="../custom-tools/" class="md-nav__link">
         
   
   
@@ -803,7 +964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/design-doc/" class="md-nav__link">
+      <a href="../design-doc/" class="md-nav__link">
         
   
   
@@ -831,7 +992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/evaluators/" class="md-nav__link">
+      <a href="../evaluators/" class="md-nav__link">
         
   
   
@@ -859,7 +1020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/experiment-management/" class="md-nav__link">
+      <a href="../experiment-management/" class="md-nav__link">
         
   
   
@@ -887,7 +1048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/gitops/" class="md-nav__link">
+      <a href="../gitops/" class="md-nav__link">
         
   
   
@@ -915,7 +1076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/graph-multi-agent/" class="md-nav__link">
+      <a href="../graph-multi-agent/" class="md-nav__link">
         
   
   
@@ -943,7 +1104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/knowledge-bundle/" class="md-nav__link">
+      <a href="../knowledge-bundle/" class="md-nav__link">
         
   
   
@@ -971,7 +1132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/loop-engineering/" class="md-nav__link">
+      <a href="../loop-engineering/" class="md-nav__link">
         
   
   
@@ -999,7 +1160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/mcp-tools/" class="md-nav__link">
+      <a href="../mcp-tools/" class="md-nav__link">
         
   
   
@@ -1027,7 +1188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/one-person-squad/" class="md-nav__link">
+      <a href="../one-person-squad/" class="md-nav__link">
         
   
   
@@ -1055,7 +1216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/plugins/" class="md-nav__link">
+      <a href="../plugins/" class="md-nav__link">
         
   
   
@@ -1083,7 +1244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/spec-driven-development/" class="md-nav__link">
+      <a href="../spec-driven-development/" class="md-nav__link">
         
   
   
@@ -1111,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/state-management/" class="md-nav__link">
+      <a href="../state-management/" class="md-nav__link">
         
   
   
@@ -1139,7 +1300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/structured-output/" class="md-nav__link">
+      <a href="../structured-output/" class="md-nav__link">
         
   
   
@@ -1167,7 +1328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/swarm-multi-agent/" class="md-nav__link">
+      <a href="../swarm-multi-agent/" class="md-nav__link">
         
   
   
@@ -1195,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concepts/weak-link-hypothesis/" class="md-nav__link">
+      <a href="../weak-link-hypothesis/" class="md-nav__link">
         
   
   
@@ -1708,10 +1869,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -1732,11 +1891,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -1757,7 +1916,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1775,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai-productivity-task-vs-output/" class="md-nav__link">
+      <a href="../../syntheses/ai-productivity-task-vs-output/" class="md-nav__link">
         
   
   
@@ -1800,35 +1959,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Graph + Swarm ハイブリッド構成
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../syntheses/graph-swarm-hybrid/" class="md-nav__link">
         
   
   
@@ -1844,118 +1978,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        概要
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        詳細
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="詳細">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        なぜネストするのか
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        構成方法(Python)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sdk" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        設計上の注意(SDK 差異・地雷)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        共有状態の一貫性
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        選定の早見
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        出典
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1968,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../multi-agent-patterns/" class="md-nav__link">
+      <a href="../../syntheses/multi-agent-patterns/" class="md-nav__link">
         
   
   
@@ -1996,7 +2018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../okf-and-llm-wiki/" class="md-nav__link">
+      <a href="../../syntheses/okf-and-llm-wiki/" class="md-nav__link">
         
   
   
@@ -2075,7 +2097,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        なぜネストするのか
+        仕組み — セッションは常にローカルで動く
       
     </span>
   </a>
@@ -2083,21 +2105,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        構成方法(Python)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sdk" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        設計上の注意(SDK 差異・地雷)
+        起動方法(3経路)
       
     </span>
   </a>
@@ -2108,7 +2119,18 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        共有状態の一貫性
+        接続とセキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-trusted-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enterprise 制御と Trusted Devices
       
     </span>
   </a>
@@ -2119,7 +2141,29 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        選定の早見
+        制限事項
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モバイルプッシュ通知
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choose-the-right-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        関連機能との使い分け(公式の "Choose the right approach")
       
     </span>
   </a>
@@ -2132,7 +2176,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -2162,61 +2206,115 @@
   
 
 
-  <h1>Graph + Swarm ハイブリッド構成</h1>
+  <h1>Remote Control(Claude Code)</h1>
 
 <h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><a href="../../concepts/graph-multi-agent/">graph-multi-agent</a>(Graph)と <a href="../../concepts/swarm-multi-agent/">swarm-multi-agent</a>(Swarm)は排他ではなく、<strong>Graph のノードとして Swarm(または別の Graph)をネストできる</strong>。これにより「構造的・決定論的な制御(Graph)」と「自律的・創発的な協調(Swarm)」を1つのシステムに組み合わせられる。本ページは <a href="../multi-agent-patterns/">multi-agent-patterns</a> の選定指針を、ハイブリッド構成の観点から横断的に整理する。</p>
+<p><strong>Remote Control</strong> は、claude.ai/code や Claude モバイルアプリ(iOS/Android)から、<strong>手元のマシンで動いている Claude Code セッションをそのまま操縦する</strong>機能(research preview、全プランで利用可能)。<a href="../loop-engineering/">loop-engineering</a> で扱う Channels(外部イベントをセッションへ push する)とは逆方向で、こちらは<strong>人間がリモートから能動的にセッションを操縦する</strong>ための primitive。</p>
 <h2 id="_2">詳細<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="_3">なぜネストするのか<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_3">仕組み — セッションは常にローカルで動く<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Remote Control を開始しても Claude はローカルマシン上で動き続け、クラウドには一切移らない。web/モバイル UI は「そのローカルセッションへの窓」に過ぎない。これにより:
+- ファイルシステム・<a href="../mcp-tools/">mcp-tools</a>(MCP サーバー)・ツール・プロジェクト設定がそのまま使える。
+- 端末・ブラウザ・スマホから相互に交換可能にメッセージを送信でき、会話は全デバイス間で同期される。
+- スマホ/ブラウザから画像・ファイル添付を送ると、Claude Code がローカルにダウンロードし <code>@</code> file reference として Claude に渡す。
+- ラップトップのスリープやネットワーク切断からは、オンライン復帰時に自動再接続する。</p>
+<p>対して [Claude Code on the web] はクラウドインフラ上でセッションを実行する別機能で、ローカルファイルにはアクセスしない(「クローンしていない repo で作業したい」「並列に複数タスクを走らせたい」場合はこちらが適する)。</p>
+<h3 id="3">起動方法(3経路)<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>コマンド</th>
+<th>特徴</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>サーバーモード</td>
+<td><code>claude remote-control</code></td>
+<td>ターミナルは接続待受のまま。<code>--spawn worktree</code> で on-demand セッションごとに独立 git worktree、<code>--capacity N</code>(既定32)で同時セッション上限、QR コード表示可</td>
+</tr>
+<tr>
+<td>対話セッション</td>
+<td><code>claude --remote-control</code>(<code>--rc</code>)</td>
+<td>通常の対話セッションとしてローカルでも入力しつつリモートからも操縦できる</td>
+</tr>
+<tr>
+<td>既存セッションから</td>
+<td><code>/remote-control</code>(<code>/rc</code>)</td>
+<td>今の会話履歴を引き継いだままリモート化する</td>
+</tr>
+</tbody>
+</table>
+<p>VS Code 拡張では <code>/remote-control</code> コマンドで同様に接続する(v2.1.79+)。<code>--name</code> でセッション名を指定でき、未指定時は <code>myhost-graceful-unicorn</code> のような自動生成名になる。</p>
+<h3 id="_4">接続とセキュリティ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Graph は経路を開発者が定義し、条件分岐・error edge・ループで<strong>決定論的に制御</strong>できるが、各段の内部探索は固定的。</li>
-<li>Swarm は専門 agent が<strong>自律 handoff</strong> して創発的に協調するが、全体の経路は制御しにくい。</li>
-<li>→ 全体フローは Graph で骨格を組み、<strong>探索・ブレスト・多視点統合が要る一部の段だけ Swarm に委ねる</strong>のがハイブリッドの勘所。</li>
+<li>ローカルセッションは <strong>アウトバウンド HTTPS のみ</strong>で、インバウンドポートは一切開かない。Anthropic API に登録してポーリングし、別デバイスからの接続はこの API 経由でストリーミングリレーされる。</li>
+<li>認証は claude.ai OAuth 必須(API キー認証は非対応)。<code>claude setup-token</code>/<code>CLAUDE_CODE_OAUTH_TOKEN</code> の推論専用トークンでも確立できない。</li>
+<li><code>ANTHROPIC_BASE_URL</code> が <code>api.anthropic.com</code> 以外(LLM gateway/proxy 等)を指している場合は無効(v2.1.196+)。Amazon Bedrock/Google Cloud's Agent Platform/Microsoft Foundry でも利用不可。</li>
 </ul>
-<h3 id="python">構成方法(Python)<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
-<p><code>Swarm</code> インスタンスをそのまま <code>builder.add_node(...)</code> に渡す。SDK が自動で <code>MultiAgentNode</code>(TS)/ MultiAgentBase ノードとして扱う。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">strands</span><span class="w"> </span><span class="kn">import</span> <span class="n">Agent</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">strands.multiagent</span><span class="w"> </span><span class="kn">import</span> <span class="n">GraphBuilder</span><span class="p">,</span> <span class="n">Swarm</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">research_agents</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">Agent</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;medical_researcher&quot;</span><span class="p">,</span>    <span class="n">system_prompt</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">),</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">Agent</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;technology_researcher&quot;</span><span class="p">,</span> <span class="n">system_prompt</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">),</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">Agent</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;economic_researcher&quot;</span><span class="p">,</span>   <span class="n">system_prompt</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">),</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">]</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">research_swarm</span> <span class="o">=</span> <span class="n">Swarm</span><span class="p">(</span><span class="n">research_agents</span><span class="p">)</span>            <span class="c1"># 創発的な調査チーム</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">analyst</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">system_prompt</span><span class="o">=</span><span class="s2">&quot;Analyze the provided research.&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">builder</span> <span class="o">=</span> <span class="n">GraphBuilder</span><span class="p">()</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">research_swarm</span><span class="p">,</span> <span class="s2">&quot;research_team&quot;</span><span class="p">)</span>  <span class="c1"># Swarm を1ノードとして埋め込む</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">analyst</span><span class="p">,</span> <span class="s2">&quot;analysis&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;research_team&quot;</span><span class="p">,</span> <span class="s2">&quot;analysis&quot;</span><span class="p">)</span>      <span class="c1"># 決定論的な後段</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">graph</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">result</span> <span class="o">=</span> <span class="n">graph</span><span class="p">(</span><span class="s2">&quot;Research the impact of AI on healthcare and create a report&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>典型形: <code>research_team(Swarm)</code> → <code>analysis(Agent)</code> → ... のように、Swarm の出力を Graph の後続ノードへ決定論的に流す。</p>
-<h3 id="sdk">設計上の注意(SDK 差異・地雷)<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h3>
+<h3 id="enterprise-trusted-devices">Enterprise 制御と Trusted Devices<a class="headerlink" href="#enterprise-trusted-devices" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>timeout はネストへ伝播しない</strong>(TS): Graph の <code>timeout</code> は <code>MultiAgentNode</code> でラップされたネスト Swarm/Graph には伝わらず、<strong>ネスト側は自前の timeout 設定で動く</strong>。ハイブリッドでは内側 Swarm にも <code>execution_timeout</code>/<code>node_timeout</code>(または TS の <code>timeout</code>)を必ず設定する。</li>
-<li><strong><code>nodeTimeout</code> は MultiAgentNode に適用されない</strong>(TS)。ネスト orchestrator の時間制御は内側で行う。</li>
-<li><strong>依存解決/スケジューリングの差</strong>: Python は OR セマンティクス + バッチ実行、TS は AND セマンティクス + 個別起動。join/diamond 形(複数 Swarm の結果を1ノードで集約)を作る際はこの差を踏まえる(→ <a href="../../concepts/graph-multi-agent/">graph-multi-agent</a> の SDK 差異)。</li>
-<li><strong>ノード状態のリセット</strong>: 同一ノードを再訪する反復ワークフローでは、Python の状態蓄積 / TS の <code>preserveContext</code> の挙動を意識する。</li>
+<li>Team/Enterprise では <strong>デフォルト OFF</strong>。Owner が [Claude Code admin settings] の Remote Control トグルを有効化するまで使えない(Channels の <code>channelsEnabled</code> と同じ構造)。IT 管理者は managed settings の <code>disableRemoteControl</code> で個別デバイス単位にも無効化できる。</li>
+<li><strong>Trusted Devices</strong>(β、Team/Enterprise、既定 OFF): 組織全体で「登録済みデバイス」+「18時間以内のサインイン」の両方を Remote Control 利用の必須条件にできる追加のセキュリティ層。生体認証(Face ID/Touch ID/Windows Hello/passkey)でサインインの鮮度を確認する仕組みで、指紋や顔データ自体は Anthropic に送られない(公開鍵とデバイスメタデータのみ保存)。適用は Remote Control のみで、通常の Claude チャットやターミナルの Claude Code、API 利用には影響しない。有効化後に開始されたセッションのみが対象(遡及保護なし)。</li>
 </ul>
-<h3 id="_4">共有状態の一貫性<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>Graph と Swarm はともに <code>invocation_state</code>(TS: <code>invocationState</code>)を受け取り、ネスト境界を越えて全 agent に伝播する。<strong>同じ <code>shared_state</code> を Graph 起動時に渡せば、内側 Swarm の各 agent や <code>@tool(context=True)</code> のツールからも参照できる</strong>(→ <a href="../../concepts/state-management/">state-management</a>)。LLM に晒さない context/設定(user_id・session_id・DB 接続など)はここに置く。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">shared_state</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;user123&quot;</span><span class="p">,</span> <span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="s2">&quot;sess456&quot;</span><span class="p">,</span> <span class="s2">&quot;debug_mode&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">result</span> <span class="o">=</span> <span class="n">graph</span><span class="p">(</span><span class="s2">&quot;Analyze customer data&quot;</span><span class="p">,</span> <span class="n">invocation_state</span><span class="o">=</span><span class="n">shared_state</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="_5">選定の早見<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_5">制限事項<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <ul>
-<li>全体に<strong>分岐・ループ・error 経路</strong>が要る → 骨格は <a href="../../concepts/graph-multi-agent/">graph-multi-agent</a>。</li>
-<li>ある段が<strong>多視点の探索/協調</strong>を要する → その段を <a href="../../concepts/swarm-multi-agent/">swarm-multi-agent</a> にしてノード化。</li>
-<li>反復可能で固定的な決定論パイプライン全体 → Workflow も候補(→ <a href="../multi-agent-patterns/">multi-agent-patterns</a>)。</li>
+<li>対話型プロセスごとに同時リモートセッションは1つ(複数同時に受けたい場合はサーバーモードを使う)。</li>
+<li>ローカルプロセス(ターミナル/VS Code)を閉じるとセッションは終了する。常時稼働させたいなら残し続ける必要がある。</li>
+<li>ネットワーク断が約10分を超えるとセッションはタイムアウトして終了する。</li>
+<li>Ultraplan セッション開始は Remote Control を切断する(両方とも claude.ai/code の同じインターフェースを占有するため)。</li>
+<li><code>/plugin</code>・<code>/resume</code> 等の対話的ピッカーを開くコマンドはローカル CLI 専用。<code>/compact</code>・<code>/mcp</code>・<code>/config</code> 等のテキスト出力コマンドはモバイル/web からも実行できる。</li>
 </ul>
-<h2 id="_6">出典<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_6">モバイルプッシュ通知<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>Remote Control が有効な間、長時間タスクの完了時や判断が必要な時に Claude がスマホへ push 通知を送れる(<code>/config</code> で "Push when Claude decides"/"Push when actions required" を有効化)。プロンプトで明示的に依頼も可能(例: <code>notify me when the tests finish</code>)。イベント単位の細かい設定はなく、on/off の2トグルのみ。</p>
+<h3 id="choose-the-right-approach">関連機能との使い分け(公式の "Choose the right approach")<a class="headerlink" href="#choose-the-right-approach" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>機能</th>
+<th>トリガー</th>
+<th>Claude の実行場所</th>
+<th>向いている用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dispatch</td>
+<td>モバイルアプリからタスクをメッセージ</td>
+<td>自分のマシン(Desktop、要ペアリング)</td>
+<td>離席中の作業委任、最小セットアップ</td>
+</tr>
+<tr>
+<td><strong>Remote Control</strong></td>
+<td>claude.ai/code やモバイルアプリから操縦</td>
+<td>自分のマシン(CLI/VS Code)</td>
+<td><strong>進行中の作業を別デバイスから操縦</strong></td>
+</tr>
+<tr>
+<td><a href="../loop-engineering/">Channels</a></td>
+<td>チャットアプリ(Telegram/Discord)や自前サーバーからの push</td>
+<td>自分のマシン(CLI)</td>
+<td>CI 失敗やチャットメッセージなど外部イベントへの反応</td>
+</tr>
+<tr>
+<td>Slack</td>
+<td>チームチャンネルでの <code>@Claude</code> メンション</td>
+<td>Anthropic クラウド</td>
+<td>チームチャットからの PR・レビュー</td>
+</tr>
+<tr>
+<td>Scheduled tasks</td>
+<td>スケジュール設定</td>
+<td>CLI/Desktop/クラウド</td>
+<td>毎日のレビュー等、定期自動化</td>
+</tr>
+</tbody>
+</table>
+<p>Dispatch はこの表で初出の別機能で、本 wiki は未 ingest。</p>
+<h2 id="_7">出典<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>raw/articles/strands-graph.mdx</code> — 「Nested Multi-Agent Patterns」(Graph/Swarm をノードにする)、Graph 構成・<code>GraphResult</code>・SDK 差異、timeout がネストへ伝播しない仕様。</li>
-<li><code>raw/articles/strands-swarm.mdx</code> — Swarm の作成・handoff・安全機構(ネスト側 timeout 設定の根拠)。</li>
-<li><code>raw/articles/strands-multi-agent-patterns.mdx</code> — パターン選定指針、<code>invocation_state</code> による横断共有状態。</li>
+<li><code>raw/articles/claude-code-remote-control.md</code>(Claude Code 公式ドキュメント、英語)— 概要、要件、起動方法3経路とフラグ、接続とセキュリティ、Trusted Devices、Remote Control vs Claude Code on the web、モバイルプッシュ通知、制限事項、トラブルシューティング、Choose the right approach 比較表のすべて。</li>
+<li><code>raw/articles/claude-code-remote-control-ja.md</code>(同上、日本語版)— 英語版と技術的内容が一致する忠実な翻訳。本文への追加反映なし、出典として並記のみ。</li>
 </ul>
 
 

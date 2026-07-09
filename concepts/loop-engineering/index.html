@@ -359,6 +359,8 @@
       
         
       
+        
+      
     
     
     
@@ -643,6 +645,34 @@
     
   
     Claude Code で非 Anthropic モデルを使う(Anthropic 互換ゲートウェイ経由)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-remote-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remote Control(Claude Code)
   
 
     
@@ -2657,15 +2687,58 @@
 <li><strong>バックグラウンド実行(<code>Bash</code> の <code>run_in_background</code>)</strong>: 長時間コマンドをセッションをブロックせず裏で実行し、Monitor で状態を監視するか完了後に読み出す。ループの「1ステップ」が長時間ジョブのときの基本形。</li>
 </ul>
 <h5 id="channelsmonitor-push">Channels(Monitor の逆方向:push型のイベント連携)<a class="headerlink" href="#channelsmonitor-push" title="Permanent link">&para;</a></h5>
-<p>Monitor が pull(Claude が能動的に見に行く)なのに対し、<strong>Channels</strong>(research preview、v2.1.80+)は <strong>push</strong>(外部システムが Claude Code セッションへイベントを送り込む)側の primitive(<code>raw/articles/claude-code-channels-reference.md</code>)。</p>
+<p>Monitor が pull(Claude が能動的に見に行く)なのに対し、<strong>Channels</strong>(research preview、v2.1.80+)は <strong>push</strong>(外部システムが Claude Code セッションへイベントを送り込む)側の primitive(<code>raw/articles/claude-code-channels-reference.md</code>, <code>raw/articles/claude-code-channels.md</code>)。</p>
 <ul>
-<li>実体は「セッションと同じマシン上で動き stdio で通信する MCP サーバー」。外部からの webhook・chat メッセージ・監視アラートを、Claude への通知として push する。</li>
+<li>実体は「セッションと同じマシン上で動き stdio で通信する MCP サーバー」。外部からの webhook・chat メッセージ・監視アラートを、Claude への通知として push する。<strong>Channel は MCP そのものの拡張仕様</strong>であり、別プロトコルではない —— MCP の <code>experimental</code> capability 領域に <code>claude/channel</code>(push 通知リスナー登録)と <code>claude/channel/permission</code>(権限リレー opt-in)という Claude Code 固有のキーを追加しているだけで、トランスポート(stdio)・ツール呼び出し(<code>tools</code>/<code>ListToolsRequestSchema</code> 等)は標準 MCP をそのまま使う。</li>
 <li><strong>one-way channel</strong>: CI/監視アラートの webhook を受けて Claude に知らせるだけ。<strong>two-way channel</strong>(chat bridge 等): 返信ツールを公開し Claude からもメッセージを送れる。</li>
-<li>信頼できる sender 経路を持つ channel は、ツール承認プロンプトをリモートへ中継(relay)する opt-in もできる ——「離れた場所から permission プロンプトを承認/拒否する」動線。</li>
-<li>公式 research preview では Telegram / Discord / iMessage / fakechat が同梱。Team/Enterprise 組織は明示的な有効化が必要。</li>
+<li>信頼できる sender 経路を持つ channel は、ツール承認プロンプトをリモートへ中継(relay)する opt-in もできる ——「離れた場所から permission プロンプトを承認/拒否する」動線。ローカル端末のダイアログも並行して開いたままで、先に答えた方が採用される。</li>
+<li>公式 research preview では Telegram / Discord / iMessage / fakechat が同梱。インストールは <code>/plugin install telegram@claude-plugins-official</code> → セッションごとに <code>--channels plugin:telegram@claude-plugins-official</code> で opt-in、という2段階。送信者は許可リスト(ペアリング)でゲートされ、<code>.mcp.json</code> に居るだけでは push できず <code>--channels</code> での明示指定が要る。</li>
 <li>plugin から配布する場合は Monitor 同様に MCP サーバーとして同梱できる(<code>monitors/monitors.json</code> で Monitor 自体を自動起動宣言する仕組みとは別の、channel 用の宣言経路がある)。</li>
 <li>位置づけ: Monitor がループの「観測」を内側から行う primitive なら、Channels は「外の出来事がループに飛び込んでくる」入口。Automations(スケジュールで能動的に見に行く)・Monitor(能動的に張り付いて見る)・Channels(受動的に通知を受ける)の3つで「発見(discovery)」の手段が揃う。</li>
 </ul>
+<p><strong>Enterprise/Team での有効化・無効化(<code>channelsEnabled</code>)</strong>
+- claude.ai Team/Enterprise では channel はデフォルトでブロックされており、Owner が明示的に有効化するまで動かない(Console + API key 認証は逆にデフォルト許可)。個人の Pro/Max ユーザーはこの管理設定の対象外で、常に <code>--channels</code> で opt-in できる。
+- <strong><code>channelsEnabled</code> を無効/未設定のまま(= OFF)にした場合、MCP サーバー自体は接続され通常のツール(<code>tools</code> capability)は機能するが、channel の push メッセージだけが届かなくなる</strong>(サーバーにエラーは返らずサイレントにドロップ、起動時に警告が出る)。つまり「channel を切る」は MCP 接続そのものを止めるのではなく、<code>claude/channel</code> 拡張機能だけを無効化する。
+- <code>--dangerously-load-development-channels</code>(開発用バイパス)は許可リストのみをスキップし、<code>channelsEnabled</code> ポリシーは無効化しない。完全に禁止したい場合は <code>channelsEnabled</code> を unset のままにする(<code>allowedChannelPlugins</code> を空配列にしても development フラグでのバイパスは残る)。
+- <code>allowedChannelPlugins</code> はより細かい制御で、<code>channelsEnabled: true</code> を前提に「どの plugin を channel として登録してよいか」を Anthropic デフォルト許可リストから組織独自のリストへ置き換える。</p>
+<p><strong>関連機能との比較(公式ドキュメントの整理)</strong></p>
+<table>
+<thead>
+<tr>
+<th>機能</th>
+<th>すること</th>
+<th>向いている用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Code on the web</td>
+<td>GitHub から新規クラウド sandbox でタスク実行</td>
+<td>自己完結した非同期作業の委任</td>
+</tr>
+<tr>
+<td>Claude in Slack</td>
+<td><code>@Claude</code> メンションから web セッション生成</td>
+<td>チームの会話文脈から直接タスク開始</td>
+</tr>
+<tr>
+<td>標準 MCP サーバー</td>
+<td>Claude がタスク中にクエリするだけ、push なし</td>
+<td>システムへのオンデマンド読み取り/クエリ</td>
+</tr>
+<tr>
+<td><strong>Remote Control</strong></td>
+<td>claude.ai / Claude モバイルアプリから<strong>ローカルセッションを操縦</strong>する</td>
+<td>デスクを離れている間に進行中のセッションを操舵</td>
+</tr>
+<tr>
+<td><strong>Channels</strong></td>
+<td>外部イベントを<strong>既に開いているローカルセッションへ push</strong></td>
+<td>chat bridge・webhook receiver</td>
+</tr>
+</tbody>
+</table>
+<p>「スマホから Claude Code を操作したい」という要求に対しては、<strong>Channels(Telegram 等でメッセージ/権限承認を送り込む)と <a href="../claude-code-remote-control/">Remote Control</a>(claude.ai・モバイルアプリからセッションを直接操縦する、別機能)の2経路がある</strong>という整理になる。</p>
 <h3 id="1">1つのループの実例(著者が反復利用する形)<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>毎朝 repo 上で automation が走る。その prompt は triage skill を呼び、昨日の CI 失敗・open issues・最近の commits を読み、findings を markdown ファイルか Linear ボードに書く。</li>
@@ -2693,6 +2766,8 @@
 <li><code>raw/articles/claude-code-tools-reference.md</code>(同上)— Monitor ツール、Task 系ツール、バックグラウンド実行(<code>run_in_background</code>)。</li>
 <li><code>raw/articles/claude-code-channels-reference.md</code>(同上)— Channels(push型イベント連携の MCP サーバー契約)、one-way/two-way channel、sender gating、permission relay。</li>
 <li><code>raw/articles/claude-code-channels-reference-ja.md</code>(同上、日本語版)— 英語版と技術的内容(バージョン要件・コード例)が一致する忠実な翻訳。本文への追加反映なし、出典として並記のみ。</li>
+<li><code>raw/articles/claude-code-channels.md</code>(Claude Code 公式ドキュメント、概要ページ)— Supported channels(Telegram/Discord/iMessage のセットアップ手順)、Security(sender allowlist)、Enterprise controls(<code>channelsEnabled</code>/<code>allowedChannelPlugins</code> の既定値・無効時の挙動)、How channels compare(Remote Control 等との比較表)。</li>
+<li><code>raw/articles/claude-code-channels-ja.md</code>(同上、日本語版)— 英語版と技術的内容が一致する忠実な翻訳。本文への追加反映なし、出典として並記のみ。</li>
 </ul>
 
 
