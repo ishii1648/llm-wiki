@@ -53,3 +53,7 @@ ingest のたびに LLM が追記・更新します(過去行は再 ingest 時�
 - raw/articles/claude-code-channels-ja.md | sha256:733b5d97933e | 2026-07-10 | [[loop-engineering]]
 - raw/articles/claude-code-remote-control.md | sha256:86fbf34e7c76 | 2026-07-10 | [[claude-code-remote-control]]
 - raw/articles/claude-code-remote-control-ja.md | sha256:a36ed6cd6634 | 2026-07-10 | [[claude-code-remote-control]]
+- raw/articles/mattpocock-grill-me-skill.md | sha256:6189dfceb730 | 2026-07-12 | [[grilling]], [[matt-pocock]]
+- raw/articles/mattpocock-grilling-skill.md | sha256:5a35925d03a3 | 2026-07-12 | [[grilling]], [[matt-pocock]]
+- raw/articles/mattpocock-grill-with-docs-skill.md | sha256:610d091047bc | 2026-07-12 | [[grill-with-docs]], [[matt-pocock]]
+- raw/articles/mattpocock-domain-modeling-skill.md | sha256:152e2c97239a | 2026-07-12 | [[domain-modeling]], [[grill-with-docs]], [[matt-pocock]]

@@ -19,6 +19,7 @@
 - [[writing-code-vs-shipping-code]] — NBER w35275(Demirer/Musolff/Yang 2026)。10万+開発者の event study。AI 効果は commits+180%→releases+30% と階層を上るほど減衰(弾力性0.25・強い補完) (updated: 2026-06-29)
 - [[kristof-kovacs]] — Software Architect/DevOps コンサルタント。kkovacs.eu の著者ハブ (updated: 2026-07-05)
 - [[opencode-go]] — 複数 LLM プロバイダのモデルを提供するサブスクリプションサービス。一部モデルが Anthropic API 互換 (updated: 2026-07-05)
+- [[matt-pocock]] — TypeScript educator / AI Hero(aihero.dev)運営者。Claude Code スキル集 `mattpocock/skills`(MIT)の作者 (updated: 2026-07-12)
 
 ## Concepts
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -51,6 +52,9 @@
 - [[ai-coding-tool-generations]] — AI コーディングツールの自律度3分類: autocomplete / sync agent / async agent。各世代の定義・代表ツール・生産階層への介入点 (updated: 2026-06-29)
 - [[claude-code-non-anthropic-models]] — 環境変数(`ANTHROPIC_BASE_URL` 等)で Claude Code のバックエンドを Anthropic 互換ゲートウェイに向け替え、非 Claude モデル(MiniMax/Qwen等)を使う手法 (updated: 2026-07-05)
 - [[claude-code-remote-control]] — claude.ai/モバイルアプリからローカルの Claude Code セッションを直接操縦する機能。Channels(push)とは逆に人間が能動的に操縦する。Enterprise 既定 OFF・Trusted Devices・Dispatch/Slack 等との比較表 (updated: 2026-07-10)
+- [[grilling]] — 計画を関連する質問攻めにして合意形成する Claude Code スキル `/grill-me`。1問ずつ・推奨解答つき・決定はユーザーに委ねる (updated: 2026-07-12)
+- [[grill-with-docs]] — grilling に domain-modeling を合成した `/grill-with-docs`。解決した用語を CONTEXT.md、決定を ADR としてセッション中に書き残す (updated: 2026-07-12)
+- [[domain-modeling]] — CONTEXT.md 用語集・docs/adr/ を能動的に構築する Claude Code スキル。ADR は「覆しにくい・意外・トレードオフの結果」の3条件が揃った時のみ (updated: 2026-07-12)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->

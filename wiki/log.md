@@ -192,3 +192,14 @@
 - 更新したページ: [[loop-engineering]](Channels 節の「Remote Control は本 wiki 未 ingest」という注記を新規ページへのリンクに更新、`related:` にも追加)
 - 主な学び: Remote Control は claude.ai/code・モバイルアプリから**ローカルの Claude Code セッションを直接操縦する**機能で、Channels(外部イベントを push)とは逆方向(人間が能動的に操縦)。セッションは常にローカルマシンで動き続け、ファイルシステム・MCP サーバーはそのまま使える。Team/Enterprise は既定 OFF(Channels の `channelsEnabled` と同型の構造)。β機能の Trusted Devices はデバイス登録+18時間以内サインイン+生体認証を組織単位で必須化できる。公式比較表に **Dispatch**(モバイルアプリからのタスクメッセージで Desktop セッションを生成)という今回初出の関連機能名も登場(未 ingest)。
 - 矛盾・要確認: Dispatch は参照のみで未 ingest。Choose the right approach 比較表は Channels ページのもの(How channels compare)と項目が一部重複するが矛盾はなし、視点(Remote Control 起点 vs Channels 起点)が異なるための重複と判断。
+
+## [2026-07-12] ingest | aihero.dev "9 Things People Get Wrong With /grill-me and /grill-with-docs"
+- 背景: ユーザー指定 URL は著作権保護されたブログ記事で、WebFetch(小型モデル)は 125文字/引用の制限を明示して全文転載を拒否(既知の著作権ingestフォールバックパターンと合致)。記事の対象である `/grill-me` `/grill-with-docs` は Web 検索の結果、著者 Matt Pocock の GitHub リポジトリ `mattpocock/skills`(MIT license)で SKILL.md として公開されていると判明したため、そちらを一次ソース(ground truth)として `gh api` 経由で raw 保存し、ブログ本文は URL 参照のみに留めた。
+- 取得・保存: `gh api -H "Accept: application/vnd.github.raw"` で以下4ファイルを一字一句そのまま保存(すべて `github.com/mattpocock/skills` MIT):
+  - `raw/articles/mattpocock-grill-me-skill.md`(sha256:6189dfceb730) — `/grill-me` は `disable-model-invocation: true` の薄いラッパーで実体は `grilling` スキル呼び出し
+  - `raw/articles/mattpocock-grilling-skill.md`(sha256:5a35925d03a3) — 質問攻めの本体ルール(1問ずつ・推奨解答つき・事実はコードベースで確認・決定はユーザーに委ねる)
+  - `raw/articles/mattpocock-grill-with-docs-skill.md`(sha256:610d091047bc) — `grilling` + `domain-modeling` の合成
+  - `raw/articles/mattpocock-domain-modeling-skill.md`(sha256:152e2c97239a) — CONTEXT.md 用語集 / docs/adr/ を能動的に構築する規律。ADR は「覆しにくい・意外・トレードオフの結果」の3条件が揃った時のみ
+- 追加したページ: entities: [[matt-pocock]](新規)。concepts: [[grilling]]、[[grill-with-docs]]、[[domain-modeling]](いずれも新規)
+- 主な学び: `/grill-me` は計画の質問攻めのみ、`/grill-with-docs` はそれに加えて用語・ADR をファイルに永続化する点が主な違い。ブログ記事(WebFetch 要旨)からは、high-fidelity な質問をプロトタイプ前に無理に答えさせない・スコープを絞る(長い grilling は ~120k トークンで判断品質が落ちる "dumb zone")・受け身にならない・設計成果を `/2PRD` 等で残す・grilling には賢いモデルを使う・並列セッションでスループットを上げる、という6つの誤用パターンを [[grilling]] に記載。
+- 矛盾・要確認: 記事タイトルは「9 Things」だが、WebFetch(2回試行)で確認できた失敗パターンは6件のみで、残り3件は未取得(ツールの要約が全文をカバーしていない可能性)。[[grilling]] ページにその旨を明記済み。ブログ記事本文は著作権のため raw/ 未保存、`sources:` には URL を直接記載(lint.sh の `raw/` パス整合チェック対象外)。
