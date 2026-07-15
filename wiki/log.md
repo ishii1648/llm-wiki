@@ -222,8 +222,8 @@
 
 ## [2026-07-16] ingest | Backlog.md ワークフロー図解のスクリーンショットを添付
 - 背景: ユーザーが別セッションで作成した Artifact(あなた/Backlog台帳/エージェントの3レーンで6ステージ+3チェックポイントを示すフロー図、claude.ai artifact URL)を明示的に指定し、「スクショして添付」と依頼された。Artifact URLは非公開でヘッドレスブラウザから直接取得できないため、同一内容のローカルHTML(Artifact公開時に使ったソースファイル)を headless Chrome でレンダリングしてスクリーンショットを取得した。
-- 取得・保存: `raw/assets/backlog-md-workflow-diagram.png`(sha256:9f58dd9ec1b0)を新規保存。加えて mkdocs の `docs_dir: wiki` 設定上 `raw/` は公開サイトに含まれないため、同一ファイルを `wiki/entities/assets/backlog-md-workflow-diagram.png` にも複製し、そちらを実際の埋め込み表示に使用(raw/ 側は「原本」、wiki/ 側は「表示用コピー」という位置づけ)。
+- 取得・保存: `raw/assets/backlog-md-workflow-diagram.png`(sha256:9f58dd9ec1b0)を新規保存。`wiki/entities/backlog-md.md` からは `../../raw/assets/backlog-md-workflow-diagram.png` の相対パスで直接参照する(重複配置はしない、原本1箇所のみ)。
 - 追加したページ: なし
 - 更新したページ: [[backlog-md]] — 「3つのレビューチェックポイントと運用モデル」節に図を埋め込み。frontmatter `sources:` と末尾の出典リストに追加。
-- 主な学び: 本 wiki で画像アセットを埋め込むのは今回が初めて。`scripts/lint.sh` の broken-source チェックは本文中の `raw/...` という文字列パターンを機械的に拾うため、Markdown画像記法 `![...](path)` 内のパスも自動的に検証対象になる(パス表記の前後に何が付いていても `raw/` から始まる部分文字列として抽出される)。ただし mkdocs の `docs_dir` が `wiki/` のみである点は raw/ 配下の画像がそのままでは公開サイトに反映されない制約として残るため、今後 raw/assets/ に画像を追加する際は同様に wiki/ 側への複製を検討する。
+- 主な学び: 本 wiki で画像アセットを埋め込むのは今回が初めて。`scripts/lint.sh` の broken-source チェックは本文中の `raw/...` という文字列パターンを機械的に拾うため、Markdown画像記法 `![...](path)` 内のパスも自動的に検証対象になる(相対パスの `../../` 部分の後ろに続く `raw/...` が部分文字列として抽出されるため、`raw/` 配下を指す限りどちらの書き方でも検証は通る)。ただし mkdocs の `docs_dir` が `wiki/` のみである点は raw/ 配下の画像がそのままでは公開サイト(GitHub Pages)には反映されない制約として残る——GitHub上のファイル閲覧・PRのdiffプレビューでは表示されるが、mkdocsビルドしたサイトには出ない。この制約は許容し、原本を `raw/` に一本化した(wiki/ 側への複製はしない)。
 - 矛盾・要確認: 既知の矛盾なし。

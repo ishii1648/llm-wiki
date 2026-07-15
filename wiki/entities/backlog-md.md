@@ -45,7 +45,7 @@ README のタグライン "AI agents write the code. You review the tasks: befor
 
 この一連の流れは「**あなた(人間)/ Backlog台帳(`backlog/tasks/*.md`)/ エージェント**」という3アクターのやり取りとして整理できる。人とエージェントは直接会話するだけでなく、必ず台帳(Markdownファイル)を経由して意図・計画・進捗をやり取りする(これは「一つのモデルを人とエージェントで共有する」というマニフェストの設計原則そのもの)。
 
-![Backlog.md ワークフロー図解 — あなた/Backlog台帳/エージェントの3レーンで6ステージと3つのレビューチェックポイントを示す図](assets/backlog-md-workflow-diagram.png)
+![Backlog.md ワークフロー図解 — あなた/Backlog台帳/エージェントの3レーンで6ステージと3つのレビューチェックポイントを示す図](../../raw/assets/backlog-md-workflow-diagram.png)
 
 *(上図は本節の内容を可視化したもの。出典: `raw/assets/backlog-md-workflow-diagram.png`)*
 
