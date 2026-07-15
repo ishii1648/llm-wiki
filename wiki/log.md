@@ -227,3 +227,11 @@
 - 更新したページ: [[backlog-md]] — 「3つのレビューチェックポイントと運用モデル」節に図を埋め込み。frontmatter `sources:` と末尾の出典リストに追加。
 - 主な学び: 本 wiki で画像アセットを埋め込むのは今回が初めて。`scripts/lint.sh` の broken-source チェックは本文中の `raw/...` という文字列パターンを機械的に拾うため、Markdown画像記法 `![...](path)` 内のパスも自動的に検証対象になる(相対パスの `../../` 部分の後ろに続く `raw/...` が部分文字列として抽出されるため、`raw/` 配下を指す限りどちらの書き方でも検証は通る)。ただし mkdocs の `docs_dir` が `wiki/` のみである点は raw/ 配下の画像がそのままでは公開サイト(GitHub Pages)には反映されない制約として残る——GitHub上のファイル閲覧・PRのdiffプレビューでは表示されるが、mkdocsビルドしたサイトには出ない。この制約は許容し、原本を `raw/` に一本化した(wiki/ 側への複製はしない)。
 - 矛盾・要確認: 既知の矛盾なし。
+
+## [2026-07-16] lint | backlog-md 添付図が公開サイトに表示されない問題の修正
+- 背景: ユーザーが公開サイト https://ishii1648.github.io/llm-wiki/entities/backlog-md/ を実際に開き、直前のingestで追加した図(旧: `raw/assets/backlog-md-workflow-diagram.png`)が表示されないと報告。前回のログで「許容する」とした `docs_dir: wiki` の制約(`raw/` は mkdocs のビルド対象外)が、想定どおり実際に問題として顕在化した。
+- 対応: `raw/assets/backlog-md-workflow-diagram.png` を `wiki/entities/assets/backlog-md-workflow-diagram.png` へ移動(コピーではなく `git mv`、ファイルは1つのみ)。`wiki/entities/backlog-md.md` の画像参照を相対パス `assets/backlog-md-workflow-diagram.png` に変更。この図は一次資料(ingestしたソース)ではなくページの添付図という位置づけに整理し、frontmatter `sources:`・出典リスト・`wiki/sources.md` 台帳からは外した(台帳はingest済みソースのみを対象とするため)。
+- 追加したページ: なし
+- 更新したページ: [[backlog-md]]
+- 主な学び: `docs_dir: wiki` の制約は「許容できる理論上の制約」ではなく「実際にユーザーが見て気づく実害」だった。この wiki で画像を**公開して見せる**目的で使う場合は `raw/assets/` ではなく `wiki/<page-dir>/assets/` に置く必要がある。`raw/` は一次資料の原本置き場、`wiki/` 配下の画像はページに紐づく表示用資産、という役割分担にする。今後 raw/assets/ に置くのは「ingestの原本として保存するだけで、ページに埋め込み表示はしない」画像に限定する。
+- 矛盾・要確認: 既知の矛盾なし。
