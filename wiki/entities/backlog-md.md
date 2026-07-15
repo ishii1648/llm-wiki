@@ -42,6 +42,20 @@ README のタグライン "AI agents write the code. You review the tasks: befor
 
 出力が不十分なら plan/notes/final summary をクリアし、タスクの説明や受け入れ基準を直したうえで**新しいセッションで**やり直す(既存タスクを直接修復させない)。完了タスクはGit履歴上に「何を・なぜ試みたか」の永続的な記録として残る。
 
+この一連の流れは「**あなた(人間)/ Backlog台帳(`backlog/tasks/*.md`)/ エージェント**」という3アクターのやり取りとして整理できる。人とエージェントは直接会話するだけでなく、必ず台帳(Markdownファイル)を経由して意図・計画・進捗をやり取りする(これは「一つのモデルを人とエージェントで共有する」というマニフェストの設計原則そのもの)。ステージ別に整理すると:
+
+| ステージ | あなた(人間) | Backlog 台帳 | エージェント |
+|---|---|---|---|
+| 01 意図を伝える | アイデアを説明し、タスクへの分解を依頼 | `backlog/tasks/task-N.md` を説明・受け入れ基準つきで新規作成 | `backlog search "query"` → `backlog task create "..." -d "..." --ac "..."` |
+| ▸ **チェックポイント#1** | 仕様のレビュー(説明・受け入れ基準を読む) | | |
+| 02 着手 | 着手する1タスクを指定(例:「BACK-10だけ進めて」) | ステータス・担当者フィールドを更新 | `backlog task view {id} --plain` → `backlog task edit {id} -s "In Progress" -a @me` |
+| 03 計画 | 実装前の調査・計画作成を依頼 | タスクファイルに Plan セクションを追記 | `backlog task edit {id} --plan "1. ..."` |
+| ▸ **チェックポイント#2** | 計画のレビュー(コードを書く前に承認/差し戻し) | | |
+| 04 実装 | 基本は任せる | Notes・レビュー用コメントが蓄積 | 実装→テスト→`backlog task edit {id} --append-notes "..."`/`--comment "..."` |
+| 05 完了確認 | 基本は任せる | AC がチェック済みになり Done へ | `backlog task edit {id} --check-ac N` → `backlog task edit {id} -s Done` |
+| ▸ **チェックポイント#3** | コードのレビュー(diff・テスト・lintを確認) | | |
+| 06 記録として保存 | 不十分なら plan/notes/summary をクリアし、説明・ACを直して新セッションで再実行 | 完了タスクが Git 履歴上の永続的な記録として残る | このタスクでの役目はここで終了、次のタスクへ |
+
 **「backlogの内容をエージェントに渡してそのまま実行させる」という運用について**: task-execution ガイド(下記CLIワークフロー参照)が定めるとおり、「既存タスクを読み、実装計画を立て、コードを書く」というエージェント主導の実行そのものは明確に想定された使い方である。一方で、**人間のレビューを介さない無条件の全自動実行はモデルの中心ではない**。マニフェストの設計原則4「Review before consequence」、および Boundaries節の「Backlog.md is not ... an agent-only orchestration system」が明言する通り、意味のある設計判断を含む計画は明示的な承認を待ってから実装に進むことが CLI instructions 上のルールになっている(`task-execution.md`: "If the plan contains a material product, architecture, or workflow decision ... present it and wait for explicit approval before implementation")。ルーティンでスコープ内の軽微な変更はチェックポイントを省略してよいが、それは例外であって既定ではない。
 
 ## タスク Markdown の形式
