@@ -219,3 +219,11 @@
 - 更新したページ: [[backlog-md]] — 「3つのレビューチェックポイントと運用モデル」節、「自然言語呼びかけ→CLIコマンド実行の起動メカニズム(実地検証)」節を新設。frontmatter `sources:` と末尾の出典リストに新規raw2本を追加。
 - 主な学び: (1) 「既存タスクを読み、計画を立て、コードを書く」というエージェント主導の実行そのものはBacklog.mdの想定用途そのものだが、「人間のレビューなしの全自動実行」は設計の中心ではない——マニフェストの Design Principle 4「Review before consequence」と Boundaries「not an agent-only orchestration system」、および task-execution ガイドの「material decisionを含む計画は明示的承認を待つ」という明文規定がこれを裏付ける。(2) 自然言語の呼びかけでCLIコマンドが実行される仕組みは、Claude Code固有のhooksやルールエンジンではなく、`backlog init` が `CLAUDE.md`/`AGENTS.md`/`GEMINI.md`/`.github/copilot-instructions.md` の4ファイルへ同一のナッジ文(`<CRITICAL_INSTRUCTION>`タグ付きMarkdown)をマーカーコメントで冪等挿入するだけの仕組みであり、実効性は各コーディングエージェント側がもともと持つ「起動時にこれらのファイルを自動でシステムコンテキストへ読み込む」という規約とLLMのプロンプト追従性に完全に依存する。プログラム的な強制(hooks/MCPゲート)はBacklog.md自身のコードにもリポジトリ設定にも存在しない(実地確認)。
 - 矛盾・要確認: 既知の矛盾なし。
+
+## [2026-07-16] ingest | Backlog.md ワークフロー図解のスクリーンショットを添付
+- 背景: ユーザーが別セッションで作成した Artifact(あなた/Backlog台帳/エージェントの3レーンで6ステージ+3チェックポイントを示すフロー図、claude.ai artifact URL)を明示的に指定し、「スクショして添付」と依頼された。Artifact URLは非公開でヘッドレスブラウザから直接取得できないため、同一内容のローカルHTML(Artifact公開時に使ったソースファイル)を headless Chrome でレンダリングしてスクリーンショットを取得した。
+- 取得・保存: `raw/assets/backlog-md-workflow-diagram.png`(sha256:9f58dd9ec1b0)を新規保存。`wiki/entities/backlog-md.md` からは `../../raw/assets/backlog-md-workflow-diagram.png` の相対パスで直接参照する(重複配置はしない、原本1箇所のみ)。
+- 追加したページ: なし
+- 更新したページ: [[backlog-md]] — 「3つのレビューチェックポイントと運用モデル」節に図を埋め込み。frontmatter `sources:` と末尾の出典リストに追加。
+- 主な学び: 本 wiki で画像アセットを埋め込むのは今回が初めて。`scripts/lint.sh` の broken-source チェックは本文中の `raw/...` という文字列パターンを機械的に拾うため、Markdown画像記法 `![...](path)` 内のパスも自動的に検証対象になる(相対パスの `../../` 部分の後ろに続く `raw/...` が部分文字列として抽出されるため、`raw/` 配下を指す限りどちらの書き方でも検証は通る)。ただし mkdocs の `docs_dir` が `wiki/` のみである点は raw/ 配下の画像がそのままでは公開サイト(GitHub Pages)には反映されない制約として残る——GitHub上のファイル閲覧・PRのdiffプレビューでは表示されるが、mkdocsビルドしたサイトには出ない。この制約は許容し、原本を `raw/` に一本化した(wiki/ 側への複製はしない)。
+- 矛盾・要確認: 既知の矛盾なし。
