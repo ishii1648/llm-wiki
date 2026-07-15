@@ -10,6 +10,8 @@ sources:
   - raw/articles/backlog-md-task-example.md
   - raw/articles/backlog-md-cli-instructions.md
   - raw/articles/backlog-md-init-and-task-create.md
+  - raw/articles/backlog-md-readme-ai-workflow.md
+  - raw/articles/backlog-md-agent-instructions-mechanism.md
 related:
   - "[[open-knowledge-format]]"
   - "[[backlog-md-vs-okf]]"
@@ -29,6 +31,18 @@ related:
 - **シンプルさが信頼を生む**: 証明されたニーズがない限り、層・エイリアス・互換レイヤーを追加しない。
 
 (出典: `raw/articles/backlog-md-manifesto.md` 全体)
+
+## 3つのレビューチェックポイントと運用モデル
+
+README のタグライン "AI agents write the code. You review the tasks: before, during, and after." が Backlog.md の運用モデルを要約する(出典: `raw/articles/backlog-md-readme-ai-workflow.md`)。推奨フローは **spec-driven AI development** と呼ばれ、以下の3チェックポイントを軸に構成される:
+
+1. **チェックポイント#1 — 仕様のレビュー**: エージェントがユーザーの要望を説明・受け入れ基準つきの小さいタスクに分解した直後、実装が始まる前に読む。
+2. **チェックポイント#2 — 計画のレビュー**: エージェントが現在のコードベースを調査して `--plan` に書いた実装方針を、コードが1行も書かれる前に承認する。
+3. **チェックポイント#3 — コードのレビュー**: 「1タスク = 1コンテキストウィンドウ = 1PR」の原則で diff を人が読み切れるサイズに保ち、実装後にテスト・lint・期待どおりの結果かを確認する。
+
+出力が不十分なら plan/notes/final summary をクリアし、タスクの説明や受け入れ基準を直したうえで**新しいセッションで**やり直す(既存タスクを直接修復させない)。完了タスクはGit履歴上に「何を・なぜ試みたか」の永続的な記録として残る。
+
+**「backlogの内容をエージェントに渡してそのまま実行させる」という運用について**: task-execution ガイド(下記CLIワークフロー参照)が定めるとおり、「既存タスクを読み、実装計画を立て、コードを書く」というエージェント主導の実行そのものは明確に想定された使い方である。一方で、**人間のレビューを介さない無条件の全自動実行はモデルの中心ではない**。マニフェストの設計原則4「Review before consequence」、および Boundaries節の「Backlog.md is not ... an agent-only orchestration system」が明言する通り、意味のある設計判断を含む計画は明示的な承認を待ってから実装に進むことが CLI instructions 上のルールになっている(`task-execution.md`: "If the plan contains a material product, architecture, or workflow decision ... present it and wait for explicit approval before implementation")。ルーティンでスコープ内の軽微な変更はチェックポイントを省略してよいが、それは例外であって既定ではない。
 
 ## タスク Markdown の形式
 
@@ -117,9 +131,20 @@ Backlog.md は「CLI instructions が正規のエージェント向けワーク�
 
 一貫する原則: **Backlog の Markdown ファイルを直接編集せず、必ず CLI コマンド経由で操作する**(メタデータ・ファイル名・関連性・履歴の整合性を保つため)。
 
+## 自然言語呼びかけ→CLIコマンド実行の起動メカニズム(実地検証)
+
+人間が自然言語で話しかけるだけでエージェントが `backlog` CLI を実行し始めるのは、Claude Code 固有の「ルール」機能や hooks によるプログラム的な強制ではない。実体は**プレーンな Markdown 文への慣習の乗っかり**である(出典: `raw/articles/backlog-md-agent-instructions-mechanism.md`、`src/agent-instructions.ts` の実装確認):
+
+- `backlog init` 実行時、`src/agent-instructions.ts` の `addAgentInstructions()` が `CLI_AGENT_NUDGE`(`src/guidelines/cli-agent-nudge.md` の内容、`<CRITICAL_INSTRUCTION>` タグで囲われた「毎リクエストの前に `backlog instructions overview` を実行せよ」という指示文)を **`CLAUDE.md` / `AGENTS.md` / `GEMINI.md` / `.github/copilot-instructions.md` の4ファイルに同一内容で挿入する**。
+- 挿入は `<!-- BACKLOG.MD GUIDELINES START/END -->` というマーカーコメントで囲い、`backlog.md-instructions-version` 行でバージョンを記録することで、再実行時に**冪等に上書き**できるようにしている(`stripGuidelineSection` → 再挿入)。MCP接続を選んだ場合は `ensureMcpGuidelines()` が同様の仕組みで別マーカー("MCP GUIDELINES")のナッジ文を挿入する。
+- **enforcement の実体はここまで**: これらのファイルへの書き込み以外に、ツール呼び出しを強制する hooks やゲート処理は Backlog.md 自身のコードには存在しない。効いているのは、Claude Code・Codex・Gemini CLI・GitHub Copilot などのコーディングエージェント側がもともと持つ「プロジェクトルートの `CLAUDE.md`/`AGENTS.md`/`GEMINI.md`/`copilot-instructions.md` を起動時に自動でシステムコンテキストへ読み込む」という**各エージェント側の規約**であり、Backlog.md はそこに指示文を書き込んでいるだけ。指示への追従はエージェント(LLM)のプロンプト追従性に完全に依存し、プログラム的な保証はない。
+- 実地検証として、Backlog.md 自身のリポジトリの `.claude/settings.json`(hooks設定)と `.mcp.json` を確認したが、いずれも hooks/MCP 強制設定は存在しなかった(空 or 未設置)。`.claude/agents/project-manager-backlog.md` は `installClaudeAgent()` が設置する Claude Code の subagent 定義であり、これも「呼べば使えるエージェント定義」であって強制フックではない。
+
 ## 出典
 
 - `raw/articles/backlog-md-manifesto.md` — 製品哲学、第一級ユーザー、コアループ、サーフェス階層、境界。
 - `raw/articles/backlog-md-task-example.md` — タスク Markdown の実例(BACK-547、frontmatter・セクションマーカー・AC番号付けの実物)。
 - `raw/articles/backlog-md-cli-instructions.md` — `backlog instructions` の4ガイド全文(overview/task-creation/task-execution/task-finalization)。
 - `raw/articles/backlog-md-init-and-task-create.md` — `backlog init`/`backlog task create` の実地検証ログ(ディレクトリツリー・config.yml・生成ファイル・落とし穴)。
+- `raw/articles/backlog-md-readme-ai-workflow.md` — README.md の「AI agents write the code. You review the tasks」タグラインと、3レビューチェックポイント・spec-driven AI development フローの全文。
+- `raw/articles/backlog-md-agent-instructions-mechanism.md` — `src/agent-instructions.ts`/`src/guidelines/cli-agent-nudge.md`/`src/guidelines/index.ts` の全文と、Backlog.md 自身のリポジトリに hooks/MCP強制設定が存在しないことのローカル実地検証。

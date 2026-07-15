@@ -1,0 +1,393 @@
+# Backlog.md — agent instruction injection mechanism (source + local verification)
+
+Source: `src/agent-instructions.ts`, `src/guidelines/cli-agent-nudge.md`, `src/guidelines/index.ts`
+(MrLesk/Backlog.md, main branch, commit `9c29c4c` as of retrieval)
+Retrieved verbatim via local clone on 2026-07-16, plus a local verification check
+(not upstream file content, marked as such below) of whether Claude Code hooks/MCP
+config are used to enforce the workflow in this same repository.
+
+## `src/guidelines/cli-agent-nudge.md` (verbatim — this is the block injected into
+CLAUDE.md / AGENTS.md / GEMINI.md / .github/copilot-instructions.md)
+
+```markdown
+<CRITICAL_INSTRUCTION>
+
+## Backlog.md Workflow
+
+This project uses Backlog.md for task and project management.
+
+**For every user request in this project, run `backlog instructions overview` before answering or taking action.**
+
+Use the overview to decide whether to search, read, create, or update Backlog tasks.
+
+Before task lifecycle actions, read the matching detailed guide:
+- `backlog instructions task-creation` before creating or splitting tasks
+- `backlog instructions task-execution` before planning, changing status or assignee, adding a plan or implementation notes, or implementing task work
+- `backlog instructions task-finalization` before checking acceptance criteria, writing final summaries, or moving tasks to terminal statuses
+
+Use `backlog <command> --help` before running unfamiliar commands. Help shows options, fields, and examples.
+
+Do not edit Backlog task, draft, document, decision, or milestone markdown files directly. Use the `backlog` CLI so metadata, relationships, and history stay consistent.
+
+</CRITICAL_INSTRUCTION>
+```
+
+## `src/guidelines/index.ts` (verbatim)
+
+```typescript
+import agentGuidelinesContent from "./agent-guidelines.md" with { type: "text" };
+import cliAgentNudgeContent from "./cli-agent-nudge.md" with { type: "text" };
+import mcpAgentNudgeContent from "./mcp/agent-nudge.md" with { type: "text" };
+import claudeAgentContent from "./project-manager-backlog.md" with { type: "text" };
+
+export const AGENT_GUIDELINES = agentGuidelinesContent;
+export const CLAUDE_GUIDELINES = agentGuidelinesContent;
+export const CURSOR_GUIDELINES = agentGuidelinesContent;
+export const GEMINI_GUIDELINES = agentGuidelinesContent;
+export const COPILOT_GUIDELINES = agentGuidelinesContent;
+export const CLI_AGENT_NUDGE = cliAgentNudgeContent.trim();
+export const README_GUIDELINES = `## AI Agent Guidelines\n\n${CLI_AGENT_NUDGE}`;
+export const CLAUDE_AGENT_CONTENT = claudeAgentContent;
+export const MCP_AGENT_NUDGE = mcpAgentNudgeContent;
+```
+
+## `src/agent-instructions.ts` (verbatim, full file)
+
+```typescript
+import { existsSync, readFileSync } from "node:fs";
+import { mkdir } from "node:fs/promises";
+import { dirname, isAbsolute, join } from "node:path";
+import { fileURLToPath } from "node:url";
+import { CLAUDE_AGENT_CONTENT, CLI_AGENT_NUDGE, MCP_AGENT_NUDGE, README_GUIDELINES } from "./constants/index.ts";
+import type { GitOperations } from "./git/operations.ts";
+import { getVersion } from "./utils/version.ts";
+
+export type AgentInstructionFile =
+	| "AGENTS.md"
+	| "CLAUDE.md"
+	| "GEMINI.md"
+	| ".github/copilot-instructions.md"
+	| "README.md";
+
+export type AgentInstructionWriteAction = "created" | "updated" | "unchanged";
+
+export interface AgentInstructionWriteResult {
+	action: AgentInstructionWriteAction;
+	fileName: AgentInstructionFile;
+	filePath: string;
+}
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+async function loadContent(textOrPath: string): Promise<string> {
+	if (textOrPath.includes("\n")) return textOrPath;
+	try {
+		const path = isAbsolute(textOrPath) ? textOrPath : join(__dirname, textOrPath);
+		return await Bun.file(path).text();
+	} catch {
+		return textOrPath;
+	}
+}
+
+type GuidelineMarkerKind = "default" | "mcp";
+
+/**
+ * Gets the appropriate markers for a given file type
+ */
+function getMarkers(fileName: string, kind: GuidelineMarkerKind = "default"): { start: string; end: string } {
+	const label = kind === "mcp" ? "BACKLOG.MD MCP GUIDELINES" : "BACKLOG.MD GUIDELINES";
+	if (fileName === ".cursorrules") {
+		// .cursorrules doesn't support HTML comments, use markdown-style comments
+		return {
+			start: `# === ${label} START ===`,
+			end: `# === ${label} END ===`,
+		};
+	}
+	// All markdown files support HTML comments
+	return {
+		start: `<!-- ${label} START -->`,
+		end: `<!-- ${label} END -->`,
+	};
+}
+
+/**
+ * Checks if the Backlog.md guidelines are already present in the content
+ */
+function hasBacklogGuidelines(content: string, fileName: string): boolean {
+	const { start } = getMarkers(fileName);
+	return content.includes(start);
+}
+
+/**
+ * Builds the machine-readable version marker line embedded in every installed
+ * instruction block. Written at install/update time from the running binary's
+ * version so local instructions can later be compared against the bundled ones.
+ */
+function versionMarkerLine(fileName: string, version: string): string {
+	const marker = `backlog.md-instructions-version: ${version}`;
+	if (fileName === ".cursorrules") {
+		// .cursorrules doesn't support HTML comments, use markdown-style comments
+		return `# ${marker}`;
+	}
+	return `<!-- ${marker} -->`;
+}
+
+/**
+ * Wraps the Backlog.md guidelines with appropriate markers
+ */
+function wrapWithMarkers(
+	content: string,
+	fileName: string,
+	version: string,
+	kind: GuidelineMarkerKind = "default",
+): string {
+	const { start, end } = getMarkers(fileName, kind);
+	return `\n${start}\n${versionMarkerLine(fileName, version)}\n${content}\n${end}\n`;
+}
+
+function stripGuidelineSection(
+	content: string,
+	fileName: string,
+	kind: GuidelineMarkerKind,
+): { content: string; removed: boolean; firstIndex?: number } {
+	const { start, end } = getMarkers(fileName, kind);
+	let removed = false;
+	let result = content;
+	let firstIndex: number | undefined;
+
+	while (true) {
+		const startIndex = result.indexOf(start);
+		if (startIndex === -1) {
+			break;
+		}
+
+		const endIndex = result.indexOf(end, startIndex);
+		if (endIndex === -1) {
+			break;
+		}
+
+		let removalStart = startIndex;
+		while (removalStart > 0 && (result[removalStart - 1] === " " || result[removalStart - 1] === "\t")) {
+			removalStart -= 1;
+		}
+		if (removalStart > 0 && result[removalStart - 1] === "\n") {
+			removalStart -= 1;
+			if (removalStart > 0 && result[removalStart - 1] === "\r") {
+				removalStart -= 1;
+			}
+		} else if (removalStart > 0 && result[removalStart - 1] === "\r") {
+			removalStart -= 1;
+		}
+
+		let removalEnd = endIndex + end.length;
+		if (removalEnd < result.length && result[removalEnd] === "\r") {
+			removalEnd += 1;
+		}
+		if (removalEnd < result.length && result[removalEnd] === "\n") {
+			removalEnd += 1;
+		}
+
+		if (firstIndex === undefined) {
+			firstIndex = removalStart;
+		}
+		result = result.slice(0, removalStart) + result.slice(removalEnd);
+		removed = true;
+	}
+
+	return { content: result, removed, firstIndex };
+}
+
+export async function addAgentInstructions(
+	projectRoot: string,
+	git?: GitOperations,
+	files: AgentInstructionFile[] = ["AGENTS.md", "CLAUDE.md", "GEMINI.md", ".github/copilot-instructions.md"],
+	autoCommit = false,
+): Promise<AgentInstructionWriteResult[]> {
+	const mapping: Record<AgentInstructionFile, string> = {
+		"AGENTS.md": CLI_AGENT_NUDGE,
+		"CLAUDE.md": CLI_AGENT_NUDGE,
+		"GEMINI.md": CLI_AGENT_NUDGE,
+		".github/copilot-instructions.md": CLI_AGENT_NUDGE,
+		"README.md": README_GUIDELINES,
+	};
+
+	const version = await getVersion();
+	const paths: string[] = [];
+	const results: AgentInstructionWriteResult[] = [];
+	for (const name of files) {
+		const content = await loadContent(mapping[name]);
+		const filePath = join(projectRoot, name);
+		let finalContent = "";
+		const fileExists = existsSync(filePath);
+		const action: AgentInstructionWriteAction = fileExists ? "updated" : "created";
+
+		// Check if file exists first to avoid Windows hanging issue
+		if (fileExists) {
+			try {
+				// On Windows, use synchronous read to avoid hanging
+				let existing: string;
+				if (process.platform === "win32") {
+					existing = readFileSync(filePath, "utf-8");
+				} else {
+					existing = await Bun.file(filePath).text();
+				}
+
+				const originalExisting = existing;
+				const mcpStripped = stripGuidelineSection(existing, name, "mcp");
+				if (mcpStripped.removed) {
+					existing = mcpStripped.content;
+				}
+
+				const defaultStripped = stripGuidelineSection(existing, name, "default");
+				if (defaultStripped.removed) {
+					const insertAt = defaultStripped.firstIndex ?? defaultStripped.content.length;
+					finalContent =
+						defaultStripped.content.slice(0, insertAt) +
+						wrapWithMarkers(content, name, version) +
+						defaultStripped.content.slice(insertAt);
+				} else if (hasBacklogGuidelines(existing, name)) {
+					// Guidelines already exist but could not be parsed, skip this file.
+					results.push({ action: "unchanged", fileName: name, filePath });
+					continue;
+				} else {
+					// Append Backlog.md guidelines with markers
+					if (!existing.endsWith("\n")) existing += "\n";
+					finalContent = existing + wrapWithMarkers(content, name, version);
+				}
+
+				if (finalContent === originalExisting) {
+					results.push({ action: "unchanged", fileName: name, filePath });
+					continue;
+				}
+			} catch (error) {
+				console.error(`Error reading existing file ${filePath}:`, error);
+				// If we can't read it, just use the new content with markers
+				finalContent = wrapWithMarkers(content, name, version);
+			}
+		} else {
+			// File doesn't exist, create with markers
+			finalContent = wrapWithMarkers(content, name, version);
+		}
+
+		await mkdir(dirname(filePath), { recursive: true });
+		await Bun.write(filePath, finalContent);
+		paths.push(filePath);
+		results.push({ action, fileName: name, filePath });
+	}
+
+	if (git && paths.length > 0 && autoCommit) {
+		await git.addFiles(paths);
+		await git.commitChanges("Add AI agent instructions");
+	}
+
+	return results;
+}
+
+export { loadContent as _loadAgentGuideline };
+
+async function readExistingFile(filePath: string): Promise<string> {
+	if (process.platform === "win32") {
+		return readFileSync(filePath, "utf-8");
+	}
+	return await Bun.file(filePath).text();
+}
+
+export interface EnsureMcpGuidelinesResult {
+	changed: boolean;
+	created: boolean;
+	fileName: AgentInstructionFile;
+	filePath: string;
+}
+
+export async function ensureMcpGuidelines(
+	projectRoot: string,
+	fileName: AgentInstructionFile,
+): Promise<EnsureMcpGuidelinesResult> {
+	const filePath = join(projectRoot, fileName);
+	const fileExists = existsSync(filePath);
+	let existing = "";
+	let original = "";
+	let insertIndex: number | null = null;
+
+	if (fileExists) {
+		try {
+			existing = await readExistingFile(filePath);
+			original = existing;
+			const cliStripped = stripGuidelineSection(existing, fileName, "default");
+			if (cliStripped.removed && cliStripped.firstIndex !== undefined) {
+				insertIndex = cliStripped.firstIndex;
+			}
+			existing = cliStripped.content;
+			const mcpStripped = stripGuidelineSection(existing, fileName, "mcp");
+			if (mcpStripped.removed && mcpStripped.firstIndex !== undefined) {
+				insertIndex = mcpStripped.firstIndex;
+			}
+			existing = mcpStripped.content;
+		} catch (error) {
+			console.error(`Error reading existing file ${filePath}:`, error);
+			existing = "";
+		}
+	}
+
+	const nudgeBlock = wrapWithMarkers(MCP_AGENT_NUDGE, fileName, await getVersion(), "mcp");
+	let nextContent: string;
+	if (insertIndex !== null) {
+		const normalizedIndex = Math.max(0, Math.min(insertIndex, existing.length));
+		nextContent = existing.slice(0, normalizedIndex) + nudgeBlock + existing.slice(normalizedIndex);
+	} else {
+		nextContent = existing;
+		if (nextContent && !nextContent.endsWith("\n")) {
+			nextContent += "\n";
+		}
+		nextContent += nudgeBlock;
+	}
+
+	const finalContent = nextContent;
+	const changed = !fileExists || finalContent !== original;
+
+	await mkdir(dirname(filePath), { recursive: true });
+	if (changed) {
+		await Bun.write(filePath, finalContent);
+	}
+
+	return { changed, created: !fileExists, fileName, filePath };
+}
+
+/**
+ * Installs the Claude Code backlog agent to the project's .claude/agents directory
+ */
+export async function installClaudeAgent(projectRoot: string): Promise<void> {
+	const agentDir = join(projectRoot, ".claude", "agents");
+	const agentPath = join(agentDir, "project-manager-backlog.md");
+
+	// Create the directory if it doesn't exist
+	await mkdir(agentDir, { recursive: true });
+
+	// Write the agent content with the version marker appended
+	const versionLine = versionMarkerLine("project-manager-backlog.md", await getVersion());
+	await Bun.write(agentPath, `${CLAUDE_AGENT_CONTENT.trimEnd()}\n\n${versionLine}\n`);
+}
+```
+
+## Local verification (2026-07-16, not upstream file content)
+
+Checked whether the Backlog.md repository itself relies on any programmatic
+enforcement (Claude Code hooks, MCP tool gating) beyond the markdown nudge text
+above, by inspecting its own `.claude/` directory and MCP config:
+
+```
+$ ls -la .claude/
+drwxr-xr-x  agents
+lrwxr-xr-x  skills -> ../.codex/skills
+
+$ cat .claude/settings.json
+(empty / not present)
+
+$ cat .mcp.json
+(empty / not present)
+```
+
+No `hooks` block in `.claude/settings.json` and no `.mcp.json` were found in the
+Backlog.md repository at commit `9c29c4c`. `.claude/agents/project-manager-backlog.md`
+exists (installed by `installClaudeAgent`, a `.claude/agents` subagent definition,
+not a hook).

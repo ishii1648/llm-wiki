@@ -211,3 +211,11 @@
 - 更新したページ: なし(`okf-spec.md` の波及ページ一覧に [[backlog-md-vs-okf]] を追記)
 - 主な学び: Backlog.md のタスク Markdown は YAML frontmatter + Markdown 本文という表面形式は OKF と一致するが、OKF準拠を意図した設計ではない。OKF の唯一の必須フィールド(`type`、非空)は `type: bug` として偶然満たすが、OKF推奨の `description`/`tags`/`timestamp`/`resource`(§4.1)のセマンティクスには従わず(`description`は本文セクション、`tags`ではなく`labels`、`timestamp`ではなく`created_date`/`updated_date`に分割、`resource`なし)、`type`の意味自体も違う(concept分類 vs タスク種別)。`okf_version`宣言(§11)もない。結論: OKF準拠ではない。
 - 矛盾・要確認: 既知の矛盾なし。Backlog.md 側の「CLI経由編集のみ許容」という設計は OKF の permissive consumption 原則(§9、未知フィールド等を理由に拒否してはならない)と方向性が逆だが、両者は独立設計であり矛盾ではなく設計思想の違いとして [[backlog-md-vs-okf]] に明記。
+
+## [2026-07-16] ingest | Backlog.md の運用モデル(3レビューチェックポイント)とCLI起動メカニズムの調査
+- 背景: 別セッションで、「backlogの内容をコーディングエージェントに渡してそのまま実行させる運用は想定されているか」「人が自然言語で呼びかけるだけでエージェントが `backlog` コマンドを実行するのはClaude Codeのルール機能か」という2点を Backlog.md リポジトリ(MrLesk/Backlog.md)を実地調査して回答した。その調査結果を [[backlog-md]] に統合。
+- 取得・保存: 一字一句そのまま2本を `raw/articles/` に追加保存——`backlog-md-readme-ai-workflow.md`(README.md の「AI agents write the code. You review the tasks」タグラインと3レビューチェックポイント・spec-driven AI developmentフロー全文、sha256:665185e643c2)、`backlog-md-agent-instructions-mechanism.md`(`src/agent-instructions.ts`/`src/guidelines/cli-agent-nudge.md`/`src/guidelines/index.ts` の全文 + Backlog.md自身のリポジトリの `.claude/settings.json`・`.mcp.json` にhooks/MCP強制設定が存在しないことのローカル実地検証ログ、sha256:63400c1d7038)。
+- 追加したページ: なし(新規ページは作らず既存 [[backlog-md]] に統合)
+- 更新したページ: [[backlog-md]] — 「3つのレビューチェックポイントと運用モデル」節、「自然言語呼びかけ→CLIコマンド実行の起動メカニズム(実地検証)」節を新設。frontmatter `sources:` と末尾の出典リストに新規raw2本を追加。
+- 主な学び: (1) 「既存タスクを読み、計画を立て、コードを書く」というエージェント主導の実行そのものはBacklog.mdの想定用途そのものだが、「人間のレビューなしの全自動実行」は設計の中心ではない——マニフェストの Design Principle 4「Review before consequence」と Boundaries「not an agent-only orchestration system」、および task-execution ガイドの「material decisionを含む計画は明示的承認を待つ」という明文規定がこれを裏付ける。(2) 自然言語の呼びかけでCLIコマンドが実行される仕組みは、Claude Code固有のhooksやルールエンジンではなく、`backlog init` が `CLAUDE.md`/`AGENTS.md`/`GEMINI.md`/`.github/copilot-instructions.md` の4ファイルへ同一のナッジ文(`<CRITICAL_INSTRUCTION>`タグ付きMarkdown)をマーカーコメントで冪等挿入するだけの仕組みであり、実効性は各コーディングエージェント側がもともと持つ「起動時にこれらのファイルを自動でシステムコンテキストへ読み込む」という規約とLLMのプロンプト追従性に完全に依存する。プログラム的な強制(hooks/MCPゲート)はBacklog.md自身のコードにもリポジトリ設定にも存在しない(実地確認)。
+- 矛盾・要確認: 既知の矛盾なし。
