@@ -2351,6 +2351,73 @@
 <li><strong>チェックポイント#3 — コードのレビュー</strong>: 「1タスク = 1コンテキストウィンドウ = 1PR」の原則で diff を人が読み切れるサイズに保ち、実装後にテスト・lint・期待どおりの結果かを確認する。</li>
 </ol>
 <p>出力が不十分なら plan/notes/final summary をクリアし、タスクの説明や受け入れ基準を直したうえで<strong>新しいセッションで</strong>やり直す(既存タスクを直接修復させない)。完了タスクはGit履歴上に「何を・なぜ試みたか」の永続的な記録として残る。</p>
+<p>この一連の流れは「<strong>あなた(人間)/ Backlog台帳(<code>backlog/tasks/*.md</code>)/ エージェント</strong>」という3アクターのやり取りとして整理できる。人とエージェントは直接会話するだけでなく、必ず台帳(Markdownファイル)を経由して意図・計画・進捗をやり取りする(これは「一つのモデルを人とエージェントで共有する」というマニフェストの設計原則そのもの)。ステージ別に整理すると:</p>
+<table>
+<thead>
+<tr>
+<th>ステージ</th>
+<th>あなた(人間)</th>
+<th>Backlog 台帳</th>
+<th>エージェント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01 意図を伝える</td>
+<td>アイデアを説明し、タスクへの分解を依頼</td>
+<td><code>backlog/tasks/task-N.md</code> を説明・受け入れ基準つきで新規作成</td>
+<td><code>backlog search "query"</code> → <code>backlog task create "..." -d "..." --ac "..."</code></td>
+</tr>
+<tr>
+<td>▸ <strong>チェックポイント#1</strong></td>
+<td>仕様のレビュー(説明・受け入れ基準を読む)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>02 着手</td>
+<td>着手する1タスクを指定(例:「BACK-10だけ進めて」)</td>
+<td>ステータス・担当者フィールドを更新</td>
+<td><code>backlog task view {id} --plain</code> → <code>backlog task edit {id} -s "In Progress" -a @me</code></td>
+</tr>
+<tr>
+<td>03 計画</td>
+<td>実装前の調査・計画作成を依頼</td>
+<td>タスクファイルに Plan セクションを追記</td>
+<td><code>backlog task edit {id} --plan "1. ..."</code></td>
+</tr>
+<tr>
+<td>▸ <strong>チェックポイント#2</strong></td>
+<td>計画のレビュー(コードを書く前に承認/差し戻し)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>04 実装</td>
+<td>基本は任せる</td>
+<td>Notes・レビュー用コメントが蓄積</td>
+<td>実装→テスト→<code>backlog task edit {id} --append-notes "..."</code>/<code>--comment "..."</code></td>
+</tr>
+<tr>
+<td>05 完了確認</td>
+<td>基本は任せる</td>
+<td>AC がチェック済みになり Done へ</td>
+<td><code>backlog task edit {id} --check-ac N</code> → <code>backlog task edit {id} -s Done</code></td>
+</tr>
+<tr>
+<td>▸ <strong>チェックポイント#3</strong></td>
+<td>コードのレビュー(diff・テスト・lintを確認)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>06 記録として保存</td>
+<td>不十分なら plan/notes/summary をクリアし、説明・ACを直して新セッションで再実行</td>
+<td>完了タスクが Git 履歴上の永続的な記録として残る</td>
+<td>このタスクでの役目はここで終了、次のタスクへ</td>
+</tr>
+</tbody>
+</table>
 <p><strong>「backlogの内容をエージェントに渡してそのまま実行させる」という運用について</strong>: task-execution ガイド(下記CLIワークフロー参照)が定めるとおり、「既存タスクを読み、実装計画を立て、コードを書く」というエージェント主導の実行そのものは明確に想定された使い方である。一方で、<strong>人間のレビューを介さない無条件の全自動実行はモデルの中心ではない</strong>。マニフェストの設計原則4「Review before consequence」、および Boundaries節の「Backlog.md is not ... an agent-only orchestration system」が明言する通り、意味のある設計判断を含む計画は明示的な承認を待ってから実装に進むことが CLI instructions 上のルールになっている(<code>task-execution.md</code>: "If the plan contains a material product, architecture, or workflow decision ... present it and wait for explicit approval before implementation")。ルーティンでスコープ内の軽微な変更はチェックポイントを省略してよいが、それは例外であって既定ではない。</p>
 <h2 id="markdown">タスク Markdown の形式<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h2>
 <p>タスクは <code>backlog/tasks/&lt;ID&gt; - &lt;タイトルのkebab-case&gt;.md</code> というフラットなファイルとして保存される。実例(<code>BACK-547</code>)から確認できる構造(出典: <code>raw/articles/backlog-md-task-example.md</code>):</p>
