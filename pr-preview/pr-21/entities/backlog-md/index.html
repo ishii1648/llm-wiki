@@ -1542,6 +1542,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3つのレビューチェックポイントと運用モデル
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#markdown" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1568,6 +1579,17 @@
     <span class="md-ellipsis">
       
         CLI ワークフロー(instructions)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自然言語呼びかけ→CLIコマンド実行の起動メカニズム(実地検証)
       
     </span>
   </a>
@@ -2223,6 +2245,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3つのレビューチェックポイントと運用モデル
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#markdown" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2249,6 +2282,17 @@
     <span class="md-ellipsis">
       
         CLI ワークフロー(instructions)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自然言語呼びかけ→CLIコマンド実行の起動メカニズム(実地検証)
       
     </span>
   </a>
@@ -2299,6 +2343,15 @@
 <li><strong>シンプルさが信頼を生む</strong>: 証明されたニーズがない限り、層・エイリアス・互換レイヤーを追加しない。</li>
 </ul>
 <p>(出典: <code>raw/articles/backlog-md-manifesto.md</code> 全体)</p>
+<h2 id="3">3つのレビューチェックポイントと運用モデル<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>README のタグライン "AI agents write the code. You review the tasks: before, during, and after." が Backlog.md の運用モデルを要約する(出典: <code>raw/articles/backlog-md-readme-ai-workflow.md</code>)。推奨フローは <strong>spec-driven AI development</strong> と呼ばれ、以下の3チェックポイントを軸に構成される:</p>
+<ol>
+<li><strong>チェックポイント#1 — 仕様のレビュー</strong>: エージェントがユーザーの要望を説明・受け入れ基準つきの小さいタスクに分解した直後、実装が始まる前に読む。</li>
+<li><strong>チェックポイント#2 — 計画のレビュー</strong>: エージェントが現在のコードベースを調査して <code>--plan</code> に書いた実装方針を、コードが1行も書かれる前に承認する。</li>
+<li><strong>チェックポイント#3 — コードのレビュー</strong>: 「1タスク = 1コンテキストウィンドウ = 1PR」の原則で diff を人が読み切れるサイズに保ち、実装後にテスト・lint・期待どおりの結果かを確認する。</li>
+</ol>
+<p>出力が不十分なら plan/notes/final summary をクリアし、タスクの説明や受け入れ基準を直したうえで<strong>新しいセッションで</strong>やり直す(既存タスクを直接修復させない)。完了タスクはGit履歴上に「何を・なぜ試みたか」の永続的な記録として残る。</p>
+<p><strong>「backlogの内容をエージェントに渡してそのまま実行させる」という運用について</strong>: task-execution ガイド(下記CLIワークフロー参照)が定めるとおり、「既存タスクを読み、実装計画を立て、コードを書く」というエージェント主導の実行そのものは明確に想定された使い方である。一方で、<strong>人間のレビューを介さない無条件の全自動実行はモデルの中心ではない</strong>。マニフェストの設計原則4「Review before consequence」、および Boundaries節の「Backlog.md is not ... an agent-only orchestration system」が明言する通り、意味のある設計判断を含む計画は明示的な承認を待ってから実装に進むことが CLI instructions 上のルールになっている(<code>task-execution.md</code>: "If the plan contains a material product, architecture, or workflow decision ... present it and wait for explicit approval before implementation")。ルーティンでスコープ内の軽微な変更はチェックポイントを省略してよいが、それは例外であって既定ではない。</p>
 <h2 id="markdown">タスク Markdown の形式<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h2>
 <p>タスクは <code>backlog/tasks/&lt;ID&gt; - &lt;タイトルのkebab-case&gt;.md</code> というフラットなファイルとして保存される。実例(<code>BACK-547</code>)から確認できる構造(出典: <code>raw/articles/backlog-md-task-example.md</code>):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>---
@@ -2373,12 +2426,22 @@
 <li><strong>task-finalization</strong> — 客観的な検証証拠(テスト・コマンド出力・手動確認)なしに受け入れ基準をチェックしない → <code>--check-ac</code>/<code>--check-dod</code> → <code>--final-summary</code> → 終端ステータスへ変更。フォローアップタスクはユーザー承認なしに作らない。</li>
 </ol>
 <p>一貫する原則: <strong>Backlog の Markdown ファイルを直接編集せず、必ず CLI コマンド経由で操作する</strong>(メタデータ・ファイル名・関連性・履歴の整合性を保つため)。</p>
+<h2 id="cli">自然言語呼びかけ→CLIコマンド実行の起動メカニズム(実地検証)<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h2>
+<p>人間が自然言語で話しかけるだけでエージェントが <code>backlog</code> CLI を実行し始めるのは、Claude Code 固有の「ルール」機能や hooks によるプログラム的な強制ではない。実体は<strong>プレーンな Markdown 文への慣習の乗っかり</strong>である(出典: <code>raw/articles/backlog-md-agent-instructions-mechanism.md</code>、<code>src/agent-instructions.ts</code> の実装確認):</p>
+<ul>
+<li><code>backlog init</code> 実行時、<code>src/agent-instructions.ts</code> の <code>addAgentInstructions()</code> が <code>CLI_AGENT_NUDGE</code>(<code>src/guidelines/cli-agent-nudge.md</code> の内容、<code>&lt;CRITICAL_INSTRUCTION&gt;</code> タグで囲われた「毎リクエストの前に <code>backlog instructions overview</code> を実行せよ」という指示文)を <strong><code>CLAUDE.md</code> / <code>AGENTS.md</code> / <code>GEMINI.md</code> / <code>.github/copilot-instructions.md</code> の4ファイルに同一内容で挿入する</strong>。</li>
+<li>挿入は <code>&lt;!-- BACKLOG.MD GUIDELINES START/END --&gt;</code> というマーカーコメントで囲い、<code>backlog.md-instructions-version</code> 行でバージョンを記録することで、再実行時に<strong>冪等に上書き</strong>できるようにしている(<code>stripGuidelineSection</code> → 再挿入)。MCP接続を選んだ場合は <code>ensureMcpGuidelines()</code> が同様の仕組みで別マーカー("MCP GUIDELINES")のナッジ文を挿入する。</li>
+<li><strong>enforcement の実体はここまで</strong>: これらのファイルへの書き込み以外に、ツール呼び出しを強制する hooks やゲート処理は Backlog.md 自身のコードには存在しない。効いているのは、Claude Code・Codex・Gemini CLI・GitHub Copilot などのコーディングエージェント側がもともと持つ「プロジェクトルートの <code>CLAUDE.md</code>/<code>AGENTS.md</code>/<code>GEMINI.md</code>/<code>copilot-instructions.md</code> を起動時に自動でシステムコンテキストへ読み込む」という<strong>各エージェント側の規約</strong>であり、Backlog.md はそこに指示文を書き込んでいるだけ。指示への追従はエージェント(LLM)のプロンプト追従性に完全に依存し、プログラム的な保証はない。</li>
+<li>実地検証として、Backlog.md 自身のリポジトリの <code>.claude/settings.json</code>(hooks設定)と <code>.mcp.json</code> を確認したが、いずれも hooks/MCP 強制設定は存在しなかった(空 or 未設置)。<code>.claude/agents/project-manager-backlog.md</code> は <code>installClaudeAgent()</code> が設置する Claude Code の subagent 定義であり、これも「呼べば使えるエージェント定義」であって強制フックではない。</li>
+</ul>
 <h2 id="_3">出典<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>raw/articles/backlog-md-manifesto.md</code> — 製品哲学、第一級ユーザー、コアループ、サーフェス階層、境界。</li>
 <li><code>raw/articles/backlog-md-task-example.md</code> — タスク Markdown の実例(BACK-547、frontmatter・セクションマーカー・AC番号付けの実物)。</li>
 <li><code>raw/articles/backlog-md-cli-instructions.md</code> — <code>backlog instructions</code> の4ガイド全文(overview/task-creation/task-execution/task-finalization)。</li>
 <li><code>raw/articles/backlog-md-init-and-task-create.md</code> — <code>backlog init</code>/<code>backlog task create</code> の実地検証ログ(ディレクトリツリー・config.yml・生成ファイル・落とし穴)。</li>
+<li><code>raw/articles/backlog-md-readme-ai-workflow.md</code> — README.md の「AI agents write the code. You review the tasks」タグラインと、3レビューチェックポイント・spec-driven AI development フローの全文。</li>
+<li><code>raw/articles/backlog-md-agent-instructions-mechanism.md</code> — <code>src/agent-instructions.ts</code>/<code>src/guidelines/cli-agent-nudge.md</code>/<code>src/guidelines/index.ts</code> の全文と、Backlog.md 自身のリポジトリに hooks/MCP強制設定が存在しないことのローカル実地検証。</li>
 </ul>
 
 
