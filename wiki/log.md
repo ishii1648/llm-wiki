@@ -203,3 +203,11 @@
 - 追加したページ: entities: [[matt-pocock]](新規)。concepts: [[grilling]]、[[grill-with-docs]]、[[domain-modeling]](いずれも新規)
 - 主な学び: `/grill-me` は計画の質問攻めのみ、`/grill-with-docs` はそれに加えて用語・ADR をファイルに永続化する点が主な違い。ブログ記事(WebFetch 要旨)からは、high-fidelity な質問をプロトタイプ前に無理に答えさせない・スコープを絞る(長い grilling は ~120k トークンで判断品質が落ちる "dumb zone")・受け身にならない・設計成果を `/2PRD` 等で残す・grilling には賢いモデルを使う・並列セッションでスループットを上げる、という6つの誤用パターンを [[grilling]] に記載。
 - 矛盾・要確認: 記事タイトルは「9 Things」だが、WebFetch(2回試行)で確認できた失敗パターンは6件のみで、残り3件は未取得(ツールの要約が全文をカバーしていない可能性)。[[grilling]] ページにその旨を明記済み。ブログ記事本文は著作権のため raw/ 未保存、`sources:` には URL を直接記載(lint.sh の `raw/` パス整合チェック対象外)。
+
+## [2026-07-16] ingest | Backlog.md のタスク Markdown 形式と OKF 準拠性の調査
+- 背景: 別セッションで Backlog.md リポジトリ(MrLesk/Backlog.md)の CLI・タスク Markdown 形式を調査し、Google の Open Knowledge Format(OKF、本 wiki には既存: [[open-knowledge-format]])準拠かを問われた。その調査結果をこの wiki に統合。
+- 取得・保存: 一字一句そのまま4本を `raw/articles/` に保存——`backlog-md-manifesto.md`(MANIFESTO.md 全文、sha256:7e6c40d5eb3b)、`backlog-md-task-example.md`(実タスク BACK-547 の Markdown 全文、sha256:79f3dd568f0a)、`backlog-md-cli-instructions.md`(`backlog instructions` の overview/task-creation/task-execution/task-finalization 4ガイド全文、CLI v1.48.0、sha256:c67543beea41)、`backlog-md-init-and-task-create.md`(`backlog init`/`backlog task create` をローカルで実地検証した結果——生成ディレクトリツリー・config.yml・生成タスクファイル・`--ac` カンマ区切りが分割されない落とし穴、sha256:0034acdff33b)。既存の `raw/articles/okf-spec.md` はハッシュ一致(b9655e607346)を確認し再取得せず流用。
+- 追加したページ: entities: [[backlog-md]](新規、CLIが正典とするタスク管理ツール本体)。syntheses: [[backlog-md-vs-okf]](新規、Backlog.md タスク Markdown と OKF v0.1 の比較)
+- 更新したページ: なし(`okf-spec.md` の波及ページ一覧に [[backlog-md-vs-okf]] を追記)
+- 主な学び: Backlog.md のタスク Markdown は YAML frontmatter + Markdown 本文という表面形式は OKF と一致するが、OKF準拠を意図した設計ではない。OKF の唯一の必須フィールド(`type`、非空)は `type: bug` として偶然満たすが、OKF推奨の `description`/`tags`/`timestamp`/`resource`(§4.1)のセマンティクスには従わず(`description`は本文セクション、`tags`ではなく`labels`、`timestamp`ではなく`created_date`/`updated_date`に分割、`resource`なし)、`type`の意味自体も違う(concept分類 vs タスク種別)。`okf_version`宣言(§11)もない。結論: OKF準拠ではない。
+- 矛盾・要確認: 既知の矛盾なし。Backlog.md 側の「CLI経由編集のみ許容」という設計は OKF の permissive consumption 原則(§9、未知フィールド等を理由に拒否してはならない)と方向性が逆だが、両者は独立設計であり矛盾ではなく設計思想の違いとして [[backlog-md-vs-okf]] に明記。
