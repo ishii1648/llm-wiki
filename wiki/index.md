@@ -20,6 +20,7 @@
 - [[kristof-kovacs]] — Software Architect/DevOps コンサルタント。kkovacs.eu の著者ハブ (updated: 2026-07-05)
 - [[opencode-go]] — 複数 LLM プロバイダのモデルを提供するサブスクリプションサービス。一部モデルが Anthropic API 互換 (updated: 2026-07-05)
 - [[matt-pocock]] — TypeScript educator / AI Hero(aihero.dev)運営者。Claude Code スキル集 `mattpocock/skills`(MIT)の作者 (updated: 2026-07-12)
+- [[backlog-md]] — 人間とAIエージェント双方を第一級ユーザーとする Markdown ネイティブなタスク管理 CLI。CLIが正典、init/task createの生成物を実地検証 (updated: 2026-07-16)
 
 ## Concepts
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -62,3 +63,4 @@
 - [[graph-swarm-hybrid]] — Graph ノードに Swarm をネストするハイブリッド構成の設計と地雷 (updated: 2026-05-30)
 - [[okf-and-llm-wiki]] — OKF とこの llm-wiki リポジトリ(Karpathy LLM Wiki パターン)の対応・差分 (updated: 2026-06-19)
 - [[ai-productivity-task-vs-output]] — タスク利得は本番出力に翻訳されるか。NBER の減衰証拠と Itaú 事例/Cao パラダイム論を突合。「ボトルネックは消えず移動する」 (updated: 2026-06-29)
+- [[backlog-md-vs-okf]] — Backlog.md のタスク Markdown は OKF 準拠か。表面形式は似るがフィールド・セマンティクスが異なり非準拠と結論 (updated: 2026-07-16)
