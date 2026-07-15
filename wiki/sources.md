@@ -57,3 +57,4 @@ ingest のたびに LLM が追記・更新します(過去行は再 ingest 時�
 - raw/articles/mattpocock-grilling-skill.md | sha256:5a35925d03a3 | 2026-07-12 | [[grilling]], [[matt-pocock]]
 - raw/articles/mattpocock-grill-with-docs-skill.md | sha256:610d091047bc | 2026-07-12 | [[grill-with-docs]], [[matt-pocock]]
 - raw/articles/mattpocock-domain-modeling-skill.md | sha256:152e2c97239a | 2026-07-12 | [[domain-modeling]], [[grill-with-docs]], [[matt-pocock]]
+- raw/articles/issueops-automate-ci-cd.md | sha256:00e5a4232ee6 | 2026-07-15 | [[issueops]], [[issue-ops]]

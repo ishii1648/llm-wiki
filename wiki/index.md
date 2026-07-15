@@ -20,6 +20,7 @@
 - [[kristof-kovacs]] — Software Architect/DevOps コンサルタント。kkovacs.eu の著者ハブ (updated: 2026-07-05)
 - [[opencode-go]] — 複数 LLM プロバイダのモデルを提供するサブスクリプションサービス。一部モデルが Anthropic API 互換 (updated: 2026-07-05)
 - [[matt-pocock]] — TypeScript educator / AI Hero(aihero.dev)運営者。Claude Code スキル集 `mattpocock/skills`(MIT)の作者 (updated: 2026-07-12)
+- [[issue-ops]] — [[issueops]] を実装する OSS GitHub Actions 群(parser/validator/labeler)と docs の GitHub org (updated: 2026-07-15)
 
 ## Concepts
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -55,6 +56,7 @@
 - [[grilling]] — 計画を関連する質問攻めにして合意形成する Claude Code スキル `/grill-me`。1問ずつ・推奨解答つき・決定はユーザーに委ねる (updated: 2026-07-12)
 - [[grill-with-docs]] — grilling に domain-modeling を合成した `/grill-with-docs`。解決した用語を CONTEXT.md、決定を ADR としてセッション中に書き残す (updated: 2026-07-12)
 - [[domain-modeling]] — CONTEXT.md 用語集・docs/adr/ を能動的に構築する Claude Code スキル。ADR は「覆しにくい・意外・トレードオフの結果」の3条件が揃った時のみ (updated: 2026-07-12)
+- [[issueops]] — GitHub の Issues/Actions/PRs を自動化インターフェースとして使う実践。issue を有限状態機械として捉え、コメント・ラベルで state を遷移。Issue/PR を source of truth に(cf. [[gitops]]) (updated: 2026-07-15)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->

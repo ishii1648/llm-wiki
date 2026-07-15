@@ -203,3 +203,9 @@
 - 追加したページ: entities: [[matt-pocock]](新規)。concepts: [[grilling]]、[[grill-with-docs]]、[[domain-modeling]](いずれも新規)
 - 主な学び: `/grill-me` は計画の質問攻めのみ、`/grill-with-docs` はそれに加えて用語・ADR をファイルに永続化する点が主な違い。ブログ記事(WebFetch 要旨)からは、high-fidelity な質問をプロトタイプ前に無理に答えさせない・スコープを絞る(長い grilling は ~120k トークンで判断品質が落ちる "dumb zone")・受け身にならない・設計成果を `/2PRD` 等で残す・grilling には賢いモデルを使う・並列セッションでスループットを上げる、という6つの誤用パターンを [[grilling]] に記載。
 - 矛盾・要確認: 記事タイトルは「9 Things」だが、WebFetch(2回試行)で確認できた失敗パターンは6件のみで、残り3件は未取得(ツールの要約が全文をカバーしていない可能性)。[[grilling]] ページにその旨を明記済み。ブログ記事本文は著作権のため raw/ 未保存、`sources:` には URL を直接記載(lint.sh の `raw/` パス整合チェック対象外)。
+
+## [2026-07-15] ingest | IssueOps: Automate CI/CD (and more!) with GitHub Issues and Actions
+- 取得・保存: ユーザー指定 URL(github.blog, Nick Alteen)を WebFetch で取得し `raw/articles/issueops-automate-ci-cd.md`(sha256:00e5a4232ee6)へ原本保存。台帳未登録につき新規 ingest。
+- 追加したページ: concepts: [[issueops]](新規)。entities: [[issue-ops]](新規, parser/validator/labeler ツールチェーンと docs org)。既存 [[gitops]] に related 相互リンクを追加。
+- 主な学び: IssueOps は Issues/Actions/PRs を自動化インターフェース化する実践(ChatOps/ClickOps の GitHub 版)。中核メンタルモデルは有限状態機械で、issue=object、コメント/ラベルを event として state(opened/submitted/approved/denied/closed)を遷移、guard(例: 管理者の `.approve`)を満たせば action を実行。実例のチームメンバーシップ申請は issue form → parser で JSON 化 → validator で検証 → labeler で状態管理 → `.submit`/`.approve`/`.deny` コメントで駆動。Issue/PR を source of truth とする点で [[gitops]] と同型。
+- 矛盾・要確認: 記事は GitHub Actions ワークフロー部分に焦点で、リポジトリ設定・権限・GitHub App セットアップ手順は issue-ops docs 側に委ねられ未収録。本文は WebFetch(小型モデル)経由の markdown 変換のため、原文との完全一致は未検証。

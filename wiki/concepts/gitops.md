@@ -9,6 +9,7 @@ sources:
   - raw/articles/argo-cd-scalability-testing-on-eks.md
 related:
   - "[[argo-cd]]"
+  - "[[issueops]]"
 ---
 
 ## 概要
