@@ -63,4 +63,3 @@ ingest のたびに LLM が追記・更新します(過去行は再 ingest 時�
 - raw/articles/backlog-md-init-and-task-create.md | sha256:0034acdff33b | 2026-07-16 | [[backlog-md]]
 - raw/articles/backlog-md-readme-ai-workflow.md | sha256:665185e643c2 | 2026-07-16 | [[backlog-md]]
 - raw/articles/backlog-md-agent-instructions-mechanism.md | sha256:63400c1d7038 | 2026-07-16 | [[backlog-md]]
-- raw/assets/backlog-md-workflow-diagram.png | sha256:9f58dd9ec1b0 | 2026-07-16 | [[backlog-md]]

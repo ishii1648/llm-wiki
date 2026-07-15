@@ -12,7 +12,6 @@ sources:
   - raw/articles/backlog-md-init-and-task-create.md
   - raw/articles/backlog-md-readme-ai-workflow.md
   - raw/articles/backlog-md-agent-instructions-mechanism.md
-  - raw/assets/backlog-md-workflow-diagram.png
 related:
   - "[[open-knowledge-format]]"
   - "[[backlog-md-vs-okf]]"
@@ -45,9 +44,9 @@ README のタグライン "AI agents write the code. You review the tasks: befor
 
 この一連の流れは「**あなた(人間)/ Backlog台帳(`backlog/tasks/*.md`)/ エージェント**」という3アクターのやり取りとして整理できる。人とエージェントは直接会話するだけでなく、必ず台帳(Markdownファイル)を経由して意図・計画・進捗をやり取りする(これは「一つのモデルを人とエージェントで共有する」というマニフェストの設計原則そのもの)。
 
-![Backlog.md ワークフロー図解 — あなた/Backlog台帳/エージェントの3レーンで6ステージと3つのレビューチェックポイントを示す図](../../raw/assets/backlog-md-workflow-diagram.png)
+![Backlog.md ワークフロー図解 — あなた/Backlog台帳/エージェントの3レーンで6ステージと3つのレビューチェックポイントを示す図](assets/backlog-md-workflow-diagram.png)
 
-*(上図は本節の内容を可視化したもの。出典: `raw/assets/backlog-md-workflow-diagram.png`)*
+*(上図は本節の内容を可視化したページ添付図。ページ資産として `wiki/entities/assets/backlog-md-workflow-diagram.png` に配置。ingest済みraw sourceではないため出典台帳には含めない)*
 
 ステージ別に整理すると:
 
@@ -169,4 +168,5 @@ Backlog.md は「CLI instructions が正規のエージェント向けワーク�
 - `raw/articles/backlog-md-init-and-task-create.md` — `backlog init`/`backlog task create` の実地検証ログ(ディレクトリツリー・config.yml・生成ファイル・落とし穴)。
 - `raw/articles/backlog-md-readme-ai-workflow.md` — README.md の「AI agents write the code. You review the tasks」タグラインと、3レビューチェックポイント・spec-driven AI development フローの全文。
 - `raw/articles/backlog-md-agent-instructions-mechanism.md` — `src/agent-instructions.ts`/`src/guidelines/cli-agent-nudge.md`/`src/guidelines/index.ts` の全文と、Backlog.md 自身のリポジトリに hooks/MCP強制設定が存在しないことのローカル実地検証。
-- `raw/assets/backlog-md-workflow-diagram.png` — 「3つのレビューチェックポイントと運用モデル」節を可視化したフロー図(スクリーンショット)。
+
+`wiki/entities/assets/backlog-md-workflow-diagram.png` は「3つのレビューチェックポイントと運用モデル」節を可視化したページ添付図(ingest済みの一次資料ではないため上記の出典一覧には含めない)。
