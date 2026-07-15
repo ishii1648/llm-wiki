@@ -2351,7 +2351,10 @@
 <li><strong>チェックポイント#3 — コードのレビュー</strong>: 「1タスク = 1コンテキストウィンドウ = 1PR」の原則で diff を人が読み切れるサイズに保ち、実装後にテスト・lint・期待どおりの結果かを確認する。</li>
 </ol>
 <p>出力が不十分なら plan/notes/final summary をクリアし、タスクの説明や受け入れ基準を直したうえで<strong>新しいセッションで</strong>やり直す(既存タスクを直接修復させない)。完了タスクはGit履歴上に「何を・なぜ試みたか」の永続的な記録として残る。</p>
-<p>この一連の流れは「<strong>あなた(人間)/ Backlog台帳(<code>backlog/tasks/*.md</code>)/ エージェント</strong>」という3アクターのやり取りとして整理できる。人とエージェントは直接会話するだけでなく、必ず台帳(Markdownファイル)を経由して意図・計画・進捗をやり取りする(これは「一つのモデルを人とエージェントで共有する」というマニフェストの設計原則そのもの)。ステージ別に整理すると:</p>
+<p>この一連の流れは「<strong>あなた(人間)/ Backlog台帳(<code>backlog/tasks/*.md</code>)/ エージェント</strong>」という3アクターのやり取りとして整理できる。人とエージェントは直接会話するだけでなく、必ず台帳(Markdownファイル)を経由して意図・計画・進捗をやり取りする(これは「一つのモデルを人とエージェントで共有する」というマニフェストの設計原則そのもの)。</p>
+<p><img alt="Backlog.md ワークフロー図解 — あなた/Backlog台帳/エージェントの3レーンで6ステージと3つのレビューチェックポイントを示す図" src="../../raw/assets/backlog-md-workflow-diagram.png" /></p>
+<p><em>(上図は本節の内容を可視化したもの。出典: <code>raw/assets/backlog-md-workflow-diagram.png</code>)</em></p>
+<p>ステージ別に整理すると:</p>
 <table>
 <thead>
 <tr>
@@ -2509,6 +2512,7 @@
 <li><code>raw/articles/backlog-md-init-and-task-create.md</code> — <code>backlog init</code>/<code>backlog task create</code> の実地検証ログ(ディレクトリツリー・config.yml・生成ファイル・落とし穴)。</li>
 <li><code>raw/articles/backlog-md-readme-ai-workflow.md</code> — README.md の「AI agents write the code. You review the tasks」タグラインと、3レビューチェックポイント・spec-driven AI development フローの全文。</li>
 <li><code>raw/articles/backlog-md-agent-instructions-mechanism.md</code> — <code>src/agent-instructions.ts</code>/<code>src/guidelines/cli-agent-nudge.md</code>/<code>src/guidelines/index.ts</code> の全文と、Backlog.md 自身のリポジトリに hooks/MCP強制設定が存在しないことのローカル実地検証。</li>
+<li><code>raw/assets/backlog-md-workflow-diagram.png</code> — 「3つのレビューチェックポイントと運用モデル」節を可視化したフロー図(スクリーンショット)。</li>
 </ul>
 
 
