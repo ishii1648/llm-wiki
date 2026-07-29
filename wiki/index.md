@@ -6,7 +6,7 @@
 ## Entities
 <!-- 人物・製品・組織・ツール・論文など。 -->
 - [[strands-agents]] — モデル駆動で AI エージェントを構築する SDK(Python/TS)。本テーマのハブ (updated: 2026-05-30)
-- [[model-context-protocol]] — LLM へのコンテキスト提供を標準化するオープンプロトコル(MCP) (updated: 2026-05-30)
+- [[model-context-protocol]] — LLM へのコンテキスト提供を標準化するオープンプロトコル(MCP)。400M 月間 SDK DL で業界標準に (updated: 2026-07-29)
 - [[strands-agents-evals]] — エージェント評価フレームワーク `strands-agents-evals`(Experiment/Case/evaluator) (updated: 2026-05-30)
 - [[argo-cd]] — Kubernetes 上の CNCF GitOps デリバリツール(repo server / application controller / API server) (updated: 2026-06-04)
 - [[one-developer-is-all-you-need]] — 1人+4 AIエージェントで4人スカッド規模のブラウンフィールド案件を半分の期間で完遂した Itaú の事例研究(arXiv:2605.18461) (updated: 2026-06-05)
@@ -21,6 +21,7 @@
 - [[opencode-go]] — 複数 LLM プロバイダのモデルを提供するサブスクリプションサービス。一部モデルが Anthropic API 互換 (updated: 2026-07-05)
 - [[matt-pocock]] — TypeScript educator / AI Hero(aihero.dev)運営者。Claude Code スキル集 `mattpocock/skills`(MIT)の作者 (updated: 2026-07-12)
 - [[backlog-md]] — 人間とAIエージェント双方を第一級ユーザーとする Markdown ネイティブなタスク管理 CLI。CLIが正典、init/task createの生成物を実地検証 (updated: 2026-07-16)
+- [[mcp-2026-07-28]] — MCP 第5版スペック(2026-07-28)。stateless core・extensions 正式化・OAuth/OIDC 整合。Claude 側は Apps/enterprise auth/observability/tunnels (updated: 2026-07-29)
 
 ## Concepts
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -29,7 +30,7 @@
 - [[state-management]] — conversation history / agent state / invocation state の3層状態管理 (updated: 2026-05-30)
 - [[conversation-management]] — Null/SlidingWindow/Summarizing と proactive compression による context 管理 (updated: 2026-05-30)
 - [[custom-tools]] — `@tool` デコレータ・クラス/モジュール形式・ToolContext によるツール作成 (updated: 2026-05-30)
-- [[mcp-tools]] — MCPClient で MCP サーバのツールを利用(トランスポート/フィルタ/elicitation) (updated: 2026-05-30)
+- [[mcp-tools]] — MCPClient で MCP サーバのツールを利用(トランスポート/フィルタ/elicitation)。2026-07-28 spec の stateless 化を注記 (updated: 2026-07-29)
 - [[plugins]] — hooks/tools でエージェント挙動を拡張する `plugins=[...]` の仕組み (updated: 2026-05-30)
 - [[agent-skills]] — progressive disclosure でオンデマンドに指示をロードする AgentSkills/SKILL.md (updated: 2026-05-30)
 - [[graph-multi-agent]] — 決定論的な有向グラフ型オーケストレーション(GraphBuilder/条件付きエッジ) (updated: 2026-05-30)
@@ -56,6 +57,7 @@
 - [[grilling]] — 計画を関連する質問攻めにして合意形成する Claude Code スキル `/grill-me`。1問ずつ・推奨解答つき・決定はユーザーに委ねる (updated: 2026-07-12)
 - [[grill-with-docs]] — grilling に domain-modeling を合成した `/grill-with-docs`。解決した用語を CONTEXT.md、決定を ADR としてセッション中に書き残す (updated: 2026-07-12)
 - [[domain-modeling]] — CONTEXT.md 用語集・docs/adr/ を能動的に構築する Claude Code スキル。ADR は「覆しにくい・意外・トレードオフの結果」の3条件が揃った時のみ (updated: 2026-07-12)
+- [[mcp-extensions]] — MCP の versioned 拡張フレームワーク。MCP Apps(会話内の対話的 UI)と Tasks(長時間処理)がコア変更なしで能力追加 (updated: 2026-07-29)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->
