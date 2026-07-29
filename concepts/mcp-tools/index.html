@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/mcp-tools/">
       
       
-        <link rel="prev" href="../loop-engineering/">
+        <link rel="prev" href="../mcp-extensions/">
       
       
         <link rel="next" href="../one-person-squad/">
@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -302,6 +302,8 @@
   
     
     
+      
+        
       
         
       
@@ -1088,6 +1090,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp-extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Extensions(Apps / Tasks)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1515,6 +1545,8 @@
       
         
       
+        
+      
     
     
     
@@ -1687,6 +1719,34 @@
     
   
     Matt Pocock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/mcp-2026-07-28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP 2026-07-28(第5版スペック)
   
 
     
@@ -2415,6 +2475,9 @@
 <li><strong>Streamable HTTP</strong>: <code>streamablehttp_client("http://localhost:8000/mcp")</code>。<code>headers={"Authorization": f"Bearer {token}"}</code> で認証可。AWS SigV4/IAM は <code>mcp-proxy-for-aws</code> の <code>aws_iam_streamablehttp_client</code> が便利。</li>
 <li><strong>SSE</strong>: <code>sse_client("http://localhost:8000/sse")</code>。</li>
 </ul>
+<blockquote>
+<p>ℹ️ プロトコル側の動向: <a href="../../entities/mcp-2026-07-28/">mcp-2026-07-28</a>(第5版スペック)でコアが双方向ステートフルから <strong>stateless な request/response モデル</strong>に移行し、MCP サーバの serverless / edge 配備が可能になった。セッション前提のトランスポート運用は今後この方向に単純化されていく見込み。</p>
+</blockquote>
 <h3 id="mcp">複数 MCP サーバの同時利用<a class="headerlink" href="#mcp" title="Permanent link">&para;</a></h3>
 <p>複数クライアントのツールを1 agent に統合できる。
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">with</span> <span class="n">sse_mcp_client</span><span class="p">,</span> <span class="n">stdio_mcp_client</span><span class="p">:</span>   <span class="c1"># 手動: 明示的 context 管理</span>
@@ -2448,6 +2511,7 @@
 <h2 id="_4">出典<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>raw/articles/strands-mcp-tools.mdx</code> — Quick Start、統合アプローチ、トランスポート、複数サーバ、tool フィルタ/prefix、direct invocation、自作サーバ、elicitation、troubleshooting。</li>
+<li><code>raw/articles/bringing-mcp-2026-07-28-to-claude.md</code> — MCP 2026-07-28 での stateless core への移行(serverless/edge 配備)。</li>
 </ul>
 
 
@@ -2526,7 +2590,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

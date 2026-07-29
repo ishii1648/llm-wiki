@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -378,6 +378,8 @@
   
     
     
+      
+        
       
         
       
@@ -1167,6 +1169,34 @@
   
   
     <li class="md-nav__item">
+      <a href="concepts/mcp-extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Extensions(Apps / Tasks)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="concepts/mcp-tools/" class="md-nav__link">
         
   
@@ -1432,6 +1462,8 @@
       
         
       
+        
+      
     
     
     
@@ -1604,6 +1636,34 @@
     
   
     Matt Pocock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="entities/mcp-2026-07-28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP 2026-07-28(第5版スペック)
   
 
     
@@ -2229,7 +2289,7 @@
 <!-- 人物・製品・組織・ツール・論文など。 -->
 <ul>
 <li><a href="entities/strands-agents/">strands-agents</a> — モデル駆動で AI エージェントを構築する SDK(Python/TS)。本テーマのハブ (updated: 2026-05-30)</li>
-<li><a href="entities/model-context-protocol/">model-context-protocol</a> — LLM へのコンテキスト提供を標準化するオープンプロトコル(MCP) (updated: 2026-05-30)</li>
+<li><a href="entities/model-context-protocol/">model-context-protocol</a> — LLM へのコンテキスト提供を標準化するオープンプロトコル(MCP)。400M 月間 SDK DL で業界標準に (updated: 2026-07-29)</li>
 <li><a href="entities/strands-agents-evals/">strands-agents-evals</a> — エージェント評価フレームワーク <code>strands-agents-evals</code>(Experiment/Case/evaluator) (updated: 2026-05-30)</li>
 <li><a href="entities/argo-cd/">argo-cd</a> — Kubernetes 上の CNCF GitOps デリバリツール(repo server / application controller / API server) (updated: 2026-06-04)</li>
 <li><a href="entities/one-developer-is-all-you-need/">one-developer-is-all-you-need</a> — 1人+4 AIエージェントで4人スカッド規模のブラウンフィールド案件を半分の期間で完遂した Itaú の事例研究(arXiv:2605.18461) (updated: 2026-06-05)</li>
@@ -2244,6 +2304,7 @@
 <li><a href="entities/opencode-go/">opencode-go</a> — 複数 LLM プロバイダのモデルを提供するサブスクリプションサービス。一部モデルが Anthropic API 互換 (updated: 2026-07-05)</li>
 <li><a href="entities/matt-pocock/">matt-pocock</a> — TypeScript educator / AI Hero(aihero.dev)運営者。Claude Code スキル集 <code>mattpocock/skills</code>(MIT)の作者 (updated: 2026-07-12)</li>
 <li><a href="entities/backlog-md/">backlog-md</a> — 人間とAIエージェント双方を第一級ユーザーとする Markdown ネイティブなタスク管理 CLI。CLIが正典、init/task createの生成物を実地検証 (updated: 2026-07-16)</li>
+<li><a href="entities/mcp-2026-07-28/">mcp-2026-07-28</a> — MCP 第5版スペック(2026-07-28)。stateless core・extensions 正式化・OAuth/OIDC 整合。Claude 側は Apps/enterprise auth/observability/tunnels (updated: 2026-07-29)</li>
 </ul>
 <h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
 <!-- 抽象的な概念・手法・パターン。 -->
@@ -2253,7 +2314,7 @@
 <li><a href="concepts/state-management/">state-management</a> — conversation history / agent state / invocation state の3層状態管理 (updated: 2026-05-30)</li>
 <li><a href="concepts/conversation-management/">conversation-management</a> — Null/SlidingWindow/Summarizing と proactive compression による context 管理 (updated: 2026-05-30)</li>
 <li><a href="concepts/custom-tools/">custom-tools</a> — <code>@tool</code> デコレータ・クラス/モジュール形式・ToolContext によるツール作成 (updated: 2026-05-30)</li>
-<li><a href="concepts/mcp-tools/">mcp-tools</a> — MCPClient で MCP サーバのツールを利用(トランスポート/フィルタ/elicitation) (updated: 2026-05-30)</li>
+<li><a href="concepts/mcp-tools/">mcp-tools</a> — MCPClient で MCP サーバのツールを利用(トランスポート/フィルタ/elicitation)。2026-07-28 spec の stateless 化を注記 (updated: 2026-07-29)</li>
 <li><a href="concepts/plugins/">plugins</a> — hooks/tools でエージェント挙動を拡張する <code>plugins=[...]</code> の仕組み (updated: 2026-05-30)</li>
 <li><a href="concepts/agent-skills/">agent-skills</a> — progressive disclosure でオンデマンドに指示をロードする AgentSkills/SKILL.md (updated: 2026-05-30)</li>
 <li><a href="concepts/graph-multi-agent/">graph-multi-agent</a> — 決定論的な有向グラフ型オーケストレーション(GraphBuilder/条件付きエッジ) (updated: 2026-05-30)</li>
@@ -2280,6 +2341,7 @@
 <li><a href="concepts/grilling/">grilling</a> — 計画を関連する質問攻めにして合意形成する Claude Code スキル <code>/grill-me</code>。1問ずつ・推奨解答つき・決定はユーザーに委ねる (updated: 2026-07-12)</li>
 <li><a href="concepts/grill-with-docs/">grill-with-docs</a> — grilling に domain-modeling を合成した <code>/grill-with-docs</code>。解決した用語を CONTEXT.md、決定を ADR としてセッション中に書き残す (updated: 2026-07-12)</li>
 <li><a href="concepts/domain-modeling/">domain-modeling</a> — CONTEXT.md 用語集・docs/adr/ を能動的に構築する Claude Code スキル。ADR は「覆しにくい・意外・トレードオフの結果」の3条件が揃った時のみ (updated: 2026-07-12)</li>
+<li><a href="concepts/mcp-extensions/">mcp-extensions</a> — MCP の versioned 拡張フレームワーク。MCP Apps(会話内の対話的 UI)と Tasks(長時間処理)がコア変更なしで能力追加 (updated: 2026-07-29)</li>
 </ul>
 <h2 id="syntheses">Syntheses<a class="headerlink" href="#syntheses" title="Permanent link">&para;</a></h2>
 <!-- 横断的な比較・分析・まとめ。 -->
@@ -2364,7 +2426,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
