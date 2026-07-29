@@ -235,3 +235,10 @@
 - 更新したページ: [[backlog-md]]
 - 主な学び: `docs_dir: wiki` の制約は「許容できる理論上の制約」ではなく「実際にユーザーが見て気づく実害」だった。この wiki で画像を**公開して見せる**目的で使う場合は `raw/assets/` ではなく `wiki/<page-dir>/assets/` に置く必要がある。`raw/` は一次資料の原本置き場、`wiki/` 配下の画像はページに紐づく表示用資産、という役割分担にする。今後 raw/assets/ に置くのは「ingestの原本として保存するだけで、ページに埋め込み表示はしない」画像に限定する。
 - 矛盾・要確認: 既知の矛盾なし。
+
+## [2026-07-29] ingest | Bringing MCP 2026-07-28 to Claude(Anthropic ブログ)
+- 取得・保存: ユーザー指定 URL https://claude.com/blog/bringing-mcp-2026-07-28-to-claude を取得し、`raw/articles/bringing-mcp-2026-07-28-to-claude.md`(sha256:9361b2c39950)として原文を新規保存。本文2ブロックの間に挟まる6社のテスティモニアル(Figma/Intuit/Netlify/PostHog/Xero/Zoom)も原文どおり引用ブロックで保存した。
+- 追加したページ: [[mcp-2026-07-28]](第5版スペックのエンティティ), [[mcp-extensions]](Apps/Tasks の拡張フレームワーク)
+- 更新したページ: [[model-context-protocol]] — 「スペックの進化と普及(2026-07 時点)」節を新設し新ページへリンク。[[mcp-tools]] — トランスポート節に stateless core 化の注記を追加。
+- 主な学び: (1) MCP 2026-07-28 は第5版スペックで、コアが双方向ステートフルから stateless な request/response モデルへ移行。MCP サーバの serverless/edge 配備が可能になり、Netlify いわく「セッション管理の回避策が不要な first-class HTTP ワークロード」になった。(2) MCP Apps(会話内の対話的 UI)と Tasks(長時間処理)は versioned extensions framework へ正式昇格し、コア変更なしの能力追加経路が確立。(3) 認可は OAuth 2.0/OIDC の本番運用に整合し Entra/Okta へ直結可能。(4) 普及の規模感: 月間 SDK 400M DL(年4倍)、Claude connectors directory は 950+ サーバ。(5) Claude 側の関連機能として MCP Apps/enterprise-managed auth/observability ダッシュボード/MCP tunnels(research preview)が出荷済み。
+- 矛盾・要確認: 既知の矛盾なし。[[mcp-extensions]] の「Tasks が stateless コアと対になる設計」という記述はソースに明示がないため(推測)と明記した。

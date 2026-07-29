@@ -4,10 +4,12 @@ type: concept
 aliases: [MCP tools, MCPClient, mcp-tools]
 tags: [strands, tools, mcp, integration, transport]
 created: 2026-05-30
-updated: 2026-06-11
+updated: 2026-07-29
 sources:
   - raw/articles/strands-mcp-tools.mdx
+  - raw/articles/bringing-mcp-2026-07-28-to-claude.md
 related:
+  - "[[mcp-2026-07-28]]"
   - "[[strands-agents]]"
   - "[[model-context-protocol]]"
   - "[[custom-tools]]"
@@ -46,6 +48,8 @@ agent = Agent(tools=[mcp_client])
 - **Streamable HTTP**: `streamablehttp_client("http://localhost:8000/mcp")`。`headers={"Authorization": f"Bearer {token}"}` で認証可。AWS SigV4/IAM は `mcp-proxy-for-aws` の `aws_iam_streamablehttp_client` が便利。
 - **SSE**: `sse_client("http://localhost:8000/sse")`。
 
+> ℹ️ プロトコル側の動向: [[mcp-2026-07-28]](第5版スペック)でコアが双方向ステートフルから **stateless な request/response モデル**に移行し、MCP サーバの serverless / edge 配備が可能になった。セッション前提のトランスポート運用は今後この方向に単純化されていく見込み。
+
 ### 複数 MCP サーバの同時利用
 複数クライアントのツールを1 agent に統合できる。
 ```python
@@ -77,3 +81,4 @@ MCP ツールの出力は会話履歴に蓄積されトークンを消費する�
 
 ## 出典
 - `raw/articles/strands-mcp-tools.mdx` — Quick Start、統合アプローチ、トランスポート、複数サーバ、tool フィルタ/prefix、direct invocation、自作サーバ、elicitation、troubleshooting。
+- `raw/articles/bringing-mcp-2026-07-28-to-claude.md` — MCP 2026-07-28 での stateless core への移行(serverless/edge 配備)。
