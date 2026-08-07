@@ -53,11 +53,15 @@
 - [[weak-link-hypothesis]] — 補完的タスク連鎖では一段の自動化の効果は最弱段に律速される(Kremer O-ring/Jones weak links の垂直版)。CES・代替弾力性が鍵 (updated: 2026-06-29)
 - [[ai-coding-tool-generations]] — AI コーディングツールの自律度3分類: autocomplete / sync agent / async agent。各世代の定義・代表ツール・生産階層への介入点 (updated: 2026-06-29)
 - [[claude-code-non-anthropic-models]] — 環境変数(`ANTHROPIC_BASE_URL` 等)で Claude Code のバックエンドを Anthropic 互換ゲートウェイに向け替え、非 Claude モデル(MiniMax/Qwen等)を使う手法 (updated: 2026-07-05)
-- [[claude-code-remote-control]] — claude.ai/モバイルアプリからローカルの Claude Code セッションを直接操縦する機能。Channels(push)とは逆に人間が能動的に操縦する。Enterprise 既定 OFF・Trusted Devices・Dispatch/Slack 等との比較表 (updated: 2026-07-10)
+- [[claude-code-remote-control]] — claude.ai/モバイルアプリからローカルの Claude Code セッションを直接操縦する機能。Channels(push)とは逆に人間が能動的に操縦する。Enterprise 既定 OFF・Trusted Devices・Dispatch/Slack 等との比較表 (updated: 2026-08-07)
 - [[grilling]] — 計画を関連する質問攻めにして合意形成する Claude Code スキル `/grill-me`。1問ずつ・推奨解答つき・決定はユーザーに委ねる (updated: 2026-07-12)
 - [[grill-with-docs]] — grilling に domain-modeling を合成した `/grill-with-docs`。解決した用語を CONTEXT.md、決定を ADR としてセッション中に書き残す (updated: 2026-07-12)
 - [[domain-modeling]] — CONTEXT.md 用語集・docs/adr/ を能動的に構築する Claude Code スキル。ADR は「覆しにくい・意外・トレードオフの結果」の3条件が揃った時のみ (updated: 2026-07-12)
 - [[mcp-extensions]] — MCP の versioned 拡張フレームワーク。MCP Apps(会話内の対話的 UI)と Tasks(長時間処理)がコア変更なしで能力追加 (updated: 2026-07-29)
+- [[self-hosted-environment]] — Claude Code の cloud session を自社インフラで実行する仕組み(Team/Enterprise の public beta)。environment/runner/session の3層、全アウトバウンドのネットワーク、ZDR 非対応等の制限、脅威モデル (updated: 2026-08-07)
+- [[self-hosted-runner]] — セッションを実行する runner プロセス(`claude self-hosted-runner`)の運用。1 runner = 1 ユーザーのロック、主要フラグ、git 3方式、K8s と 80 秒のドレイン、メトリクスの落とし穴 (updated: 2026-08-07)
+- [[self-hosted-runner-extensions]] — runner の拡張点。wrapper script(stdin/fd3 を切ると30分後に401)、checkout/post-session/command hook、on-demand orchestrator、MCP 配布、権限設計 (updated: 2026-08-07)
+- [[session-identity-token]] — セッションが社内サービスへ提示する署名付き JWT。JWKS 検証7手順、`act` 委譲チェーン、「セッション内の任意コードが読める」前提での派生クレデンシャル設計 (updated: 2026-08-07)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->
