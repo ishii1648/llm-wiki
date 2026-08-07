@@ -445,6 +445,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1261,6 +1269,118 @@
     
   
     Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts/self-hosted-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-hosted environments(Claude Code)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts/self-hosted-runner-extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-hosted runner の拡張点(wrapper / lifecycle hooks / orchestrator)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts/self-hosted-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-hosted runner(Claude Code)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts/session-identity-token/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セッション ID トークン(CLAUDE_CODE_SESSION_ACCESS_TOKEN)
   
 
     
@@ -2337,11 +2457,15 @@
 <li><a href="concepts/weak-link-hypothesis/">weak-link-hypothesis</a> — 補完的タスク連鎖では一段の自動化の効果は最弱段に律速される(Kremer O-ring/Jones weak links の垂直版)。CES・代替弾力性が鍵 (updated: 2026-06-29)</li>
 <li><a href="concepts/ai-coding-tool-generations/">ai-coding-tool-generations</a> — AI コーディングツールの自律度3分類: autocomplete / sync agent / async agent。各世代の定義・代表ツール・生産階層への介入点 (updated: 2026-06-29)</li>
 <li><a href="concepts/claude-code-non-anthropic-models/">claude-code-non-anthropic-models</a> — 環境変数(<code>ANTHROPIC_BASE_URL</code> 等)で Claude Code のバックエンドを Anthropic 互換ゲートウェイに向け替え、非 Claude モデル(MiniMax/Qwen等)を使う手法 (updated: 2026-07-05)</li>
-<li><a href="concepts/claude-code-remote-control/">claude-code-remote-control</a> — claude.ai/モバイルアプリからローカルの Claude Code セッションを直接操縦する機能。Channels(push)とは逆に人間が能動的に操縦する。Enterprise 既定 OFF・Trusted Devices・Dispatch/Slack 等との比較表 (updated: 2026-07-10)</li>
+<li><a href="concepts/claude-code-remote-control/">claude-code-remote-control</a> — claude.ai/モバイルアプリからローカルの Claude Code セッションを直接操縦する機能。Channels(push)とは逆に人間が能動的に操縦する。Enterprise 既定 OFF・Trusted Devices・Dispatch/Slack 等との比較表 (updated: 2026-08-07)</li>
 <li><a href="concepts/grilling/">grilling</a> — 計画を関連する質問攻めにして合意形成する Claude Code スキル <code>/grill-me</code>。1問ずつ・推奨解答つき・決定はユーザーに委ねる (updated: 2026-07-12)</li>
 <li><a href="concepts/grill-with-docs/">grill-with-docs</a> — grilling に domain-modeling を合成した <code>/grill-with-docs</code>。解決した用語を CONTEXT.md、決定を ADR としてセッション中に書き残す (updated: 2026-07-12)</li>
 <li><a href="concepts/domain-modeling/">domain-modeling</a> — CONTEXT.md 用語集・docs/adr/ を能動的に構築する Claude Code スキル。ADR は「覆しにくい・意外・トレードオフの結果」の3条件が揃った時のみ (updated: 2026-07-12)</li>
 <li><a href="concepts/mcp-extensions/">mcp-extensions</a> — MCP の versioned 拡張フレームワーク。MCP Apps(会話内の対話的 UI)と Tasks(長時間処理)がコア変更なしで能力追加 (updated: 2026-07-29)</li>
+<li><a href="concepts/self-hosted-environment/">self-hosted-environment</a> — Claude Code の cloud session を自社インフラで実行する仕組み(Team/Enterprise の public beta)。environment/runner/session の3層、全アウトバウンドのネットワーク、ZDR 非対応等の制限、脅威モデル (updated: 2026-08-07)</li>
+<li><a href="concepts/self-hosted-runner/">self-hosted-runner</a> — セッションを実行する runner プロセス(<code>claude self-hosted-runner</code>)の運用。1 runner = 1 ユーザーのロック、主要フラグ、git 3方式、K8s と 80 秒のドレイン、メトリクスの落とし穴 (updated: 2026-08-07)</li>
+<li><a href="concepts/self-hosted-runner-extensions/">self-hosted-runner-extensions</a> — runner の拡張点。wrapper script(stdin/fd3 を切ると30分後に401)、checkout/post-session/command hook、on-demand orchestrator、MCP 配布、権限設計 (updated: 2026-08-07)</li>
+<li><a href="concepts/session-identity-token/">session-identity-token</a> — セッションが社内サービスへ提示する署名付き JWT。JWKS 検証7手順、<code>act</code> 委譲チェーン、「セッション内の任意コードが読める」前提での派生クレデンシャル設計 (updated: 2026-08-07)</li>
 </ul>
 <h2 id="syntheses">Syntheses<a class="headerlink" href="#syntheses" title="Permanent link">&para;</a></h2>
 <!-- 横断的な比較・分析・まとめ。 -->

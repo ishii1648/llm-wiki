@@ -369,6 +369,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1344,6 +1352,118 @@
     
   
     Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosted-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-hosted environments(Claude Code)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosted-runner-extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-hosted runner の拡張点(wrapper / lifecycle hooks / orchestrator)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosted-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-hosted runner(Claude Code)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session-identity-token/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セッション ID トークン(CLAUDE_CODE_SESSION_ACCESS_TOKEN)
   
 
     
@@ -2457,7 +2577,7 @@
 - 端末・ブラウザ・スマホから相互に交換可能にメッセージを送信でき、会話は全デバイス間で同期される。
 - スマホ/ブラウザから画像・ファイル添付を送ると、Claude Code がローカルにダウンロードし <code>@</code> file reference として Claude に渡す。
 - ラップトップのスリープやネットワーク切断からは、オンライン復帰時に自動再接続する。</p>
-<p>対して [Claude Code on the web] はクラウドインフラ上でセッションを実行する別機能で、ローカルファイルにはアクセスしない(「クローンしていない repo で作業したい」「並列に複数タスクを走らせたい」場合はこちらが適する)。</p>
+<p>対して [Claude Code on the web] はクラウドインフラ上でセッションを実行する別機能で、ローカルファイルにはアクセスしない(「クローンしていない repo で作業したい」「並列に複数タスクを走らせたい」場合はこちらが適する)。この cloud session を Anthropic のインフラではなく<strong>自社インフラで実行させる</strong>のが <a href="../self-hosted-environment/">self-hosted-environment</a>(Team/Enterprise の public beta)で、公式ドキュメントも「常時稼働の自分のマシンを他デバイスから操縦したいだけなら Remote Control(Pro/Max でも可)」と両者を明確に切り分けている。</p>
 <h3 id="3">起動方法(3経路)<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <table>
 <thead>

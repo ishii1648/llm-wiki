@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/entities/model-context-protocol/">
+        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/session-identity-token/">
       
       
-        <link rel="prev" href="../michael-lynch/">
+        <link rel="prev" href="../self-hosted-runner/">
       
       
-        <link rel="next" href="../one-developer-is-all-you-need/">
+        <link rel="next" href="../spec-driven-development/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Model Context Protocol (MCP) - LLM Wiki</title>
+        <title>セッション ID トークン(CLAUDE_CODE_SESSION_ACCESS_TOKEN) - LLM Wiki</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Model Context Protocol (MCP)
+              セッション ID トークン(CLAUDE_CODE_SESSION_ACCESS_TOKEN)
             
           </span>
         </div>
@@ -296,6 +296,8 @@
       
   
   
+    
+  
   
   
     
@@ -340,1139 +342,6 @@
         
       
         
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Concepts
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Concepts
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/agent-as-a-service/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Agent-as-a-Service (AaaS) と3世代のソフト配信
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/agent-loop/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Agent Loop
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/agent-skills/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Skills (AgentSkills)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/agentic-engineering/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Agentic Engineering
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/ai-code-review/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AI コードレビューと著者性の前提
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/ai-coding-tool-generations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AI コーディングツールの3世代(autocomplete / sync / async)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/argo-cd-controller-scaling/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Argo CD Application Controller のスケーリング
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/argo-cd-manifest-paths-annotation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Argo CD Manifest Paths Annotation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/claude-code-non-anthropic-models/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Claude Code で非 Anthropic モデルを使う(Anthropic 互換ゲートウェイ経由)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/claude-code-remote-control/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Remote Control(Claude Code)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/context-compression/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Context Compression (コンテキスト圧縮)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/context-rot/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Context Rot (コンテキスト腐敗)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/conversation-management/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Conversation Management
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/custom-tools/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Creating Custom Tools
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/design-doc/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Design Doc(ソフトウェア設計ドキュメント)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/domain-modeling/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Domain Modeling(Claude Code スキル)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/evaluators/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Evaluators (Strands Evals)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/experiment-management/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Experiment Management (Strands Evals)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/gitops/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GitOps
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/graph-multi-agent/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Graph Multi-Agent Pattern
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/grill-with-docs/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    grill-with-docs
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/grilling/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Grilling(/grill-me)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/knowledge-bundle/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Knowledge Bundle(OKF のバンドル構造)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/loop-engineering/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Loop Engineering
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/mcp-extensions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MCP Extensions(Apps / Tasks)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/mcp-tools/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MCP Tools (Strands × MCP)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/one-person-squad/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    One-Person Squad(一人スカッド)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/plugins/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Plugins
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/self-hosted-environment/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Self-hosted environments(Claude Code)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/self-hosted-runner-extensions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Self-hosted runner の拡張点(wrapper / lifecycle hooks / orchestrator)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/self-hosted-runner/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Self-hosted runner(Claude Code)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/session-identity-token/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    セッション ID トークン(CLAUDE_CODE_SESSION_ACCESS_TOKEN)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/spec-driven-development/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Spec-Driven Development(SDD / 仕様駆動開発)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/state-management/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    State Management
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/structured-output/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Structured Output
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/swarm-multi-agent/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Swarm Multi-Agent Pattern
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../concepts/weak-link-hypothesis/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Weak-Link Hypothesis(弱い環/ボトルネック仮説)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
       
         
       
@@ -1521,17 +390,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Entities
+    Concepts
   
 
     
@@ -1542,12 +411,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Entities
+    Concepts
   
 
           </label>
@@ -1560,14 +429,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../addy-osmani/" class="md-nav__link">
+      <a href="../agent-as-a-service/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Addy Osmani
+    Agent-as-a-Service (AaaS) と3世代のソフト配信
   
 
     
@@ -1588,14 +457,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../argo-cd/" class="md-nav__link">
+      <a href="../agent-loop/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Argo CD
+    Agent Loop
   
 
     
@@ -1616,14 +485,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../backlog-md/" class="md-nav__link">
+      <a href="../agent-skills/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Backlog.md
+    Skills (AgentSkills)
   
 
     
@@ -1644,14 +513,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../kristof-kovacs/" class="md-nav__link">
+      <a href="../agentic-engineering/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Kristof Kovacs
+    Agentic Engineering
   
 
     
@@ -1672,14 +541,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../matt-pocock/" class="md-nav__link">
+      <a href="../ai-code-review/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Matt Pocock
+    AI コードレビューと著者性の前提
   
 
     
@@ -1700,14 +569,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../mcp-2026-07-28/" class="md-nav__link">
+      <a href="../ai-coding-tool-generations/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    MCP 2026-07-28(第5版スペック)
+    AI コーディングツールの3世代(autocomplete / sync / async)
   
 
     
@@ -1728,14 +597,686 @@
   
   
     <li class="md-nav__item">
-      <a href="../michael-lynch/" class="md-nav__link">
+      <a href="../argo-cd-controller-scaling/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Michael Lynch
+    Argo CD Application Controller のスケーリング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../argo-cd-manifest-paths-annotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argo CD Manifest Paths Annotation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-non-anthropic-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code で非 Anthropic モデルを使う(Anthropic 互換ゲートウェイ経由)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-remote-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remote Control(Claude Code)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-compression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Compression (コンテキスト圧縮)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-rot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Rot (コンテキスト腐敗)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conversation-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conversation Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating Custom Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Doc(ソフトウェア設計ドキュメント)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../domain-modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain Modeling(Claude Code スキル)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluators (Strands Evals)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../experiment-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experiment Management (Strands Evals)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-multi-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Multi-Agent Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grill-with-docs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    grill-with-docs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grilling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grilling(/grill-me)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge-bundle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Knowledge Bundle(OKF のバンドル構造)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loop-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loop Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp-extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Extensions(Apps / Tasks)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Tools (Strands × MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../one-person-squad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    One-Person Squad(一人スカッド)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosted-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-hosted environments(Claude Code)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosted-runner-extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-hosted runner の拡張点(wrapper / lifecycle hooks / orchestrator)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosted-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-hosted runner(Claude Code)
   
 
     
@@ -1770,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    Model Context Protocol (MCP)
+    セッション ID トークン(CLAUDE_CODE_SESSION_ACCESS_TOKEN)
   
 
     
@@ -1788,7 +1329,7 @@
   <span class="md-ellipsis">
     
   
-    Model Context Protocol (MCP)
+    セッション ID トークン(CLAUDE_CODE_SESSION_ACCESS_TOKEN)
   
 
     
@@ -1835,10 +1376,87 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#2026-07" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        スペックの進化と普及(2026-07 時点)
+        トークンが証明すること / しないこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        形式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サービス側での検証手順
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主なクレーム
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#act" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        act チェーン
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wrapper-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セッション内での検証(wrapper script)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        派生クレデンシャルのスコープ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        検証しない経路との使い分け
       
     </span>
   </a>
@@ -1851,7 +1469,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -1877,7 +1495,466 @@
   
   
     <li class="md-nav__item">
-      <a href="../one-developer-is-all-you-need/" class="md-nav__link">
+      <a href="../spec-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spec-Driven Development(SDD / 仕様駆動開発)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../state-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structured-output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structured Output
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../swarm-multi-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swarm Multi-Agent Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../weak-link-hypothesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weak-Link Hypothesis(弱い環/ボトルネック仮説)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entities
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Entities
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/addy-osmani/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Addy Osmani
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/argo-cd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argo CD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/backlog-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/kristof-kovacs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kristof Kovacs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/matt-pocock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matt Pocock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/mcp-2026-07-28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP 2026-07-28(第5版スペック)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/michael-lynch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Michael Lynch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/model-context-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Context Protocol (MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/one-developer-is-all-you-need/" class="md-nav__link">
         
   
   
@@ -1905,7 +1982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../open-knowledge-format/" class="md-nav__link">
+      <a href="../../entities/open-knowledge-format/" class="md-nav__link">
         
   
   
@@ -1933,7 +2010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../opencode-go/" class="md-nav__link">
+      <a href="../../entities/opencode-go/" class="md-nav__link">
         
   
   
@@ -1961,7 +2038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../project-headroom/" class="md-nav__link">
+      <a href="../../entities/project-headroom/" class="md-nav__link">
         
   
   
@@ -1989,7 +2066,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../strands-agents-evals/" class="md-nav__link">
+      <a href="../../entities/strands-agents-evals/" class="md-nav__link">
         
   
   
@@ -2017,7 +2094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../strands-agents/" class="md-nav__link">
+      <a href="../../entities/strands-agents/" class="md-nav__link">
         
   
   
@@ -2045,7 +2122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tejas-chopra/" class="md-nav__link">
+      <a href="../../entities/tejas-chopra/" class="md-nav__link">
         
   
   
@@ -2073,7 +2150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../the-end-of-software-engineering/" class="md-nav__link">
+      <a href="../../entities/the-end-of-software-engineering/" class="md-nav__link">
         
   
   
@@ -2101,7 +2178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../writing-code-vs-shipping-code/" class="md-nav__link">
+      <a href="../../entities/writing-code-vs-shipping-code/" class="md-nav__link">
         
   
   
@@ -2388,10 +2465,87 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#2026-07" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        スペックの進化と普及(2026-07 時点)
+        トークンが証明すること / しないこと
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        形式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サービス側での検証手順
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主なクレーム
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#act" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        act チェーン
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wrapper-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セッション内での検証(wrapper script)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        派生クレデンシャルのスコープ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        検証しない経路との使い分け
       
     </span>
   </a>
@@ -2404,7 +2558,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -2434,29 +2588,142 @@
   
 
 
-  <h1>Model Context Protocol (MCP)</h1>
+  <h1>セッション ID トークン(CLAUDE_CODE_SESSION_ACCESS_TOKEN)</h1>
 
 <h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><strong>Model Context Protocol(MCP)</strong> は、アプリケーションが大規模言語モデル(LLM)へコンテキストを提供する方法を標準化するオープンプロトコル。公式サイトは <a href="https://modelcontextprotocol.io">modelcontextprotocol.io</a>。<a href="../strands-agents/">strands-agents</a> は MCP と統合し、外部 MCP サーバが提供するツールでエージェント能力を拡張できる。</p>
+<p><a href="../self-hosted-environment/">self-hosted-environment</a> のセッションは自社ネットワーク内で動くので、Claude が社内サービスを直接叩ける。そのサービス側が「この要求は本当に自社環境の Claude Code セッションから来たのか」「誰が始めたセッションか」を確かめるための仕組みが、環境変数 <code>CLAUDE_CODE_SESSION_ACCESS_TOKEN</code> に入る<strong>署名付き JWT</strong>。Anthropic が署名し、検証鍵は公開 JWKS エンドポイントで配布される。</p>
 <h2 id="_2">詳細<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">トークンが証明すること / しないこと<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ul>
-<li>MCP は、エージェントと「追加ツールを提供する MCP サーバ」の間の通信を可能にする。Strands は Python / TypeScript の双方で MCP サーバ接続の組み込みサポートを持つ。</li>
-<li>Strands における具体的な利用方法(<code>MCPClient</code>、トランスポート、複数サーバ、elicitation など)は <a href="../../concepts/mcp-tools/">mcp-tools</a> に詳述。</li>
-<li>MCP には <strong>elicitation</strong>(サーバがツール呼び出しを一時停止し、ユーザへ追加入力を要求する)などの仕様が含まれる。詳細は <a href="https://modelcontextprotocol.io/specification/draft/client/elicitation">MCP specification</a>。</li>
+<li><strong>証明する</strong>: Anthropic が「特定の環境の特定のセッション」に対して発行したこと、そしてそのセッションが<strong>組織のユーザーによって作られたのか、組織のサービスキーで作られたのか</strong>。</li>
+<li><strong>証明しない</strong>: runner ホスト上の<strong>どのプロセスが提示しているか</strong>。トークンはセッション内の環境変数にあるので、<strong>Claude が実行する任意のコード、セッションが起動する任意のツールや MCP サーバが読み取って提示できる</strong>。</li>
 </ul>
-<h3 id="2026-07">スペックの進化と普及(2026-07 時点)<a class="headerlink" href="#2026-07" title="Permanent link">&para;</a></h3>
-<ul>
-<li>2026-07-28 に<strong>第5版スペック <a href="../mcp-2026-07-28/">mcp-2026-07-28</a></strong> がリリース。プロトコルコアが双方向ステートフルから <strong>stateless(request/response)</strong> に移行し、認可は OAuth 2.0 / OIDC の本番運用に整合、MCP Apps / Tasks は versioned な <a href="../../concepts/mcp-extensions/">mcp-extensions</a> フレームワークへ正式昇格した。</li>
-<li>月間 SDK ダウンロードは <strong>400M 超(今年 4 倍増)</strong> で、「AI エージェントをアプリケーションに接続する業界標準」になったと Anthropic は位置づけている。Claude の connectors directory には 950 超の MCP サーバが掲載。</li>
-</ul>
+<p>ここから2つの帰結が出る。第一に、<code>aud</code> を自社の環境 ID(<code>ccpool_...</code>)と突き合わせ、他組織の環境向けに発行されたトークンを拒否すること。第二に、トークンから導出するクレデンシャルは「作成ユーザーができること全部」ではなく「1つのコーディングセッションができるべきこと」にスコープすること。</p>
+<h3 id="_4">形式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sk-ant-cc-&lt;base64url header&gt;.&lt;base64url payload&gt;.&lt;base64url signature&gt;
+</code></pre></div>
+- JWT ライブラリに渡す前に <code>sk-ant-cc-</code> を剥がす。
+- <strong>Anthropic ホストの cloud session は <code>sk-ant-si-</code> prefix で別の鍵セットで署名される</strong>ため、<code>sk-ant-cc-</code> 以外は拒否する。
+- 署名アルゴリズムは <code>ES256</code>(P-256 + SHA-256)。ヘッダの <code>kid</code> で JWKS 内の鍵を選ぶ。</p>
+<h3 id="_5">サービス側での検証手順<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>鍵は <code>https://api.anthropic.com/v1/code/.well-known/jwks.json</code> で無認証公開。<strong>鍵は定期ローテーションされるので単一鍵に pin しない</strong>(旧鍵はそれで署名されたトークンが検証できる間セットに残る)。<code>Cache-Control: public, max-age=300</code> なので5分キャッシュで十分。</p>
+<ol>
+<li><strong>prefix</strong>: <code>sk-ant-cc-</code> で始まらなければ拒否し、剥がす。</li>
+<li><strong>署名</strong>: <code>kid</code> に一致する鍵で <code>ES256</code> を検証。<code>alg</code> が <code>ES256</code> でないものは拒否。<strong>キャッシュに無い <code>kid</code> が来たら、拒否する前に1度だけ JWKS を再取得する</strong>(ローテーション直後の新鍵)。</li>
+<li><strong>issuer</strong>: <code>iss</code> が厳密に <code>ccr</code> でなければ拒否。</li>
+<li><strong>audience</strong>: <code>aud</code> は配列。自社の環境 ID(<code>ccpool_...</code>)を含まなければ拒否。<strong>この検査が他組織のトークンを弾く要</strong>。</li>
+<li><strong>role</strong>: <code>ccr:role</code> が <code>session_worker</code> でなければ拒否。environment secret・runner トークン・work order も<strong>同じ鍵セットで署名されている</strong>が role が異なる。</li>
+<li><strong>expiry</strong>: 既定4時間、最大8時間。runner が期限前に更新してセッションへ渡すので、<strong>1つのセッションが生涯に複数の有効なトークンを提示しうる</strong>。</li>
+<li><strong>identity</strong>: <code>act.sub</code> が作成ユーザーの Anthropic ユーザー ID(<code>user:&lt;id&gt;</code> 形式)、<code>act.email</code> は記録があるときだけ入る。サービスキー由来のセッションにはユーザー ID が無いので、「識別情報が無い」で判定せず <strong><code>act.sub</code> が <code>user:</code> prefix を持つときだけユーザー作成と見なす</strong>。</li>
+</ol>
+<p>Node.js は <code>jose</code> の <code>createRemoteJWKSet</code> + <code>jwtVerify</code>、Python は PyJWT の <code>PyJWKClient</code> で、<code>issuer</code> / <code>audience</code> / <code>algorithms</code> を指定したうえで <code>ccr:role</code> を自前で確認する、というのが公式サンプル。</p>
+<h3 id="_6">主なクレーム<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>クレーム</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>iss</code></td>
+<td>常に <code>ccr</code></td>
+</tr>
+<tr>
+<td><code>sub</code></td>
+<td><code>ccr:session:&lt;session_id&gt;</code></td>
+</tr>
+<tr>
+<td><code>aud</code></td>
+<td>配列。常に <code>anthropic-api</code> を含み、self-hosted では環境 ID も含む。<strong>検証すべきは環境 ID の方</strong></td>
+</tr>
+<tr>
+<td><code>exp</code> / <code>iat</code> / <code>jti</code></td>
+<td>期限・発行時刻・一意 ID</td>
+</tr>
+<tr>
+<td><code>ccr:role</code></td>
+<td>セッショントークンは常に <code>session_worker</code></td>
+</tr>
+<tr>
+<td><code>ccr:session_id</code> / <code>ccr:pool_id</code> / <code>ccr:org_id</code></td>
+<td>セッション ID / 環境 ID / 組織 ID</td>
+</tr>
+<tr>
+<td><code>ccr:account_id</code></td>
+<td>作成ユーザーの <code>user_...</code> ID(<code>act.sub</code> から <code>user:</code> を除いたもの)。<code>spawn-runner</code> hook の <code>CLAUDE_RUNNER_ACCOUNT_ID</code> や <code>--lock-to-account</code> と<strong>文字列として一致する</strong></td>
+</tr>
+<tr>
+<td><code>account_email</code> / <code>organization_uuid</code> / <code>account_uuid</code></td>
+<td>後方互換の重複クレーム。<strong>削除されうるので依存しない</strong></td>
+</tr>
+<tr>
+<td><code>act</code></td>
+<td>RFC 8693 の委譲チェーン</td>
+</tr>
+</tbody>
+</table>
+<p><strong>email は当てにしない</strong>: サービスキー由来のセッションでは <code>act.email</code> / <code>ccr:account_id</code> / <code>account_email</code> / <code>account_uuid</code> が欠ける。ユーザー作成セッションでも email は任意で、CLI から dispatch されたセッションは両方の email を持たないことがある。<strong>identity のキーは <code>act.sub</code> か <code>ccr:account_id</code></strong>。</p>
+<h3 id="act"><code>act</code> チェーン<a class="headerlink" href="#act" title="Permanent link">&para;</a></h3>
+<p><code>act</code> はセッションを作ったユーザーから、runner、環境、環境 secret を作った identity まで<strong>委譲経路を丸ごと記録する</strong>。作成ユーザーが最も外側なので <code>act.sub</code> がそのまま作成者。</p>
+<table>
+<thead>
+<tr>
+<th>パス</th>
+<th>指すもの</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>act.sub</code></td>
+<td>作成ユーザー(<code>user:&lt;id&gt;</code>)</td>
+</tr>
+<tr>
+<td><code>act.email</code></td>
+<td>作成ユーザーの email(記録がある場合のみ)</td>
+</tr>
+<tr>
+<td><code>act.attested_by.sub</code></td>
+<td>上流 IdP(Google/Okta 等)が発行した subject。<strong>自社システムの identity へマッピングするなら email より優先する</strong></td>
+</tr>
+<tr>
+<td><code>act.act.sub</code></td>
+<td>セッションを spawn した runner(<code>ccr:runner:&lt;runner_id&gt;</code>)</td>
+</tr>
+<tr>
+<td><code>act.act.act.sub</code></td>
+<td>環境(<code>ccr:pool:&lt;pool_id&gt;</code>)</td>
+</tr>
+<tr>
+<td><code>act.act.act.act</code></td>
+<td>環境 secret を作成した identity(ここで終端)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="wrapper-script">セッション内での検証(wrapper script)<a class="headerlink" href="#wrapper-script" title="Permanent link">&para;</a></h3>
+<p>wrapper script は JWT ライブラリを使う代わりに runner バイナリの <code>self-hosted-runner decode-token</code> を使える。トークンは「引数 → <code>CLAUDE_CODE_SESSION_ACCESS_TOKEN</code> → stdin」の順で読まれ、prefix を剥がし、JWKS に対して署名と有効期限を検証してクレームを JSON で出す。</p>
 <blockquote>
-<p>ℹ️ 注: 本 wiki の親リポジトリ環境(Claude Code)も <code>mcp__github__*</code> のような MCP ツールを利用するが、それは Strands SDK とは別文脈。ここで扱うのは Strands Agents から見た MCP 連携である。</p>
-<p>📎 別用途: MCP は「ツール提供」以外にも使える。<a href="../project-headroom/">project-headroom</a> の CCR は、圧縮で削った原文を必要時に取り出す <strong>retrieval の経路</strong>として MCP サーバーを用いる(→ <a href="../../concepts/context-compression/">context-compression</a>)。</p>
+<p>⚠️ <strong><code>decode-token</code> が検査するのは署名と期限だけで、<code>iss</code> / <code>aud</code> / <code>ccr:role</code> は見ない</strong>。認可判断がそれらに依存するなら、出力 JSON から読んで自分で比較する。</p>
 </blockquote>
-<h2 id="_3">出典<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="s2">&quot;</span><span class="nv">$CLAUDE_RUNNER_CLAUDE_BIN</span><span class="s2">&quot;</span><span class="w"> </span>self-hosted-runner<span class="w"> </span>decode-token<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-re<span class="w"> </span><span class="s1">&#39;.act.attested_by.sub // .act.email // .act.sub&#39;</span>
+</code></pre></div>
+<p><code>claude</code> を PATH 解決せず <code>CLAUDE_RUNNER_CLAUDE_BIN</code> を使う(runner と同じバイナリで decode するため)。<code>jq -r</code> だとクレーム欠落時に文字列 <code>null</code> を出して終了コード 0 になり不正値が下流へ流れるので <strong><code>jq -re</code></strong>。<code>--no-verify</code> は JWKS に到達できないオフライン調査専用。</p>
+<h3 id="_7">派生クレデンシャルのスコープ<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>トークンは作成ユーザーを示すが、<strong>そのユーザーが直接ログインしたのと同等に扱ってはいけない</strong>。環境変数に置かれている以上、セッション内の任意のコードが読める。加えて<strong>検証はオフラインで、一度検証を通ったトークンは <code>exp</code> まで有効なまま</strong>であり、Anthropic はセッショントークンの失効フィードを公開していない。</p>
+<p>したがって社内サービスがトークンを内部クレデンシャルに交換するときは:
+- <strong>能力を絞る</strong>: コーディングタスクに必要な read/write だけを与え、そのユーザーが他所で持つ管理権限は与えない。
+- <strong>寿命を絞る</strong>: トークンの <code>exp</code> 以下にバインドする。
+- <strong>セッションとして監査する</strong>: ユーザー identity と並べて <code>ccr:session_id</code> と <code>jti</code> を記録し、特定セッションまで追跡できるようにする。</p>
+<h3 id="_8">検証しない経路との使い分け<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>作成者の identity は<strong>署名検証を伴わない</strong>平文の環境変数としても2箇所に現れる:
+- <strong>orchestrator の <code>spawn-runner</code> hook</strong>: <code>CLAUDE_RUNNER_ACCOUNT_EMAIL</code> / <code>CLAUDE_RUNNER_ACCOUNT_ID</code>。runner がまだ存在しない段階で使うもので、work order の署名自体は検証していない(environment secret で認証された orchestrator の接続経由で届くことを信頼している)。
+- <strong>wrapper script</strong>: <code>CCR_SESSION_ACCOUNT_EMAIL</code>。ラベル用途向け。</p>
+<p><strong>マシンイメージの選択のような orchestrator 側の判断には平文変数</strong>を、<strong>下流のサービスが独立した暗号学的証明を要る場面には <code>CLAUDE_CODE_SESSION_ACCESS_TOKEN</code></strong> を使う、という切り分け。</p>
+<h2 id="_9">出典<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>raw/articles/strands-mcp-tools.mdx</code> — 「MCP はアプリが LLM へコンテキストを提供する方法を標準化するオープンプロトコル」「Strands は MCP と統合し外部ツール/サービスで能力を拡張」と記載。</li>
-<li><code>raw/articles/bringing-mcp-2026-07-28-to-claude.md</code> — 第5版スペック(stateless core / extensions / auth hardening)、400M 月間 SDK ダウンロード・4倍増・950+ connectors の数値。</li>
+<li><code>raw/articles/claude-code-self-hosted-environments-identity.md</code>(Claude Code 公式ドキュメント)— トークンが証明すること/しないこと、形式と <code>sk-ant-si-</code> との区別、JWKS と7段階の検証手順、クレーム表と <code>act</code> チェーン、<code>decode-token</code> の限界、派生クレデンシャルのスコープ方針、検証しない環境変数との使い分け。</li>
+<li><code>raw/articles/claude-code-self-hosted-environments-configuration.md</code>(同)— wrapper script が受け取るトークン系変数と、<code>decode-token</code> で作成者にスコープしたクレデンシャルを発行する実装例。</li>
 </ul>
 
 
