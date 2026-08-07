@@ -4,13 +4,14 @@ type: concept
 aliases: [Remote Control, リモートコントロール, remote-control, claude remote-control]
 tags: [claude-code, remote-control, mobile, security, trusted-devices]
 created: 2026-07-10
-updated: 2026-07-10
+updated: 2026-08-07
 sources:
   - raw/articles/claude-code-remote-control.md
   - raw/articles/claude-code-remote-control-ja.md
 related:
   - "[[loop-engineering]]"
   - "[[mcp-tools]]"
+  - "[[self-hosted-environment]]"
 ---
 
 ## 概要
@@ -25,7 +26,7 @@ Remote Control を開始しても Claude はローカルマシン上で動き続
 - スマホ/ブラウザから画像・ファイル添付を送ると、Claude Code がローカルにダウンロードし `@` file reference として Claude に渡す。
 - ラップトップのスリープやネットワーク切断からは、オンライン復帰時に自動再接続する。
 
-対して [Claude Code on the web] はクラウドインフラ上でセッションを実行する別機能で、ローカルファイルにはアクセスしない(「クローンしていない repo で作業したい」「並列に複数タスクを走らせたい」場合はこちらが適する)。
+対して [Claude Code on the web] はクラウドインフラ上でセッションを実行する別機能で、ローカルファイルにはアクセスしない(「クローンしていない repo で作業したい」「並列に複数タスクを走らせたい」場合はこちらが適する)。この cloud session を Anthropic のインフラではなく**自社インフラで実行させる**のが [[self-hosted-environment]](Team/Enterprise の public beta)で、公式ドキュメントも「常時稼働の自分のマシンを他デバイスから操縦したいだけなら Remote Control(Pro/Max でも可)」と両者を明確に切り分けている。
 
 ### 起動方法(3経路)
 | 方法 | コマンド | 特徴 |
