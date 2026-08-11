@@ -21,6 +21,7 @@ related:
   - "[[domain-modeling]]"
   - "[[design-doc]]"
   - "[[spec-driven-development]]"
+  - "[[aidlc-prompt-kit]]"
 ---
 
 ## 概要
@@ -64,6 +65,7 @@ user story を残したのは原則6(retain what enhances human symbiosis)によ
 ## 関連
 - [[ai-dlc]] — 本用語群を定義する方法論本体。
 - [[mob-rituals]] — これらの成果物を生成・検証する場。
+- [[aidlc-prompt-kit]] — Unit へのグルーピングや component model 設計を AI に指示する実際のプロンプト。
 - [[domain-modeling]] / [[design-doc]] — 設計成果物を書き残す実務手法。
 - [[spec-driven-development]] — 自然言語仕様を第一級成果物とする発想。
 

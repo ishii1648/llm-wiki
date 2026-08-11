@@ -64,7 +64,8 @@
 - [[session-identity-token]] — セッションが社内サービスへ提示する署名付き JWT。JWKS 検証7手順、`act` 委譲チェーン、「セッション内の任意コードが読める」前提での派生クレデンシャル設計 (updated: 2026-08-07)
 - [[ai-dlc]] — AWS の AI-native 開発方法論。Agile に AI を後付けせず作り直す、会話の向きを反転、DDD をコアに内蔵、10原則+3フェーズ。実証データなしのベンダー提案文書 (updated: 2026-08-11)
 - [[intent-unit-bolt]] — AI-DLC の成果物階層。Intent→Unit(≒Subdomain/Epic)→Bolt(≒Sprint、時間〜日)と Domain/Logical Design→Code→Deployment Unit の連鎖 (updated: 2026-08-11)
-- [[mob-rituals]] — AI-DLC の2儀式。全員1部屋で AI 生成物を集団検証する Mob Elaboration / Mob Construction。brown-field は既存コードの static/dynamic model 化が前置 (updated: 2026-08-11)
+- [[mob-rituals]] — AI-DLC の2儀式。全員1部屋で AI 生成物を集団検証する Mob Elaboration / Mob Construction。green-field の Inception/Construction/Operations 具体手順、brown-field の追加2ステップ (updated: 2026-08-11)
+- [[aidlc-prompt-kit]] — AI-DLC Appendix A のプロンプト全7ブロック。Role 付与 + チェックボックス付き計画ゲート +「重要な決定を勝手に下すな」、`aidlc-docs/` のフォルダ規約と `prompts.md` への入力永続化 (updated: 2026-08-11)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->

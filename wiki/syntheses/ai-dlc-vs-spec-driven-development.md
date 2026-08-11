@@ -20,6 +20,7 @@ related:
   - "[[agentic-engineering]]"
   - "[[ai-productivity-task-vs-output]]"
   - "[[one-developer-is-all-you-need]]"
+  - "[[aidlc-prompt-kit]]"
 ---
 
 ## 概要
@@ -78,7 +79,7 @@ AI-DLC は「Mob Elaboration が数週間〜数ヶ月の逐次作業を数時間
 - AI-DLC と SDD は独立に「AI に書かせる前に人間が検証した契約を置く」という同じ骨格へ到達しており、ブラウンフィールドの処方(既存コードのモデル化)まで一致する。**この収束は両者の主張の信頼性を相互に高める**。
 - 差は**人間の配置**にある。SDD は上流集中、AI-DLC は全段分散、one-person squad は1人に集約。どれが正しいかは実証がなく、AI-DLC 側は特に根拠が薄い。
 - AI-DLC の独自価値は「設計技法(DDD)の内蔵」と「ライフサイクル全段のカバー」であり、用語刷新(Unit / Bolt)や儀式(mob)は本質的な新規性が薄い。
-- 実務的に持ち帰るなら、方法論全体より **Appendix A のプロンプト規約**(`aidlc-docs/` の md 階層、計画をチェックボックス付きで先に書かせる、承認まで実行させない、重要な決定を勝手に下させない)のほうが再利用価値が高い。これは Claude Code の plan mode や [[loop-engineering]] の maker/checker 分離と直接対応する。
+- 実務的に持ち帰るなら、方法論全体より **Appendix A のプロンプト規約**(`aidlc-docs/` の md 階層、計画をチェックボックス付きで先に書かせる、承認まで実行させない、重要な決定を勝手に下させない、発行プロンプトを `prompts.md` に全部残させる)のほうが再利用価値が高い。これは Claude Code の plan mode や [[loop-engineering]] の maker/checker 分離と直接対応する。全7ブロックの内訳は [[aidlc-prompt-kit]]。
 
 ## 出典
 - `raw/papers/aidlc-method-definition.md` — 原則3・6・8・9、III 章ワークフロー(loss function、context memory)、IV/V 章、Appendix A。

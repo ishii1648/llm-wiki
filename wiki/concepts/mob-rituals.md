@@ -18,6 +18,7 @@ related:
   - "[[ai-dlc-vs-spec-driven-development]]"
   - "[[one-person-squad]]"
   - "[[grilling]]"
+  - "[[aidlc-prompt-kit]]"
 ---
 
 ## 概要
@@ -65,6 +66,22 @@ Unit を Deployment Unit へ変換する反復実行の場。論文は「Mob Ela
 
 **Testing and Validation**: AI が全テストを実行して結果を分析・問題を提示 → 失敗テストの修正案を提案(例: クエリロジックの最適化)→ 開発者が所見を検証し修正を承認、必要に応じて再実行。
 
+## Operations フェーズ(green-field)
+論文 IV 章 3。儀式としての名前は与えられていないが、承認ゲートの形は Construction と同じ——**AI が提案し、開発者が承認して初めて実行される**。
+
+**Deployment**:
+
+1. AI がモジュールを **Deployment Unit** へパッケージする(例: コンテナイメージ、サーバレス関数)。
+2. 開発者が**デプロイ構成を承認**し、staging および production 環境へのロールアウトを開始する。
+
+**Observability and Monitoring**:
+
+1. AI がメトリクス・ログ・トレースを解析して**異常を特定し、SLA 違反を予測**する。*例: ピーク時のレイテンシスパイクを検知し、増加したトラフィックを捌くためレコメンドエンジンのスケーリングを提案する。*
+2. AI が **playbook と統合**して運用課題へのアクションを提案する。*例: API のレスポンスタイムが劣化したら、DynamoDB のスループット増加、または API Gateway のトラフィック再分散を推奨する。*
+3. 開発者が AI の推奨を検証し、緩和策を承認し、解決の結果を監視する。
+
+> III 章では「あらかじめ定義された incident **runbook** と統合する」と書かれ、IV 章では「**playbook** と統合する」と書かれている。同じ機構を指していると読めるが、原文で用語が揺れている。
+
 ## Brown-field での差分
 Inception と Operations は green-field と同じ。Construction のみ**2ステップが前置**される(V 章):
 
@@ -81,6 +98,7 @@ Inception と Operations は green-field と同じ。Construction のみ**2ス�
 ## 関連
 - [[ai-dlc]] — 儀式を含む方法論本体。
 - [[intent-unit-bolt]] — 儀式が生成・検証する成果物。
+- [[aidlc-prompt-kit]] — 各段で AI に投げる実際のプロンプト(Appendix A)。
 - [[grilling]] — AI 側から問いを立てて曖昧さを潰す対話パターン(1人版)。
 - [[one-person-squad]] — mob 前提と対照的なチーム構成。
 
