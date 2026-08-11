@@ -383,6 +383,8 @@
       
         
       
+        
+      
     
     
     
@@ -611,6 +613,34 @@
     
   
     AI-DLC(AI-Driven Development Lifecycle)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aidlc-prompt-kit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC プロンプト集(Appendix A)
   
 
     
@@ -1301,6 +1331,17 @@
     <span class="md-ellipsis">
       
         Mob Construction(Construction フェーズ)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operations-green-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operations フェーズ(green-field)
       
     </span>
   </a>
@@ -2545,6 +2586,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#operations-green-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operations フェーズ(green-field)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#brown-field" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2646,6 +2698,22 @@
 <li>開発者が生成コードとテストシナリオ/ケースをレビューし、必要な調整を行う。</li>
 </ol>
 <p><strong>Testing and Validation</strong>: AI が全テストを実行して結果を分析・問題を提示 → 失敗テストの修正案を提案(例: クエリロジックの最適化)→ 開発者が所見を検証し修正を承認、必要に応じて再実行。</p>
+<h2 id="operations-green-field">Operations フェーズ(green-field)<a class="headerlink" href="#operations-green-field" title="Permanent link">&para;</a></h2>
+<p>論文 IV 章 3。儀式としての名前は与えられていないが、承認ゲートの形は Construction と同じ——<strong>AI が提案し、開発者が承認して初めて実行される</strong>。</p>
+<p><strong>Deployment</strong>:</p>
+<ol>
+<li>AI がモジュールを <strong>Deployment Unit</strong> へパッケージする(例: コンテナイメージ、サーバレス関数)。</li>
+<li>開発者が<strong>デプロイ構成を承認</strong>し、staging および production 環境へのロールアウトを開始する。</li>
+</ol>
+<p><strong>Observability and Monitoring</strong>:</p>
+<ol>
+<li>AI がメトリクス・ログ・トレースを解析して<strong>異常を特定し、SLA 違反を予測</strong>する。<em>例: ピーク時のレイテンシスパイクを検知し、増加したトラフィックを捌くためレコメンドエンジンのスケーリングを提案する。</em></li>
+<li>AI が <strong>playbook と統合</strong>して運用課題へのアクションを提案する。<em>例: API のレスポンスタイムが劣化したら、DynamoDB のスループット増加、または API Gateway のトラフィック再分散を推奨する。</em></li>
+<li>開発者が AI の推奨を検証し、緩和策を承認し、解決の結果を監視する。</li>
+</ol>
+<blockquote>
+<p>III 章では「あらかじめ定義された incident <strong>runbook</strong> と統合する」と書かれ、IV 章では「<strong>playbook</strong> と統合する」と書かれている。同じ機構を指していると読めるが、原文で用語が揺れている。</p>
+</blockquote>
 <h2 id="brown-field">Brown-field での差分<a class="headerlink" href="#brown-field" title="Permanent link">&para;</a></h2>
 <p>Inception と Operations は green-field と同じ。Construction のみ<strong>2ステップが前置</strong>される(V 章):</p>
 <ol>
@@ -2663,6 +2731,7 @@
 <ul>
 <li><a href="../ai-dlc/">ai-dlc</a> — 儀式を含む方法論本体。</li>
 <li><a href="../intent-unit-bolt/">intent-unit-bolt</a> — 儀式が生成・検証する成果物。</li>
+<li><a href="../aidlc-prompt-kit/">aidlc-prompt-kit</a> — 各段で AI に投げる実際のプロンプト(Appendix A)。</li>
 <li><a href="../grilling/">grilling</a> — AI 側から問いを立てて曖昧さを潰す対話パターン(1人版)。</li>
 <li><a href="../one-person-squad/">one-person-squad</a> — mob 前提と対照的なチーム構成。</li>
 </ul>
