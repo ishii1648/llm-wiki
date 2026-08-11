@@ -9,7 +9,7 @@ aliases:
   - intent engineering
 tags: [agentic-engineering, agentic-development, llm-agents, software-engineering, multi-agent, discipline]
 created: 2026-06-10
-updated: 2026-06-10
+updated: 2026-08-11
 sources:
   - raw/papers/the-end-of-software-engineering.md
 related:
@@ -21,6 +21,7 @@ related:
   - "[[agent-loop]]"
   - "[[weak-link-hypothesis]]"
   - "[[ai-productivity-task-vs-output]]"
+  - "[[ai-dlc]]"
 ---
 
 ## 概要
@@ -66,6 +67,11 @@ Wang et al.[4] のタクソノミーが示す3モジュール(LLM reasoning core
 - **Ethical governance** — エージェント挙動を組織の価値・法・社会的期待に整合させる。
 
 論文は「agent orchestration を極めた者の生産性乗数は従来の "10x engineer" を遥かに超える —— 速くタイプするのでなく、**swarm を複雑な成果へ調整する能力**によって」と主張する。これは [[ai-code-review]] が指摘する「検証・所有権の責任は人間に残る(outcome auditor)」という論点と表裏一体。
+
+### 方法論としての具体化: AI-DLC
+Agentic Engineering の「control plane としての AI」は抽象的な枠組みにとどまるが、AWS の [[ai-dlc]](2026)はこれを**フェーズ・儀式・成果物を伴う開発方法論として具体化**している(独立ソース。AI-DLC 側は LangChain も本概念も引用していない)。対応は明瞭で、AI-DLC の原則2「会話の向きを反転する」(AI が intent を分解し、人間は approver)は本ページの「人間の役割 = intent architect / coordinator / auditor」の実務化であり、AI-DLC の "context memory"(全成果物を永続化・相互リンクしてトレーサビリティを持たせる)は Table 2 の「long-term memory と state/traceability の管理」に対応する。
+
+ただし AI-DLC は実証を伴わない提案文書であり、また Cao 論文の 4 段階(Tool-Augmented → Single-Task Autonomous → Multi-Agent Teams → Self-Evolving Ecosystems)でいえば **Stage II 相当の想定**に留まる——AI-DLC 自身が「現在の AI は自律的な意図→コードの翻訳にはまだ信頼できない」を前提に据えているため。
 
 ### 現状の到達点と限界
 論文は agentic engineering を**今日は拡張(augmentation)パラダイムとして real かつ transformative**としつつ、完全自律には EvoClaw が露呈した崖(孤立タスク >80% → 連続的進化で最大38%)の克服 —— long-context state 管理・記憶アーキテクチャ・検証機構 —— が必要とする(詳細は [[the-end-of-software-engineering]])。発展段階は Tool-Augmented → Single-Task Autonomous → **Multi-Agent Teams** → Self-Evolving Ecosystems の4段階(Stage III の具体パターンは本 wiki の [[multi-agent-patterns]] / [[swarm-multi-agent]] / [[graph-multi-agent]] が対応)。

@@ -62,6 +62,10 @@
 - [[self-hosted-runner]] — セッションを実行する runner プロセス(`claude self-hosted-runner`)の運用。1 runner = 1 ユーザーのロック、主要フラグ、git 3方式、K8s と 80 秒のドレイン、メトリクスの落とし穴 (updated: 2026-08-07)
 - [[self-hosted-runner-extensions]] — runner の拡張点。wrapper script(stdin/fd3 を切ると30分後に401)、checkout/post-session/command hook、on-demand orchestrator、MCP 配布、権限設計 (updated: 2026-08-07)
 - [[session-identity-token]] — セッションが社内サービスへ提示する署名付き JWT。JWKS 検証7手順、`act` 委譲チェーン、「セッション内の任意コードが読める」前提での派生クレデンシャル設計 (updated: 2026-08-07)
+- [[ai-dlc]] — AWS の AI-native 開発方法論。Agile に AI を後付けせず作り直す、会話の向きを反転、DDD をコアに内蔵、10原則+3フェーズ。実証データなしのベンダー提案文書 (updated: 2026-08-11)
+- [[intent-unit-bolt]] — AI-DLC の成果物階層。Intent→Unit(≒Subdomain/Epic)→Bolt(≒Sprint、時間〜日)と Domain/Logical Design→Code→Deployment Unit の連鎖 (updated: 2026-08-11)
+- [[mob-rituals]] — AI-DLC の2儀式。全員1部屋で AI 生成物を集団検証する Mob Elaboration / Mob Construction。green-field の Inception/Construction/Operations 具体手順、brown-field の追加2ステップ (updated: 2026-08-11)
+- [[aidlc-prompt-kit]] — AI-DLC Appendix A のプロンプト全7ブロック。Role 付与 + チェックボックス付き計画ゲート +「重要な決定を勝手に下すな」、`aidlc-docs/` のフォルダ規約と `prompts.md` への入力永続化 (updated: 2026-08-11)
 
 ## Syntheses
 <!-- 横断的な比較・分析・まとめ。 -->
@@ -70,3 +74,4 @@
 - [[okf-and-llm-wiki]] — OKF とこの llm-wiki リポジトリ(Karpathy LLM Wiki パターン)の対応・差分 (updated: 2026-06-19)
 - [[ai-productivity-task-vs-output]] — タスク利得は本番出力に翻訳されるか。NBER の減衰証拠と Itaú 事例/Cao パラダイム論を突合。「ボトルネックは消えず移動する」 (updated: 2026-06-29)
 - [[backlog-md-vs-okf]] — Backlog.md のタスク Markdown は OKF 準拠か。表面形式は似るがフィールド・セマンティクスが異なり非準拠と結論 (updated: 2026-07-16)
+- [[ai-dlc-vs-spec-driven-development]] — AI-DLC と SDD/one-person-squad の突合。骨格は独立に一致するが律速の置き所(上流集中 vs 全段分散)と人間の頭数が分かれる (updated: 2026-08-11)
