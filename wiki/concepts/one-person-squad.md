@@ -4,7 +4,7 @@ type: concept
 aliases: [one-person squad, 一人スカッド, AI-augmented one-person squad, solo AI-augmented delivery]
 tags: [team-topology, ai-augmented-development, software-engineering, agentic-development]
 created: 2026-06-05
-updated: 2026-06-05
+updated: 2026-08-11
 sources:
   - raw/papers/one-developer-is-all-you-need.md
 related:
@@ -13,6 +13,7 @@ related:
   - "[[ai-code-review]]"
   - "[[weak-link-hypothesis]]"
   - "[[ai-productivity-task-vs-output]]"
+  - "[[mob-rituals]]"
 ---
 
 ## 概要
@@ -49,6 +50,11 @@ related:
 - 追加人員の価値が下がるのは「well-specified・定型パターン・指揮役が熟知するドメイン」のときに限る。プロダクト不確実性・未知ドメイン・高 blast-radius・長期運用では依然チームが有効。
 
 > 一人スカッドは「普遍的な運用モデル」ではなく、**AI拡張による圧縮の境界テスト**として読むべき(著者強調)。
+
+## 対照: mob を要求する AI-DLC
+[[ai-dlc]](AWS)は原則8で「専門サイロを越えることで専門役割の必要数が減る」と述べ、**論理的には一人スカッドと同じ方向を向いている**。にもかかわらず、その儀式([[mob-rituals]])は Product Owner・開発者・QA・その他ステークホルダーが**単一の部屋に同席**することを前提とする。
+
+この対立は「単一障害点」の扱いの違いとして読める。一人スカッドは1人に全メンタルモデルが集中するリスクを SDD 由来のドキュメント(継続性レバー)で緩和しようとするのに対し、AI-DLC は **AI 生成物の検証に複数の独立した視点を置く**ことで冗長化する。どちらも「経験者=品質ゲート」という同じ成立条件を認めた上での、異なる冗長化戦略である。(この対比は本 wiki の解釈)
 
 ## 関連
 - [[one-developer-is-all-you-need]] — このパターンを実証した一次資料(事例・数値)。
