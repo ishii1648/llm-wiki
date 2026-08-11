@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/swarm-multi-agent/">
+        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/intent-unit-bolt/">
       
       
-        <link rel="prev" href="../structured-output/">
+        <link rel="prev" href="../grilling/">
       
       
-        <link rel="next" href="../weak-link-hypothesis/">
+        <link rel="next" href="../knowledge-bundle/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Swarm Multi-Agent Pattern - LLM Wiki</title>
+        <title>Intent / Unit / Bolt(AI-DLC の成果物階層) - LLM Wiki</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Swarm Multi-Agent Pattern
+              Intent / Unit / Bolt(AI-DLC の成果物階層)
             
           </span>
         </div>
@@ -1106,10 +1106,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../intent-unit-bolt/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intent / Unit / Bolt(AI-DLC の成果物階層)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1125,6 +1150,101 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intent-unit-bolt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intent → Unit → Bolt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Construction フェーズの成果物連鎖
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inception フェーズの出力
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全成果物に共通する性質
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        関連
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出典
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1526,35 +1646,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Swarm Multi-Agent Pattern
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../swarm-multi-agent/" class="md-nav__link">
         
   
   
@@ -1570,140 +1665,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        概要
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        詳細
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="詳細">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        動作原理
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#swarm-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Swarm の作成(Python)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#swarm-configurationpython" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Swarm Configuration(Python)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#swarm-coordination" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Swarm Coordination
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#shared-state" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Shared State / 結果 / ストリーミング
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        安全機構 / ベストプラクティス
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sdk" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SDK 差異(地雷)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        出典
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2592,101 +2553,62 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#intent-unit-bolt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        詳細
+        Intent → Unit → Bolt
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="詳細">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        動作原理
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#swarm-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Swarm の作成(Python)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#swarm-configurationpython" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Swarm Configuration(Python)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#swarm-coordination" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Swarm Coordination
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#shared-state" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Shared State / 結果 / ストリーミング
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        安全機構 / ベストプラクティス
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sdk" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SDK 差異(地雷)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Construction フェーズの成果物連鎖
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inception フェーズの出力
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全成果物に共通する性質
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        関連
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -2716,104 +2638,78 @@
   
 
 
-  <h1>Swarm Multi-Agent Pattern</h1>
+  <h1>Intent / Unit / Bolt(AI-DLC の成果物階層)</h1>
 
 <h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><strong>Swarm</strong> は、複数の agent がチームとして協調し複雑タスクを解く協調型オーケストレーション。逐次・階層型と違い、<strong>共有 context と working memory を持つ agent 同士が自律的に handoff(制御移譲)</strong>して調整する。創発的知性(emergent intelligence)が原理。使い分けは <a href="../../syntheses/multi-agent-patterns/">multi-agent-patterns</a>。</p>
-<h2 id="_2">詳細<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="_3">動作原理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>各 agent は (1) タスク全体の context にアクセスでき、(2) どの agent が作業したか履歴を見られ、(3) 他 agent が貢献した知識を参照でき、(4) 別の専門 agent に handoff するか自分で判断する。中央制御なしで協調する。</p>
-<h3 id="swarm-python">Swarm の作成(Python)<a class="headerlink" href="#swarm-python" title="Permanent link">&para;</a></h3>
-<p>専門の異なる agent 群を渡す。既定では最初の agent が初期要求を受けるが、<code>entry_point</code> で指定可。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">strands.multiagent</span><span class="w"> </span><span class="kn">import</span> <span class="n">Swarm</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">swarm</span> <span class="o">=</span> <span class="n">Swarm</span><span class="p">(</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="p">[</span><span class="n">coder</span><span class="p">,</span> <span class="n">researcher</span><span class="p">,</span> <span class="n">reviewer</span><span class="p">,</span> <span class="n">architect</span><span class="p">],</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">entry_point</span><span class="o">=</span><span class="n">researcher</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">max_handoffs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">max_iterations</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">execution_timeout</span><span class="o">=</span><span class="mf">900.0</span><span class="p">,</span>   <span class="c1"># 15分</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">node_timeout</span><span class="o">=</span><span class="mf">300.0</span><span class="p">,</span>        <span class="c1"># agent あたり5分</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">repetitive_handoff_detection_window</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">repetitive_handoff_min_unique_agents</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">)</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">result</span> <span class="o">=</span> <span class="n">swarm</span><span class="p">(</span><span class="s2">&quot;Design and implement a simple REST API for a todo app&quot;</span><span class="p">)</span>
-</code></pre></div></p>
-<h3 id="swarm-configurationpython">Swarm Configuration(Python)<a class="headerlink" href="#swarm-configurationpython" title="Permanent link">&para;</a></h3>
+<p><a href="../ai-dlc/">ai-dlc</a> は「既存実践者が1日でオリエントできること」を原則に掲げ(原則7)、Scrum 等の旧用語との関係を保ちながら用語を刷新した。中核は <strong>Intent → Unit → Bolt</strong> の3階層と、Construction フェーズで連鎖する4つの設計成果物である。</p>
+<h2 id="intent-unit-bolt">Intent → Unit → Bolt<a class="headerlink" href="#intent-unit-bolt" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>パラメータ</th>
-<th>説明</th>
-<th>既定</th>
+<th>AI-DLC</th>
+<th>定義</th>
+<th>旧用語での対応</th>
+<th>誰が作り、誰が検証するか</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>entry_point</code></td>
-<td>開始 agent</td>
-<td>None(最初の agent)</td>
+<td><strong>Intent</strong></td>
+<td>何を達成すべきかを包含する<strong>高レベルの目的表明</strong>。ビジネス目標・機能・技術的成果(例: 性能スケーリング)のいずれでもよい</td>
+<td>— (Epic の上流にある「意図」)</td>
+<td>人間(Product Owner)が起点として与える</td>
 </tr>
 <tr>
-<td><code>max_handoffs</code></td>
-<td>handoff 上限</td>
-<td>20</td>
+<td><strong>Unit</strong></td>
+<td>Intent から導かれる、<strong>測定可能な価値を届けるための凝集した自己完結の作業要素</strong>。Unit 同士は<strong>疎結合</strong>で、自律的な開発と独立したデプロイを可能にする</td>
+<td>DDD の <strong>Subdomain</strong>、Scrum の <strong>Epic</strong> に相当</td>
+<td>AI が Intent を分解して提案。開発者/Product Owner が検証・修正</td>
 </tr>
 <tr>
-<td><code>max_iterations</code></td>
-<td>全 agent の総反復上限</td>
-<td>20</td>
-</tr>
-<tr>
-<td><code>execution_timeout</code></td>
-<td>総実行 timeout(秒)</td>
-<td>900.0</td>
-</tr>
-<tr>
-<td><code>node_timeout</code></td>
-<td>agent 個別 timeout(秒)</td>
-<td>300.0</td>
-</tr>
-<tr>
-<td><code>repetitive_handoff_detection_window</code></td>
-<td>ping-pong 検出窓</td>
-<td>0(無効)</td>
-</tr>
-<tr>
-<td><code>repetitive_handoff_min_unique_agents</code></td>
-<td>窓内に必要な最小 unique agent 数</td>
-<td>0(無効)</td>
+<td><strong>Bolt</strong></td>
+<td>AI-DLC の<strong>最小の反復単位</strong>。1つの Unit、または Unit 内のタスク集合を高速に実装する。build-validation サイクルは週でなく<strong>時間または日</strong>で測る</td>
+<td>Scrum の <strong>Sprint</strong>(4〜6週)を改名したもの</td>
+<td>AI が Bolt を計画。開発者/Product Owner が検証</td>
 </tr>
 </tbody>
 </table>
-<h3 id="swarm-coordination">Swarm Coordination<a class="headerlink" href="#swarm-coordination" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Handoff Tool</strong>(Python): 各 agent に自動装備される <code>handoff_to_agent(agent_name, message, context)</code> で別 agent へ制御移譲。</li>
-<li><strong>Shared Context</strong>: 元タスク記述・作業した agent 履歴・前 agent の知識・協調可能な agent 一覧を全員が参照。受信 agent には整形された context 文字列が渡る。</li>
-<li><strong>Structured Output Routing</strong>: agent は <a href="../structured-output/">structured-output</a> で次ステップを決める。応答に <code>agentId</code>(移譲先。省略で swarm 終了し最終応答)、<code>message</code>(次 agent への指示 or 最終応答)、<code>context</code>(任意データ)を含む。agent description が routing 判断を助ける。</li>
+<li>各 Unit はタスク集合(この場合 <strong>user story</strong>)を持ち、それが機能スコープを規定する。</li>
+<li>1つの Unit は<strong>1つ以上の Bolt</strong> で実行され、Bolt は<strong>並列にも逐次にも</strong>走りうる。</li>
+<li>「Sprint を意図的に改名した」理由は原則7の associative learning——旧概念との対応を保ちつつ、期間の桁が変わったことを名前で示す(<em>rapid, intense cycles</em>)。</li>
 </ul>
-<h3 id="shared-state">Shared State / 結果 / ストリーミング<a class="headerlink" href="#shared-state" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>⚠️ 名前が変わっただけか: Unit ≒ Epic、Bolt ≒ Sprint という対応を論文自身が明示しているため、階層構造そのものは Scrum から変わっていない。実質的な差分は <strong>(a) 分解の主体が人間から AI に移ったこと</strong>と <strong>(b) Bolt の時間スケールが週から時間/日になったこと</strong>の2点に絞られる。(この評価は本 wiki の解釈)</p>
+</blockquote>
+<h2 id="construction">Construction フェーズの成果物連鎖<a class="headerlink" href="#construction" title="Permanent link">&para;</a></h2>
+<p>Unit が確定した後、Construction フェーズは次の順で成果物を積み上げる。各段で人間の検証が入る(→ <a href="../ai-dlc/">ai-dlc</a> の loss function)。</p>
+<ol>
+<li><strong>Domain Design</strong> — Unit の<strong>中核ビジネスロジックを、インフラ構成要素から独立にモデル化</strong>する。AI-DLC 第一版では AI が DDD の原則を用い、戦略的・戦術的モデリング要素(aggregate、value object、entity、domain event、repository、factory)を作る。</li>
+<li><strong>Logical Design</strong> — Domain Design を<strong>非機能要件(NFR)を満たすように拡張</strong>する。適切なアーキテクチャ設計パターン(例: CQRS、Circuit Breaker)を選ぶ。AI が <strong>Architecture Decision Record(ADR)</strong> を生成し、開発者が検証する。</li>
+<li><strong>Code + Unit Tests</strong> — Logical Design の仕様からコードとユニットテストを生成。適切な AWS サービス/construct を選び well-architected 原則に従う。<strong>AI エージェントがユニットテストを実行し、結果を分析して修正案を開発者に提示</strong>する。</li>
+<li><strong>Deployment Units</strong> — 運用成果物。パッケージ済み実行コード(例: Kubernetes 向けコンテナイメージ、AWS Lambda 等のサーバレス関数)、設定(例: Helm chart)、インフラ構成要素(例: Terraform / CloudFormation スタック)を含む。AI が機能テスト・静的/動的セキュリティテスト・負荷テストのシナリオを生成し、<strong>人間がテストシナリオとケースを検証・調整した後</strong>に AI エージェントが実行、結果を分析して失敗点をコード変更・設定・依存関係と突き合わせる。</li>
+</ol>
+<p>ADR を AI に書かせて人間が検証する形は、<a href="../domain-modeling/">domain-modeling</a>(ADR は「覆しにくい・意外・トレードオフの結果」の3条件が揃った時のみ書く)や <a href="../design-doc/">design-doc</a> と同じ問題領域を扱う。ただし AI-DLC は<strong>生成のトリガを人間の判断でなく段階遷移に置いている</strong>点が異なる。</p>
+<h2 id="inception">Inception フェーズの出力<a class="headerlink" href="#inception" title="Permanent link">&para;</a></h2>
+<p><a href="../mob-rituals/">mob-rituals</a> の Mob Elaboration を経て、各 Unit は次の構成要素を伴う:</p>
+<p>a) <strong>PRFAQ</strong>(任意) / b) <strong>User Stories</strong> / c) <strong>NFR 定義</strong> / d) <strong>リスク記述</strong>(組織の Risk Register があればそれと突合) / e) business intent に遡れる <strong>Measurement Criteria</strong> / f) その Unit を構築する<strong>推奨 Bolt 群</strong></p>
+<p>user story を残したのは原則6(retain what enhances human symbiosis)による——「人間と AI の理解を揃える、よく定義された<strong>契約</strong>として働く」ため。この「契約としての自然言語仕様」という位置づけは <a href="../spec-driven-development/">spec-driven-development</a> の核心と一致する。</p>
+<h2 id="_2">全成果物に共通する性質<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Shared State</strong>: <code>invocation_state</code> で全 agent に context/設定を共有(協調用 shared context とは別。LLM に晒さない。→ <a href="../state-management/">state-management</a> / <a href="../../syntheses/multi-agent-patterns/">multi-agent-patterns</a>)。</li>
-<li><strong>SwarmResult</strong>: <code>status</code> / <code>node_history</code> / <code>results[id].result</code> / <code>execution_count</code> / <code>execution_time</code> / <code>accumulated_usage</code>。</li>
-<li>ストリーミング: <code>swarm.stream_async(...)</code> で <code>multiagent_node_start</code> / <code>multiagent_handoff</code> / <code>multiagent_result</code> 等。</li>
-<li><strong>Swarm as a Tool</strong>: <code>from strands_tools import swarm</code> を agent に渡すと動的に swarm を組成・実行できる。</li>
+<li><strong>永続化</strong>: intent、user story、domain model、テスト計画などの全成果物が保存され、ライフサイクル横断の <strong>"context memory"</strong> として AI に参照される。</li>
+<li><strong>リンクとトレーサビリティ</strong>: 全成果物が相互リンクされ、前方・後方の追跡が可能(例: domain model の要素 ↔ 特定の user story)。目的は AI が各段で<strong>正しく最も関連の高い context を取り出せる</strong>ようにすること。</li>
 </ul>
-<h3 id="_4">安全機構 / ベストプラクティス<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h2 id="_3">関連<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
-<li>安全機構: step 上限 / execution timeout / node timeout / <strong>repetitive handoff detection</strong>(ping-pong 防止)。</li>
-<li>ベストプラクティス: 専門特化 agent を作る・説明的な名前・適切な timeout・handoff 検出有効化・多様な専門性・agent description 付与・multi-modal 入力(ContentBlock)活用。</li>
+<li><a href="../ai-dlc/">ai-dlc</a> — 本用語群を定義する方法論本体。</li>
+<li><a href="../mob-rituals/">mob-rituals</a> — これらの成果物を生成・検証する場。</li>
+<li><a href="../aidlc-prompt-kit/">aidlc-prompt-kit</a> — Unit へのグルーピングや component model 設計を AI に指示する実際のプロンプト。</li>
+<li><a href="../domain-modeling/">domain-modeling</a> / <a href="../design-doc/">design-doc</a> — 設計成果物を書き残す実務手法。</li>
+<li><a href="../spec-driven-development/">spec-driven-development</a> — 自然言語仕様を第一級成果物とする発想。</li>
 </ul>
-<h3 id="sdk">SDK 差異(地雷)<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h3>
+<h2 id="_4">出典<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Handoff 機構</strong>: Python は <code>handoff_to_agent</code> ツール注入。TS は structured output schema(<code>{agentId, message, context}</code>)で表現し、<code>agentId</code> 有=移譲、無=<code>message</code> が最終応答。</li>
-<li><strong>Shared context</strong>: Python は可変 <code>SharedContext</code>(各 agent が読み書き)。TS は handoff 入力に JSON テキストブロックとして直列化(cross-agent の可変状態を避ける)。</li>
-<li><strong>Step 上限</strong>: Python は <code>max_handoffs</code> と <code>max_iterations</code> を分離、TS は単一 <code>maxSteps</code>。</li>
-<li><strong>Node 入力</strong>: Python はリッチな context 文字列、TS は handoff message + 直列化 context のみ。</li>
-<li><strong>エラー/キャンセル</strong>: <a href="../graph-multi-agent/">graph-multi-agent</a> と同様の Python/TS 差(TS は CANCELLED、Python は FAILED)。</li>
-</ul>
-<h2 id="_5">出典<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<ul>
-<li><code>raw/articles/strands-swarm.mdx</code> — 動作原理、<code>Swarm</code> 作成・設定表、handoff/shared context/structured output routing、shared state、<code>SwarmResult</code>、安全機構、ベストプラクティス、SDK 差異。</li>
+<li><code>raw/papers/aidlc-method-definition.md</code> III 章 1.ARTEFACTS(Intent / Unit / Bolt / Domain Design / Logical Design / Code + Unit Tests / Deployment Units)、III 章 2.PHASES &amp; RITUALS(Inception の出力)、III 章 3.THE WORKFLOW(context memory・トレーサビリティ)、II 章 原則6・原則7。</li>
 </ul>
 
 

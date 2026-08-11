@@ -377,6 +377,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -577,6 +585,62 @@
     
   
     AI コーディングツールの3世代(autocomplete / sync / async)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-dlc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC(AI-Driven Development Lifecycle)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aidlc-prompt-kit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC プロンプト集(Appendix A)
   
 
     
@@ -1045,6 +1109,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../intent-unit-bolt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intent / Unit / Bolt(AI-DLC の成果物階層)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../knowledge-bundle/" class="md-nav__link">
         
   
@@ -1137,6 +1229,34 @@
     
   
     MCP Tools (Strands × MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mob-rituals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mob Elaboration / Mob Construction(AI-DLC の儀式)
   
 
     
@@ -1418,6 +1538,17 @@
     <span class="md-ellipsis">
       
         実務上のレバー
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-dlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        独立に到達した同型の方法論: AI-DLC
       
     </span>
   </a>
@@ -2164,6 +2295,8 @@
       
         
       
+        
+      
     
     
     
@@ -2208,6 +2341,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntheses/ai-dlc-vs-spec-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC と Spec-Driven Development の突合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -2425,6 +2586,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ai-dlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        独立に到達した同型の方法論: AI-DLC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2483,11 +2655,16 @@
 <li><strong>継続性(continuity)レバー</strong>: SDD が生む仕様・決定記録・エージェント設定は、別のエンジニアや別のエージェント群がプロジェクトを途中から引き継げる程度に詳細。SDD はコード品質レバーであると同時に<a href="../one-person-squad/">one-person-squad</a>の単一障害点を緩和する継続性レバーでもある。</li>
 <li><strong>スキーマで型を固める</strong>ことと相補的: 機械可読な出力契約は <a href="../structured-output/">structured-output</a>(Pydantic/Zod スキーマ)の発想と地続き。SDD は人間可読な意図契約を上流に置く。</li>
 </ul>
+<h2 id="ai-dlc">独立に到達した同型の方法論: AI-DLC<a class="headerlink" href="#ai-dlc" title="Permanent link">&para;</a></h2>
+<p>AWS の <a href="../ai-dlc/">ai-dlc</a>(2026)は SDD を引用していないが、<strong>コード生成の前に人間が検証した自然言語の契約を置く</strong>という同じ骨格に到達している。AI-DLC は user story を「人間と AI の理解を揃える、よく定義された<strong>契約</strong>」として意図的に残し(原則6)、全成果物を永続化・相互リンクして "context memory" とする——これは SDD の継続性レバーと同じ効用を狙う設計である。ブラウンフィールドの処方(既存コードを static / dynamic model へ引き上げてから AI に渡す)も、本ページが述べる「未文書化のレガシー統合契約が最大の under-specification 源」への対処として一致する。</p>
+<p>ただし<strong>律速の置き所が異なる</strong>: SDD は「仕様の質」を binding constraint と見て上流に投資を集中させるのに対し、AI-DLC は各段の人間の承認を "loss function" と位置づけて全段に人間を分散させる。詳細な突合は <a href="../../syntheses/ai-dlc-vs-spec-driven-development/">ai-dlc-vs-spec-driven-development</a>。</p>
 <h2 id="_4">関連<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../../entities/one-developer-is-all-you-need/">one-developer-is-all-you-need</a> — SDD を一人スカッドで運用した実証事例。</li>
 <li><a href="../one-person-squad/">one-person-squad</a> — SDD を成立基盤とするチーム構成。</li>
 <li><a href="../structured-output/">structured-output</a> — 出力契約をスキーマで強制する補完的手法(Strands)。</li>
+<li><a href="../ai-dlc/">ai-dlc</a> — 同じ骨格に独立到達した AI-native 方法論(AWS)。</li>
+<li><a href="../../syntheses/ai-dlc-vs-spec-driven-development/">ai-dlc-vs-spec-driven-development</a> — 両者の一致点と相違点の突合。</li>
 </ul>
 <h2 id="_5">出典<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>

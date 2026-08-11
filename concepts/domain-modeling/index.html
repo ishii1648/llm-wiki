@@ -377,6 +377,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -577,6 +585,62 @@
     
   
     AI コーディングツールの3世代(autocomplete / sync / async)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-dlc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC(AI-Driven Development Lifecycle)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aidlc-prompt-kit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC プロンプト集(Appendix A)
   
 
     
@@ -949,6 +1013,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ai-dlc-adr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        対照: AI-DLC の ADR 生成
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1143,6 +1218,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../intent-unit-bolt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intent / Unit / Bolt(AI-DLC の成果物階層)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../knowledge-bundle/" class="md-nav__link">
         
   
@@ -1235,6 +1338,34 @@
     
   
     MCP Tools (Strands × MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mob-rituals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mob Elaboration / Mob Construction(AI-DLC の儀式)
   
 
     
@@ -2153,6 +2284,8 @@
       
         
       
+        
+      
     
     
     
@@ -2197,6 +2330,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntheses/ai-dlc-vs-spec-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC と Spec-Driven Development の突合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -2414,6 +2575,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ai-dlc-adr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        対照: AI-DLC の ADR 生成
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2471,6 +2643,9 @@
 <li><strong>文脈なしでは意外(surprising without context)</strong> — 将来の読者が「なぜこうしたのか」と疑問に思う</li>
 <li><strong>本物のトレードオフの結果</strong> — 実在する代替案があり、特定の理由でそれを選んだ</li>
 </ol>
+<h2 id="ai-dlc-adr">対照: AI-DLC の ADR 生成<a class="headerlink" href="#ai-dlc-adr" title="Permanent link">&para;</a></h2>
+<p><a href="../ai-dlc/">ai-dlc</a> も Construction フェーズで AI に ADR を書かせるが、<strong>生成のトリガが異なる</strong>。本スキルは上記3条件が揃った時のみ ADR を提案する(人間の判断がトリガ)のに対し、AI-DLC は Domain Design → Logical Design の<strong>段階遷移そのものをトリガ</strong>とし、NFR 対応のアーキテクチャパターン選択(CQRS、Circuit Breaker 等)を ADR として必ず記録させる(→ <a href="../intent-unit-bolt/">intent-unit-bolt</a>)。前者は ADR の希少性を保ち、後者は網羅性を取る設計。</p>
+<p>AI-DLC が DDD を方法論のコアに内蔵する(原則3)理由——「AI に何を生成させるかを決めるには、生成物の型が事前に定まっている必要がある」——は、本スキルが <code>CONTEXT.md</code> の用語集を能動的に構築する動機と同じ地点にある。</p>
 <h2 id="_4">出典<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li>raw/articles/mattpocock-domain-modeling-skill.md — <code>github.com/mattpocock/skills</code>(MIT)の SKILL.md 原文</li>

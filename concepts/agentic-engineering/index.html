@@ -377,6 +377,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -636,6 +644,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ai-dlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法論としての具体化: AI-DLC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -714,6 +733,62 @@
     
   
     AI コーディングツールの3世代(autocomplete / sync / async)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-dlc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC(AI-Driven Development Lifecycle)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aidlc-prompt-kit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC プロンプト集(Appendix A)
   
 
     
@@ -1182,6 +1257,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../intent-unit-bolt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intent / Unit / Bolt(AI-DLC の成果物階層)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../knowledge-bundle/" class="md-nav__link">
         
   
@@ -1274,6 +1377,34 @@
     
   
     MCP Tools (Strands × MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mob-rituals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mob Elaboration / Mob Construction(AI-DLC の儀式)
   
 
     
@@ -2192,6 +2323,8 @@
       
         
       
+        
+      
     
     
     
@@ -2236,6 +2369,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntheses/ai-dlc-vs-spec-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC と Spec-Driven Development の突合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -2476,6 +2637,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ai-dlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法論としての具体化: AI-DLC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2605,6 +2777,9 @@
 - <strong>Quality calibration</strong> — 「良い」の定義と、エージェントが self-correction に使える評価フレームの構築。
 - <strong>Ethical governance</strong> — エージェント挙動を組織の価値・法・社会的期待に整合させる。</p>
 <p>論文は「agent orchestration を極めた者の生産性乗数は従来の "10x engineer" を遥かに超える —— 速くタイプするのでなく、<strong>swarm を複雑な成果へ調整する能力</strong>によって」と主張する。これは <a href="../ai-code-review/">ai-code-review</a> が指摘する「検証・所有権の責任は人間に残る(outcome auditor)」という論点と表裏一体。</p>
+<h3 id="ai-dlc">方法論としての具体化: AI-DLC<a class="headerlink" href="#ai-dlc" title="Permanent link">&para;</a></h3>
+<p>Agentic Engineering の「control plane としての AI」は抽象的な枠組みにとどまるが、AWS の <a href="../ai-dlc/">ai-dlc</a>(2026)はこれを<strong>フェーズ・儀式・成果物を伴う開発方法論として具体化</strong>している(独立ソース。AI-DLC 側は LangChain も本概念も引用していない)。対応は明瞭で、AI-DLC の原則2「会話の向きを反転する」(AI が intent を分解し、人間は approver)は本ページの「人間の役割 = intent architect / coordinator / auditor」の実務化であり、AI-DLC の "context memory"(全成果物を永続化・相互リンクしてトレーサビリティを持たせる)は Table 2 の「long-term memory と state/traceability の管理」に対応する。</p>
+<p>ただし AI-DLC は実証を伴わない提案文書であり、また Cao 論文の 4 段階(Tool-Augmented → Single-Task Autonomous → Multi-Agent Teams → Self-Evolving Ecosystems)でいえば <strong>Stage II 相当の想定</strong>に留まる——AI-DLC 自身が「現在の AI は自律的な意図→コードの翻訳にはまだ信頼できない」を前提に据えているため。</p>
 <h3 id="_4">現状の到達点と限界<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>論文は agentic engineering を<strong>今日は拡張(augmentation)パラダイムとして real かつ transformative</strong>としつつ、完全自律には EvoClaw が露呈した崖(孤立タスク &gt;80% → 連続的進化で最大38%)の克服 —— long-context state 管理・記憶アーキテクチャ・検証機構 —— が必要とする(詳細は <a href="../../entities/the-end-of-software-engineering/">the-end-of-software-engineering</a>)。発展段階は Tool-Augmented → Single-Task Autonomous → <strong>Multi-Agent Teams</strong> → Self-Evolving Ecosystems の4段階(Stage III の具体パターンは本 wiki の <a href="../../syntheses/multi-agent-patterns/">multi-agent-patterns</a> / <a href="../swarm-multi-agent/">swarm-multi-agent</a> / <a href="../graph-multi-agent/">graph-multi-agent</a> が対応)。</p>
 <h2 id="_5">出典<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>

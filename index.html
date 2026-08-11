@@ -453,6 +453,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -653,6 +661,62 @@
     
   
     AI コーディングツールの3世代(autocomplete / sync / async)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts/ai-dlc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC(AI-Driven Development Lifecycle)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts/aidlc-prompt-kit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC プロンプト集(Appendix A)
   
 
     
@@ -1121,6 +1185,34 @@
   
   
     <li class="md-nav__item">
+      <a href="concepts/intent-unit-bolt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intent / Unit / Bolt(AI-DLC の成果物階層)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="concepts/knowledge-bundle/" class="md-nav__link">
         
   
@@ -1213,6 +1305,34 @@
     
   
     MCP Tools (Strands × MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts/mob-rituals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mob Elaboration / Mob Construction(AI-DLC の儀式)
   
 
     
@@ -2131,6 +2251,8 @@
       
         
       
+        
+      
     
     
     
@@ -2175,6 +2297,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="syntheses/ai-dlc-vs-spec-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC と Spec-Driven Development の突合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -2466,6 +2616,10 @@
 <li><a href="concepts/self-hosted-runner/">self-hosted-runner</a> — セッションを実行する runner プロセス(<code>claude self-hosted-runner</code>)の運用。1 runner = 1 ユーザーのロック、主要フラグ、git 3方式、K8s と 80 秒のドレイン、メトリクスの落とし穴 (updated: 2026-08-07)</li>
 <li><a href="concepts/self-hosted-runner-extensions/">self-hosted-runner-extensions</a> — runner の拡張点。wrapper script(stdin/fd3 を切ると30分後に401)、checkout/post-session/command hook、on-demand orchestrator、MCP 配布、権限設計 (updated: 2026-08-07)</li>
 <li><a href="concepts/session-identity-token/">session-identity-token</a> — セッションが社内サービスへ提示する署名付き JWT。JWKS 検証7手順、<code>act</code> 委譲チェーン、「セッション内の任意コードが読める」前提での派生クレデンシャル設計 (updated: 2026-08-07)</li>
+<li><a href="concepts/ai-dlc/">ai-dlc</a> — AWS の AI-native 開発方法論。Agile に AI を後付けせず作り直す、会話の向きを反転、DDD をコアに内蔵、10原則+3フェーズ。実証データなしのベンダー提案文書 (updated: 2026-08-11)</li>
+<li><a href="concepts/intent-unit-bolt/">intent-unit-bolt</a> — AI-DLC の成果物階層。Intent→Unit(≒Subdomain/Epic)→Bolt(≒Sprint、時間〜日)と Domain/Logical Design→Code→Deployment Unit の連鎖 (updated: 2026-08-11)</li>
+<li><a href="concepts/mob-rituals/">mob-rituals</a> — AI-DLC の2儀式。全員1部屋で AI 生成物を集団検証する Mob Elaboration / Mob Construction。green-field の Inception/Construction/Operations 具体手順、brown-field の追加2ステップ (updated: 2026-08-11)</li>
+<li><a href="concepts/aidlc-prompt-kit/">aidlc-prompt-kit</a> — AI-DLC Appendix A のプロンプト全7ブロック。Role 付与 + チェックボックス付き計画ゲート +「重要な決定を勝手に下すな」、<code>aidlc-docs/</code> のフォルダ規約と <code>prompts.md</code> への入力永続化 (updated: 2026-08-11)</li>
 </ul>
 <h2 id="syntheses">Syntheses<a class="headerlink" href="#syntheses" title="Permanent link">&para;</a></h2>
 <!-- 横断的な比較・分析・まとめ。 -->
@@ -2475,6 +2629,7 @@
 <li><a href="syntheses/okf-and-llm-wiki/">okf-and-llm-wiki</a> — OKF とこの llm-wiki リポジトリ(Karpathy LLM Wiki パターン)の対応・差分 (updated: 2026-06-19)</li>
 <li><a href="syntheses/ai-productivity-task-vs-output/">ai-productivity-task-vs-output</a> — タスク利得は本番出力に翻訳されるか。NBER の減衰証拠と Itaú 事例/Cao パラダイム論を突合。「ボトルネックは消えず移動する」 (updated: 2026-06-29)</li>
 <li><a href="syntheses/backlog-md-vs-okf/">backlog-md-vs-okf</a> — Backlog.md のタスク Markdown は OKF 準拠か。表面形式は似るがフィールド・セマンティクスが異なり非準拠と結論 (updated: 2026-07-16)</li>
+<li><a href="syntheses/ai-dlc-vs-spec-driven-development/">ai-dlc-vs-spec-driven-development</a> — AI-DLC と SDD/one-person-squad の突合。骨格は独立に一致するが律速の置き所(上流集中 vs 全段分散)と人間の頭数が分かれる (updated: 2026-08-11)</li>
 </ul>
 
 
