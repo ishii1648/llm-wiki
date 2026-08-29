@@ -72,3 +72,4 @@ ingest のたびに LLM が追記・更新します(過去行は再 ingest 時�
 - raw/articles/claude-code-self-hosted-environments-reference.md | sha256:e304b2cb4b32 | 2026-08-07 | [[self-hosted-runner]]
 - raw/articles/claude-code-self-hosted-environments-identity.md | sha256:a695691cbc7b | 2026-08-07 | [[session-identity-token]]
 - raw/papers/aidlc-method-definition.md | sha256:8a7b6cef429c | 2026-08-11 | [[ai-dlc]], [[intent-unit-bolt]], [[mob-rituals]], [[aidlc-prompt-kit]], [[ai-dlc-vs-spec-driven-development]]
+- raw/articles/demystifying-evals-for-ai-agents.md | sha256:0dc62c80793c | 2026-08-29 | [[agent-evaluation]], [[graders]], [[capability-vs-regression-evals]], [[pass-at-k]], [[eval-driven-development]], [[evaluators]]

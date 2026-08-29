@@ -22,6 +22,8 @@ related:
   - "[[weak-link-hypothesis]]"
   - "[[ai-productivity-task-vs-output]]"
   - "[[ai-dlc]]"
+  - "[[agent-evaluation]]"
+  - "[[eval-driven-development]]"
 ---
 
 ## 概要
@@ -63,7 +65,7 @@ Wang et al.[4] のタクソノミーが示す3モジュール(LLM reasoning core
 コード生成スキルが commoditize される世界で、新たな差別化要因:
 - **Intent articulation(意図の明確化)** — エージェントが意図せぬ結果を出さず自律動作できるだけの明瞭さと制約で目標を指定する力。
 - **Architectural oversight** — 複数エージェントの協調方法・共有記憶・人間判断が介入すべき箇所をシステムレベルで理解する。
-- **Quality calibration** — 「良い」の定義と、エージェントが self-correction に使える評価フレームの構築。
+- **Quality calibration** — 「良い」の定義と、エージェントが self-correction に使える評価フレームの構築。この「評価フレームの構築」を実務手順まで下ろしたのが [[agent-evaluation]] / [[eval-driven-development]](Anthropic 2026-01)。論文が抽象的に置く役割が、task の書き方・grader の選び方・transcript の読み方として具体化されている。
 - **Ethical governance** — エージェント挙動を組織の価値・法・社会的期待に整合させる。
 
 論文は「agent orchestration を極めた者の生産性乗数は従来の "10x engineer" を遥かに超える —— 速くタイプするのでなく、**swarm を複雑な成果へ調整する能力**によって」と主張する。これは [[ai-code-review]] が指摘する「検証・所有権の責任は人間に残る(outcome auditor)」という論点と表裏一体。
