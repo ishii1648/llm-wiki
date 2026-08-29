@@ -1,0 +1,3477 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Karpathy の LLM wiki パターンに基づく、LLM エージェントが保守する知識ベース">
+      
+      
+      
+        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/ai-dlc/">
+      
+      
+        <link rel="prev" href="../ai-coding-tool-generations/">
+      
+      
+        <link rel="next" href="../aidlc-prompt-kit/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>AI-DLC(AI-Driven Development Lifecycle) - LLM Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="LLM Wiki" class="md-header__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LLM Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AI-DLC(AI-Driven Development Lifecycle)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ライトモードに切り替え"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ライトモードに切り替え" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ダークモードに切り替え"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ダークモードに切り替え" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="システム設定に従う"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="システム設定に従う" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ishii1648/llm-wiki" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ishii1648/llm-wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LLM Wiki" class="md-nav__button md-logo" aria-label="LLM Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    LLM Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ishii1648/llm-wiki" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ishii1648/llm-wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wiki Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-as-a-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent-as-a-Service (AaaS) と3世代のソフト配信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Evaluation(エージェント評価)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills (AgentSkills)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agentic-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-code-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI コードレビューと著者性の前提
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-coding-tool-generations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI コーディングツールの3世代(autocomplete / sync / async)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC(AI-Driven Development Lifecycle)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC(AI-Driven Development Lifecycle)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-context-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. CONTEXT: 抽象化の系譜と2つの時代区分
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I. CONTEXT: 抽象化の系譜と2つの時代区分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        論証の土台: ソフトウェア工学は「下位の非差別化タスクの抽象化」を続けてきた
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-assisted-era-ai-driven-era" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI-Assisted era → AI-Driven era
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜ既存手法では足りないのか
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-key-principles10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        II. KEY PRINCIPLES(10 の原則)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="II. KEY PRINCIPLES(10 の原則)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-reimagine-rather-than-retrofit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Reimagine rather than retrofit(後付けでなく再構想する)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-reverse-the-conversation-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Reverse the conversation direction(会話の向きを反転する)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-integration-of-design-techniques-into-the-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Integration of design techniques into the core(設計技法をコアに統合する)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-align-with-ai-capabilityai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Align with AI capability(AI の実力に合わせる)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-cater-to-building-complex-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Cater to building complex systems(複雑なシステムの構築を対象とする)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-retain-what-enhances-human-symbiosis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Retain what enhances human symbiosis(人間との共生を高めるものは残す)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-facilitate-transition-through-familiarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Facilitate transition through familiarity(馴染みを通じて移行を容易にする)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-streamline-responsibilities-for-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Streamline responsibilities for efficiency(責務を合理化する)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-minimise-stages-maximise-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Minimise stages, maximise flow(段階を最小化し、フローを最大化する)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-no-hard-wired-opinionated-sdlc-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. No hard-wired, opinionated SDLC workflows(決め打ちのワークフローを持たない)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-core-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        III. CORE FRAMEWORK
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="III. CORE FRAMEWORK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        成果物
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フェーズと儀式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-1-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ワークフロー: Level 1 Plan と再帰的分解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-v-ai-dlc-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IV / V. AI-DLC IN ACTION
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix A: プロンプト集
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vi-adopting-ai-dlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VI. ADOPTING AI-DLC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        批判的注記
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        関連
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出典
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aidlc-prompt-kit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC プロンプト集(Appendix A)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../argo-cd-controller-scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argo CD Application Controller のスケーリング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../argo-cd-manifest-paths-annotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argo CD Manifest Paths Annotation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capability-vs-regression-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capability Eval と Regression Eval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-non-anthropic-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code で非 Anthropic モデルを使う(Anthropic 互換ゲートウェイ経由)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-remote-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remote Control(Claude Code)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-compression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Compression (コンテキスト圧縮)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-rot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Rot (コンテキスト腐敗)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conversation-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conversation Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating Custom Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Doc(ソフトウェア設計ドキュメント)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../domain-modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain Modeling(Claude Code スキル)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eval-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eval-Driven Development(eval 駆動開発)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluators (Strands Evals)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../experiment-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experiment Management (Strands Evals)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graders(採点器)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-multi-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Multi-Agent Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grill-with-docs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    grill-with-docs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grilling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grilling(/grill-me)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intent-unit-bolt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intent / Unit / Bolt(AI-DLC の成果物階層)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge-bundle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Knowledge Bundle(OKF のバンドル構造)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loop-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loop Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp-extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Extensions(Apps / Tasks)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Tools (Strands × MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mob-rituals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mob Elaboration / Mob Construction(AI-DLC の儀式)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../one-person-squad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    One-Person Squad(一人スカッド)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pass-at-k/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pass@k と pass^k
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosted-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-hosted environments(Claude Code)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosted-runner-extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-hosted runner の拡張点(wrapper / lifecycle hooks / orchestrator)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosted-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-hosted runner(Claude Code)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session-identity-token/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セッション ID トークン(CLAUDE_CODE_SESSION_ACCESS_TOKEN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spec-Driven Development(SDD / 仕様駆動開発)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../state-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structured-output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structured Output
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../swarm-multi-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swarm Multi-Agent Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../weak-link-hypothesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weak-Link Hypothesis(弱い環/ボトルネック仮説)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entities
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Entities
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/addy-osmani/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Addy Osmani
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/argo-cd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argo CD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/backlog-md/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/kristof-kovacs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kristof Kovacs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/matt-pocock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matt Pocock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/mcp-2026-07-28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP 2026-07-28(第5版スペック)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/michael-lynch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Michael Lynch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/model-context-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Context Protocol (MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/one-developer-is-all-you-need/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    One Developer Is All You Need: A Case Study of an AI-Augmented One-Person Squad in a Brownfield Enterprise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/open-knowledge-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open Knowledge Format (OKF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/opencode-go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenCode Go
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/project-headroom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Headroom
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/strands-agents-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strands Agents Evals (strands-agents-evals)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/strands-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strands Agents SDK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/tejas-chopra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tejas Chopra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/the-end-of-software-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The End of Software Engineering (Cao 2026)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entities/writing-code-vs-shipping-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Code vs. Shipping Code: Productivity Effects Across Generations of AI Coding Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syntheses
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Syntheses
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntheses/ai-dlc-vs-spec-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-DLC と Spec-Driven Development の突合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntheses/ai-productivity-task-vs-output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI 生産性のミクロ⇄マクロ — タスク利得は本番出力に翻訳されるか
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntheses/backlog-md-vs-okf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog.md のタスク Markdown は OKF 準拠か
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntheses/graph-swarm-hybrid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph + Swarm ハイブリッド構成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntheses/multi-agent-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Agent Patterns — Graph / Swarm / Workflow の使い分け
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntheses/okf-and-llm-wiki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OKF とこの llm-wiki リポジトリの関係
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-context-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. CONTEXT: 抽象化の系譜と2つの時代区分
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I. CONTEXT: 抽象化の系譜と2つの時代区分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        論証の土台: ソフトウェア工学は「下位の非差別化タスクの抽象化」を続けてきた
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-assisted-era-ai-driven-era" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI-Assisted era → AI-Driven era
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜ既存手法では足りないのか
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ii-key-principles10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        II. KEY PRINCIPLES(10 の原則)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="II. KEY PRINCIPLES(10 の原則)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-reimagine-rather-than-retrofit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Reimagine rather than retrofit(後付けでなく再構想する)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-reverse-the-conversation-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Reverse the conversation direction(会話の向きを反転する)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-integration-of-design-techniques-into-the-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Integration of design techniques into the core(設計技法をコアに統合する)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-align-with-ai-capabilityai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Align with AI capability(AI の実力に合わせる)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-cater-to-building-complex-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Cater to building complex systems(複雑なシステムの構築を対象とする)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-retain-what-enhances-human-symbiosis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Retain what enhances human symbiosis(人間との共生を高めるものは残す)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-facilitate-transition-through-familiarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Facilitate transition through familiarity(馴染みを通じて移行を容易にする)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-streamline-responsibilities-for-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Streamline responsibilities for efficiency(責務を合理化する)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-minimise-stages-maximise-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Minimise stages, maximise flow(段階を最小化し、フローを最大化する)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-no-hard-wired-opinionated-sdlc-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. No hard-wired, opinionated SDLC workflows(決め打ちのワークフローを持たない)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iii-core-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        III. CORE FRAMEWORK
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="III. CORE FRAMEWORK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        成果物
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フェーズと儀式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-1-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ワークフロー: Level 1 Plan と再帰的分解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iv-v-ai-dlc-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IV / V. AI-DLC IN ACTION
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix A: プロンプト集
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vi-adopting-ai-dlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VI. ADOPTING AI-DLC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        批判的注記
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        関連
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出典
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>AI-DLC(AI-Driven Development Lifecycle)</h1>
+
+<h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><strong>AI-DLC(AI-Driven Development Lifecycle)</strong> は、AWS の Raja SP が定義した <strong>AI-native な開発方法論</strong>。SDLC や Agile(Scrum)に AI を後付け(retrofit)するのではなく、<strong>第一原理から作り直す(reimagine)</strong> ことを出発点とし、AI が計画・分解・生成を担い<strong>人間は各段の承認者・検証者に回る</strong>という役割配置を採る。設計技法(第一版は Domain-Driven Design)を方法論の<strong>コアに内蔵</strong>し、反復単位を週単位の Sprint から時間〜日単位の <strong>Bolt</strong> に縮める。</p>
+<blockquote>
+<p>⚠️ 出典の性質: 本ページの記述は AWS が公開した 8 ページの method definition ペーパー1本のみに基づく。査読論文でも実証研究でもなく、<strong>AWS のマーケティング文脈に置かれた提案文書</strong>である。後述の主張(品質コスト $2.41 兆、「数週間〜数ヶ月が数時間に凝縮」など)は本 wiki が検証したものではない。実証データを伴う対照事例としては <a href="../../entities/one-developer-is-all-you-need/">one-developer-is-all-you-need</a> を参照。</p>
+</blockquote>
+<h2 id="i-context-2">I. CONTEXT: 抽象化の系譜と2つの時代区分<a class="headerlink" href="#i-context-2" title="Permanent link">&para;</a></h2>
+<h3 id="_2">論証の土台: ソフトウェア工学は「下位の非差別化タスクの抽象化」を続けてきた<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>論文の出発点は、ソフトウェア工学の進化を<strong>「開発者が複雑な問題の解決に集中できるようにするため、より低レベルで非差別化(undifferentiated)なタスクを抽象化し続けてきた連続的な探求」</strong>と捉えることである。初期の機械語から高級プログラミング言語へ、そして API とライブラリの採用へ——<strong>各段階が開発者の生産性を有意に押し上げてきた</strong>。LLM の統合はこの系譜の最新段階であり、コード生成・バグ検出・テスト生成といったタスクに<strong>会話的な自然言語インタラクション</strong>を持ち込んだ。</p>
+<p>この「AI もまた抽象化の一段である」という位置づけが、後続の全主張の土台になっている。AI を特別視するのでなく<strong>抽象化の系譜に置く</strong>ことで、「ならば方法論も更新されるべきだ」という結論を導く構成。</p>
+<h3 id="ai-assisted-era-ai-driven-era">AI-Assisted era → AI-Driven era<a class="headerlink" href="#ai-assisted-era-ai-driven-era" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>AI-Assisted era</strong>: コード生成・バグ検出・テスト生成といった<strong>細粒度で特定の(fine-grained, specific)タスク</strong>を AI が増強する段階。知的な重労働の大半は依然として開発者が負う。</li>
+<li><strong>AI-Driven era</strong>: AI の適用が要件精緻化(requirements elaboration)・計画・タスク分解・設計・開発者とのリアルタイム協働へと拡がり、AI が<strong>開発プロセスを能動的にオーケストレートする</strong>段階。論文はこのシフトが「kick-start しつつある」と述べる。</li>
+</ul>
+<h3 id="_3">なぜ既存手法では足りないのか<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>論文の批判は3点に整理できる。</p>
+<ol>
+<li><strong>設計前提のずれ</strong>: 既存のソフトウェア開発手法は<strong>人間主導で長時間走るプロセス(human-driven, long-running processes)向けに設計</strong>されており、AI の速度・柔軟性・先進的能力(例: agentic)に<strong>完全には整合していない</strong>。</li>
+<li><strong>制約の所在</strong>: それらの手法が依存する<strong>手作業のワークフロー(manual workflows)と硬直的な役割定義(rigid role definitions)</strong> が、AI を十分に活用する能力を制限している。</li>
+<li><strong>retrofit の害</strong>: AI をこれらの手法に後付けすることは、AI のポテンシャルを制限するだけでなく、<strong>旧来の非効率を強化してしまう(reinforces outdated inefficiencies)</strong>。</li>
+</ol>
+<p>したがって「AI の変革力を十全に活かすには SDLC 手法自体が再構想される必要がある」。そしてその再構想が要求するのは、<strong>AI を中心的な協働者(central collaborator)に据え、ワークフロー・役割・反復を整合させること</strong>であり、それによって意思決定の高速化・シームレスなタスク実行・継続的な適応性が可能になる、というのが論文の主張。</p>
+<blockquote>
+<p>この「control plane としての AI」という捉え方は <a href="../agentic-engineering/">agentic-engineering</a> と同じ地平にあるが、AI-DLC は<strong>方法論(フェーズ・儀式・成果物)として具体化</strong>している点が異なる。</p>
+</blockquote>
+<h2 id="ii-key-principles10">II. KEY PRINCIPLES(10 の原則)<a class="headerlink" href="#ii-key-principles10" title="Permanent link">&para;</a></h2>
+<p>論文自身が「これらの原則が AI-DLC のフェーズ・役割・成果物・儀式を形づくる基盤であり、手法の妥当性を検証するうえで critical な前提である」と位置づける章。以下は各原則の論証を含めた記述。</p>
+<h3 id="1-reimagine-rather-than-retrofit">1. Reimagine rather than retrofit(後付けでなく再構想する)<a class="headerlink" href="#1-reimagine-rather-than-retrofit" title="Permanent link">&para;</a></h3>
+<p>SDLC や Agile(Scrum 等)を維持して AI を後付けするのではなく、開発手法そのものを再構想する。理由は<strong>反復期間の桁が変わること</strong>にある。</p>
+<ul>
+<li>従来手法は<strong>月・週単位の長い反復期間</strong>のために作られており、そこから daily standup や retrospective といった儀式が生まれた。</li>
+<li>対して AI の適切な適用は<strong>時間または日単位の rapid cycle</strong> をもたらす。これは<strong>継続的でリアルタイムな検証とフィードバックの仕組み</strong>を必要とし、<strong>従来の儀式の多くを無意味化(less relevant)する</strong>。</li>
+</ul>
+<p>論文はさらに2つの問いを投げる: <strong>AI が simple / medium / hard の境界を薄める(diminishes)なら、工数見積り(story point 等)は依然として critical か?</strong> <strong>velocity のようなメトリクスは意味を持つのか、それとも例えば Business Value に置き換えるべきか?</strong></p>
+<p>加えて、AI は計画・タスク分解・要件分析・設計技法の適用(例: domain modelling)といった<strong>手作業の実践を自動化する方向に進化し続けており、意図からコードへ至るまでのフェーズ数そのものを短縮している</strong>。これらの新しい力学が、retrofit ではなく<strong>第一原理思考(first principles thinking)に基づく再構想</strong>を正当化する。締めの一文は「<strong>我々に必要なのは自動車であって、より速い馬車ではない</strong>」。</p>
+<h3 id="2-reverse-the-conversation-direction">2. Reverse the conversation direction(会話の向きを反転する)<a class="headerlink" href="#2-reverse-the-conversation-direction" title="Permanent link">&para;</a></h3>
+<p>AI-DLC の中核。<strong>人間が AI に会話を仕掛けてタスクを片付けさせるのでなく、AI が人間との会話を起こし、方向づける</strong>という根本的な転換。</p>
+<ul>
+<li>AI は高レベルの intent(例: 新しいビジネス機能の実装)を実行可能なタスクへ分解し、<strong>推奨を生成し、トレードオフを提示する</strong>ことでワークフローを駆動する。</li>
+<li>人間は <strong>approver</strong> として働く——検証し、選択肢を選び、critical な分岐点で決定を確定する。</li>
+</ul>
+<p>この配置により、開発者は<strong>高価値な意思決定</strong>に集中でき、計画・タスク分解・自動化は AI が担う。伝統的な力学を反転させることで、AI-DLC は<strong>人間の関与を purposeful なものにし、監督・リスク低減・戦略的整合に集中させる</strong>——結果として velocity と品質の双方を高める、というのが主張。</p>
+<p>アナロジーは <strong>Google Maps</strong>: 人間が目的地(= intent)を設定し、システムが逐次の道案内(= AI のタスク分解と推奨)を提供する。道中、人間は監督を保ち、必要に応じて journey を調整する。</p>
+<h3 id="3-integration-of-design-techniques-into-the-core">3. Integration of design techniques into the core(設計技法をコアに統合する)<a class="headerlink" href="#3-integration-of-design-techniques-into-the-core" title="Permanent link">&para;</a></h3>
+<p>Scrum や Kanban のような Agile フレームワークは、設計技法(例: Domain Driven Design)を<strong>スコープ外に置き、チーム自身に選ばせる</strong>。論文はこれが「critical な whitespace を残し、結果として全体的なソフトウェア品質の低下を招いた」と主張する。根拠として <strong>2022 年に米国だけでソフトウェア品質問題が $2.41 兆のコストを生んだという推計</strong>を挙げる。</p>
+<p>そこで AI-DLC は設計技法を切り離すのでなく<strong>その integral core とする</strong>。<strong>DDD / BDD(Behavior Driven Development)/ TDD(Test-Driven Development)にそれぞれ従うチーム向けの異なるフレーバーが存在する</strong>と述べ、本論文は <strong>DDD フレーバー</strong>を扱う。DDD 版は DDD の原則を用いて、システムを<strong>独立した right-sized な bounded context</strong> に分解し、それらを<strong>並列に高速構築できる</strong>ようにする。</p>
+<p>AI は計画とタスク分解の過程でこれらの技法を<strong>内在的に(inherently)適用</strong>し、開発者には検証と調整だけを求める。この統合こそが、<strong>手作業の重労働を排しつつソフトウェア品質を保ったまま、時間単位・日単位の反復サイクルを可能にする鍵</strong>である——マントラは「<strong>Build Better Systems Faster</strong>」。</p>
+<h3 id="4-align-with-ai-capabilityai">4. Align with AI capability(AI の実力に合わせる)<a class="headerlink" href="#4-align-with-ai-capabilityai" title="Permanent link">&para;</a></h3>
+<p>論文は AI の将来ポテンシャルには楽観的だが、<strong>現状については完全に現実的</strong>であると宣言する。</p>
+<ul>
+<li>AI-DLC は、現在の AI が進歩しているとはいえ、<strong>高レベルの意図を自律的に実行可能コードへ翻訳することにも、人間の監督なしに独立して動作すること(かつ解釈可能性と安全性を担保すること)にも、まだ信頼できない</strong>と認識する。</li>
+<li>同時に、開発者が知的な重労働の大半を担い <strong>AI は単なる augmentation を提供するにすぎない AI-Assisted パラダイムでは、開発における AI のポテンシャルを解放できない</strong>。</li>
+</ul>
+<p>そこで AI-DLC は <strong>AI-Driven パラダイム</strong>を採る——現在の AI の能力と限界に対して人間の関与をバランスさせるもの。ここで<strong>開発者は検証・意思決定・監督の ultimate responsibility を保持する</strong>。このバランスにより、開発者の判断が提供する critical な safeguard を損なうことなく AI の強みを活かせる。</p>
+<h3 id="5-cater-to-building-complex-systems">5. Cater to building complex systems(複雑なシステムの構築を対象とする)<a class="headerlink" href="#5-cater-to-building-complex-systems" title="Permanent link">&para;</a></h3>
+<p>AI-DLC の対象は、次を要求するシステム:</p>
+<ul>
+<li>継続的な機能適応性(continuous functional adaptability)</li>
+<li>高いアーキテクチャ複雑度</li>
+<li>多数のトレードオフ管理</li>
+<li>スケーラビリティ</li>
+<li>統合(integration)およびカスタマイズ要件</li>
+</ul>
+<p>これらは<strong>先進的な設計技法・パターン・ベストプラクティスの適用</strong>を必要とし、典型的には<strong>大規模および/または規制下の組織において、複数チームが凝集的に協働する</strong>形をとる。</p>
+<p><strong>スコープ外</strong>: 非開発者ペルソナが構築でき、トレードオフ管理をほとんど/まったく必要としない単純なシステム。これらは <strong>low-code / no-code アプローチに適している</strong>。</p>
+<h3 id="6-retain-what-enhances-human-symbiosis">6. Retain what enhances human symbiosis(人間との共生を高めるものは残す)<a class="headerlink" href="#6-retain-what-enhances-human-symbiosis" title="Permanent link">&para;</a></h3>
+<p>再構想にあたり、既存手法の成果物・接点のうち<strong>人間による検証とリスク低減に critical なものは残す</strong>。</p>
+<ul>
+<li><strong>user story</strong>: 人間と AI の「何を作るべきか」の理解を揃え、<strong>よく定義された契約(well-defined contracts)</strong> として働く。再構想後の手法でも<strong>そのまま残す</strong>。</li>
+<li><strong>Risk Register</strong>: AI が生成した計画とコードが組織のリスクフレームワークに準拠することを保証する。</li>
+</ul>
+<p>これら retain された要素は<strong>リアルタイム利用向けに最適化</strong>され、整合性や安全性を損なわずに高速な反復を可能にする。</p>
+<h3 id="7-facilitate-transition-through-familiarity">7. Facilitate transition through familiarity(馴染みを通じて移行を容易にする)<a class="headerlink" href="#7-facilitate-transition-through-familiarity" title="Permanent link">&para;</a></h3>
+<p>新手法は<strong>大がかりな研修を要求してはならず、既存の実践者なら1日でオリエントして実践を始められる</strong>べきである。<strong>連想学習(associative learning)による容易な採用</strong>を支えるため、AI-DLC は<strong>旧手法の馴染みある用語間の関係性を保存しつつ、用語を近代化する</strong>。</p>
+<p>例として Scrum の <strong>Sprint</strong> は「構築と検証のための反復サイクル」を表すが、pre-AI 時代には通常 4〜6 週間だった。AI-DLC では反復サイクルが継続的かつ時間・日の単位になる。<strong>だから Sprint を意図的に改名する必要がある</strong>——AI-DLC は Sprint を <strong>Bolt</strong> にリブランドし、前例のない velocity をもたらす<strong>高速で intense なサイクル</strong>を強調する。(詳細は <a href="../intent-unit-bolt/">intent-unit-bolt</a>)</p>
+<h3 id="8-streamline-responsibilities-for-efficiency">8. Streamline responsibilities for efficiency(責務を合理化する)<a class="headerlink" href="#8-streamline-responsibilities-for-efficiency" title="Permanent link">&para;</a></h3>
+<p>AI がタスク分解と意思決定を行える能力を活かすことで、開発者は <strong>infrastructure / front-end / back-end / DevOps / security といった従来の専門サイロを超越(transcend)できるようになる</strong>。この責務の収斂は<strong>複数の専門役割の必要性を減らし</strong>、開発プロセスを合理化する。</p>
+<p>ただし <strong>Product Owner と開発者はフレームワークに不可欠なものとして残る</strong>。監督・検証・戦略的意思決定という critical な責務を保持し、ビジネス目標との整合、設計品質の維持、リスク管理フレームワークへの準拠を担保することで、<strong>自動化と人間のアカウンタビリティの均衡を保つ</strong>。</p>
+<p>方法論の定義においては<strong>第一原理に忠実に、役割は最小限に留め、critical に必要な場合にのみ追加の役割を導入する</strong>。</p>
+<h3 id="9-minimise-stages-maximise-flow">9. Minimise stages, maximise flow(段階を最小化し、フローを最大化する)<a class="headerlink" href="#9-minimise-stages-maximise-flow" title="Permanent link">&para;</a></h3>
+<p>自動化と責務の収斂を通じて、AI-DLC は<strong>ハンドオフと遷移を最小化</strong>し、継続的な反復フローを可能にする。</p>
+<p>だが人間の検証と意思決定は依然として critical である。理由は <strong>AI が生成したコードが硬直化して('quick-cement')しまわず、将来の反復に向けて適応可能なままであることを保証する</strong>ため。この目的のために、AI-DLC は<strong>人間の監督のために特別に設計された、最小限だが十分な数のフェーズ(minimal but sufficient number of phases)</strong> を critical な決定分岐点に組み込む。</p>
+<p><strong>これらの検証は "loss function" の一形態として働く</strong>——無駄な下流作業を、それが発生する前に特定し刈り取る。</p>
+<h3 id="10-no-hard-wired-opinionated-sdlc-workflows">10. No hard-wired, opinionated SDLC workflows(決め打ちのワークフローを持たない)<a class="headerlink" href="#10-no-hard-wired-opinionated-sdlc-workflows" title="Permanent link">&para;</a></h3>
+<p>AI-DLC は、開発の経路(pathway)ごとに固定的なワークフローを規定しない。経路の例: <strong>新規システム開発、リファクタリング、欠陥修正、マイクロサービスのスケーリング</strong>。</p>
+<p>代わりに<strong>真に AI-First なアプローチ</strong>を採る——与えられた経路の意図に基づいて <strong>AI が Level 1 Plan を推奨</strong>する。人間は AI との<strong>対話的なダイアログ</strong>を通じてこの AI 生成計画を検証・調整し、そのプロセスを <strong>Level 2(サブタスク)以降の階層レベル</strong>へと続けていく。タスク実行レベルでは AI がタスクを実装し、人間は成果の verification と validation を通じて監督を保つ。</p>
+<p>この柔軟なアプローチにより、<strong>critical な決定に対する人間の制御を保ちながら、方法論が AI の能力の進化とともに進化できる</strong>。</p>
+<blockquote>
+<p>原則1と原則7は緊張関係にある。「第一原理から作り直す」と言いつつ、採用容易性のために旧用語との対応を保つ(Unit ≒ Epic、Bolt ≒ Sprint)。論文自身「AI-DLC は既存 Agile 手法から大きくは逸脱しない」(VI 章)と述べており、<strong>再発明の主張は用語の刷新に比べて実質が薄い</strong>と読むこともできる。(この評価は本 wiki の解釈)</p>
+</blockquote>
+<h2 id="iii-core-framework">III. CORE FRAMEWORK<a class="headerlink" href="#iii-core-framework" title="Permanent link">&para;</a></h2>
+<h3 id="_4">成果物<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Intent / Unit / Bolt の階層と、Domain Design → Logical Design → Code+Unit Tests → Deployment Units の連鎖は <a href="../intent-unit-bolt/">intent-unit-bolt</a> に分けて記述する。</p>
+<h3 id="_5">フェーズと儀式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>儀式(Mob Elaboration / Mob Construction)の詳細な手順は <a href="../mob-rituals/">mob-rituals</a>。ここでは3フェーズの骨子のみ。</p>
+<ul>
+<li><strong>Inception Phase</strong> — Intent を捉え、開発のための Unit に翻訳する。儀式は <strong>Mob Elaboration</strong>(協働的な要件精緻化・分解の儀式。ファシリテータ主導、画面共有のある単一の部屋)。出力は well defined な Unit 群と、その a) PRFAQ、b) User Stories、c) NFR 定義、d) リスク記述(組織の Risk Register があればそれと突合)、e) business intent に遡れる Measurement Criteria、f) その Unit を構築しうる推奨 Bolt 群。</li>
+<li><strong>Construction Phase</strong> — Inception で定義された Unit を、テスト済みで運用可能な Deployment Unit へ変換する反復実行。<strong>Domain Design</strong>(AI が技術的考慮から独立にビジネスロジックをモデル化)→ <strong>Logical Design</strong>(NFR と適切なクラウド設計パターンを適用)と進み、AI が Logical Design から詳細コードを生成(コンポーネントを適切な AWS サービスへマップし well-architected 原則に従う)、最後に機能性・セキュリティ・運用準備性を保証する自動テストで締める。開発者は各ステップで AI 生成物の検証と critical な決定に集中する。ブラウンフィールドでは、まず既存コードを<strong>意味的に豊かなモデル表現へ「引き上げる」</strong>(→ <a href="../mob-rituals/">mob-rituals</a>)。</li>
+<li><strong>Operations Phase</strong> — システムのデプロイ・observability・保守を、AI を活かして運用効率化する。AI は<strong>テレメトリデータ(メトリクス・ログ・トレース)を能動的に解析</strong>してパターン検出・異常特定・<strong>SLA 違反の予測</strong>を行い、事前の問題解決を可能にする。さらに AI は<strong>あらかじめ定義された incident runbook と統合</strong>し、リソースのスケーリング・性能チューニング・障害隔離といった実行可能な推奨を提示、<strong>開発者が承認したら解決策を実行する</strong>。開発者は validator として、AI 生成の洞察と提案アクションが SLA とコンプライアンス要件に整合していることを保証する。</li>
+</ul>
+<h3 id="level-1-plan">ワークフロー: Level 1 Plan と再帰的分解<a class="headerlink" href="#level-1-plan" title="Permanent link">&para;</a></h3>
+<p>business intent(例: <strong>Green-Field 開発、Brown-Field 拡張、モダナイゼーション、欠陥修正</strong>)を与えると、AI-DLC はまず AI に <strong>Level 1 Plan</strong>——その intent を実装するワークフローを概説する計画——を生成させる。これは<strong>初期の提案(initial proposal)にすぎず</strong>、ビジネス目標とエンジニアリング制約への整合を保証するため、人間が<strong>透過的にレビュー・検証・洗練</strong>する。</p>
+<p>AI-DLC の中心にあるのは、<strong>人間の監督を適用して各ステップの成果物を漸進的に豊かにし、それを次のステップのための意味的に豊かな context へ変換していく</strong>という原則である。<strong>各ステップは戦略的な決定点(strategic decision point)であり、そこでの人間の監督は loss function のように機能する</strong>——誤りを早期に捕捉・訂正し、下流で雪だるま式に膨らむ前に止める。<strong>これが再帰的に繰り返される</strong>。Level 1 Plan の各ステップは、AI によってさらに細粒度の実行可能サブタスクへ分解され、正確さと文脈的妥当性を保証するためこれも人間の監督下に置かれる。</p>
+<p>生成された全成果物(intent、user story、domain model、テスト計画)は<strong>永続化され、AI がライフサイクル横断で参照する "context memory" として働く</strong>。従来の SDLC 手法と同様、AI-DLC も本質的に反復的であり、継続的な洗練と適応を許す。さらに<strong>全成果物がリンクされ、後方・前方のトレーサビリティ</strong>(例: domain model の要素を特定の user story に接続する)を持つことで、AI が各段階で正しく最も関連の高い context を取得できるようにする。</p>
+<p>プロセス全体を通して、<strong>AI が戦略的計画・タスク分解・生成等を行い、人間が監督と検証を提供する</strong>。</p>
+<blockquote>
+<p>この「成果物を永続化して context memory にする」設計は、<a href="../loop-engineering/">loop-engineering</a> の memory 論、<a href="../../entities/open-knowledge-format/">open-knowledge-format</a> / <a href="../knowledge-bundle/">knowledge-bundle</a> の「markdown ディレクトリツリーが知識の配布単位」という発想、そして本 wiki 自身の運用と同じ骨格を持つ。Appendix A のプロンプトでは、それが <code>aidlc-docs/</code> 以下の md ファイル規約として具体化されている(→ <a href="../aidlc-prompt-kit/">aidlc-prompt-kit</a>)。</p>
+</blockquote>
+<h2 id="iv-v-ai-dlc-in-action">IV / V. AI-DLC IN ACTION<a class="headerlink" href="#iv-v-ai-dlc-in-action" title="Permanent link">&para;</a></h2>
+<p>Green-Field / Brown-Field の具体的な進行(Inception の a〜f、Construction の a〜h、Testing and Validation、Operations の Deployment / Observability、Brown-Field の追加2ステップ)は <a href="../mob-rituals/">mob-rituals</a> に記述する。</p>
+<p>出発点の例として論文が挙げるのは、Product Owner が <strong>"Develop a recommendation engine for cross-selling products."</strong>(クロスセル商品のレコメンドエンジンを開発する)という高レベル intent を articulate するところから。AI はこれを<strong>新規アプリケーション構築の intent と認識</strong>し、前節のワークフロー手順に沿った Level 1 Plan を生成する。チームが検証・確認し、Level 1 Plan の段階を追加・修正する。確定した Level 1 Plan をもって AI は Inception Phase へ進む。</p>
+<h2 id="appendix-a">Appendix A: プロンプト集<a class="headerlink" href="#appendix-a" title="Permanent link">&para;</a></h2>
+<p>論文は付録に、AI-DLC を実践するための具体的プロンプト(Setup / User stories / Units / Domain model / Code Generation / Architecture / Build IaC・REST APIs)を載せている。<strong>方法論本体より運用規律に踏み込んでおり、実務的な再利用価値が最も高い部分</strong>。全 7 ブロックの構造・指定ファイル名・承認フレーズは <a href="../aidlc-prompt-kit/">aidlc-prompt-kit</a> に独立して記述する。</p>
+<p>骨子だけ挙げると:</p>
+<ul>
+<li>全ドキュメントを <code>aidlc-docs/</code> 配下の決まったサブフォルダに置かせ、<strong>発行した全プロンプトを順序どおり</strong> <code>aidlc-docs/prompts.md</code> に保存させる。</li>
+<li>各段は「Your Role: あなたは経験ある〈…〉である」でロールを与えた後、必ず<strong>作業前にチェックボックス付きの計画を md へ書かせ</strong>、<strong>承認まで実行させず</strong>、<strong>重要な決定を勝手に下させない</strong>。</li>
+</ul>
+<h2 id="vi-adopting-ai-dlc">VI. ADOPTING AI-DLC<a class="headerlink" href="#vi-adopting-ai-dlc" title="Permanent link">&para;</a></h2>
+<p>論文は「AI-DLC は既存 Agile 手法から大きくは逸脱せず、容易な採用を key outcome として設計されている」としつつ、伝統的手法を長く実践してきた組織や、独自の AI-Native 手法を発明しつつある組織には固有の採用戦略が要るとして、2つのアプローチを挙げる。</p>
+<ul>
+<li><strong>Learning by Practicing</strong> — AI-DLC は実のところ<strong>グループで実践できる儀式の集合</strong>(Mob Elaboration、Mob Construction 等)である。ドキュメントや伝統的な研修で手法を学ばせるのでなく、<strong>実践者が現に解いている複数の実世界シナリオ</strong>において、AI-DLC ガイドとともに儀式を実践させる。AWS のソリューションアーキテクトは、このアプローチを大規模組織での hyper-scaling な採用向けにパッケージした <strong>AI-DLC Unicorn Gym</strong> という field offering を作っている。</li>
+<li><strong>Developer Experience ツールへの埋め込み</strong> — 顧客は SDLC 横断で開発者に統一体験を提供する独自のオーケストレーションツールを構築している(例: Cognizant の <strong>FlowSource</strong>、Aspire の <strong>CodeSpell</strong>、HCL の <strong>AIForce</strong>)。これらのツールに AI-DLC を埋め込めば、大規模組織の開発者は<strong>大がかりな採用ドライブなしにシームレスに AI-DLC を実践する</strong>ことになる。</li>
+</ul>
+<h2 id="_6">批判的注記<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>AWS ベンダー色</strong>: 成果物の説明が「適切な AWS サービスと construct を選ぶ」「well-architected 原則に従う」を前提とし、例示も Lambda / DynamoDB / API Gateway / CloudFormation に寄っている。方法論の骨格自体はクラウド非依存に読めるが、<strong>論文としては AWS 実装を既定としている</strong>。</li>
+<li><strong>未検証の引用</strong>: 「米国だけでソフトウェア品質問題が 2022 年に $2.41 兆のコスト」という数字は原文で "(study)" とリンクされているのみで、抽出テキストにリンク先が残っていない(CISQ の報告と推測されるが未確認)。またこの数字を「Agile が設計技法を外出しにしたこと」に帰属させる論証は原文にはない。</li>
+<li><strong>実証データが皆無</strong>: 「Mob Elaboration は数週間〜数ヶ月の逐次作業を数時間に凝縮する」「反復サイクルは時間〜日で回る」といった効果の主張に、事例・測定・比較対照が一切添えられていない。<a href="../../syntheses/ai-productivity-task-vs-output/">ai-productivity-task-vs-output</a> が整理した「タスク利得は本番出力に翻訳されるとは限らない」という論点に照らすと、<strong>Inception の高速化がデリバリ全体の高速化を意味するかは未証明</strong>。</li>
+<li><strong>文書としての完成度</strong>: 原文には <code>responsibiliti4es</code>、<code>CONSTRUCTTION</code>、<code>brown-filed</code>、"The Construction Phase The encompasses" 等の誤記が残る。査読を経ていないドラフト相当の文書として扱うのが妥当。</li>
+<li><strong>儀式の物理前提</strong>: Mob Elaboration も Mob Construction も「<strong>単一の部屋に全員が集まる</strong>」ことを明示的に推奨している(→ <a href="../mob-rituals/">mob-rituals</a>)。AI が非同期・並列を可能にするという方法論の主張と、この同期・同室の要求は緊張関係にある。</li>
+<li><strong>BDD / TDD フレーバーは未公開</strong>: 原則3は DDD / BDD / TDD の3フレーバーが「存在する」と書くが、本論文が定義するのは DDD 版のみ。他2つは予告に留まる。</li>
+</ul>
+<h2 id="_7">関連<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../intent-unit-bolt/">intent-unit-bolt</a> — AI-DLC の成果物階層と Scrum 用語との対応。</li>
+<li><a href="../mob-rituals/">mob-rituals</a> — Mob Elaboration / Mob Construction の儀式と green-field / brown-field の具体手順。</li>
+<li><a href="../aidlc-prompt-kit/">aidlc-prompt-kit</a> — Appendix A のプロンプト集(全7ブロック)。</li>
+<li><a href="../../syntheses/ai-dlc-vs-spec-driven-development/">ai-dlc-vs-spec-driven-development</a> — SDD / one-person-squad / agentic engineering との突合。</li>
+<li><a href="../agentic-engineering/">agentic-engineering</a> — 「AI をデリバリ全体の control plane と見る」上位概念。AI-DLC はその方法論的具体化。</li>
+<li><a href="../spec-driven-development/">spec-driven-development</a> — 仕様を第一級成果物にする発想。AI-DLC の user story / Domain Design 連鎖と重なる。</li>
+<li><a href="../one-person-squad/">one-person-squad</a> — 実証事例側。AI-DLC の原則8(専門サイロの解消)と対応。</li>
+<li><a href="../domain-modeling/">domain-modeling</a> — DDD 語彙と ADR をセッション中に書き残す実装例。AI-DLC の Domain Design / ADR 生成に対応。</li>
+</ul>
+<h2 id="_8">出典<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>raw/papers/aidlc-method-definition.md</code>(Raja SP, Amazon Web Services)— I 章(抽象化の系譜、AI-Assisted / AI-Driven の区分、既存手法批判)、II 章(10 原則)、III 章(成果物・フェーズ・ワークフロー)、IV/V 章(green-field / brown-field)、VI 章(導入)、Appendix A(プロンプト集)。</li>
+<li>原本 PDF: <code>https://prod.d13rzhkk8cj2z0.amplifyapp.com/aidlc.pdf</code>(2026-08-11 取得)。</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ishii1648/llm-wiki" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
