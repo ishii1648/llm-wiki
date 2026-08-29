@@ -385,6 +385,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -445,6 +455,34 @@
     
   
     Agent-as-a-Service (AaaS) と3世代のソフト配信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Evaluation(エージェント評価)
   
 
     
@@ -717,6 +755,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../capability-vs-regression-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capability Eval と Regression Eval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../claude-code-non-anthropic-models/" class="md-nav__link">
         
   
@@ -941,6 +1007,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../eval-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eval-Driven Development(eval 駆動開発)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../evaluators/" class="md-nav__link">
         
   
@@ -1111,6 +1205,17 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
+        手法論との接続
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         出典
       
     </span>
@@ -1142,6 +1247,34 @@
     
   
     GitOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graders(採点器)
   
 
     
@@ -1422,6 +1555,34 @@
     
   
     One-Person Squad(一人スカッド)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pass-at-k/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pass@k と pass^k
   
 
     
@@ -2645,6 +2806,17 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
+        手法論との接続
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         出典
       
     </span>
@@ -2684,9 +2856,9 @@
 </ul>
 <h3 id="_3">複数実験の管理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">experiments</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">&quot;baseline&quot;</span><span class="p">:</span>   <span class="n">Experiment</span><span class="p">(</span><span class="n">cases</span><span class="o">=</span><span class="n">baseline_cases</span><span class="p">,</span> <span class="n">evaluators</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">]),</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="s2">&quot;with_tools&quot;</span><span class="p">:</span> <span class="n">Experiment</span><span class="p">(</span><span class="n">cases</span><span class="o">=</span><span class="n">tool_cases</span><span class="p">,</span>     <span class="n">evaluators</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">]),</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="s2">&quot;edge_cases&quot;</span><span class="p">:</span> <span class="n">Experiment</span><span class="p">(</span><span class="n">cases</span><span class="o">=</span><span class="n">edge_cases</span><span class="p">,</span>     <span class="n">evaluators</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">]),</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">"baseline"</span><span class="p">:</span>   <span class="n">Experiment</span><span class="p">(</span><span class="n">cases</span><span class="o">=</span><span class="n">baseline_cases</span><span class="p">,</span> <span class="n">evaluators</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">]),</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="s2">"with_tools"</span><span class="p">:</span> <span class="n">Experiment</span><span class="p">(</span><span class="n">cases</span><span class="o">=</span><span class="n">tool_cases</span><span class="p">,</span>     <span class="n">evaluators</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">]),</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="s2">"edge_cases"</span><span class="p">:</span> <span class="n">Experiment</span><span class="p">(</span><span class="n">cases</span><span class="o">=</span><span class="n">edge_cases</span><span class="p">,</span>     <span class="n">evaluators</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">]),</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">exp</span> <span class="ow">in</span> <span class="n">experiments</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">reports</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">run_evaluations</span><span class="p">(</span><span class="n">task_function</span><span class="p">)</span>
@@ -2706,9 +2878,14 @@
 <li>リッチな metadata(category / difficulty / expected_tools / created_date 等)を含める。</li>
 <li>実験を版管理する: <code>experiment.to_file("experiment_v1.json")</code>、タイムスタンプ付き保存(<code>experiment_{YYYYmmdd_HHMMSS}.json</code>)。</li>
 </ol>
-<h2 id="_6">出典<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_6">手法論との接続<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>ここで扱う <code>Case</code> / <code>Experiment</code> は、<a href="../agent-evaluation/">agent-evaluation</a> の語彙でいう <strong>task</strong> と <strong>evaluation suite</strong> の SDK 実装にあたる(1回の実行が <strong>trial</strong>)。suite をどう育てるかの手法論は <a href="../eval-driven-development/">eval-driven-development</a> を参照。特に:
+- 「説明的な name を使う」「リッチな metadata を持たせる」は、Step 2 の「曖昧さのない task」と Step 3 の「バランスの取れた問題セット」を実務で回すための足場になる(<code>metadata</code> に「検索すべき/すべきでない」のような対の軸を持たせるとクラス不均衡を検出しやすい)。
+- <code>experiment.to_file()</code> による版管理は、Step 8 の「eval suite は生きた artifact であり明確なオーナーシップが要る」に対応する最小の仕組み。</p>
+<h2 id="_7">出典<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>raw/articles/strands-evals-experiment-management.mdx</code> — metadata 整理、命名規約、複数実験管理(collections/combining/flatten)、実験変更、session ID、版管理のベストプラクティス。</li>
+<li>「手法論との接続」節の対応づけは本 wiki による整理(推測)。Anthropic 側の原典は <a href="../eval-driven-development/">eval-driven-development</a> の出典を参照。</li>
 </ul>
 
 

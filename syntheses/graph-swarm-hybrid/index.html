@@ -383,6 +383,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -443,6 +453,34 @@
     
   
     Agent-as-a-Service (AaaS) と3世代のソフト配信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/agent-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Evaluation(エージェント評価)
   
 
     
@@ -715,6 +753,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../concepts/capability-vs-regression-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capability Eval と Regression Eval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../concepts/claude-code-non-anthropic-models/" class="md-nav__link">
         
   
@@ -939,6 +1005,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../concepts/eval-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eval-Driven Development(eval 駆動開発)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../concepts/evaluators/" class="md-nav__link">
         
   
@@ -1003,6 +1097,34 @@
     
   
     GitOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/graders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graders(採点器)
   
 
     
@@ -1283,6 +1405,34 @@
     
   
     One-Person Squad(一人スカッド)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/pass-at-k/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pass@k と pass^k
   
 
     
@@ -2689,19 +2839,19 @@
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">strands.multiagent</span><span class="w"> </span><span class="kn">import</span> <span class="n">GraphBuilder</span><span class="p">,</span> <span class="n">Swarm</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">research_agents</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">Agent</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;medical_researcher&quot;</span><span class="p">,</span>    <span class="n">system_prompt</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">),</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">Agent</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;technology_researcher&quot;</span><span class="p">,</span> <span class="n">system_prompt</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">),</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">Agent</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;economic_researcher&quot;</span><span class="p">,</span>   <span class="n">system_prompt</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">),</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">Agent</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"medical_researcher"</span><span class="p">,</span>    <span class="n">system_prompt</span><span class="o">=</span><span class="s2">"..."</span><span class="p">),</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">Agent</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"technology_researcher"</span><span class="p">,</span> <span class="n">system_prompt</span><span class="o">=</span><span class="s2">"..."</span><span class="p">),</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">Agent</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"economic_researcher"</span><span class="p">,</span>   <span class="n">system_prompt</span><span class="o">=</span><span class="s2">"..."</span><span class="p">),</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">]</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">research_swarm</span> <span class="o">=</span> <span class="n">Swarm</span><span class="p">(</span><span class="n">research_agents</span><span class="p">)</span>            <span class="c1"># 創発的な調査チーム</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">analyst</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">system_prompt</span><span class="o">=</span><span class="s2">&quot;Analyze the provided research.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">analyst</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">system_prompt</span><span class="o">=</span><span class="s2">"Analyze the provided research."</span><span class="p">)</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">builder</span> <span class="o">=</span> <span class="n">GraphBuilder</span><span class="p">()</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">research_swarm</span><span class="p">,</span> <span class="s2">&quot;research_team&quot;</span><span class="p">)</span>  <span class="c1"># Swarm を1ノードとして埋め込む</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">analyst</span><span class="p">,</span> <span class="s2">&quot;analysis&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;research_team&quot;</span><span class="p">,</span> <span class="s2">&quot;analysis&quot;</span><span class="p">)</span>      <span class="c1"># 決定論的な後段</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">research_swarm</span><span class="p">,</span> <span class="s2">"research_team"</span><span class="p">)</span>  <span class="c1"># Swarm を1ノードとして埋め込む</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">analyst</span><span class="p">,</span> <span class="s2">"analysis"</span><span class="p">)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">"research_team"</span><span class="p">,</span> <span class="s2">"analysis"</span><span class="p">)</span>      <span class="c1"># 決定論的な後段</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">graph</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">result</span> <span class="o">=</span> <span class="n">graph</span><span class="p">(</span><span class="s2">&quot;Research the impact of AI on healthcare and create a report&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">result</span> <span class="o">=</span> <span class="n">graph</span><span class="p">(</span><span class="s2">"Research the impact of AI on healthcare and create a report"</span><span class="p">)</span>
 </code></pre></div>
 <p>典型形: <code>research_team(Swarm)</code> → <code>analysis(Agent)</code> → ... のように、Swarm の出力を Graph の後続ノードへ決定論的に流す。</p>
 <h3 id="sdk">設計上の注意(SDK 差異・地雷)<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h3>
@@ -2713,8 +2863,8 @@
 </ul>
 <h3 id="_4">共有状態の一貫性<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>Graph と Swarm はともに <code>invocation_state</code>(TS: <code>invocationState</code>)を受け取り、ネスト境界を越えて全 agent に伝播する。<strong>同じ <code>shared_state</code> を Graph 起動時に渡せば、内側 Swarm の各 agent や <code>@tool(context=True)</code> のツールからも参照できる</strong>(→ <a href="../../concepts/state-management/">state-management</a>)。LLM に晒さない context/設定(user_id・session_id・DB 接続など)はここに置く。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">shared_state</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;user123&quot;</span><span class="p">,</span> <span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="s2">&quot;sess456&quot;</span><span class="p">,</span> <span class="s2">&quot;debug_mode&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">result</span> <span class="o">=</span> <span class="n">graph</span><span class="p">(</span><span class="s2">&quot;Analyze customer data&quot;</span><span class="p">,</span> <span class="n">invocation_state</span><span class="o">=</span><span class="n">shared_state</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">shared_state</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"user_id"</span><span class="p">:</span> <span class="s2">"user123"</span><span class="p">,</span> <span class="s2">"session_id"</span><span class="p">:</span> <span class="s2">"sess456"</span><span class="p">,</span> <span class="s2">"debug_mode"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">result</span> <span class="o">=</span> <span class="n">graph</span><span class="p">(</span><span class="s2">"Analyze customer data"</span><span class="p">,</span> <span class="n">invocation_state</span><span class="o">=</span><span class="n">shared_state</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="_5">選定の早見<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <ul>

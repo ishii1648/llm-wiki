@@ -385,6 +385,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -445,6 +455,34 @@
     
   
     Agent-as-a-Service (AaaS) と3世代のソフト配信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Evaluation(エージェント評価)
   
 
     
@@ -717,6 +755,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../capability-vs-regression-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capability Eval と Regression Eval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../claude-code-non-anthropic-models/" class="md-nav__link">
         
   
@@ -941,6 +1007,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../eval-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eval-Driven Development(eval 駆動開発)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../evaluators/" class="md-nav__link">
         
   
@@ -1005,6 +1099,34 @@
     
   
     GitOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graders(採点器)
   
 
     
@@ -1285,6 +1407,34 @@
     
   
     One-Person Squad(一人スカッド)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pass-at-k/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pass@k と pass^k
   
 
     
@@ -2644,6 +2794,7 @@
 <p><strong>Spec-Driven Development(SDD / 仕様駆動開発)</strong> は、AI 支援のソフトウェア構築において、<strong>コードではなく自然言語の仕様(specification)を第一級の工学的成果物</strong>として扱う新興パラダイム(Rosa et al. 2026)。LLM コーディングアシスタント(GitHub Copilot, Devin など)が開発者の労力を「実装の記述」から「意図の宣言」(要件・インタフェース契約・事前/事後条件・受け入れ基準)へ移したことが前提。開発者の役割は、AI が曖昧さ最小でコードを生成・テスト・洗練できる程度に<strong>精密な仕様を書くこと</strong>になり、仕様自体が設計判断を記録し後の保守を支える耐久的成果物として残る。</p>
 <h2 id="tdd">TDD との系譜と一歩上流への一般化<a class="headerlink" href="#tdd" title="Permanent link">&para;</a></h2>
 <p>SDD は <strong>Test-Driven Development(TDD)</strong> に明確な系譜を持つ。TDD は実装前にテストを書くことでコードファースト workflow を反転させる。近年 TDD ループと LLM の組合せが生成コードの精度・信頼性を上げることが示されている(モデルに収束先の実行可能な受け入れ基準を与えるため)。SDD はこれを<strong>一歩上流に一般化</strong>する——テスト自体が「別途の著述ステップ」ではなく<strong>仕様の出力</strong>になり、仕様が実装と検証の双方を統べる。</p>
+<p>同じ「実装前に受け入れ基準を書く」運動を、決定論的なコードでなく<strong>確率的なエージェントの挙動</strong>に対して行うのが <a href="../eval-driven-development/">eval-driven-development</a>(Anthropic)。両者はともに「エンジニア2人が同じスペックから異なる解釈に至る」曖昧さを、実行可能な基準で潰すことを狙う。違いは検証対象で、TDD/SDD はコードの正しさを二値で確かめられるのに対し、eval は非決定性を前提に成功<strong>率</strong>を測る必要がある(→ <a href="../pass-at-k/">pass-at-k</a>)。</p>
 <h2 id="_2">なぜ重要か: 律速を「仕様の質」に移す<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>SDD の核心は、出力品質の binding constraint を<strong>モデル能力ではなく仕様の質</strong>にすること。<a href="../../entities/one-developer-is-all-you-need/">one-developer-is-all-you-need</a> はこれを実証的に裏づけた:
 - 詳細で曖昧さのない仕様は、supervised(Copilot)・autonomous(Devin)双方で、ほぼ無修正のコードを生んだ。

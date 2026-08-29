@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/graph-multi-agent/">
       
       
-        <link rel="prev" href="../gitops/">
+        <link rel="prev" href="../graders/">
       
       
         <link rel="next" href="../grill-with-docs/">
@@ -385,6 +385,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -445,6 +455,34 @@
     
   
     Agent-as-a-Service (AaaS) と3世代のソフト配信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Evaluation(エージェント評価)
   
 
     
@@ -717,6 +755,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../capability-vs-regression-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capability Eval と Regression Eval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../claude-code-non-anthropic-models/" class="md-nav__link">
         
   
@@ -941,6 +1007,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../eval-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eval-Driven Development(eval 駆動開発)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../evaluators/" class="md-nav__link">
         
   
@@ -1005,6 +1099,34 @@
     
   
     GitOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graders(採点器)
   
 
     
@@ -1455,6 +1577,34 @@
     
   
     One-Person Squad(一人スカッド)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pass-at-k/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pass@k と pass^k
   
 
     
@@ -2751,20 +2901,20 @@
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">strands.multiagent</span><span class="w"> </span><span class="kn">import</span> <span class="n">GraphBuilder</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">builder</span> <span class="o">=</span> <span class="n">GraphBuilder</span><span class="p">()</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">researcher</span><span class="p">,</span> <span class="s2">&quot;research&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">analyst</span><span class="p">,</span> <span class="s2">&quot;analysis&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;research&quot;</span><span class="p">,</span> <span class="s2">&quot;analysis&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">builder</span><span class="o">.</span><span class="n">set_entry_point</span><span class="p">(</span><span class="s2">&quot;research&quot;</span><span class="p">)</span>          <span class="c1"># 省略時は入次数0ノードを自動検出</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">researcher</span><span class="p">,</span> <span class="s2">"research"</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">analyst</span><span class="p">,</span> <span class="s2">"analysis"</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">"research"</span><span class="p">,</span> <span class="s2">"analysis"</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">builder</span><span class="o">.</span><span class="n">set_entry_point</span><span class="p">(</span><span class="s2">"research"</span><span class="p">)</span>          <span class="c1"># 省略時は入次数0ノードを自動検出</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">builder</span><span class="o">.</span><span class="n">set_execution_timeout</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">graph</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">result</span> <span class="o">=</span> <span class="n">graph</span><span class="p">(</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>                          <span class="c1"># await graph.invoke_async(...) も可</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">result</span> <span class="o">=</span> <span class="n">graph</span><span class="p">(</span><span class="s2">"..."</span><span class="p">)</span>                          <span class="c1"># await graph.invoke_async(...) も可</span>
 </code></pre></div>
 <h3 id="conditional-edges">Conditional Edges(条件付きエッジ)<a class="headerlink" href="#conditional-edges" title="Permanent link">&para;</a></h3>
 <p>エッジに <code>condition</code>(state を受け bool を返す関数)を付け、動的ワークフローを作る。
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">only_if_research_successful</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">node</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;research&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;successful&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;research&quot;</span><span class="p">,</span> <span class="s2">&quot;analysis&quot;</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="n">only_if_research_successful</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">node</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"research"</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">"successful"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">"research"</span><span class="p">,</span> <span class="s2">"analysis"</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="n">only_if_research_successful</span><span class="p">)</span>
 </code></pre></div>
 - <strong>全依存の完了待ち(AND 条件)</strong>: <code>state.results[id].status == Status.COMPLETED</code> を全 required node について確認する factory 関数で表現(<code>GraphState</code> / <code>Status</code> を使用)。</p>
 <h3 id="_3">実行制御(サイクル安全装置)<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>

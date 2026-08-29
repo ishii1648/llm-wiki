@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/evaluators/">
       
       
-        <link rel="prev" href="../domain-modeling/">
+        <link rel="prev" href="../eval-driven-development/">
       
       
         <link rel="next" href="../experiment-management/">
@@ -385,6 +385,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -445,6 +455,34 @@
     
   
     Agent-as-a-Service (AaaS) と3世代のソフト配信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Evaluation(エージェント評価)
   
 
     
@@ -717,6 +755,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../capability-vs-regression-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capability Eval と Regression Eval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../claude-code-non-anthropic-models/" class="md-nav__link">
         
   
@@ -938,6 +1004,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../eval-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eval-Driven Development(eval 駆動開発)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1080,6 +1174,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#anthropic-grader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic の grader 分類との対応
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1142,6 +1247,34 @@
     
   
     GitOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graders(採点器)
   
 
     
@@ -1422,6 +1555,34 @@
     
   
     One-Person Squad(一人スカッド)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pass-at-k/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pass@k と pass^k
   
 
     
@@ -2642,6 +2803,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#anthropic-grader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic の grader 分類との対応
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2758,9 +2930,38 @@
 <li>明確な rubric を書く(1.0/0.5/0.0 の基準を具体化)。</li>
 <li><code>aevaluate</code> で async 並行評価し性能を上げる。</li>
 </ul>
+<h2 id="anthropic-grader">Anthropic の grader 分類との対応<a class="headerlink" href="#anthropic-grader" title="Permanent link">&para;</a></h2>
+<p><a href="../graders/">graders</a> の3分類にこのページの evaluator を当てはめると、Strands の分類がどの層を厚くしているかが分かる。</p>
+<table>
+<thead>
+<tr>
+<th><a href="../graders/">graders</a> の分類</th>
+<th>対応する Strands evaluator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code-based</td>
+<td>決定論的 evaluator(<code>Equals</code> / <code>Contains</code> / <code>StartsWith</code> / <code>ToolCalled</code> / <code>StateEquals</code>)</td>
+</tr>
+<tr>
+<td>model-based(LLM-as-judge)</td>
+<td><code>OutputEvaluator</code> 以下の rubric 系ほぼ全部、multimodal 系、<code>ToolSelectionEvaluator</code> / <code>ToolParameterEvaluator</code>、<code>TrajectoryEvaluator</code> / <code>InteractionsEvaluator</code> / <code>GoalSuccessRateEvaluator</code></td>
+</tr>
+<tr>
+<td>human</td>
+<td>SDK 側に該当なし。LLM judge の校正は利用側の運用に委ねられる</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 力点の相違: 本ページのベストプラクティスは「複数 evaluator を組み合わせる」を前面に出すが、Anthropic の記事は<strong>決定論的 grader を可能な限り優先し、LLM judge は必要なとき/柔軟性が要るときに限る</strong>という順序をより強く主張する(<code>raw/articles/demystifying-evals-for-ai-agents.md</code>)。矛盾ではないが既定値の置き所が違い、Strands の組み込み evaluator が LLM judge に大きく偏っている点は意識して選ぶべき。</p>
+<p>同様に <code>TrajectoryEvaluator</code> の <code>exact_match_scorer</code> / <code>in_order_match_scorer</code> は「ツール呼び出しの順序」を採点する手段だが、Anthropic 記事は<strong>経路の固定的な採点は脆く、エージェントの妥当な創造性を罰する</strong>として、成果物の採点を推奨している。順序の一致が本当に要件かを確認してから使うこと。</p>
+</blockquote>
 <h2 id="_5">出典<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>raw/articles/strands-evals-evaluators.mdx</code> — 評価レベル、組み込み evaluator 一覧と level/purpose、custom evaluator、evaluators vs simulators、統合例、ベストプラクティス、common patterns。</li>
+<li><code>raw/articles/demystifying-evals-for-ai-agents.md</code> — grader の3分類(code-based / model-based / human)と「決定論的優先・経路でなく成果物を採点」の推奨。上表の対応づけは本 wiki による整理(推測を含む)。</li>
 </ul>
 
 

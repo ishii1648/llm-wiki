@@ -385,6 +385,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -445,6 +455,34 @@
     
   
     Agent-as-a-Service (AaaS) と3世代のソフト配信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Evaluation(エージェント評価)
   
 
     
@@ -717,6 +755,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../capability-vs-regression-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capability Eval と Regression Eval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../claude-code-non-anthropic-models/" class="md-nav__link">
         
   
@@ -941,6 +1007,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../eval-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eval-Driven Development(eval 駆動開発)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../evaluators/" class="md-nav__link">
         
   
@@ -1005,6 +1099,34 @@
     
   
     GitOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graders(採点器)
   
 
     
@@ -1285,6 +1407,34 @@
     
   
     One-Person Squad(一人スカッド)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pass-at-k/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pass@k と pass^k
   
 
     
@@ -2856,7 +3006,7 @@
 <blockquote>
 <p>⚠️ <strong><code>decode-token</code> が検査するのは署名と期限だけで、<code>iss</code> / <code>aud</code> / <code>ccr:role</code> は見ない</strong>。認可判断がそれらに依存するなら、出力 JSON から読んで自分で比較する。</p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="s2">&quot;</span><span class="nv">$CLAUDE_RUNNER_CLAUDE_BIN</span><span class="s2">&quot;</span><span class="w"> </span>self-hosted-runner<span class="w"> </span>decode-token<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-re<span class="w"> </span><span class="s1">&#39;.act.attested_by.sub // .act.email // .act.sub&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="s2">"</span><span class="nv">$CLAUDE_RUNNER_CLAUDE_BIN</span><span class="s2">"</span><span class="w"> </span>self-hosted-runner<span class="w"> </span>decode-token<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-re<span class="w"> </span><span class="s1">'.act.attested_by.sub // .act.email // .act.sub'</span>
 </code></pre></div>
 <p><code>claude</code> を PATH 解決せず <code>CLAUDE_RUNNER_CLAUDE_BIN</code> を使う(runner と同じバイナリで decode するため)。<code>jq -r</code> だとクレーム欠落時に文字列 <code>null</code> を出して終了コード 0 になり不正値が下流へ流れるので <strong><code>jq -re</code></strong>。<code>--no-verify</code> は JWKS に到達できないオフライン調査専用。</p>
 <h3 id="_7">派生クレデンシャルのスコープ<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>

@@ -385,6 +385,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -445,6 +455,34 @@
     
   
     Agent-as-a-Service (AaaS) と3世代のソフト配信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Evaluation(エージェント評価)
   
 
     
@@ -717,6 +755,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../capability-vs-regression-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capability Eval と Regression Eval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../claude-code-non-anthropic-models/" class="md-nav__link">
         
   
@@ -941,6 +1007,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../eval-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eval-Driven Development(eval 駆動開発)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../evaluators/" class="md-nav__link">
         
   
@@ -1005,6 +1099,34 @@
     
   
     GitOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graders(採点器)
   
 
     
@@ -1285,6 +1407,34 @@
     
   
     One-Person Squad(一人スカッド)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pass-at-k/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pass@k と pass^k
   
 
     
@@ -2658,7 +2808,7 @@
 <h3 id="1-conversation-history">1. Conversation History(会話履歴)<a class="headerlink" href="#1-conversation-history" title="Permanent link">&para;</a></h3>
 <p>エージェントの主要な context。<code>agent.messages</code> で全 user/assistant メッセージ(ツール呼び出し・結果含む)に直接アクセスできる。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">()</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">agent</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">agent</span><span class="p">(</span><span class="s2">"Hello!"</span><span class="p">)</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">agent</span><span class="o">.</span><span class="n">messages</span><span class="p">)</span>   <span class="c1"># これまでの全メッセージ</span>
 </code></pre></div>
 <ul>
@@ -2668,10 +2818,10 @@
 </ul>
 <h3 id="2-agent-state-app-state">2. Agent State(= app state)<a class="headerlink" href="#2-agent-state-app-state" title="Permanent link">&para;</a></h3>
 <p>会話 context の <strong>外</strong>にある key-value ストア。推論時にモデルへは渡されないが、ツールやアプリロジックから読み書きできる。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_preferences&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;dark&quot;</span><span class="p">},</span> <span class="s2">&quot;session_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">agent</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user_preferences&quot;</span><span class="p">)</span>     <span class="c1"># 取得</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">agent</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;last_action&quot;</span><span class="p">,</span> <span class="s2">&quot;login&quot;</span><span class="p">)</span> <span class="c1"># 設定</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">agent</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;last_action&quot;</span><span class="p">)</span>       <span class="c1"># 削除</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="p">{</span><span class="s2">"user_preferences"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"theme"</span><span class="p">:</span> <span class="s2">"dark"</span><span class="p">},</span> <span class="s2">"session_count"</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">agent</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"user_preferences"</span><span class="p">)</span>     <span class="c1"># 取得</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">agent</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">"last_action"</span><span class="p">,</span> <span class="s2">"login"</span><span class="p">)</span> <span class="c1"># 設定</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">agent</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">"last_action"</span><span class="p">)</span>       <span class="c1"># 削除</span>
 </code></pre></div>
 <ul>
 <li><strong>JSON シリアライズ検証</strong>: シリアライズ不能な値(関数等)を set すると <code>ValueError</code>。永続化・復元のため。</li>

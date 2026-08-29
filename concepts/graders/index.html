@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/argo-cd-manifest-paths-annotation/">
+        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/graders/">
       
       
-        <link rel="prev" href="../argo-cd-controller-scaling/">
+        <link rel="prev" href="../gitops/">
       
       
-        <link rel="next" href="../capability-vs-regression-evals/">
+        <link rel="next" href="../graph-multi-agent/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Argo CD Manifest Paths Annotation - LLM Wiki</title>
+        <title>Graders(採点器) - LLM Wiki</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Argo CD Manifest Paths Annotation
+              Graders(採点器)
             
           </span>
         </div>
@@ -724,35 +724,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Argo CD Manifest Paths Annotation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../argo-cd-manifest-paths-annotation/" class="md-nav__link">
         
   
   
@@ -768,107 +743,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        概要
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#commit-sha" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        課題: commit SHA 単位キャッシュの副作用
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        仕組み
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="仕組み">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        パス指定の4パターン
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sync" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        なぜ sync 時間が短縮されるのか
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        制限・注意点
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        出典
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1242,10 +1116,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../graders/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graders(採点器)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1261,6 +1160,201 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3分類
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3分類">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-based-grader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        code-based grader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-based-graderllm-as-judge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        model-based grader(LLM-as-judge)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#human-grader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        human grader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スコアの合成
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        grader 設計の原則
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="grader 設計の原則">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 決定論的を優先、LLM は必要なときと柔軟性のため、人間は慎重に
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 経路ではなく成果物を採点する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-partial-credit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 部分点(partial credit)を組み込む
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-llm-judge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. LLM judge のキャリブレーションと分割
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-grader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. grader を「破られない」ようにする
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eval 自体のバグ: 低スコアの原因はエージェントとは限らない
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grader-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実例: grader の組み合わせ(記事の例示 YAML)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出典
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2709,33 +2803,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commit-sha" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        課題: commit SHA 単位キャッシュの副作用
+        3分類
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3分類">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-based-grader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        code-based grader
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#model-based-graderllm-as-judge" class="md-nav__link">
     <span class="md-ellipsis">
       
-        仕組み
+        model-based grader(LLM-as-judge)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="仕組み">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#human-grader" class="md-nav__link">
     <span class="md-ellipsis">
       
-        パス指定の4パターン
+        human grader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スコアの合成
       
     </span>
   </a>
@@ -2748,10 +2864,93 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sync" class="md-nav__link">
+  <a href="#grader" class="md-nav__link">
     <span class="md-ellipsis">
       
-        なぜ sync 時間が短縮されるのか
+        grader 設計の原則
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="grader 設計の原則">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 決定論的を優先、LLM は必要なときと柔軟性のため、人間は慎重に
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 経路ではなく成果物を採点する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-partial-credit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 部分点(partial credit)を組み込む
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-llm-judge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. LLM judge のキャリブレーションと分割
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-grader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. grader を「破られない」ようにする
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eval 自体のバグ: 低スコアの原因はエージェントとは限らない
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grader-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実例: grader の組み合わせ(記事の例示 YAML)
       
     </span>
   </a>
@@ -2760,17 +2959,6 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        制限・注意点
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -2800,69 +2988,102 @@
   
 
 
-  <h1>Argo CD Manifest Paths Annotation</h1>
+  <h1>Graders(採点器)</h1>
 
 <h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><code>argocd.argoproj.io/manifest-generate-paths</code> は Application リソースに付与するアノテーション。Argo CD は生成した manifest を<strong>リポジトリの commit SHA 単位</strong>でキャッシュしており、1つの git リポジトリを複数アプリで共有する構成(monorepo)では、無関係な変更のコミットでも同リポジトリの全アプリのキャッシュが無効化されてしまう。このアノテーションで「このアプリの manifest 生成が依存するパス」を宣言しておくと、無関係な変更では再生成・reconciliation をスキップしてキャッシュを使い回せる。</p>
-<h2 id="commit-sha">課題: commit SHA 単位キャッシュの副作用<a class="headerlink" href="#commit-sha" title="Permanent link">&para;</a></h2>
-<p>Argo CD は "aggressively caches generated manifests and uses the repository commit SHA as a cache key" という設計であり、"A new commit to the Git repository invalidates the cache for all applications configured in the repository"。1つの git リポジトリに多数の Application を定義する monorepo 構成では、どこか1箇所の変更コミットのたびに<strong>無関係な全アプリ</strong>の manifest が repo-server 上で再生成される(Helm template / Kustomize build 等)。これが repo-server の負荷・処理待ちを増大させ、sync/reconciliation 全体を遅らせる原因になる。</p>
-<h2 id="_2">仕組み<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>アノテーションにはセミコロン区切りでパスを列挙する。Argo CD は「最後にキャッシュした revision」と「最新コミット」を比較し、<strong>変更ファイルがこのパスのいずれにも一致しなければ</strong> application reconciliation をトリガせず、既存キャッシュを新しいコミットに対しても有効とみなす。</p>
-<ul>
-<li><strong>webhook あり</strong>: webhook イベントのペイロードに含まれる変更ファイルリストと比較する。対応 git provider は <strong>GitHub / GitLab / Gogs のみ</strong>。</li>
-<li><strong>webhook なし(Argo CD v2.11 以降)</strong>: webhook を設定しなくてもこの機能単独で利用可能(それ以前は webhook が前提条件だった)。</li>
-</ul>
-<h3 id="4">パス指定の4パターン<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p><strong>grader(採点器)</strong> は、エージェントの性能の一側面を採点するロジック。1つの task に複数の grader を付けられ、各 grader は複数の assertion(check)を持つ。各 grader は <strong>transcript</strong> か <strong>outcome</strong> のいずれかの一部を評価する。エージェント評価の設計で最も本質的な作業は、<strong>その仕事に合った grader を選ぶこと</strong>である(→ <a href="../agent-evaluation/">agent-evaluation</a>)。</p>
+<h2 id="3">3分類<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="code-based-grader">code-based grader<a class="headerlink" href="#code-based-grader" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>指定方法</th>
-<th>解決基準</th>
-<th>例</th>
+<th>手法</th>
+<th>強み</th>
+<th>弱み</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>相対パス</td>
-<td>Application の <code>source.path</code> からの相対</td>
-<td><code>.</code> → <code>source.path</code> で指定したディレクトリそのもの</td>
-</tr>
-<tr>
-<td>絶対パス</td>
-<td>リポジトリルートからの絶対パス(<code>/</code> 始まり)</td>
-<td><code>/guestbook</code></td>
-</tr>
-<tr>
-<td>複数パス</td>
-<td><code>;</code> 区切りで併記</td>
-<td><code>.;../shared</code> → 自ディレクトリ + 共有ディレクトリ</td>
-</tr>
-<tr>
-<td>glob パターン</td>
-<td>Go の <a href="https://pkg.go.dev/path/filepath#Match"><code>filepath.Match</code></a> 互換</td>
-<td><code>/shared/*-secret.yaml</code></td>
+<td>文字列マッチ(exact / regex / fuzzy)、二値テスト(fail-to-pass / pass-to-pass)、静的解析(lint / type / security)、outcome 検証、ツール呼び出し検証(使ったツール・パラメータ)、transcript 解析(ターン数・トークン使用量)</td>
+<td>速い / 安い / 客観的 / 再現可能 / デバッグが容易 / 特定条件を確実に検証できる</td>
+<td>期待パターンに完全一致しない<strong>妥当なバリエーションに脆い</strong> / ニュアンスを欠く / 主観的な task には限界</td>
 </tr>
 </tbody>
 </table>
-<p>さらに、この機能が有効な場合は「アノテーションで指定したパスから算出される共通ルートパス」だけが CMP(Config Management Plugin)サーバへ送られ、リポジトリ全体を送る必要がなくなる(Application の <code>source.path</code> がルートとして選べる最深パス)。</p>
-<h2 id="sync">なぜ sync 時間が短縮されるのか<a class="headerlink" href="#sync" title="Permanent link">&para;</a></h2>
-<ol>
-<li>デフォルトでは commit SHA 単位のキャッシュ無効化により、monorepo で1コミット=<strong>リポジトリ内全アプリの manifest 再生成</strong>が走る。</li>
-<li>このアノテーションで「自分に関係あるパス」を宣言すると、無関係な変更では reconciliation 自体がスキップされ、repo-server は<strong>変更に関係するアプリだけ</strong>の manifest を再生成すればよくなる。</li>
-<li>repo-server の manifest 生成負荷(CPU・処理待ちキュー)が減ることで、<a href="../argo-cd-controller-scaling/">argo-cd-controller-scaling</a> が扱う application controller の reconciliation queue に積まれる「本当に処理が必要なアプリ」の数も減り、結果として sync 全体のサイクルが速く回る。</li>
-</ol>
+<h3 id="model-based-graderllm-as-judge">model-based grader(LLM-as-judge)<a class="headerlink" href="#model-based-graderllm-as-judge" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>手法</th>
+<th>強み</th>
+<th>弱み</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rubric ベースのスコアリング、自然言語 assertion、pairwise 比較、reference ベース評価、multi-judge consensus</td>
+<td>柔軟 / スケールする / ニュアンスを捉える / 開放的な task を扱える / 自由形式出力を扱える</td>
+<td><strong>非決定的</strong> / コードより高価 / 正確性のために<strong>人間 grader とのキャリブレーションが必要</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="human-grader">human grader<a class="headerlink" href="#human-grader" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>手法</th>
+<th>強み</th>
+<th>弱み</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SME(主題専門家)レビュー、クラウドソース判断、spot-check サンプリング、A/B テスト、評価者間一致(inter-annotator agreement)</td>
+<td>gold standard の品質 / 専門ユーザーの判断に一致 / <strong>model-based grader のキャリブレーションに使う</strong></td>
+<td>高価 / 遅い / 人間の専門家に大規模アクセスが必要になりがち</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2">スコアの合成<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>task ごとのスコアリングは、<strong>重み付き</strong>(grader スコアの合成が閾値を超えれば合格)、<strong>二値</strong>(全 grader が合格)、あるいはその<strong>ハイブリッド</strong>にできる。</p>
+<h2 id="grader">grader 設計の原則<a class="headerlink" href="#grader" title="Permanent link">&para;</a></h2>
+<h3 id="1-llm">1. 決定論的を優先、LLM は必要なときと柔軟性のため、人間は慎重に<a class="headerlink" href="#1-llm" title="Permanent link">&para;</a></h3>
+<p>記事の推奨は明確に「<strong>deterministic graders where possible, LLM graders where necessary or for additional flexibility, human graders judiciously for additional validation</strong>」。</p>
 <blockquote>
-<p><a href="../argo-cd-controller-scaling/">argo-cd-controller-scaling</a> は「reconciliation queue をどれだけ速く捌けるか」という controller 側のスループット改善(<a href="../argo-cd-controller-scaling/">argo-cd-controller-scaling</a> の client QPS/シャーディング等)であるのに対し、本アノテーションは「そもそも queue に積む対象を減らす」という前段の最適化であり、両者は補完関係にある。</p>
+<p>⚠️ 対比: 本 wiki 既収録の <a href="../evaluators/">evaluators</a>(Strands Evals のドキュメント)は「複数 evaluator を組み合わせる」ことをベストプラクティスとして前面に出す。Anthropic 記事は組み合わせ自体は肯定しつつ、<strong>まず決定論的で足りるかを問い、LLM judge は必要なときだけ</strong>という順序をより強く主張する。どちらも矛盾はしないが、既定値の置き所が違う。</p>
 </blockquote>
-<h2 id="_3">制限・注意点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="2">2. 経路ではなく成果物を採点する<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>「ツール呼び出しが正しい順序で並んだか」のような<strong>具体的な手順の一致を確認したくなる本能</strong>があるが、記事はこれを<strong>硬直しすぎでテストが脆くなる</strong>と評価する。エージェントは eval 設計者が想定しなかった妥当なアプローチを日常的に見つけるため、創造性を不必要に罰しないよう、<strong>通った経路ではなくエージェントが生み出したものを採点する</strong>ほうがよい。</p>
+<h3 id="3-partial-credit">3. 部分点(partial credit)を組み込む<a class="headerlink" href="#3-partial-credit" title="Permanent link">&para;</a></h3>
+<p>複数コンポーネントからなる task では部分点を設計する。問題を正しく特定し顧客を認証したが返金処理に失敗したサポートエージェントは、即座に失敗するエージェントより有意に良い。この<strong>成功の連続体</strong>を結果に表現することが重要。</p>
+<h3 id="4-llm-judge">4. LLM judge のキャリブレーションと分割<a class="headerlink" href="#4-llm-judge" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>アプリごとに別リポジトリを使う構成では恩恵なし</strong>: 無関係コミットで他アプリのキャッシュが無効化される問題自体が起きないため。</li>
-<li><strong>外部 Helm values ファイル参照には効かない</strong>: 参照先(リポジトリ外)での変更はこの比較の対象外。</li>
-<li>webhook 経由の比較は GitHub / GitLab / Gogs ベースのリポジトリのみサポート。</li>
+<li>LLM-as-judge は<strong>人間の専門家と密にキャリブレーション</strong>し、人間採点との乖離が小さいことを確認する。</li>
+<li><strong>ハルシネーション対策として「逃げ道」を与える</strong>: 情報が足りないときは "Unknown" を返せ、と指示する。</li>
+<li><strong>明確で構造化された rubric</strong> を作り、<strong>次元ごとに独立した LLM-as-judge で採点する</strong>(1つの judge に全次元を採点させない)。</li>
+<li>システムが堅牢になれば、人間レビューは時折で十分になる。</li>
 </ul>
-<h2 id="_4">出典<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="5-grader">5. grader を「破られない」ようにする<a class="headerlink" href="#5-grader" title="Permanent link">&para;</a></h3>
+<p>エージェントが eval を簡単に「ズル」できてはいけない。task と grader は、<strong>意図しない抜け穴の悪用ではなく本当に問題を解くことでしか合格できない</strong>ように設計する。</p>
+<h2 id="eval">eval 自体のバグ: 低スコアの原因はエージェントとは限らない<a class="headerlink" href="#eval" title="Permanent link">&para;</a></h2>
+<p>採点バグ・agent harness の制約・曖昧さのせいで、エージェントの性能が良くても低スコアになる<strong>微妙な失敗モード</strong>がある。<strong>洗練されたチームでも見落とす</strong>。</p>
 <ul>
-<li>raw/articles/argo-cd-high-availability.md("Manifest Paths Annotation" 節: 課題の説明・4パターンのパス指定例・webhook 対応 provider・CMP サーバへの送信範囲)</li>
+<li><strong>CORE-Bench</strong>: Opus 4.5 は当初 42% だった。Anthropic の研究者が調べると、<code>96.124991…</code> を期待しているのに <code>96.12</code> を不正解にする硬直した採点、曖昧な task 仕様、正確に再現不能な確率的 task といった複数の問題があった。バグ修正と制約の少ない scaffold の使用後、スコアは <strong>95%</strong> に跳ね上がった。</li>
+<li><strong>METR</strong> の time horizon ベンチマークでは、「指定スコア閾値まで最適化せよ」と指示しながら採点は<strong>閾値の超過</strong>を要求する誤設定 task が複数見つかった。指示に従った Claude のようなモデルが罰せられ、指示された目標を無視したモデルのほうが良いスコアを得ていた。</li>
+</ul>
+<blockquote>
+<p><strong>経験則</strong>: frontier モデルで<strong>多数 trial にわたる 0% pass 率(= 0% pass@100)は、能力不足ではなく task が壊れている signal</strong> であることが最も多い。task 仕様と grader を再確認すべきサイン。→ <a href="../pass-at-k/">pass-at-k</a></p>
+</blockquote>
+<p>このため記事は「<strong>誰かが eval の詳細を掘り下げ、transcript をいくつか読むまで、eval スコアを額面どおりに受け取らない</strong>」を規範としている。採点が不公平、task が曖昧、妥当な解が罰せられる、harness がモデルを制約している——のいずれかなら eval のほうを直す。→ <a href="../eval-driven-development/">eval-driven-development</a> Step 6</p>
+<h2 id="grader-yaml">実例: grader の組み合わせ(記事の例示 YAML)<a class="headerlink" href="#grader-yaml" title="Permanent link">&para;</a></h2>
+<p>記事はコーディングエージェントと会話エージェントについて、<strong>利用可能な grader の全レンジを示すための</strong>例示 YAML を載せている(実務ではこの全部は使わない)。</p>
+<p><strong>コーディングエージェント(認証バイパス脆弱性の修正)</strong>: <code>deterministic_tests</code>(必須テストファイル)/ <code>llm_rubric</code>(コード品質 prompt)/ <code>static_analysis</code>(ruff, mypy, bandit)/ <code>state_check</code>(security_logs に <code>auth_blocked</code> イベント)/ <code>tool_calls</code>(read_file → edit_file → run_tests)。加えて <code>tracked_metrics</code> として transcript 系(ターン数・ツール呼び出し数・総トークン)と latency 系(TTFT・出力トークン/秒・TTLT)。
+→ 実務のコーディング eval は<strong>正当性はユニットテスト、全体品質は LLM rubric</strong> が基本形で、他は必要に応じて足す。</p>
+<p><strong>会話エージェント(苛立った顧客への返金対応)</strong>: <code>llm_rubric</code> に自然言語 assertion(「顧客の苛立ちに共感を示した」「解決策が明確に説明された」「応答が fetch_policy ツールの結果に接地している」)/ <code>state_check</code>(tickets: resolved, refunds: processed)/ <code>tool_calls</code>(verify_identity → process_refund(amount ≤ 100) → send_confirmation)/ <code>transcript</code>(max_turns: 10)。
+→ 実務では<strong>コミュニケーション品質と目標達成の両方を model-based grader で測る</strong>のが典型。「質問に答える」ような task は "正解" が複数ありうるため。</p>
+<h2 id="_3">出典<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>raw/articles/demystifying-evals-for-ai-agents.md</code> — grader の3分類と各手法/強み/弱みの表、スコアの重み付け・二値・ハイブリッド、Step 5「Design graders thoughtfully」(決定論優先・経路でなく成果物・部分点・LLM judge のキャリブレーションと逃げ道と次元分割・ハック耐性)、CORE-Bench と METR の eval バグ事例、コーディング/会話エージェントの例示 YAML。</li>
 </ul>
 
 

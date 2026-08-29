@@ -383,6 +383,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -443,6 +453,34 @@
     
   
     Agent-as-a-Service (AaaS) と3世代のソフト配信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/agent-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Evaluation(エージェント評価)
   
 
     
@@ -715,6 +753,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../concepts/capability-vs-regression-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capability Eval と Regression Eval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../concepts/claude-code-non-anthropic-models/" class="md-nav__link">
         
   
@@ -939,6 +1005,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../concepts/eval-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eval-Driven Development(eval 駆動開発)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../concepts/evaluators/" class="md-nav__link">
         
   
@@ -1003,6 +1097,34 @@
     
   
     GitOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/graders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graders(採点器)
   
 
     
@@ -1283,6 +1405,34 @@
     
   
     One-Person Squad(一人スカッド)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/pass-at-k/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pass@k と pass^k
   
 
     
@@ -2127,13 +2277,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        位置づけ
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -2592,13 +2753,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        位置づけ
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -2654,9 +2826,9 @@ Python 3.10+ が必要。</p>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nd">@eval_task</span><span class="p">()</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_response</span><span class="p">():</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="k">return</span> <span class="n">Agent</span><span class="p">(</span><span class="n">system_prompt</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">,</span> <span class="n">callback_handler</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="k">return</span> <span class="n">Agent</span><span class="p">(</span><span class="n">system_prompt</span><span class="o">=</span><span class="s2">"..."</span><span class="p">,</span> <span class="n">callback_handler</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">experiment</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">](</span><span class="n">cases</span><span class="o">=</span><span class="n">test_cases</span><span class="p">,</span> <span class="n">evaluators</span><span class="o">=</span><span class="p">[</span><span class="n">OutputEvaluator</span><span class="p">(</span><span class="n">rubric</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">)])</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">experiment</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">](</span><span class="n">cases</span><span class="o">=</span><span class="n">test_cases</span><span class="p">,</span> <span class="n">evaluators</span><span class="o">=</span><span class="p">[</span><span class="n">OutputEvaluator</span><span class="p">(</span><span class="n">rubric</span><span class="o">=</span><span class="s2">"..."</span><span class="p">)])</span>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">reports</span> <span class="o">=</span> <span class="n">experiment</span><span class="o">.</span><span class="n">run_evaluations</span><span class="p">(</span><span class="n">get_response</span><span class="p">)</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">reports</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">run_display</span><span class="p">()</span>
 </code></pre></div>
@@ -2664,7 +2836,9 @@ Python 3.10+ が必要。</p>
 <li><strong>async 実行</strong>: <code>run_evaluations_async</code> で test case を並行評価し総時間を短縮。</li>
 <li><strong>context 溢れ対策</strong>: trajectory 評価では <code>tools_use_extractor</code> を使い trajectory を効率抽出すること(quickstart の Performance Optimization 推奨)。</li>
 </ul>
-<h2 id="_5">出典<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_5">位置づけ<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>評価<strong>フレームワーク</strong>の1つであり、<a href="../../concepts/agent-evaluation/">agent-evaluation</a> でいう <strong>evaluation harness</strong>(task の並行実行・記録・採点・集計)を提供する層。同じ層の選択肢には Harbor / Braintrust / LangSmith / Langfuse / Arize Phoenix などがある。フレームワークは標準化と加速に有効だが、<strong>通す eval task の質を超えることはない</strong>点に注意(<a href="../../concepts/eval-driven-development/">eval-driven-development</a>)。</p>
+<h2 id="_6">出典<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>raw/articles/strands-evals-quickstart.mdx</code> — フレームワーク概要、インストール、<code>@eval_task</code>/<code>Case</code>/<code>Experiment</code>/<code>run_evaluations</code>、自動生成、custom evaluator、async 実行の各例。</li>
 </ul>

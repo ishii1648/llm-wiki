@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/argo-cd-manifest-paths-annotation/">
+        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/pass-at-k/">
       
       
-        <link rel="prev" href="../argo-cd-controller-scaling/">
+        <link rel="prev" href="../one-person-squad/">
       
       
-        <link rel="next" href="../capability-vs-regression-evals/">
+        <link rel="next" href="../plugins/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Argo CD Manifest Paths Annotation - LLM Wiki</title>
+        <title>pass@k と pass^k - LLM Wiki</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Argo CD Manifest Paths Annotation
+              pass@k と pass^k
             
           </span>
         </div>
@@ -724,35 +724,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Argo CD Manifest Paths Annotation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../argo-cd-manifest-paths-annotation/" class="md-nav__link">
         
   
   
@@ -768,107 +743,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        概要
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#commit-sha" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        課題: commit SHA 単位キャッシュの副作用
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        仕組み
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="仕組み">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        パス指定の4パターン
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sync" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        なぜ sync 時間が短縮されるのか
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        制限・注意点
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        出典
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1550,10 +1424,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../pass-at-k/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pass@k と pass^k
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1569,6 +1468,68 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2つの指標
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        診断への応用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出典
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2709,10 +2670,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commit-sha" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        課題: commit SHA 単位キャッシュの副作用
+        2つの指標
       
     </span>
   </a>
@@ -2723,35 +2684,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        仕組み
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="仕組み">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        パス指定の4パターン
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sync" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        なぜ sync 時間が短縮されるのか
+        診断への応用
       
     </span>
   </a>
@@ -2760,17 +2693,6 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        制限・注意点
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -2800,69 +2722,49 @@
   
 
 
-  <h1>Argo CD Manifest Paths Annotation</h1>
+  <h1>pass@k と pass^k</h1>
 
 <h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><code>argocd.argoproj.io/manifest-generate-paths</code> は Application リソースに付与するアノテーション。Argo CD は生成した manifest を<strong>リポジトリの commit SHA 単位</strong>でキャッシュしており、1つの git リポジトリを複数アプリで共有する構成(monorepo)では、無関係な変更のコミットでも同リポジトリの全アプリのキャッシュが無効化されてしまう。このアノテーションで「このアプリの manifest 生成が依存するパス」を宣言しておくと、無関係な変更では再生成・reconciliation をスキップしてキャッシュを使い回せる。</p>
-<h2 id="commit-sha">課題: commit SHA 単位キャッシュの副作用<a class="headerlink" href="#commit-sha" title="Permanent link">&para;</a></h2>
-<p>Argo CD は "aggressively caches generated manifests and uses the repository commit SHA as a cache key" という設計であり、"A new commit to the Git repository invalidates the cache for all applications configured in the repository"。1つの git リポジトリに多数の Application を定義する monorepo 構成では、どこか1箇所の変更コミットのたびに<strong>無関係な全アプリ</strong>の manifest が repo-server 上で再生成される(Helm template / Kustomize build 等)。これが repo-server の負荷・処理待ちを増大させ、sync/reconciliation 全体を遅らせる原因になる。</p>
-<h2 id="_2">仕組み<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>アノテーションにはセミコロン区切りでパスを列挙する。Argo CD は「最後にキャッシュした revision」と「最新コミット」を比較し、<strong>変更ファイルがこのパスのいずれにも一致しなければ</strong> application reconciliation をトリガせず、既存キャッシュを新しいコミットに対しても有効とみなす。</p>
-<ul>
-<li><strong>webhook あり</strong>: webhook イベントのペイロードに含まれる変更ファイルリストと比較する。対応 git provider は <strong>GitHub / GitLab / Gogs のみ</strong>。</li>
-<li><strong>webhook なし(Argo CD v2.11 以降)</strong>: webhook を設定しなくてもこの機能単独で利用可能(それ以前は webhook が前提条件だった)。</li>
-</ul>
-<h3 id="4">パス指定の4パターン<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>エージェントの挙動は実行ごとにぶれるため、eval 結果は見た目より解釈が難しい。task ごとに固有の成功率(ある task で 90%、別で 50%)があり、ある実行で通った task が次で落ちる。測りたいのは「<strong>trial のうちどれくらいの割合で成功するか</strong>」であることが多い。このニュアンスを捉えるのが <strong>pass@k</strong> と <strong>pass^k</strong> の2指標(出典: Anthropic, 2026-01-09)。</p>
+<h2 id="2">2つの指標<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>指定方法</th>
-<th>解決基準</th>
-<th>例</th>
+<th>指標</th>
+<th>定義</th>
+<th>k を増やすと</th>
+<th>使いどころ</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>相対パス</td>
-<td>Application の <code>source.path</code> からの相対</td>
-<td><code>.</code> → <code>source.path</code> で指定したディレクトリそのもの</td>
+<td><strong>pass@k</strong></td>
+<td>k 回の試行のうち<strong>少なくとも1回</strong>正解を得る確率</td>
+<td><strong>上がる</strong>(shots on goal が増える)</td>
+<td>1回でも成功すればよいツール。コーディングでは「一発で解く」= <strong>pass@1</strong> に関心が集まる</td>
 </tr>
 <tr>
-<td>絶対パス</td>
-<td>リポジトリルートからの絶対パス(<code>/</code> 始まり)</td>
-<td><code>/guestbook</code></td>
-</tr>
-<tr>
-<td>複数パス</td>
-<td><code>;</code> 区切りで併記</td>
-<td><code>.;../shared</code> → 自ディレクトリ + 共有ディレクトリ</td>
-</tr>
-<tr>
-<td>glob パターン</td>
-<td>Go の <a href="https://pkg.go.dev/path/filepath#Match"><code>filepath.Match</code></a> 互換</td>
-<td><code>/shared/*-secret.yaml</code></td>
+<td><strong>pass^k</strong></td>
+<td><strong>k 回すべて</strong>が成功する確率</td>
+<td><strong>下がる</strong>(より多くの trial で一貫性を要求するのは厳しいバー)</td>
+<td>毎回の信頼できる挙動をユーザーが期待する<strong>顧客向けエージェント</strong></td>
 </tr>
 </tbody>
 </table>
-<p>さらに、この機能が有効な場合は「アノテーションで指定したパスから算出される共通ルートパス」だけが CMP(Config Management Plugin)サーバへ送られ、リポジトリ全体を送る必要がなくなる(Application の <code>source.path</code> がルートとして選べる最深パス)。</p>
-<h2 id="sync">なぜ sync 時間が短縮されるのか<a class="headerlink" href="#sync" title="Permanent link">&para;</a></h2>
-<ol>
-<li>デフォルトでは commit SHA 単位のキャッシュ無効化により、monorepo で1コミット=<strong>リポジトリ内全アプリの manifest 再生成</strong>が走る。</li>
-<li>このアノテーションで「自分に関係あるパス」を宣言すると、無関係な変更では reconciliation 自体がスキップされ、repo-server は<strong>変更に関係するアプリだけ</strong>の manifest を再生成すればよくなる。</li>
-<li>repo-server の manifest 生成負荷(CPU・処理待ちキュー)が減ることで、<a href="../argo-cd-controller-scaling/">argo-cd-controller-scaling</a> が扱う application controller の reconciliation queue に積まれる「本当に処理が必要なアプリ」の数も減り、結果として sync 全体のサイクルが速く回る。</li>
-</ol>
-<blockquote>
-<p><a href="../argo-cd-controller-scaling/">argo-cd-controller-scaling</a> は「reconciliation queue をどれだけ速く捌けるか」という controller 側のスループット改善(<a href="../argo-cd-controller-scaling/">argo-cd-controller-scaling</a> の client QPS/シャーディング等)であるのに対し、本アノテーションは「そもそも queue に積む対象を減らす」という前段の最適化であり、両者は補完関係にある。</p>
-</blockquote>
-<h2 id="_3">制限・注意点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>アプリごとに別リポジトリを使う構成では恩恵なし</strong>: 無関係コミットで他アプリのキャッシュが無効化される問題自体が起きないため。</li>
-<li><strong>外部 Helm values ファイル参照には効かない</strong>: 参照先(リポジトリ外)での変更はこの比較の対象外。</li>
-<li>webhook 経由の比較は GitHub / GitLab / Gogs ベースのリポジトリのみサポート。</li>
+<li>「50% pass@1」= モデルが eval の task の半分を初回で成功させる。</li>
+<li>1 trial あたり成功率 75% のエージェントで 3 trial なら、3回すべて通る確率は (0.75)³ ≈ <strong>42%</strong>。</li>
+<li><strong>k=1 では両者は一致する</strong>(どちらも 1 trial あたりの成功率)。k=10 になると正反対の物語を語る: pass@k は 100% に近づき、pass^k は 0% に落ちる。</li>
 </ul>
-<h2 id="_4">出典<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>どちらも有用で、選択は<strong>プロダクト要件</strong>で決まる。「1回でも成功すればよい」なら pass@k、「一貫性が本質」なら pass^k。</p>
+</blockquote>
+<h2 id="_2">診断への応用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>frontier モデルで<strong>多数 trial にわたる 0% pass(= 0% pass@100)は、エージェントが無能なのではなく task が壊れている signal</strong> であることが最も多い。task 仕様と grader を再確認するサインとして使う。→ <a href="../graders/">graders</a></p>
+<p>逆側の端では <a href="../capability-vs-regression-evals/">capability-vs-regression-evals</a> の <strong>eval saturation</strong>(pass 率が 100% に張り付き改善の signal が消える)が問題になる。両端で eval が情報を失う点は対称的。</p>
+<h2 id="_3">出典<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
-<li>raw/articles/argo-cd-high-availability.md("Manifest Paths Annotation" 節: 課題の説明・4パターンのパス指定例・webhook 対応 provider・CMP サーバへの送信範囲)</li>
+<li><code>raw/articles/demystifying-evals-for-ai-agents.md</code> — "How to think about non-determinism in evaluations for agents"(task ごとの成功率、pass@k / pass^k の定義と k に対する挙動、75%³≈42% の例、k=1 での一致と k=10 での乖離、プロダクト要件による使い分け)、Step 2 の 0% pass@100 の解釈。</li>
 </ul>
 
 

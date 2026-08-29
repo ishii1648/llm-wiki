@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/argo-cd-manifest-paths-annotation/">
+        <link rel="canonical" href="https://ishii1648.github.io/llm-wiki/concepts/agent-evaluation/">
       
       
-        <link rel="prev" href="../argo-cd-controller-scaling/">
+        <link rel="prev" href="../agent-as-a-service/">
       
       
-        <link rel="next" href="../capability-vs-regression-evals/">
+        <link rel="next" href="../agent-loop/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Argo CD Manifest Paths Annotation - LLM Wiki</title>
+        <title>Agent Evaluation(エージェント評価) - LLM Wiki</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Argo CD Manifest Paths Annotation
+              Agent Evaluation(エージェント評価)
             
           </span>
         </div>
@@ -472,10 +472,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../agent-evaluation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Evaluation(エージェント評価)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -491,6 +516,207 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エージェント評価の語彙
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="エージェント評価の語彙">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outcome-transcript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        outcome と transcript を分ける意味
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        「エージェントを評価する」= harness × モデル
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜエージェントは評価が難しいか
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜ eval を作るか
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="なぜ eval を作るか">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        事例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エージェント種別ごとの評価
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="エージェント種別ごとの評価">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コーディングエージェント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        会話エージェント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リサーチエージェント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンピュータ利用エージェント
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eval_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eval だけでは足りない: 手法の重ね合わせ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eval_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eval フレームワーク(付録)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出典
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -724,35 +950,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Argo CD Manifest Paths Annotation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../argo-cd-manifest-paths-annotation/" class="md-nav__link">
         
   
   
@@ -768,107 +969,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        概要
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#commit-sha" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        課題: commit SHA 単位キャッシュの副作用
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        仕組み
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="仕組み">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        パス指定の4パターン
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sync" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        なぜ sync 時間が短縮されるのか
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        制限・注意点
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        出典
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2709,33 +2809,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commit-sha" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        課題: commit SHA 単位キャッシュの副作用
+        エージェント評価の語彙
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="エージェント評価の語彙">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outcome-transcript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        outcome と transcript を分ける意味
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        仕組み
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="仕組み">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#harness" class="md-nav__link">
     <span class="md-ellipsis">
       
-        パス指定の4パターン
+        「エージェントを評価する」= harness × モデル
       
     </span>
   </a>
@@ -2748,21 +2848,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sync" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        なぜ sync 時間が短縮されるのか
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        制限・注意点
+        なぜエージェントは評価が難しいか
       
     </span>
   </a>
@@ -2770,7 +2859,118 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#eval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜ eval を作るか
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="なぜ eval を作るか">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        事例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エージェント種別ごとの評価
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="エージェント種別ごとの評価">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コーディングエージェント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        会話エージェント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リサーチエージェント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンピュータ利用エージェント
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eval_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eval だけでは足りない: 手法の重ね合わせ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eval_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eval フレームワーク(付録)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         出典
@@ -2800,69 +3000,172 @@
   
 
 
-  <h1>Argo CD Manifest Paths Annotation</h1>
+  <h1>Agent Evaluation(エージェント評価)</h1>
 
 <h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><code>argocd.argoproj.io/manifest-generate-paths</code> は Application リソースに付与するアノテーション。Argo CD は生成した manifest を<strong>リポジトリの commit SHA 単位</strong>でキャッシュしており、1つの git リポジトリを複数アプリで共有する構成(monorepo)では、無関係な変更のコミットでも同リポジトリの全アプリのキャッシュが無効化されてしまう。このアノテーションで「このアプリの manifest 生成が依存するパス」を宣言しておくと、無関係な変更では再生成・reconciliation をスキップしてキャッシュを使い回せる。</p>
-<h2 id="commit-sha">課題: commit SHA 単位キャッシュの副作用<a class="headerlink" href="#commit-sha" title="Permanent link">&para;</a></h2>
-<p>Argo CD は "aggressively caches generated manifests and uses the repository commit SHA as a cache key" という設計であり、"A new commit to the Git repository invalidates the cache for all applications configured in the repository"。1つの git リポジトリに多数の Application を定義する monorepo 構成では、どこか1箇所の変更コミットのたびに<strong>無関係な全アプリ</strong>の manifest が repo-server 上で再生成される(Helm template / Kustomize build 等)。これが repo-server の負荷・処理待ちを増大させ、sync/reconciliation 全体を遅らせる原因になる。</p>
-<h2 id="_2">仕組み<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>アノテーションにはセミコロン区切りでパスを列挙する。Argo CD は「最後にキャッシュした revision」と「最新コミット」を比較し、<strong>変更ファイルがこのパスのいずれにも一致しなければ</strong> application reconciliation をトリガせず、既存キャッシュを新しいコミットに対しても有効とみなす。</p>
-<ul>
-<li><strong>webhook あり</strong>: webhook イベントのペイロードに含まれる変更ファイルリストと比較する。対応 git provider は <strong>GitHub / GitLab / Gogs のみ</strong>。</li>
-<li><strong>webhook なし(Argo CD v2.11 以降)</strong>: webhook を設定しなくてもこの機能単独で利用可能(それ以前は webhook が前提条件だった)。</li>
-</ul>
-<h3 id="4">パス指定の4パターン<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p><strong>Evaluation(eval / 評価)</strong> とは「AI に入力を与え、その出力に採点ロジックを当てて成功を測るテスト」。本ページはそのうち<strong>実ユーザーなしに開発中回せる automated evals</strong>、特に<strong>エージェントの評価</strong>を扱う。エージェントは多ターンにわたりツールを呼び state を変えながら適応するため、単発の prompt/response より評価が難しい。eval がないチームは「本番でしか問題に気づかず、1つ直すと別が壊れる」反応的ループに陥る(出典: Anthropic, 2026-01-09)。</p>
+<p>このページは評価まわりのハブ。採点ロジックの設計は <a href="../graders/">graders</a>、評価の性格づけは <a href="../capability-vs-regression-evals/">capability-vs-regression-evals</a>、非決定性の指標は <a href="../pass-at-k/">pass-at-k</a>、ゼロから作る手順は <a href="../eval-driven-development/">eval-driven-development</a> を参照。</p>
+<h2 id="_2">エージェント評価の語彙<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>出典記事が採用する定義。この語彙が揃っていないと議論が噛み合わない。</p>
 <table>
 <thead>
 <tr>
-<th>指定方法</th>
-<th>解決基準</th>
-<th>例</th>
+<th>用語</th>
+<th>定義</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>相対パス</td>
-<td>Application の <code>source.path</code> からの相対</td>
-<td><code>.</code> → <code>source.path</code> で指定したディレクトリそのもの</td>
+<td><strong>task</strong>(problem / test case)</td>
+<td>入力と成功基準が定義された1件のテスト</td>
 </tr>
 <tr>
-<td>絶対パス</td>
-<td>リポジトリルートからの絶対パス(<code>/</code> 始まり)</td>
-<td><code>/guestbook</code></td>
+<td><strong>trial</strong></td>
+<td>task への1回の試行。出力がぶれるため複数 trial を回す</td>
 </tr>
 <tr>
-<td>複数パス</td>
-<td><code>;</code> 区切りで併記</td>
-<td><code>.;../shared</code> → 自ディレクトリ + 共有ディレクトリ</td>
+<td><strong>grader</strong></td>
+<td>エージェントの性能の一側面を採点するロジック。1 task に複数 grader、1 grader に複数 assertion(<strong>check</strong>)</td>
 </tr>
 <tr>
-<td>glob パターン</td>
-<td>Go の <a href="https://pkg.go.dev/path/filepath#Match"><code>filepath.Match</code></a> 互換</td>
-<td><code>/shared/*-secret.yaml</code></td>
+<td><strong>transcript</strong>(trace / trajectory)</td>
+<td>trial の完全な記録。出力・ツール呼び出し・推論・中間結果すべて。Anthropic API では eval 実行終了時点の messages 配列全体</td>
+</tr>
+<tr>
+<td><strong>outcome</strong></td>
+<td>trial 終了時の<strong>環境の最終状態</strong></td>
+</tr>
+<tr>
+<td><strong>evaluation harness</strong></td>
+<td>eval を end-to-end で回す基盤。指示とツールの提供、task の並行実行、記録、採点、集計</td>
+</tr>
+<tr>
+<td><strong>agent harness</strong>(<strong>scaffold</strong>)</td>
+<td>モデルをエージェントとして動かすシステム。入力処理・ツール呼び出しのオーケストレーション・結果返却</td>
+</tr>
+<tr>
+<td><strong>evaluation suite</strong></td>
+<td>特定の能力・挙動を測る task の集合。1つの広い目標を共有する</td>
 </tr>
 </tbody>
 </table>
-<p>さらに、この機能が有効な場合は「アノテーションで指定したパスから算出される共通ルートパス」だけが CMP(Config Management Plugin)サーバへ送られ、リポジトリ全体を送る必要がなくなる(Application の <code>source.path</code> がルートとして選べる最深パス)。</p>
-<h2 id="sync">なぜ sync 時間が短縮されるのか<a class="headerlink" href="#sync" title="Permanent link">&para;</a></h2>
-<ol>
-<li>デフォルトでは commit SHA 単位のキャッシュ無効化により、monorepo で1コミット=<strong>リポジトリ内全アプリの manifest 再生成</strong>が走る。</li>
-<li>このアノテーションで「自分に関係あるパス」を宣言すると、無関係な変更では reconciliation 自体がスキップされ、repo-server は<strong>変更に関係するアプリだけ</strong>の manifest を再生成すればよくなる。</li>
-<li>repo-server の manifest 生成負荷(CPU・処理待ちキュー)が減ることで、<a href="../argo-cd-controller-scaling/">argo-cd-controller-scaling</a> が扱う application controller の reconciliation queue に積まれる「本当に処理が必要なアプリ」の数も減り、結果として sync 全体のサイクルが速く回る。</li>
-</ol>
-<blockquote>
-<p><a href="../argo-cd-controller-scaling/">argo-cd-controller-scaling</a> は「reconciliation queue をどれだけ速く捌けるか」という controller 側のスループット改善(<a href="../argo-cd-controller-scaling/">argo-cd-controller-scaling</a> の client QPS/シャーディング等)であるのに対し、本アノテーションは「そもそも queue に積む対象を減らす」という前段の最適化であり、両者は補完関係にある。</p>
+<h3 id="outcome-transcript">outcome と transcript を分ける意味<a class="headerlink" href="#outcome-transcript" title="Permanent link">&para;</a></h3>
+<p>フライト予約エージェントが transcript の末尾で「予約が完了しました」と言っても、<strong>outcome は環境の SQL データベースに予約行が存在するか</strong>である。発話ではなく状態を見る、というのが agent eval の核心の一つ。</p>
+<h3 id="harness">「エージェントを評価する」= harness × モデル<a class="headerlink" href="#harness" title="Permanent link">&para;</a></h3>
+<p>「an agent を評価する」とき、実際に評価しているのは <strong>agent harness とモデルの組</strong>である。例として <a href="../loop-engineering/">loop-engineering</a> でも触れる Claude Code は柔軟な agent harness であり、Anthropic はその中核プリミティブを Agent SDK 経由で使って long-running agent harness を組んだ。
+→ eval のスコアが低いとき、原因はモデル・harness・task 仕様・grader のどこにでもありうる(<a href="../graders/">graders</a> の「eval 自体のバグ」参照)。</p>
+<h2 id="_3">なぜエージェントは評価が難しいか<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>多ターンでツールを使い state を変えるため、<strong>ミスが伝播・複利で増幅</strong>する。</li>
+<li>frontier モデルは静的な eval の想定を超える創造的な解を見つける。Opus 4.5 は 𝜏2-bench のフライト予約問題でポリシーの抜け穴を発見し、eval の定義上は「失敗」しつつユーザーにとってはより良い解を出した。<blockquote>
+<p>⚠️ ここは「eval のスコア = 良さ」ではないことの明確な反例。スコアを額面どおり受け取らず transcript を読む根拠になる(<a href="../eval-driven-development/">eval-driven-development</a> Step 6)。</p>
 </blockquote>
-<h2 id="_3">制限・注意点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>アプリごとに別リポジトリを使う構成では恩恵なし</strong>: 無関係コミットで他アプリのキャッシュが無効化される問題自体が起きないため。</li>
-<li><strong>外部 Helm values ファイル参照には効かない</strong>: 参照先(リポジトリ外)での変更はこの比較の対象外。</li>
-<li>webhook 経由の比較は GitHub / GitLab / Gogs ベースのリポジトリのみサポート。</li>
+</li>
 </ul>
-<h2 id="_4">出典<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="eval">なぜ eval を作るか<a class="headerlink" href="#eval" title="Permanent link">&para;</a></h2>
+<p>初期は手動テスト・dogfooding・直感でかなり進める。破綻点は「変更後にエージェントが悪くなった気がする」とユーザーが報告し、当て推量以外に検証手段がないとき。eval がないと、回帰とノイズを区別できず、出荷前に数百シナリオで自動テストもできず、改善を測れない。</p>
+<p>記事が挙げる効用:
+- <strong>仕様の明確化</strong>: 同じ初期スペックを読んだエンジニア2人がエッジケースの扱いで異なる解釈に至る、という曖昧さを eval suite が解消する。
+- <strong>新モデル採用速度</strong>: eval のないチームは検証に数週間、あるチームは数日で強み把握・prompt 調整・アップグレードまで到達する。
+- <strong>ベースラインと回帰テストが副産物として手に入る</strong>: レイテンシ、トークン使用量、task あたりコスト、エラー率。
+- <strong>プロダクト↔リサーチ間の最も帯域の広いコミュニケーション経路</strong>になり、研究側が最適化する指標を定義する。</p>
+<blockquote>
+<p>コストは先に見え、便益は後から積み上がるため、複利的な価値が過小評価されやすい。</p>
+</blockquote>
+<h3 id="_4">事例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li>raw/articles/argo-cd-high-availability.md("Manifest Paths Annotation" 節: 課題の説明・4パターンのパス指定例・webhook 対応 provider・CMP サーバへの送信範囲)</li>
+<li><strong>Claude Code</strong>: 社内外フィードバックによる高速反復から始め、後から eval を追加。まず concision や file edit のような狭い領域、次に over-engineering のような複雑な挙動へ。</li>
+<li><strong>Descript</strong>(動画編集エージェント): 「壊さない / 頼んだことをやる / うまくやる」の3次元で eval を設計。手動採点 → プロダクトチームが基準を定義した LLM grader + 定期的な人間キャリブレーション → 品質ベンチマークと回帰テストの2 suite 運用へ進化。</li>
+<li><strong>Bolt</strong>: 既に広く使われるエージェントを持ってから着手し、3か月で「エージェント実行 + static analysis 採点 + ブラウザエージェントによるアプリ検証 + 指示追従などの LLM judge」を構築。</li>
+</ul>
+<h2 id="_5">エージェント種別ごとの評価<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>記事は現在スケールして運用されている4種を挙げ、それぞれ実績のある手法を示す。ゼロから発明する必要はなく、これらを土台に自分のドメインへ広げる。</p>
+<h3 id="_6">コーディングエージェント<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>コードは「動くか / テストが通るか」で決定論的に測れるため決定論的 grader が自然。
+- <strong>SWE-bench Verified</strong>: 人気 Python リポジトリの GitHub issue を与え、テストスイート実行で採点。失敗テストを直しつつ既存テストを壊さない場合のみ合格。1年で 40% → 80%超。
+- <strong>Terminal-Bench</strong>: Linux カーネルのソースビルドや ML モデル訓練など end-to-end の技術タスク。
+- outcome の pass/fail を押さえたうえで <strong>transcript も採点する</strong>と有用(ヒューリスティックなコード品質ルール、ツールの呼び方やユーザーとの対話を測る rubric ベースの model grader)。
+- 実務では「正当性 = ユニットテスト、全体のコード品質 = LLM rubric」が基本形で、他の grader は必要に応じて足す。</p>
+<h3 id="_7">会話エージェント<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>support / sales / coaching など。従来のチャットボットと違い state を持ち、会話の途中でツールを使い行動する。<strong>相互作用の質そのものが評価対象</strong>という点が固有の難しさ。
+- 検証可能な end-state outcome と、task 完了・対話品質の双方を捉える rubric を併用する。
+- 他の eval と違い、<strong>ユーザーをもう1つの LLM でシミュレートする</strong>ことが多い。Anthropic は alignment auditing agents でこの手法を使い、長い敵対的会話でモデルをストレステストしている。
+- 成功は多次元: チケットは解決したか(state check)、10ターン未満で終わったか(transcript 制約)、トーンは適切か(LLM rubric)。
+- ベンチマーク: <strong>𝜏-Bench</strong> とその後継 <strong>τ2-Bench</strong>(小売サポート・航空券予約などで、一方のモデルがユーザーペルソナを演じる)。
+- 「質問に答える」ような task は正解が複数ありうるため、実務では model-based grader が主体になる。</p>
+<h3 id="_8">リサーチエージェント<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>情報を収集・統合・分析して回答やレポートを出す。ユニットテストのような二値信号がなく、<strong>品質は task 相対でしか判断できない</strong>(「網羅的」「出典が良い」の基準が市場調査・買収デューデリ・科学レポートで異なる)。
+- 固有の困難: 専門家間でも「網羅的か」の意見が割れる、参照コンテンツが変わり ground truth が動く、出力が長く開放的なほど誤りの余地が増える。
+- ベンチマーク例: <strong>BrowseComp</strong>(検証は容易だが解くのが難しい、オープンウェブ上の「干し草の中の針」)。
+- 戦略は grader の組み合わせ: <strong>groundedness チェック</strong>(主張が取得ソースに支持されるか)、<strong>coverage チェック</strong>(良い回答が含むべき鍵事実の定義)、<strong>source quality チェック</strong>(最初に引っかかっただけでなく権威あるソースか)。客観的正解のある task(「X 社の Q3 売上は?」)は exact match。
+- 主観性が高いため、LLM rubric は<strong>専門家の判断と頻繁にキャリブレーション</strong>すること。</p>
+<h3 id="_9">コンピュータ利用エージェント<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>API やコード実行ではなく、スクリーンショット・マウス・キーボード・スクロールという人間と同じインタフェースで GUI を操作する。実環境またはサンドボックスで動かし、意図した outcome を達成したか確認する。
+- <strong>WebArena</strong>: URL とページ状態でナビゲーションを検証し、データを変更する task ではバックエンド状態も検証する(確認ページが出ただけでなく、実際に注文が入ったか)。
+- <strong>OSWorld</strong>: OS 全体の操作へ拡張。完了後にファイルシステム状態・アプリ設定・DB 内容・UI 要素プロパティなど多様な artifact を検査する。
+- <strong>ブラウザ利用はトークン効率とレイテンシのトレードオフ</strong>: DOM ベースは速いがトークンを食い、スクリーンショットベースは遅いがトークン効率が良い。Wikipedia の要約なら DOM 抽出が効率的、Amazon でノートPCケースを探すならスクリーンショットが効率的。Claude for Chrome では<strong>文脈ごとに正しいツールを選べているか</strong>を測る eval を作り、ブラウザタスクを高速かつ正確にした。</p>
+<h2 id="eval_1">eval だけでは足りない: 手法の重ね合わせ<a class="headerlink" href="#eval_1" title="Permanent link">&para;</a></h2>
+<p>automated eval は本番へ出さずに数千 task を回せるが、エージェント性能を理解する方法の1つにすぎない。</p>
+<table>
+<thead>
+<tr>
+<th>手法</th>
+<th>強み</th>
+<th>弱み</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Automated evals</strong>(実ユーザーなしのプログラム実行)</td>
+<td>反復が速い / 完全に再現可能 / ユーザー影響なし / 毎コミット実行可 / 本番デプロイなしに大規模検証</td>
+<td>構築の初期投資が要る / プロダクトとモデルの進化に応じた保守が要る(放置すると drift) / 実使用と乖離すると誤った自信を生む</td>
+</tr>
+<tr>
+<td><strong>Production monitoring</strong>(本番の指標・エラー追跡)</td>
+<td>実ユーザー挙動を大規模に可視化 / 合成 eval が見逃す問題を捕捉 / 実性能の ground truth</td>
+<td>反応的でユーザーに問題が届いてから気づく / 信号がノイジー / 計装への投資が要る / 採点の ground truth がない</td>
+</tr>
+<tr>
+<td><strong>A/B testing</strong>(実トラフィックでの比較)</td>
+<td>実際のユーザー成果(継続率・task 完了)を測る / 交絡を制御 / スケールする</td>
+<td>遅い(有意差まで数日〜数週、十分なトラフィックが要る) / デプロイした変更しか試せない / transcript を精査できないと「なぜ」の信号が弱い</td>
+</tr>
+<tr>
+<td><strong>User feedback</strong>(thumbs-down・バグ報告)</td>
+<td>想定外の問題が表面化 / 実ユーザーの実例が付く / プロダクト目標と相関しやすい</td>
+<td>疎で自己選択的 / 深刻な問題に偏る / ユーザーは理由を説明しない / 自動化されない / ユーザー任せは負の影響を伴う</td>
+</tr>
+<tr>
+<td><strong>Manual transcript review</strong>(人間が会話を読む)</td>
+<td>失敗モードへの直感が育つ / 自動チェックが見落とす微妙な品質問題を捕捉 / 「良い」の基準をキャリブレーション</td>
+<td>時間を食う / スケールしない / カバレッジが不均一 / レビュアー疲労や属人差が信号品質に影響 / 定量的な採点にはなりにくい</td>
+</tr>
+<tr>
+<td><strong>Systematic human studies</strong>(訓練された評価者による構造化採点)</td>
+<td>複数評価者による gold standard / 主観的・曖昧な task を扱える / model grader 改善の信号になる</td>
+<td>相対的に高コストで遅い / 頻繁には回せない / 評価者間不一致の調停が要る / 法務・金融・医療などは専門家が必要</td>
+</tr>
+</tbody>
+</table>
+<p><strong>開発段階への対応づけ</strong>: automated eval はローンチ前と CI/CD で、エージェント変更とモデルアップグレードのたびに走る第一防衛線。production monitoring はローンチ後に分布 drift と想定外の実世界失敗を検出。A/B は十分なトラフィックが揃ってから重要な変更を検証。user feedback と transcript review は常時の実践(フィードバックは随時トリアージ、transcript は週次でサンプリング)。systematic human study は LLM grader のキャリブレーションと、人間の合意が基準になる主観的出力の評価に限定する。</p>
+<blockquote>
+<p>記事はこれを安全工学の <strong>Swiss Cheese Model</strong> になぞらえる。単一の評価層ですべては捕まらないが、複数を重ねると一層をすり抜けた失敗を別の層が捕まえる。最も効果的なチームは automated evals(高速反復)+ production monitoring(ground truth)+ 定期的な人間レビュー(キャリブレーション)を組み合わせている。</p>
+</blockquote>
+<h2 id="eval_2">eval フレームワーク(付録)<a class="headerlink" href="#eval_2" title="Permanent link">&para;</a></h2>
+<p>インフラをゼロから作らずに済む OSS/商用フレームワーク。エージェント種別・既存スタック・オフライン評価か本番 observability かで選ぶ。</p>
+<ul>
+<li><strong>Harbor</strong>: コンテナ環境でエージェントを走らせる設計。クラウドプロバイダを跨いで trial を大規模実行する基盤と、task/grader を定義する標準フォーマット。Terminal-Bench 2.0 などは Harbor レジストリ経由で配布され、既存ベンチマークとカスタム suite を同じ形で回せる。</li>
+<li><strong>Braintrust</strong>: オフライン評価 + 本番 observability + 実験追跡。<code>autoevals</code> ライブラリに factuality/relevance などの既製 scorer。</li>
+<li><strong>LangSmith</strong>: トレーシング、オフライン/オンライン評価、dataset 管理。LangChain エコシステムと密結合。<strong>Langfuse</strong> は同等機能をセルフホスト可能な OSS 代替として提供(データ所在地要件のあるチーム向け)。</li>
+<li><strong>Arize</strong>: OSS の <strong>Phoenix</strong>(LLM トレーシング・デバッグ・オフライン/オンライン評価)と、それをスケール・最適化・監視向けに拡張した SaaS の <strong>AX</strong>。</li>
+<li><strong><a href="../../entities/strands-agents-evals/">strands-agents-evals</a></strong>(本 wiki の既収録): Python SDK として <code>Case</code>/<code>Experiment</code>/evaluator を提供。→ <a href="../evaluators/">evaluators</a>, <a href="../experiment-management/">experiment-management</a></li>
+</ul>
+<blockquote>
+<p>記事の立場: フレームワークは標準化と加速に有効だが、<strong>通す eval task の質を超えることはない</strong>。ワークフローに合うものを素早く選び、エネルギーは高品質なテストケースと grader の反復に注ぐべき。</p>
+</blockquote>
+<h2 id="_10">出典<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>raw/articles/demystifying-evals-for-ai-agents.md</code>(Anthropic Engineering, 2026-01-09, Mikaela Grace / Jeremy Hadfield / Rodrigo Olivares / Jiri De Jonghe) — eval の構造と語彙定義、なぜ eval を作るか(Claude Code / Descript / Bolt の事例)、エージェント種別ごとの評価手法(コーディング / 会話 / リサーチ / コンピュータ利用)、他手法との比較表と Swiss Cheese Model、付録の eval フレームワーク一覧。</li>
 </ul>
 
 

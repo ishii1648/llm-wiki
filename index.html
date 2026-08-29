@@ -461,6 +461,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -521,6 +531,34 @@
     
   
     Agent-as-a-Service (AaaS) と3世代のソフト配信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts/agent-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Evaluation(エージェント評価)
   
 
     
@@ -793,6 +831,34 @@
   
   
     <li class="md-nav__item">
+      <a href="concepts/capability-vs-regression-evals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capability Eval と Regression Eval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="concepts/claude-code-non-anthropic-models/" class="md-nav__link">
         
   
@@ -1017,6 +1083,34 @@
   
   
     <li class="md-nav__item">
+      <a href="concepts/eval-driven-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eval-Driven Development(eval 駆動開発)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="concepts/evaluators/" class="md-nav__link">
         
   
@@ -1081,6 +1175,34 @@
     
   
     GitOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts/graders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graders(採点器)
   
 
     
@@ -1361,6 +1483,34 @@
     
   
     One-Person Squad(一人スカッド)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts/pass-at-k/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pass@k と pass^k
   
 
     
@@ -2589,8 +2739,13 @@
 <li><a href="concepts/agent-skills/">agent-skills</a> — progressive disclosure でオンデマンドに指示をロードする AgentSkills/SKILL.md (updated: 2026-05-30)</li>
 <li><a href="concepts/graph-multi-agent/">graph-multi-agent</a> — 決定論的な有向グラフ型オーケストレーション(GraphBuilder/条件付きエッジ) (updated: 2026-05-30)</li>
 <li><a href="concepts/swarm-multi-agent/">swarm-multi-agent</a> — 自律 handoff で協調する Swarm パターン (updated: 2026-05-30)</li>
-<li><a href="concepts/evaluators/">evaluators</a> — Output/Trajectory/Interactions 等の評価器と選定指針 (updated: 2026-05-30)</li>
-<li><a href="concepts/experiment-management/">experiment-management</a> — Case/Experiment の整理・結合・版管理 (updated: 2026-05-30)</li>
+<li><a href="concepts/evaluators/">evaluators</a> — Output/Trajectory/Interactions 等の評価器と選定指針。Anthropic の grader 3分類との対応と力点の相違を追記 (updated: 2026-08-29)</li>
+<li><a href="concepts/experiment-management/">experiment-management</a> — Case/Experiment の整理・結合・版管理。task/suite という手法論側の語彙との接続を追記 (updated: 2026-08-29)</li>
+<li><a href="concepts/agent-evaluation/">agent-evaluation</a> — エージェント評価のハブ。task/trial/grader/transcript/outcome/harness の語彙、outcome は「発話でなく環境の状態」、エージェント種別4分類の手法、Swiss Cheese Model による手法の重ね合わせ (updated: 2026-08-29)</li>
+<li><a href="concepts/graders/">graders</a> — 採点器の3分類(code-based/model-based/human)と設計原則。「経路でなく成果物を採点」「部分点」「LLM judge に Unknown の逃げ道」。CORE-Bench 42%→95% など eval 自体のバグ事例 (updated: 2026-08-29)</li>
+<li><a href="concepts/capability-vs-regression-evals/">capability-vs-regression-evals</a> — 低 pass 率で登る capability eval と ほぼ100%を守る regression eval。飽和した capability は regression へ「卒業」。SWE-bench の飽和と Qodo の事例 (updated: 2026-08-29)</li>
+<li><a href="concepts/pass-at-k/">pass-at-k</a> — 非決定性を捉える2指標。pass@k(k回中1回、k↑で上昇)vs pass^k(k回全部、k↑で下降)。顧客向けは pass^k、0% pass@100 は task 破損の signal (updated: 2026-08-29)</li>
+<li><a href="concepts/eval-driven-development/">eval-driven-development</a> — eval を先に書き能力を後から到達させる開発様式。Step 0〜8(20-50 task で開始/専門家2人基準/両方向のバランス/trial の隔離/transcript を読む/飽和監視/ドメイン専門家が PR で貢献) (updated: 2026-08-29)</li>
 <li><a href="concepts/ai-code-review/">ai-code-review</a> — レビューは「説明できる著者」を前提とし、agentic development がその前提を壊す(diff が語らない文脈/説明可能性を前提条件に) (updated: 2026-06-03)</li>
 <li><a href="concepts/gitops/">gitops</a> — git を desired state の真実源とする宣言的デリバリ運用(Argo CD/Flux/Spinnaker) (updated: 2026-06-04)</li>
 <li><a href="concepts/argo-cd-controller-scaling/">argo-cd-controller-scaling</a> — Argo CD を10,000アプリ規模で回す設定: client QPS とシャーディングが最も効く(AWS/EKS 6実験) (updated: 2026-06-04)</li>
