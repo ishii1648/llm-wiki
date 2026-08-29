@@ -4,13 +4,15 @@ type: entity
 aliases: [Strands Evaluation, strands-agents-evals, strands_evals, Strands Evals SDK]
 tags: [strands, evaluation, testing, sdk]
 created: 2026-05-30
-updated: 2026-05-30
+updated: 2026-08-29
 sources:
   - raw/articles/strands-evals-quickstart.mdx
 related:
   - "[[evaluators]]"
   - "[[experiment-management]]"
   - "[[strands-agents]]"
+  - "[[agent-evaluation]]"
+  - "[[graders]]"
 ---
 
 ## 概要
@@ -51,6 +53,9 @@ reports[0].run_display()
 
 - **async 実行**: `run_evaluations_async` で test case を並行評価し総時間を短縮。
 - **context 溢れ対策**: trajectory 評価では `tools_use_extractor` を使い trajectory を効率抽出すること(quickstart の Performance Optimization 推奨)。
+
+### 位置づけ
+評価**フレームワーク**の1つであり、[[agent-evaluation]] でいう **evaluation harness**(task の並行実行・記録・採点・集計)を提供する層。同じ層の選択肢には Harbor / Braintrust / LangSmith / Langfuse / Arize Phoenix などがある。フレームワークは標準化と加速に有効だが、**通す eval task の質を超えることはない**点に注意([[eval-driven-development]])。
 
 ## 出典
 - `raw/articles/strands-evals-quickstart.mdx` — フレームワーク概要、インストール、`@eval_task`/`Case`/`Experiment`/`run_evaluations`、自動生成、custom evaluator、async 実行の各例。

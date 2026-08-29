@@ -4,12 +4,14 @@ type: concept
 aliases: [experiment management, 実験管理, Experiment, Case]
 tags: [strands, evaluation, experiment, case, dataset]
 created: 2026-05-30
-updated: 2026-05-30
+updated: 2026-08-29
 sources:
   - raw/articles/strands-evals-experiment-management.mdx
 related:
   - "[[strands-agents-evals]]"
   - "[[evaluators]]"
+  - "[[eval-driven-development]]"
+  - "[[agent-evaluation]]"
 ---
 
 ## 概要
@@ -46,5 +48,11 @@ for name, exp in experiments.items():
 2. リッチな metadata(category / difficulty / expected_tools / created_date 等)を含める。
 3. 実験を版管理する: `experiment.to_file("experiment_v1.json")`、タイムスタンプ付き保存(`experiment_{YYYYmmdd_HHMMSS}.json`)。
 
+## 手法論との接続
+ここで扱う `Case` / `Experiment` は、[[agent-evaluation]] の語彙でいう **task** と **evaluation suite** の SDK 実装にあたる(1回の実行が **trial**)。suite をどう育てるかの手法論は [[eval-driven-development]] を参照。特に:
+- 「説明的な name を使う」「リッチな metadata を持たせる」は、Step 2 の「曖昧さのない task」と Step 3 の「バランスの取れた問題セット」を実務で回すための足場になる(`metadata` に「検索すべき/すべきでない」のような対の軸を持たせるとクラス不均衡を検出しやすい)。
+- `experiment.to_file()` による版管理は、Step 8 の「eval suite は生きた artifact であり明確なオーナーシップが要る」に対応する最小の仕組み。
+
 ## 出典
 - `raw/articles/strands-evals-experiment-management.mdx` — metadata 整理、命名規約、複数実験管理(collections/combining/flatten)、実験変更、session ID、版管理のベストプラクティス。
+- 「手法論との接続」節の対応づけは本 wiki による整理(推測)。Anthropic 側の原典は [[eval-driven-development]] の出典を参照。

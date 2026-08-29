@@ -4,12 +4,15 @@ type: concept
 aliases: [evaluators, Evaluator, OutputEvaluator, TrajectoryEvaluator, InteractionsEvaluator]
 tags: [strands, evaluation, evaluators, llm-as-judge, rubric]
 created: 2026-05-30
-updated: 2026-05-30
+updated: 2026-08-29
 sources:
   - raw/articles/strands-evals-evaluators.mdx
+  - raw/articles/demystifying-evals-for-ai-agents.md
 related:
   - "[[strands-agents-evals]]"
   - "[[experiment-management]]"
+  - "[[graders]]"
+  - "[[agent-evaluation]]"
 ---
 
 ## 概要
@@ -65,5 +68,19 @@ related:
 - 明確な rubric を書く(1.0/0.5/0.0 の基準を具体化)。
 - `aevaluate` で async 並行評価し性能を上げる。
 
+## Anthropic の grader 分類との対応
+[[graders]] の3分類にこのページの evaluator を当てはめると、Strands の分類がどの層を厚くしているかが分かる。
+
+| [[graders]] の分類 | 対応する Strands evaluator |
+|---|---|
+| code-based | 決定論的 evaluator(`Equals` / `Contains` / `StartsWith` / `ToolCalled` / `StateEquals`) |
+| model-based(LLM-as-judge) | `OutputEvaluator` 以下の rubric 系ほぼ全部、multimodal 系、`ToolSelectionEvaluator` / `ToolParameterEvaluator`、`TrajectoryEvaluator` / `InteractionsEvaluator` / `GoalSuccessRateEvaluator` |
+| human | SDK 側に該当なし。LLM judge の校正は利用側の運用に委ねられる |
+
+> ⚠️ 力点の相違: 本ページのベストプラクティスは「複数 evaluator を組み合わせる」を前面に出すが、Anthropic の記事は**決定論的 grader を可能な限り優先し、LLM judge は必要なとき/柔軟性が要るときに限る**という順序をより強く主張する(`raw/articles/demystifying-evals-for-ai-agents.md`)。矛盾ではないが既定値の置き所が違い、Strands の組み込み evaluator が LLM judge に大きく偏っている点は意識して選ぶべき。
+>
+> 同様に `TrajectoryEvaluator` の `exact_match_scorer` / `in_order_match_scorer` は「ツール呼び出しの順序」を採点する手段だが、Anthropic 記事は**経路の固定的な採点は脆く、エージェントの妥当な創造性を罰する**として、成果物の採点を推奨している。順序の一致が本当に要件かを確認してから使うこと。
+
 ## 出典
 - `raw/articles/strands-evals-evaluators.mdx` — 評価レベル、組み込み evaluator 一覧と level/purpose、custom evaluator、evaluators vs simulators、統合例、ベストプラクティス、common patterns。
+- `raw/articles/demystifying-evals-for-ai-agents.md` — grader の3分類(code-based / model-based / human)と「決定論的優先・経路でなく成果物を採点」の推奨。上表の対応づけは本 wiki による整理(推測を含む)。
